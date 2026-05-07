@@ -5,6 +5,7 @@
     "^react-(.*)$",
     "<THIRD_PARTY_MODULES>",
     "^@/(.*)$",
+    "^@configs/(.*)$",
     "^@components/(.*)$",
     "^[./]"
   ],
