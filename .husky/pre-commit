@@ -6,6 +6,12 @@ pnpm format
 # Stage ulang file yang berubah setelah format
 git add -u
 
+echo "🔧 Running TanStack Router generate..."
+pnpm exec tsr generate
+
+# Stage file generated dari TanStack Router
+git add src/routeTree.gen.ts
+
 echo "🔍 Running lint..."
 pnpm lint
 
