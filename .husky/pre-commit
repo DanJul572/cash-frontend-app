@@ -1,0 +1,15 @@
+#!/bin/sh
+
+echo "🔍 Running format..."
+pnpm format
+
+# Stage ulang file yang berubah setelah format
+git add -u
+
+echo "🔍 Running lint..."
+pnpm lint
+
+echo "🧪 Running test..."
+pnpm test
+
+echo "✅ All checks passed!"
