@@ -5,8 +5,11 @@
     "^react-(.*)$",
     "<THIRD_PARTY_MODULES>",
     "^@/(.*)$",
-    "^@configs/(.*)$",
     "^@components/(.*)$",
+    "^@configs/(.*)$",
+    "^@features/(.*)$",
+    "^@languages/(.*)$",
+    "^@utils/(.*)$",
     "^[./]"
   ],
   "singleQuote": true,

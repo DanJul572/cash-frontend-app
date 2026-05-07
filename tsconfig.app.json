@@ -23,8 +23,11 @@
 
     "paths": {
       "@/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
       "@configs/*": ["./src/configs/*"],
-      "@components/*": ["./src/components/*"]
+      "@features/*": ["./src/features/*"],
+      "@languages/*": ["./src/languages/*"],
+      "@utils/*": ["./src/utils/*"]
     }
   },
   "include": ["src"]

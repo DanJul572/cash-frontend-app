@@ -13,8 +13,11 @@ import { RouterProvider } from '@tanstack/react-router';
 
 import { themeConfig } from './configs';
 import { router } from './router';
+import { initTranslation } from './utils';
 
 const queryClient = new QueryClient();
+
+initTranslation();
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

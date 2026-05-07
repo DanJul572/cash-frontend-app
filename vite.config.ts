@@ -9,8 +9,11 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
-      '@configs': path.resolve(__dirname, './src/configs'),
       '@components': path.resolve(__dirname, './src/components'),
+      '@configs': path.resolve(__dirname, './src/configs'),
+      '@features': path.resolve(__dirname, './src/features'),
+      '@languages': path.resolve(__dirname, './src/languages'),
+      '@utils': path.resolve(__dirname, './src/utils'),
     },
   },
   plugins: [

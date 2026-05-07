@@ -4,9 +4,12 @@ import Card from '@mui/material/Card';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
+import { useLogin } from '../hooks';
 import { cardStyle, containerStyle } from '../styles';
 
 export default function LoginPage() {
+  const { t } = useLogin();
+
   return (
     <Box sx={containerStyle}>
       <Card sx={cardStyle}>
@@ -21,7 +24,7 @@ export default function LoginPage() {
           fullWidth
         />
         <Button variant="outlined" fullWidth>
-          Login
+          {t('login')}
         </Button>
       </Card>
     </Box>
