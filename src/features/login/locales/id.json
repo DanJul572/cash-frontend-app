@@ -1,3 +1,9 @@
 {
-  "login": "Masuk"
+  "label": "Masuk",
+  "username": {
+    "label": "username"
+  },
+  "password": {
+    "label": "Password"
+  }
 }

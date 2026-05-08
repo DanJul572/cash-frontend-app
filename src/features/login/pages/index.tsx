@@ -17,9 +17,9 @@ export default function LoginPage() {
         <Typography variant="h5" component="h2" gutterBottom>
           Login
         </Typography>
-        <TextField label="Username" variant="outlined" fullWidth />
+        <TextField label={t('username.label')} variant="outlined" fullWidth />
         <TextField
-          label="Password"
+          label={t('password.label')}
           variant="outlined"
           type="password"
           fullWidth

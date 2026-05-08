@@ -1,3 +1,9 @@
 {
-  "login": "Login"
+  "label": "Login",
+  "username": {
+    "label": "username"
+  },
+  "password": {
+    "label": "Password"
+  }
 }
