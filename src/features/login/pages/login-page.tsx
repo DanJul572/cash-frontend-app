@@ -7,6 +7,7 @@ import Card from '@mui/material/Card';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
+import { loginConfig } from '../configs';
 import { useLogin } from '../hooks';
 import { loginStyle } from '../styles';
 
@@ -46,7 +47,7 @@ export default function LoginPage() {
                 type="password"
                 fullWidth
                 error={!!fieldState.error}
-                helperText={t(fieldState.error?.message || '')}
+                helperText={t(fieldState.error?.message || '', loginConfig)}
               />
             )}
           />

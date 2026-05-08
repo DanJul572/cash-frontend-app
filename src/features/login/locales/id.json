@@ -11,7 +11,7 @@
     "label": "Password",
     "validation": {
       "required": "Password harus diisi",
-      "minLength": "Password harus memiliki setidaknya 8 karakter"
+      "minLength": "Password harus memiliki setidaknya {{minLengthPassword}} karakter"
     }
   }
 }
