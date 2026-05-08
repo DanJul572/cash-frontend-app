@@ -1,9 +1,17 @@
 {
   "label": "Login",
-  "username": {
-    "label": "Username"
+  "email": {
+    "label": "Email",
+    "validation": {
+      "required": "Email is required",
+      "invalidFormat": "Please enter a valid email address"
+    }
   },
   "password": {
-    "label": "Password"
+    "label": "Password",
+    "validation": {
+      "required": "Password is required",
+      "minLength": "Password must be at least 8 characters"
+    }
   }
 }

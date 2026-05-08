@@ -8,7 +8,7 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
 import { useLogin } from '../hooks';
-import { cardStyle, containerStyle } from '../styles';
+import { loginStyle } from '../styles';
 
 export default function LoginPage() {
   const { t } = useTranslation('login');
@@ -16,8 +16,8 @@ export default function LoginPage() {
 
   return (
     <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
-      <Box sx={containerStyle}>
-        <Card sx={cardStyle}>
+      <Box sx={loginStyle.container}>
+        <Card sx={loginStyle.card}>
           <Typography variant="h5" component="h2" gutterBottom>
             Login
           </Typography>
@@ -27,16 +27,16 @@ export default function LoginPage() {
             render={({ field, fieldState }) => (
               <TextField
                 {...field}
-                label={t('username.label')}
+                label={t('email.label')}
                 variant="outlined"
                 fullWidth
                 error={!!fieldState.error}
-                helperText={fieldState.error?.message}
+                helperText={t(fieldState.error?.message || '')}
               />
             )}
           />
           <Controller
-            name="email"
+            name="password"
             control={form.control}
             render={({ field, fieldState }) => (
               <TextField
@@ -46,7 +46,7 @@ export default function LoginPage() {
                 type="password"
                 fullWidth
                 error={!!fieldState.error}
-                helperText={fieldState.error?.message}
+                helperText={t(fieldState.error?.message || '')}
               />
             )}
           />

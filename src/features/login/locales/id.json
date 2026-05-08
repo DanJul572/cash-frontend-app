@@ -1,9 +1,17 @@
 {
   "label": "Masuk",
-  "username": {
-    "label": "Username"
+  "email": {
+    "label": "Email",
+    "validation": {
+      "required": "Email harus diisi",
+      "invalidFormat": "Silakan masukkan alamat email yang valid"
+    }
   },
   "password": {
-    "label": "Password"
+    "label": "Password",
+    "validation": {
+      "required": "Password harus diisi",
+      "minLength": "Password harus memiliki setidaknya 8 karakter"
+    }
   }
 }
