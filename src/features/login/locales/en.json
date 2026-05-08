@@ -1,7 +1,7 @@
 {
   "label": "Login",
   "username": {
-    "label": "username"
+    "label": "Username"
   },
   "password": {
     "label": "Password"
