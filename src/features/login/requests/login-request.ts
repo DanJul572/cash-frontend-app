@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { LoginEndpoint } from '../endpoints';
-import { loginMapper } from '../mappers';
+import { loginMapper, loginResponseMapper } from '../mappers';
 import type { LoginFormValuesType, LoginResponseType } from '../types';
 
 export const postLoginRequest = async (data: LoginFormValuesType) => {
@@ -10,5 +10,5 @@ export const postLoginRequest = async (data: LoginFormValuesType) => {
     LoginEndpoint.postLogin,
     body,
   );
-  return response.data;
+  return loginResponseMapper.parse(response.data);
 };
