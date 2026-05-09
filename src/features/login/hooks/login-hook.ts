@@ -7,12 +7,12 @@ import { zodResolver } from '@hookform/resolvers/zod';
 
 import { usePostLoginMutation } from '../mutations';
 import { loginSchema } from '../schemas';
-import type { ALertType, LoginFormValuesType } from '../types';
+import type { ALertType, LoginFormType } from '../types';
 
 export default function useLogin() {
   const { t } = useTranslation('login');
 
-  const form = useForm<LoginFormValuesType>({
+  const form = useForm<LoginFormType>({
     resolver: zodResolver(loginSchema),
     defaultValues: { email: '', password: '' },
     mode: 'onSubmit',
@@ -32,7 +32,7 @@ export default function useLogin() {
     },
   });
 
-  const onSubmit = (values: LoginFormValuesType) => {
+  const onSubmit = (values: LoginFormType) => {
     mutation.mutate(values);
   };
 
