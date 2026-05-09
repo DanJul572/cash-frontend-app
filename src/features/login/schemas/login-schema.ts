@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 import { loginConfig } from '../configs';
 
-const schema = z.object({
+export const loginSchema = z.object({
   email: z
     .string()
     .min(1, 'email.validation.required')
@@ -12,7 +12,3 @@ const schema = z.object({
     .min(1, 'password.validation.required')
     .min(loginConfig.minLengthPassword, 'password.validation.minLength'),
 });
-
-export const loginSchema = {
-  schema,
-};
