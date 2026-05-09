@@ -13,5 +13,8 @@
       "required": "Password is required",
       "minLength": "Password must be at least {{minLengthPassword}} characters"
     }
+  },
+  "error": {
+    "loginFailed": "Login failed. Please check your credentials and try again."
   }
 }

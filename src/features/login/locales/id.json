@@ -13,5 +13,8 @@
       "required": "Password harus diisi",
       "minLength": "Password harus memiliki setidaknya {{minLengthPassword}} karakter"
     }
+  },
+  "error": {
+    "loginFailed": "Login gagal. Silakan periksa kredensial Anda dan coba lagi."
   }
 }

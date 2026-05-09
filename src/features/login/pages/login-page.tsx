@@ -1,6 +1,6 @@
 import { Controller } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 
+import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
@@ -12,12 +12,16 @@ import { useLogin } from '../hooks';
 import { loginStyle } from '../styles';
 
 export default function LoginPage() {
-  const { t } = useTranslation('login');
-  const { form, onSubmit } = useLogin();
+  const { t, form, alert, mutation, onSubmit } = useLogin();
 
   return (
     <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
       <Box sx={loginStyle.container}>
+        {alert && (
+          <Alert severity={alert.type} sx={loginStyle.alert}>
+            {alert.message}
+          </Alert>
+        )}
         <Card sx={loginStyle.card}>
           <Typography variant="h5" component="h2" gutterBottom>
             Login
@@ -51,7 +55,13 @@ export default function LoginPage() {
               />
             )}
           />
-          <Button variant="outlined" fullWidth type="submit">
+          <Button
+            variant="outlined"
+            fullWidth
+            type="submit"
+            disabled={mutation.isPending}
+            loading={mutation.isPending}
+          >
             {t('login')}
           </Button>
         </Card>

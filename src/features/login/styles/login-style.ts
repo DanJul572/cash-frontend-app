@@ -19,7 +19,13 @@ const cardStyle: SxProps<Theme> = {
   margin: '0 auto',
 };
 
+const alertStyle: SxProps<Theme> = {
+  width: '400px',
+  marginBottom: 2,
+};
+
 export const loginStyle = {
   container: containerStyle,
   card: cardStyle,
+  alert: alertStyle,
 };
