@@ -19,10 +19,10 @@
     "@hookform/resolvers": "^5.2.2",
     "@mui/icons-material": "^9.0.1",
     "@mui/material": "^9.0.1",
-    "@mui/x-charts": "^9.0.4",
-    "@mui/x-data-grid": "^9.0.4",
-    "@mui/x-date-pickers": "^9.0.4",
-    "@mui/x-tree-view": "^9.0.4",
+    "@mui/x-charts": "^9.1.0",
+    "@mui/x-data-grid": "^9.1.0",
+    "@mui/x-date-pickers": "^9.1.0",
+    "@mui/x-tree-view": "^9.1.0",
     "@tanstack/react-query": "^5.100.9",
     "@tanstack/react-query-devtools": "^5.100.9",
     "@tanstack/react-router": "^1.169.2",
@@ -61,5 +61,5 @@
     "vite": "^8.0.11",
     "vitest": "^4.1.5"
   },
-  "packageManager": "pnpm@11.0.8"
+  "packageManager": "pnpm@11.0.9"
 }
