@@ -29,7 +29,7 @@
     "@tanstack/react-router-devtools": "^1.166.13",
     "axios": "^1.16.0",
     "dayjs": "^1.11.20",
-    "i18next": "^26.0.10",
+    "i18next": "^26.1.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "react-hook-form": "^7.75.0",
@@ -59,7 +59,7 @@
     "prettier": "3.8.3",
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.59.2",
-    "vite": "^8.0.11",
+    "vite": "^8.0.12",
     "vitest": "^4.1.5"
   },
   "packageManager": "pnpm@11.0.9"

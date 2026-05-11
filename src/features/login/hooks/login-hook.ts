@@ -6,14 +6,14 @@ import { useTranslation } from 'react-i18next';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import { usePostLoginMutation } from '../mutations';
-import { loginSchema } from '../schemas';
+import { loginFormSchema } from '../schemas';
 import type { ALertType, LoginFormType } from '../types';
 
 export default function useLogin() {
   const { t } = useTranslation('login');
 
   const form = useForm<LoginFormType>({
-    resolver: zodResolver(loginSchema),
+    resolver: zodResolver(loginFormSchema),
     defaultValues: { email: '', password: '' },
     mode: 'onSubmit',
   });

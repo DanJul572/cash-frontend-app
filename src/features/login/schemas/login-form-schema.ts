@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 import { loginConfig } from '../configs';
 
-export const loginSchema = z.object({
+export const loginFormSchema = z.object({
   email: z
     .string()
     .min(1, 'email.validation.required')

@@ -1,6 +1,6 @@
-import { loginSchema } from '../schemas';
+import { loginFormSchema } from '../schemas';
 
-export const loginMapper = loginSchema.transform((data) => ({
+export const loginMapper = loginFormSchema.transform((data) => ({
   email: data.email,
   password: data.password,
 }));
