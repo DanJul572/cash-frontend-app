@@ -9,6 +9,7 @@
     "^@components/(.*)$",
     "^@configs/(.*)$",
     "^@features/(.*)$",
+    "^@fontsource/(.*)$",
     "^@languages/(.*)$",
     "^@utils/(.*)$",
     "^[./]"
