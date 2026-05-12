@@ -5,7 +5,8 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import TextField from '@mui/material/TextField';
-import Typography from '@mui/material/Typography';
+
+import svg from '@assets/vite.svg';
 
 import { loginConfig } from '../configs';
 import { useLogin } from '../hooks';
@@ -23,9 +24,7 @@ export default function LoginPage() {
           </Alert>
         )}
         <Card sx={loginStyle.card}>
-          <Typography variant="h5" component="h2" gutterBottom>
-            Login
-          </Typography>
+          <img src={svg} style={loginStyle.logo} />
           <Controller
             name="email"
             control={form.control}
