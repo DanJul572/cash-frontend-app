@@ -1,5 +1,6 @@
 import { createFileRoute, isRedirect, redirect } from '@tanstack/react-router';
 
+import MainLayout from '@/layouts/main-layout';
 import { authMeQuery } from '@/queries';
 
 export const Route = createFileRoute('/_authenticated')({
@@ -16,4 +17,5 @@ export const Route = createFileRoute('/_authenticated')({
             throw redirect({ to: '/500' });
         }
     },
+    component: MainLayout,
 });
