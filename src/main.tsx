@@ -12,6 +12,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
+import { PageLoaderComponent } from './components';
 import { themeConfig } from './configs';
 import { router } from './router';
 import { initTranslation } from './utils';
@@ -25,7 +26,11 @@ createRoot(document.getElementById('root')!).render(
         <QueryClientProvider client={queryClient}>
             <ThemeProvider theme={themeConfig}>
                 <CssBaseline />
-                <RouterProvider router={router} context={{ queryClient }} />
+                <RouterProvider
+                    router={router}
+                    context={{ queryClient }}
+                    defaultPendingComponent={PageLoaderComponent}
+                />
             </ThemeProvider>
         </QueryClientProvider>
     </StrictMode>,
