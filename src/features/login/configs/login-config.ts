@@ -1,3 +1,3 @@
 export const loginConfig = {
-  minLengthPassword: 10,
+    minLengthPassword: 10,
 };

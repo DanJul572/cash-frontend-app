@@ -1,5 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
 
+import Error500Page from '@/features/error/pages/error-500-page';
+
 export const Route = createFileRoute('/500')({
-  component: () => <h1>500 - Internal Server Error</h1>,
+    component: Error500Page,
 });

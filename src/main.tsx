@@ -21,12 +21,12 @@ const queryClient = new QueryClient();
 initTranslation();
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider theme={themeConfig}>
-        <CssBaseline />
-        <RouterProvider router={router} context={{ queryClient }} />
-      </ThemeProvider>
-    </QueryClientProvider>
-  </StrictMode>,
+    <StrictMode>
+        <QueryClientProvider client={queryClient}>
+            <ThemeProvider theme={themeConfig}>
+                <CssBaseline />
+                <RouterProvider router={router} context={{ queryClient }} />
+            </ThemeProvider>
+        </QueryClientProvider>
+    </StrictMode>,
 );

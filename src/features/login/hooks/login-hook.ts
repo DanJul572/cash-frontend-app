@@ -10,40 +10,40 @@ import { loginFormSchema } from '../schemas';
 import type { ALertType, LoginFormType } from '../types';
 
 export default function useLogin() {
-  const { t } = useTranslation('login');
+    const { t } = useTranslation('login');
 
-  const form = useForm<LoginFormType>({
-    resolver: zodResolver(loginFormSchema),
-    defaultValues: { email: '', password: '' },
-    mode: 'onSubmit',
-  });
+    const form = useForm<LoginFormType>({
+        resolver: zodResolver(loginFormSchema),
+        defaultValues: { email: '', password: '' },
+        mode: 'onSubmit',
+    });
 
-  const [alert, setAlert] = useState<ALertType | null>(null);
-  const [showPassword, setShowPassword] = useState<boolean>(false);
+    const [alert, setAlert] = useState<ALertType | null>(null);
+    const [showPassword, setShowPassword] = useState<boolean>(false);
 
-  const mutation = usePostLoginMutation({
-    onSuccess: (data) => {
-      console.log(data);
-    },
-    onError: (error) => {
-      setAlert({
-        type: 'error',
-        message: error.message || t('error.loginFailed'),
-      });
-    },
-  });
+    const mutation = usePostLoginMutation({
+        onSuccess: (data) => {
+            console.log(data);
+        },
+        onError: (error) => {
+            setAlert({
+                type: 'error',
+                message: error.message || t('error.loginFailed'),
+            });
+        },
+    });
 
-  const onSubmit = (values: LoginFormType) => {
-    mutation.mutate(values);
-  };
+    const onSubmit = (values: LoginFormType) => {
+        mutation.mutate(values);
+    };
 
-  return {
-    t,
-    form,
-    alert,
-    mutation,
-    onSubmit,
-    showPassword,
-    setShowPassword,
-  };
+    return {
+        t,
+        form,
+        alert,
+        mutation,
+        onSubmit,
+        showPassword,
+        setShowPassword,
+    };
 }

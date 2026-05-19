@@ -1,4 +1,4 @@
 export const languageConfig = {
-  fallbackLng: 'en',
-  lng: 'en',
+    fallbackLng: 'en',
+    lng: 'en',
 };

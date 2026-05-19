@@ -1,20 +1,20 @@
 {
-  "label": "Masuk",
-  "email": {
-    "label": "Email",
-    "validation": {
-      "required": "Email harus diisi",
-      "invalidFormat": "Silakan masukkan alamat email yang valid"
+    "label": "Masuk",
+    "email": {
+        "label": "Email",
+        "validation": {
+            "required": "Email harus diisi",
+            "invalidFormat": "Silakan masukkan alamat email yang valid"
+        }
+    },
+    "password": {
+        "label": "Password",
+        "validation": {
+            "required": "Password harus diisi",
+            "minLength": "Password harus memiliki setidaknya {{minLengthPassword}} karakter"
+        }
+    },
+    "error": {
+        "loginFailed": "Login gagal. Silakan periksa kredensial Anda dan coba lagi."
     }
-  },
-  "password": {
-    "label": "Password",
-    "validation": {
-      "required": "Password harus diisi",
-      "minLength": "Password harus memiliki setidaknya {{minLengthPassword}} karakter"
-    }
-  },
-  "error": {
-    "loginFailed": "Login gagal. Silakan periksa kredensial Anda dan coba lagi."
-  }
 }

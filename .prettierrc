@@ -1,19 +1,21 @@
 {
-  "plugins": ["@trivago/prettier-plugin-sort-imports"],
-  "importOrder": [
-    "^react$",
-    "^react-(.*)$",
-    "<THIRD_PARTY_MODULES>",
-    "^@/(.*)$",
-    "^@assets/(.*)$",
-    "^@components/(.*)$",
-    "^@configs/(.*)$",
-    "^@features/(.*)$",
-    "^@fontsource/(.*)$",
-    "^@languages/(.*)$",
-    "^@utils/(.*)$",
-    "^[./]"
-  ],
-  "singleQuote": true,
-  "importOrderSeparation": true
+    "plugins": ["@trivago/prettier-plugin-sort-imports"],
+    "importOrder": [
+        "^react$",
+        "^react-(.*)$",
+        "<THIRD_PARTY_MODULES>",
+        "^@/(.*)$",
+        "^@assets/(.*)$",
+        "^@components/(.*)$",
+        "^@configs/(.*)$",
+        "^@features/(.*)$",
+        "^@fontsource/(.*)$",
+        "^@languages/(.*)$",
+        "^@utils/(.*)$",
+        "^[./]"
+    ],
+    "singleQuote": true,
+    "importOrderSeparation": true,
+    "printWidth": 100,
+    "tabWidth": 4
 }

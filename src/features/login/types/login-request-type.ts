@@ -9,7 +9,7 @@ export type LoginResponseType = z.input<typeof loginResponseSchema>;
 export type LoginResponseMappedType = z.output<typeof loginResponseMapper>;
 
 export type PostLoginMutationOptionsType = MutateOptions<
-  LoginResponseMappedType,
-  Error,
-  LoginFormType
+    LoginResponseMappedType,
+    Error,
+    LoginFormType
 >;
