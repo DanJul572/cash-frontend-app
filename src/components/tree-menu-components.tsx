@@ -7,17 +7,18 @@ import InsertDriveFile from '@mui/icons-material/InsertDriveFile';
 
 import { RichTreeView, TreeItem, treeItemClasses } from '@mui/x-tree-view';
 
-import { treeMenuConfig as MUI_X_PRODUCTS } from '../configs';
+import { treeMenuConfig } from '../configs';
 
-const CustomTreeItem = styled(TreeItem)({
+const CustomTreeItem = styled(TreeItem)(({ theme }) => ({
     [`& .${treeItemClasses.iconContainer}`]: {
+        color: theme.palette.primary.main,
         '& .close': {
             opacity: 0.3,
         },
     },
-});
+}));
 
-export default function CustomIcons() {
+export default function TreeMenuComponent() {
     return (
         <Box>
             <RichTreeView
@@ -28,7 +29,7 @@ export default function CustomIcons() {
                     endIcon: InsertDriveFile,
                     item: CustomTreeItem,
                 }}
-                items={MUI_X_PRODUCTS}
+                items={treeMenuConfig}
             />
         </Box>
     );
