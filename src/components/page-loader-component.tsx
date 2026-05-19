@@ -1,11 +1,11 @@
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
 
-import { pageLoaderStyle } from '@/styles';
+import { pageLoaderComponentStyle } from '@/styles';
 
 export default function PageLoaderComponent() {
     return (
-        <Box sx={pageLoaderStyle.container}>
+        <Box sx={pageLoaderComponentStyle.container}>
             <CircularProgress />
         </Box>
     );

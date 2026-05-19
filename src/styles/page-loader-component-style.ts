@@ -7,6 +7,6 @@ const containerStyle: SxProps<Theme> = {
     height: '100vh',
 };
 
-export const pageLoaderStyle = {
+export const pageLoaderComponentStyle = {
     container: containerStyle,
 };

@@ -1,7 +1,7 @@
 import { Link } from '@tanstack/react-router';
 
 import { styled } from '@mui/material';
-import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
 
 import Folder from '@mui/icons-material/Folder';
 import FolderOpen from '@mui/icons-material/FolderOpen';
@@ -10,6 +10,7 @@ import InsertDriveFile from '@mui/icons-material/InsertDriveFile';
 import { RichTreeView, TreeItem, treeItemClasses, useTreeItemModel } from '@mui/x-tree-view';
 import type { TreeItemProps } from '@mui/x-tree-view';
 
+import { treeMenuComponentStyle } from '@/styles';
 import type { TreeMenuItem } from '@/types';
 
 import { treeMenuConfig } from '../configs';
@@ -47,9 +48,8 @@ function LinkTreeItem(props: TreeItemProps) {
 
 export default function TreeMenuComponent() {
     return (
-        <Box>
+        <Card sx={treeMenuComponentStyle.container}>
             <RichTreeView
-                defaultExpandedItems={['grid']}
                 slots={{
                     expandIcon: Folder,
                     collapseIcon: FolderOpen,
@@ -58,6 +58,6 @@ export default function TreeMenuComponent() {
                 }}
                 items={treeMenuConfig}
             />
-        </Box>
+        </Card>
     );
 }
