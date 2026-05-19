@@ -11,9 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as GuestRouteImport } from './routes/_guest'
 import { Route as AuthenticatedRouteImport } from './routes/_authenticated'
-import { Route as GuestIndexRouteImport } from './routes/_guest/index'
+import { Route as R500RouteImport } from './routes/500'
+import { Route as IndexRouteImport } from './routes/index'
 import { Route as GuestLoginRouteImport } from './routes/_guest/login'
-import { Route as GuestAboutRouteImport } from './routes/_guest/about'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 
 const GuestRoute = GuestRouteImport.update({
@@ -24,19 +24,19 @@ const AuthenticatedRoute = AuthenticatedRouteImport.update({
   id: '/_authenticated',
   getParentRoute: () => rootRouteImport,
 } as any)
-const GuestIndexRoute = GuestIndexRouteImport.update({
+const R500Route = R500RouteImport.update({
+  id: '/500',
+  path: '/500',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => GuestRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
 const GuestLoginRoute = GuestLoginRouteImport.update({
   id: '/login',
   path: '/login',
-  getParentRoute: () => GuestRoute,
-} as any)
-const GuestAboutRoute = GuestAboutRouteImport.update({
-  id: '/about',
-  path: '/about',
   getParentRoute: () => GuestRoute,
 } as any)
 const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
@@ -46,42 +46,44 @@ const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof GuestIndexRoute
+  '/': typeof IndexRoute
+  '/500': typeof R500Route
   '/dashboard': typeof AuthenticatedDashboardRoute
-  '/about': typeof GuestAboutRoute
   '/login': typeof GuestLoginRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof GuestIndexRoute
+  '/': typeof IndexRoute
+  '/500': typeof R500Route
   '/dashboard': typeof AuthenticatedDashboardRoute
-  '/about': typeof GuestAboutRoute
   '/login': typeof GuestLoginRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/': typeof IndexRoute
+  '/500': typeof R500Route
   '/_authenticated': typeof AuthenticatedRouteWithChildren
   '/_guest': typeof GuestRouteWithChildren
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
-  '/_guest/about': typeof GuestAboutRoute
   '/_guest/login': typeof GuestLoginRoute
-  '/_guest/': typeof GuestIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard' | '/about' | '/login'
+  fullPaths: '/' | '/500' | '/dashboard' | '/login'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard' | '/about' | '/login'
+  to: '/' | '/500' | '/dashboard' | '/login'
   id:
     | '__root__'
+    | '/'
+    | '/500'
     | '/_authenticated'
     | '/_guest'
     | '/_authenticated/dashboard'
-    | '/_guest/about'
     | '/_guest/login'
-    | '/_guest/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
+  IndexRoute: typeof IndexRoute
+  R500Route: typeof R500Route
   AuthenticatedRoute: typeof AuthenticatedRouteWithChildren
   GuestRoute: typeof GuestRouteWithChildren
 }
@@ -102,25 +104,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_guest/': {
-      id: '/_guest/'
+    '/500': {
+      id: '/500'
+      path: '/500'
+      fullPath: '/500'
+      preLoaderRoute: typeof R500RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof GuestIndexRouteImport
-      parentRoute: typeof GuestRoute
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/_guest/login': {
       id: '/_guest/login'
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof GuestLoginRouteImport
-      parentRoute: typeof GuestRoute
-    }
-    '/_guest/about': {
-      id: '/_guest/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof GuestAboutRouteImport
       parentRoute: typeof GuestRoute
     }
     '/_authenticated/dashboard': {
@@ -146,20 +148,18 @@ const AuthenticatedRouteWithChildren = AuthenticatedRoute._addFileChildren(
 )
 
 interface GuestRouteChildren {
-  GuestAboutRoute: typeof GuestAboutRoute
   GuestLoginRoute: typeof GuestLoginRoute
-  GuestIndexRoute: typeof GuestIndexRoute
 }
 
 const GuestRouteChildren: GuestRouteChildren = {
-  GuestAboutRoute: GuestAboutRoute,
   GuestLoginRoute: GuestLoginRoute,
-  GuestIndexRoute: GuestIndexRoute,
 }
 
 const GuestRouteWithChildren = GuestRoute._addFileChildren(GuestRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
+  IndexRoute: IndexRoute,
+  R500Route: R500Route,
   AuthenticatedRoute: AuthenticatedRouteWithChildren,
   GuestRoute: GuestRouteWithChildren,
 }
