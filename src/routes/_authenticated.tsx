@@ -10,10 +10,11 @@ export const Route = createFileRoute('/_authenticated')({
             if (!user) {
                 throw redirect({ to: '/login' });
             }
-
             return { user };
         } catch (error) {
-            if (error instanceof Response || isRedirect(error)) throw error;
+            if (error instanceof Response || isRedirect(error)) {
+                throw error;
+            }
             throw redirect({ to: '/500' });
         }
     },

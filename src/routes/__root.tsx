@@ -1,15 +1,11 @@
-import type { QueryClient } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { createRootRouteWithContext, Outlet } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 
 import { Error400Page } from '@/features/error/pages';
+import type { RouterContextType } from '@/types';
 
-export interface MyRouterContext {
-    queryClient: QueryClient;
-}
-
-export const Route = createRootRouteWithContext<MyRouterContext>()({
+export const Route = createRootRouteWithContext<RouterContextType>()({
     component: () => (
         <>
             <Outlet />

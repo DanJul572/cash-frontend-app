@@ -10,7 +10,9 @@ export const Route = createFileRoute('/_guest')({
                 throw redirect({ to: '/dashboard' });
             }
         } catch (error) {
-            if (error instanceof Response || isRedirect(error)) throw error;
+            if (error instanceof Response || isRedirect(error)) {
+                throw error;
+            }
             throw redirect({ to: '/500' });
         }
     },
