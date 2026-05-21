@@ -17,3 +17,18 @@ minimumReleaseAgeExclude:
     - typescript-eslint@8.59.4
     - '@types/node@25.9.1'
     - '@types/react@19.2.15'
+    - '@tanstack/react-router@1.170.6'
+    - '@tanstack/router-cli@1.167.8'
+    - '@tanstack/router-core@1.171.4'
+    - '@tanstack/router-generator@1.167.8'
+    - '@tanstack/router-plugin@1.168.9'
+    - '@tanstack/router-utils@1.162.1'
+    - '@vitest/coverage-v8@4.1.7'
+    - '@vitest/expect@4.1.7'
+    - '@vitest/mocker@4.1.7'
+    - '@vitest/pretty-format@4.1.7'
+    - '@vitest/runner@4.1.7'
+    - '@vitest/snapshot@4.1.7'
+    - '@vitest/spy@4.1.7'
+    - '@vitest/utils@4.1.7'
+    - vitest@4.1.7
