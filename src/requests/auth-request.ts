@@ -2,6 +2,7 @@ import axios from 'axios';
 
 import { STATUS_CODE_CONSTANT } from '@/constants';
 import { AuthEndpoint } from '@/endpoints';
+import { authMeResponseMapper } from '@/mappers';
 import type { User } from '@/types';
 
 export const authMeRequest = async () => {
@@ -9,7 +10,7 @@ export const authMeRequest = async () => {
         const response = await axios.get<User>(AuthEndpoint.me, {
             withCredentials: true,
         });
-        return response.data;
+        return authMeResponseMapper.parse(response.data);
     } catch (error) {
         if (
             axios.isAxiosError(error) &&
