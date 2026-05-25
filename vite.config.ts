@@ -4,6 +4,10 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig } from 'vite';
 
+import remotesConfig from './remotes.config.json';
+
+const remotes = Object.fromEntries(remotesConfig.remotes.map(({ name, url }) => [name, url]));
+
 // https://vite.dev/config/
 export default defineConfig({
     resolve: {
@@ -25,9 +29,7 @@ export default defineConfig({
         react(),
         federation({
             name: 'zcore',
-            remotes: {
-                exampleApp: 'http://localhost:5001/assets/remoteEntry.js',
-            },
+            remotes: remotes,
             shared: ['react', 'react-dom'],
         }),
     ],

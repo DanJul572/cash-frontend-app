@@ -1,0 +1,8 @@
+{
+    "remotes": [
+        {
+            "name": "exampleApp",
+            "url": "http://localhost:5001/assets/remoteEntry.js"
+        }
+    ]
+}
