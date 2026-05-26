@@ -1,4 +1,6 @@
-const Card = ({ children, ...props }: any) => {
+import type { PropsWithChildren } from 'react';
+
+const Card = ({ children, ...props }: PropsWithChildren) => {
     return <section {...props}>{children}</section>;
 };
 

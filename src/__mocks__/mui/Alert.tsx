@@ -1,7 +1,6 @@
-import type { ReactNode } from 'react';
+import type { PropsWithChildren } from 'react';
 
-interface AlertProps {
-    children?: ReactNode;
+interface AlertProps extends PropsWithChildren {
     severity?: string;
 }
 

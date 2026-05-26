@@ -1,6 +1,8 @@
+import type { PropsWithChildren } from 'react';
+
 export const useTranslation = () => {
     return {
-        t: (key: string, params?: Record<string, any>) => {
+        t: (key: string, params?: Record<string, string>) => {
             if (!params) return key;
 
             return Object.entries(params).reduce(
@@ -16,7 +18,7 @@ export const useTranslation = () => {
     };
 };
 
-export const Trans = ({ children }: any) => children;
+export const Trans = ({ children }: PropsWithChildren) => children;
 
 export default {
     useTranslation,

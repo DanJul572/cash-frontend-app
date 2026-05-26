@@ -1,5 +1,6 @@
-interface ButtonProps {
-    children?: React.ReactNode;
+import type { PropsWithChildren } from 'react';
+
+interface ButtonProps extends PropsWithChildren {
     onClick?: () => void;
     type?: 'button' | 'submit' | 'reset';
 }
