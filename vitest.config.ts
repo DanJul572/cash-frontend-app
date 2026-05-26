@@ -8,7 +8,8 @@ export default defineConfig({
     },
     resolve: {
         alias: {
-            'react-i18next': path.resolve(__dirname, 'src/__mocks__/i18n/react-i18next.ts'),
+            'react-i18next': path.resolve(__dirname, 'src/__mocks__/react-i18next.ts'),
+            'react-hook-form': path.resolve(__dirname, 'src/__mocks__/react-hook-form.ts'),
             '@mui/material/Alert': path.resolve(__dirname, 'src/__mocks__/mui/Alert.tsx'),
             '@mui/material/Box': path.resolve(__dirname, 'src/__mocks__/mui/Box.tsx'),
             '@mui/material/Button': path.resolve(__dirname, 'src/__mocks__/mui/Button.tsx'),
