@@ -28,8 +28,8 @@
         "@tanstack/react-router": "^1.170.8",
         "@tanstack/react-router-devtools": "^1.167.0",
         "axios": "^1.16.1",
-        "dayjs": "^1.11.20",
-        "i18next": "^26.2.0",
+        "dayjs": "^1.11.21",
+        "i18next": "^26.3.0",
         "react": "^19.2.6",
         "react-dom": "^19.2.6",
         "react-hook-form": "^7.76.1",
@@ -67,5 +67,5 @@
         "vite": "^8.0.14",
         "vitest": "^4.1.7"
     },
-    "packageManager": "pnpm@11.3.0"
+    "packageManager": "pnpm@11.4.0"
 }
