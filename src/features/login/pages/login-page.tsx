@@ -12,12 +12,15 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 import svg from '@assets/vite.svg';
+import { useTitle } from '@hooks';
 
 import { loginConfig } from '../configs';
 import { useLogin } from '../hooks';
 import { loginStyle } from '../styles';
 
 export default function LoginPage() {
+    useTitle('Login');
+
     const { t, form, alert, mutation, onSubmit, showPassword, setShowPassword } = useLogin();
 
     return (

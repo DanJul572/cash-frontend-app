@@ -1,8 +1,9 @@
+import path from 'path';
+import { defineConfig } from 'vite';
+
 import federation from '@originjs/vite-plugin-federation';
 import { tanstackRouter } from '@tanstack/router-plugin/vite';
 import react from '@vitejs/plugin-react';
-import path from 'path';
-import { defineConfig } from 'vite';
 
 import remotesConfig from './remotes.config.json';
 
@@ -17,7 +18,14 @@ export default defineConfig({
             '@components': path.resolve(__dirname, './src/components'),
             '@configs': path.resolve(__dirname, './src/configs'),
             '@features': path.resolve(__dirname, './src/features'),
-            '@languages': path.resolve(__dirname, './src/languages'),
+            '@hooks': path.resolve(__dirname, './src/hooks'),
+            '@layouts': path.resolve(__dirname, './src/layouts'),
+            '@mappers': path.resolve(__dirname, './src/mappers'),
+            '@queries': path.resolve(__dirname, './src/queries'),
+            '@requests': path.resolve(__dirname, './src/requests'),
+            '@schemas': path.resolve(__dirname, './src/schemas'),
+            '@styles': path.resolve(__dirname, './src/styles'),
+            '@types': path.resolve(__dirname, './src/types'),
             '@utils': path.resolve(__dirname, './src/utils'),
         },
     },
@@ -28,7 +36,7 @@ export default defineConfig({
         }),
         react(),
         federation({
-            name: 'zcore',
+            name: 'cash-app',
             remotes: remotes,
             shared: ['react', 'react-dom'],
         }),

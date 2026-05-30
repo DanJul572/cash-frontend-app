@@ -1,5 +1,6 @@
-import type { MutateOptions } from '@tanstack/react-query';
 import type z from 'zod';
+
+import type { MutateOptions } from '@tanstack/react-query';
 
 import type { loginResponseMapper } from '../mappers';
 import type { loginResponseSchema } from '../schemas';
