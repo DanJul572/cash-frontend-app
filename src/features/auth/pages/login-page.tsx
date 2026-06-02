@@ -11,7 +11,6 @@ import TextField from '@mui/material/TextField';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
-import svg from '@assets/vite.svg';
 import { useTitle } from '@hooks';
 
 import { loginConfig } from '../configs';
@@ -32,7 +31,6 @@ export default function LoginPage() {
                     </Alert>
                 )}
                 <Card sx={loginStyle.card}>
-                    <img src={svg} style={loginStyle.logo} />
                     <Controller
                         name="email"
                         control={form.control}

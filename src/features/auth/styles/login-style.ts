@@ -1,5 +1,3 @@
-import type { CSSProperties } from 'react';
-
 import type { SxProps, Theme } from '@mui/material';
 
 const containerStyle: SxProps<Theme> = {
@@ -26,14 +24,8 @@ const alertStyle: SxProps<Theme> = {
     marginBottom: 2,
 };
 
-const logoStyle: CSSProperties = {
-    height: 40,
-    width: 40,
-};
-
 export const loginStyle = {
     alert: alertStyle,
     card: cardStyle,
     container: containerStyle,
-    logo: logoStyle,
 };
