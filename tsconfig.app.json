@@ -22,12 +22,21 @@
         "noFallthroughCasesInSwitch": true,
 
         "paths": {
-            "@/*": ["./src/*"],
+            "@*": ["./src/*"],
             "@assets/*": ["./src/assets/*"],
             "@components/*": ["./src/components/*"],
             "@configs/*": ["./src/configs/*"],
+            "@constants/*": ["./src/constants/*"],
+            "@endpoints/*": ["./src/endpoints/*"],
             "@features/*": ["./src/features/*"],
-            "@languages/*": ["./src/languages/*"],
+            "@hooks/*": ["./src/hooks/*"],
+            "@layouts/*": ["./src/layouts/*"],
+            "@mappers/*": ["./src/mappers/*"],
+            "@queries/*": ["./src/queries/*"],
+            "@requests/*": ["./src/requests/*"],
+            "@schemas/*": ["./src/schemas/*"],
+            "@styles/*": ["./src/styles/*"],
+            "@types/*": ["./src/types/*"],
             "@utils/*": ["./src/utils/*"]
         }
     },

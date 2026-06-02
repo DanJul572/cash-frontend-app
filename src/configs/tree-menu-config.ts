@@ -1,4 +1,4 @@
-import type { TreeMenuItem } from '@/types';
+import type { TreeMenuItem } from '@types';
 
 export const treeMenuConfig: TreeMenuItem[] = [
     {

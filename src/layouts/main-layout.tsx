@@ -1,9 +1,8 @@
-import { Outlet } from '@tanstack/react-router';
-
 import Box from '@mui/material/Box';
 
-import { TopbarComponent, TreeMenuComponent } from '@/components';
-import { mainLayoutStyle } from '@/styles';
+import { TopbarComponent, TreeMenuComponent } from '@components';
+import { mainLayoutStyle } from '@styles';
+import { Outlet } from '@tanstack/react-router';
 
 export default function MainLayout() {
     return (

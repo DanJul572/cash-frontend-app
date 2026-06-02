@@ -64,3 +64,9 @@ minimumReleaseAgeExclude:
     - '@typescript-eslint/utils@8.60.0'
     - '@typescript-eslint/visitor-keys@8.60.0'
     - typescript-eslint@8.60.0
+    - '@tanstack/react-router@1.170.9'
+    - '@tanstack/router-cli@1.167.11'
+    - '@tanstack/router-core@1.171.7'
+    - '@tanstack/router-generator@1.167.11'
+    - '@tanstack/router-plugin@1.168.12'
+    - zustand@5.0.14

@@ -1,5 +1,3 @@
-import { Link } from '@tanstack/react-router';
-
 import { styled } from '@mui/material';
 import Card from '@mui/material/Card';
 
@@ -10,8 +8,9 @@ import InsertDriveFile from '@mui/icons-material/InsertDriveFile';
 import { RichTreeView, TreeItem, treeItemClasses, useTreeItemModel } from '@mui/x-tree-view';
 import type { TreeItemProps } from '@mui/x-tree-view';
 
-import { treeMenuComponentStyle } from '@/styles';
-import type { TreeMenuItem } from '@/types';
+import { treeMenuComponentStyle } from '@styles';
+import { Link } from '@tanstack/react-router';
+import type { TreeMenuItem } from '@types';
 
 import { treeMenuConfig } from '../configs';
 

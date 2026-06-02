@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-import { STATUS_CODE_CONSTANT } from '@/constants';
-import { AuthEndpoint } from '@/endpoints';
-import { authMeResponseMapper } from '@/mappers';
-import type { AuthMeResponseType } from '@/types';
+import { STATUS_CODE_CONSTANT } from '@constants';
+import { AuthEndpoint } from '@endpoints';
+import { authMeResponseMapper } from '@mappers';
+import type { AuthMeResponseType } from '@types';
 
 export const authMeRequest = async () => {
     try {

@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-import { topbarComponentStyle } from '@/styles';
+import { topbarComponentStyle } from '@styles';
 
 export default function TopbarComponent() {
     return (
