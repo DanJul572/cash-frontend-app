@@ -9,6 +9,13 @@ import { usePostLoginMutation } from '../mutations';
 import { loginFormSchema } from '../schemas';
 import type { ALertType, LoginFormType } from '../types';
 
+const formatPayloads = (values: LoginFormType) => {
+    return {
+        email: values.email.trim(),
+        password: values.password.trim(),
+    };
+};
+
 export default function useLogin() {
     const { t } = useTranslation('login');
 
@@ -31,13 +38,6 @@ export default function useLogin() {
             });
         },
     });
-
-    const formatPayloads = (values: LoginFormType) => {
-        return {
-            email: values.email.trim(),
-            password: values.password.trim(),
-        };
-    };
 
     const onSubmit = (values: LoginFormType) => {
         mutation.mutate(formatPayloads(values));
