@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-import { STATUS_CODE_CONSTANT } from '@constants';
 import { AuthEndpoint } from '@endpoints';
 import { authMeResponseMapper } from '@mappers';
 import type { AuthMeResponseType } from '@types';
+import { isAxios401Error } from '@utils';
 
 export const authMeRequest = async () => {
     try {
@@ -12,10 +12,7 @@ export const authMeRequest = async () => {
         });
         return authMeResponseMapper.parse(response.data);
     } catch (error) {
-        if (
-            axios.isAxiosError(error) &&
-            error.response?.status === STATUS_CODE_CONSTANT.UNAUTHORIZED
-        ) {
+        if (isAxios401Error(error)) {
             return null;
         }
         throw error;
