@@ -10,27 +10,26 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { QueryClientProvider } from '@tanstack/react-query';
 import { RouterProvider } from '@tanstack/react-router';
 
 import { PageLoaderComponent } from './components';
-import { themeConfig } from './configs';
+import { queryClientConfig, setRouter, themeConfig } from './configs';
 import { router } from './router';
 import { initTranslation, showVersionInfo } from './utils';
 
-const queryClient = new QueryClient();
-
 initTranslation();
+setRouter(router);
 showVersionInfo();
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
-        <QueryClientProvider client={queryClient}>
+        <QueryClientProvider client={queryClientConfig}>
             <ThemeProvider theme={themeConfig}>
                 <CssBaseline />
                 <RouterProvider
                     router={router}
-                    context={{ queryClient }}
+                    context={{ queryClient: queryClientConfig }}
                     defaultPendingComponent={PageLoaderComponent}
                 />
             </ThemeProvider>
