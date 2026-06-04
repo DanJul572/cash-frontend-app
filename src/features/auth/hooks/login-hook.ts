@@ -32,8 +32,15 @@ export default function useLogin() {
         },
     });
 
+    const formatPayloads = (values: LoginFormType) => {
+        return {
+            email: values.email.trim(),
+            password: values.password.trim(),
+        };
+    };
+
     const onSubmit = (values: LoginFormType) => {
-        mutation.mutate(values);
+        mutation.mutate(formatPayloads(values));
     };
 
     return {
