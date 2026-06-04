@@ -10,12 +10,12 @@ export const setRouter = (r: AppRouter) => {
     routerInstance = r;
 };
 
-const axiosInstance = axios.create({
+const axiosConfig = axios.create({
     baseURL: import.meta.env.VITE_API_URL,
     withCredentials: true,
 });
 
-axiosInstance.interceptors.response.use(
+axiosConfig.interceptors.response.use(
     (response) => response,
     (error) => {
         if (error.response?.status === 401) {
@@ -29,4 +29,4 @@ axiosInstance.interceptors.response.use(
     },
 );
 
-export default axiosInstance;
+export { axiosConfig };
