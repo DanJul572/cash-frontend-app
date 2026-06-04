@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 
-import { appVersion } from '@utils';
+import { appNameAsTitle, appVersion } from '@utils';
 
 export default function useTitle(title: string) {
     useEffect(() => {
         if (!title) {
-            document.title = `Cash App v${appVersion}`;
+            document.title = `${appNameAsTitle} v${appVersion}`;
         } else {
             document.title = title;
         }
