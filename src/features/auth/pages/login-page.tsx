@@ -4,23 +4,18 @@ import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
-import IconButton from '@mui/material/IconButton';
-import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
-
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 import { useTitle } from '@hooks';
 
-import { loginConfig } from '../configs';
+import { PasswordFieldComponent } from '../components';
 import { useLogin } from '../hooks';
 import { loginStyle } from '../styles';
 
 export default function LoginPage() {
     useTitle('Login');
 
-    const { t, form, alert, mutation, onSubmit, showPassword, setShowPassword } = useLogin();
+    const { t, form, alert, mutation, onSubmit } = useLogin();
 
     return (
         <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
@@ -49,33 +44,7 @@ export default function LoginPage() {
                         name="password"
                         control={form.control}
                         render={({ field, fieldState }) => (
-                            <TextField
-                                {...field}
-                                label={t('password.label')}
-                                variant="outlined"
-                                type={showPassword ? 'text' : 'password'}
-                                fullWidth
-                                error={!!fieldState.error}
-                                helperText={t(fieldState.error?.message || '', loginConfig)}
-                                slotProps={{
-                                    input: {
-                                        endAdornment: (
-                                            <InputAdornment position="end">
-                                                <IconButton
-                                                    onClick={() => setShowPassword((prev) => !prev)}
-                                                    edge="end"
-                                                >
-                                                    {showPassword ? (
-                                                        <VisibilityOff />
-                                                    ) : (
-                                                        <Visibility />
-                                                    )}
-                                                </IconButton>
-                                            </InputAdornment>
-                                        ),
-                                    },
-                                }}
-                            />
+                            <PasswordFieldComponent field={field} fieldState={fieldState} />
                         )}
                     />
                     <Button

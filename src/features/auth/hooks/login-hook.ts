@@ -19,7 +19,6 @@ export default function useLogin() {
     });
 
     const [alert, setAlert] = useState<ALertType | null>(null);
-    const [showPassword, setShowPassword] = useState<boolean>(false);
 
     const mutation = usePostLoginMutation({
         onSuccess: (data) => {
@@ -43,7 +42,5 @@ export default function useLogin() {
         alert,
         mutation,
         onSubmit,
-        showPassword,
-        setShowPassword,
     };
 }
