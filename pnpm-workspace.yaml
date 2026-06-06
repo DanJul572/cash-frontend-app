@@ -70,3 +70,12 @@ minimumReleaseAgeExclude:
     - '@tanstack/router-generator@1.167.11'
     - '@tanstack/router-plugin@1.168.12'
     - zustand@5.0.14
+    - '@tanstack/react-router@1.170.13'
+    - '@tanstack/router-cli@1.167.15'
+    - '@tanstack/router-core@1.171.11'
+    - '@tanstack/router-generator@1.167.15'
+    - '@tanstack/router-plugin@1.168.16'
+    - '@tanstack/router-utils@1.162.2'
+    - '@types/node@25.9.2'
+    - '@types/react@19.2.17'
+    - pnpm@11.5.2
