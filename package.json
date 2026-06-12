@@ -33,7 +33,7 @@
         "axios": "^1.17.0",
         "dayjs": "^1.11.21",
         "i18next": "^26.3.1",
-        "pnpm": "11.5.3",
+        "pnpm": "11.6.0",
         "react": "^19.2.7",
         "react-dom": "^19.2.7",
         "react-hook-form": "^7.78.0",
@@ -72,5 +72,5 @@
         "vite": "^8.0.16",
         "vitest": "^4.1.8"
     },
-    "packageManager": "pnpm@11.5.3"
+    "packageManager": "pnpm@11.6.0"
 }

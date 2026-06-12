@@ -59,8 +59,8 @@ importers:
                 specifier: ^26.3.1
                 version: 26.3.1(typescript@6.0.3)
             pnpm:
-                specifier: 11.5.3
-                version: 11.5.3
+                specifier: 11.6.0
+                version: 11.6.0
             react:
                 specifier: ^19.2.7
                 version: 19.2.7
@@ -1530,12 +1530,6 @@ packages:
         resolution:
             {
                 integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==,
-            }
-
-    '@types/node@25.9.2':
-        resolution:
-            {
-                integrity: sha512-G05zqtJhcDLb8uslf5EjCxXg9G1KQxiV8OS0R26IC//Eoyitzqe8z37I7cqvnZlrlSfgocQRfSn/AHBZJJFyGw==,
             }
 
     '@types/node@25.9.3':
@@ -3470,10 +3464,10 @@ packages:
             }
         engines: { node: '>=12' }
 
-    pnpm@11.5.3:
+    pnpm@11.6.0:
         resolution:
             {
-                integrity: sha512-esHJGTQcITo03A0Cr7cUPFwmrCbujEeC3uqCG4rGTSE0oIH9iUHa5uKbu0j1jfwrf7zuzMB8svCdIZ00Kklp7Q==,
+                integrity: sha512-mjZRgiQIDG/lFlr9z+eb+hGMKb5wPz9GKx4y7+HpjkfodQsUjggoYlCq1BE8x5k8pBPE4s1Ed1JwjC7ldRvJXw==,
             }
         engines: { node: '>=22.13' }
         hasBin: true
@@ -5255,10 +5249,6 @@ snapshots:
 
     '@types/json-schema@7.0.15': {}
 
-    '@types/node@25.9.2':
-        dependencies:
-            undici-types: 7.24.6
-
     '@types/node@25.9.3':
         dependencies:
             undici-types: 7.24.6
@@ -6109,7 +6099,7 @@ snapshots:
 
     jest-worker@27.5.1:
         dependencies:
-            '@types/node': 25.9.2
+            '@types/node': 25.9.3
             merge-stream: 2.0.0
             supports-color: 8.1.1
 
@@ -6355,7 +6345,7 @@ snapshots:
 
     picomatch@4.0.4: {}
 
-    pnpm@11.5.3: {}
+    pnpm@11.6.0: {}
 
     postcss@8.5.15:
         dependencies:
