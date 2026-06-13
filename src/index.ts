@@ -1,4 +1,4 @@
-import { getResource, initTranslation } from '@utils';
+import { initTranslation } from '@utils';
 
 import { LoginPage } from './features/auth/pages';
 import { Error400Page, Error500Page } from './features/error/pages';
@@ -15,7 +15,6 @@ export const pages = {
 
 export const utils = {
     translation: {
-        getResource,
         initTranslation,
     },
 };

@@ -16,9 +16,9 @@ import { RouterProvider } from '@tanstack/react-router';
 import { PageLoaderComponent } from './components';
 import { queryClientConfig, setRouter, themeConfig } from './configs';
 import { router } from './router';
-import { initTranslation, showVersionInfo, getResource } from './utils';
+import { initTranslation, showVersionInfo } from './utils';
 
-initTranslation(getResource());
+initTranslation();
 setRouter(router);
 showVersionInfo();
 
