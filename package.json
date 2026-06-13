@@ -14,17 +14,20 @@
         "dist"
     ],
     "scripts": {
-        "dev": "vite",
-        "build": "tsc -b && vite build",
+        "dev": "vite --config vite.app.config.ts",
+        "build": "tsc -b && vite build --config vite.lib.config.ts",
+        "build:app": "tsc -b && vite build --config vite.app.config.ts",
+        "build:lib": "tsc -b && vite build --config vite.lib.config.ts",
+        "build:all": "pnpm build:app && pnpm build:lib",
+        "preview": "vite preview --config vite.app.config.ts",
+        "prepublishOnly": "pnpm build:lib",
         "lint": "eslint .",
-        "preview": "vite preview",
         "test": "vitest --globals",
         "test:coverage": "vitest --globals --coverage",
         "format": "prettier . --write",
         "prepare": "husky",
         "update:deps": "ncu -u --cooldown 1",
-        "verdaccio": "node publish.cjs",
-        "prepublishOnly": "pnpm build"
+        "verdaccio": "node publish.cjs"
     },
     "dependencies": {
         "@emotion/react": "^11.14.0",
