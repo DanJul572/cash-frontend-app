@@ -18,6 +18,7 @@
         "^@features/(.*)$",
         "^@hooks/(.*)$",
         "^@layouts/(.*)$",
+        "^@locales/(.*)$",
         "^@mappers/(.*)$",
         "^@queries/(.*)$",
         "^@requests/(.*)$",

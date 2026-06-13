@@ -36,6 +36,7 @@
             "@features/*": ["./src/features/*"],
             "@hooks/*": ["./src/hooks/*"],
             "@layouts/*": ["./src/layouts/*"],
+            "@locales/*": ["./src/locales/*"],
             "@mappers/*": ["./src/mappers/*"],
             "@queries/*": ["./src/queries/*"],
             "@requests/*": ["./src/requests/*"],

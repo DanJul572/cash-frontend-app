@@ -2,15 +2,9 @@ import path, { resolve } from 'path';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 
-// import federation from '@originjs/vite-plugin-federation';
 import { tanstackRouter } from '@tanstack/router-plugin/vite';
 import react from '@vitejs/plugin-react';
 
-// import remotesConfig from './remotes.config.json';
-
-// const remotes = Object.fromEntries(remotesConfig.remotes.map(({ name, url }) => [name, url]));
-
-// https://vite.dev/config/
 export default defineConfig({
     resolve: {
         alias: {
@@ -23,6 +17,7 @@ export default defineConfig({
             '@features': path.resolve(__dirname, './src/features'),
             '@hooks': path.resolve(__dirname, './src/hooks'),
             '@layouts': path.resolve(__dirname, './src/layouts'),
+            '@locales': path.resolve(__dirname, './src/locales'),
             '@mappers': path.resolve(__dirname, './src/mappers'),
             '@queries': path.resolve(__dirname, './src/queries'),
             '@requests': path.resolve(__dirname, './src/requests'),
@@ -35,14 +30,9 @@ export default defineConfig({
     plugins: [
         tanstackRouter({
             target: 'react',
-            autoCodeSplitting: true,
+            autoCodeSplitting: false,
         }),
         react(),
-        // federation({
-        //     name: 'cash-app',
-        //     remotes: remotes,
-        //     shared: ['react', 'react-dom'],
-        // }),
         dts({
             insertTypesEntry: true,
             include: ['src'],
@@ -51,36 +41,49 @@ export default defineConfig({
         }),
     ],
     build: {
+        // Prevent Vite from transpiling ESM syntax into CJS-compatible output
+        target: 'esnext',
         lib: {
             entry: resolve(__dirname, 'src/index.ts'),
             name: 'cashapp',
-            formats: ['es', 'cjs'],
+            formats: ['es'],
             fileName: (format) => `index.${format}.js`,
         },
         rollupOptions: {
-            external: [
-                'react',
-                'react-dom',
-                '@emotion/react',
-                '@emotion/styled',
-                '@mui/material',
-                '@mui/icons-material',
-                '@mui/system',
-                '@mui/x-charts',
-                '@mui/x-data-grid',
-                '@mui/x-date-pickers',
-                '@mui/x-tree-view',
-                '@tanstack/react-router',
-                'react-hook-form',
-                '@hookform/resolvers',
-                'zod',
-                '@tanstack/react-query',
-                'zustand',
-                'i18next',
-                'react-i18next',
-                'axios',
-            ],
+            // Use a function to cover sub-path imports like:
+            // 'react/jsx-runtime', '@mui/material/Button', '@tanstack/react-router/link'
+            // A plain string array only matches exact IDs, leaving sub-paths bundled in
+            // and causing duplicate React instances or require() calls at runtime.
+            external: (id: string) => {
+                const externalPackages = [
+                    '@emotion/react',
+                    '@emotion/styled',
+                    '@fontsource/roboto',
+                    '@hookform/resolvers',
+                    '@mui/icons-material',
+                    '@mui/material',
+                    '@mui/x-charts',
+                    '@mui/x-data-grid',
+                    '@mui/x-date-pickers',
+                    '@mui/x-tree-view',
+                    '@tanstack/react-query',
+                    '@tanstack/react-query-devtools',
+                    '@tanstack/react-router',
+                    '@tanstack/react-router-devtools',
+                    'axios',
+                    'dayjs',
+                    'i18next',
+                    'react',
+                    'react-dom',
+                    'react-hook-form',
+                    'react-i18next',
+                    'zod',
+                    'zustand',
+                ];
+                return externalPackages.some((pkg) => id === pkg || id.startsWith(`${pkg}/`));
+            },
             output: {
+                format: 'es',
                 globals: {
                     react: 'React',
                     'react-dom': 'ReactDOM',
