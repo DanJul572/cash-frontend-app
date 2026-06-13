@@ -13,6 +13,6 @@ const containerStyle: SxProps<Theme> = {
     zIndex: 999,
 };
 
-export const topbarComponentStyle = {
+export const topbarComponentStyle: Record<string, SxProps<Theme>> = {
     container: containerStyle,
 };

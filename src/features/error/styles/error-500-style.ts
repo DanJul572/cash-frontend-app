@@ -30,7 +30,7 @@ const textStyle: SxProps<Theme> = {
     letterSpacing: '0.5px',
 };
 
-export const error500Style = {
+export const error500Style: Record<string, SxProps<Theme>> = {
     code: codeStyle,
     container: containerStyle,
     divider: dividerStyle,

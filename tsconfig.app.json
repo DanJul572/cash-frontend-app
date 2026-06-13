@@ -21,6 +21,11 @@
         "erasableSyntaxOnly": true,
         "noFallthroughCasesInSwitch": true,
 
+        "declaration": true,
+        "declarationDir": "dist/types",
+        "emitDeclarationOnly": false,
+        "outDir": "dist",
+
         "paths": {
             "@*": ["./src/*"],
             "@assets/*": ["./src/assets/*"],
@@ -40,5 +45,16 @@
             "@utils/*": ["./src/utils/*"]
         }
     },
-    "include": ["src"]
+    "include": ["src"],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "**/*.test.ts",
+        "**/*.test.tsx",
+        "src/__mocks__/*",
+        "src/__tests__/*",
+        "src/main.tsx",
+        "src/router.tsx",
+        "src/routeTree.gen.ts"
+    ]
 }

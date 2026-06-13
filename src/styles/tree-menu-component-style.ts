@@ -11,6 +11,6 @@ const containerStyle: SxProps<Theme> = {
     zIndex: 999,
 };
 
-export const treeMenuComponentStyle = {
+export const treeMenuComponentStyle: Record<string, SxProps<Theme>> = {
     container: containerStyle,
 };

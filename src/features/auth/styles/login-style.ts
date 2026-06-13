@@ -24,7 +24,7 @@ const alertStyle: SxProps<Theme> = {
     marginBottom: 2,
 };
 
-export const loginStyle = {
+export const loginStyle: Record<string, SxProps<Theme>> = {
     alert: alertStyle,
     card: cardStyle,
     container: containerStyle,

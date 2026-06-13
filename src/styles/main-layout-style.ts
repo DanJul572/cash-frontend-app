@@ -14,7 +14,7 @@ const contentStyle: SxProps<Theme> = {
     top: '64px',
 };
 
-export const mainLayoutStyle = {
+export const mainLayoutStyle: Record<string, SxProps<Theme>> = {
     container: containerStyle,
     content: contentStyle,
 };
