@@ -15,18 +15,16 @@
     ],
     "scripts": {
         "dev": "vite --config vite.app.config.ts",
-        "build": "tsc -b && vite build --config vite.lib.config.ts",
         "build:app": "tsc -b && vite build --config vite.app.config.ts",
         "build:lib": "tsc -b && vite build --config vite.lib.config.ts",
-        "build:all": "pnpm build:app && pnpm build:lib",
         "preview": "vite preview --config vite.app.config.ts",
         "prepublishOnly": "pnpm build:lib",
-        "lint": "eslint .",
         "test": "vitest --globals",
         "test:coverage": "vitest --globals --coverage",
-        "format": "prettier . --write",
-        "prepare": "husky",
         "update:deps": "ncu -u --cooldown 1",
+        "prepare": "husky",
+        "lint": "eslint .",
+        "format": "prettier . --write",
         "verdaccio": "node publish.cjs"
     },
     "dependencies": {
