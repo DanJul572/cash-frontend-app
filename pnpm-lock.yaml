@@ -18,7 +18,7 @@ importers:
                 version: 5.2.10
             '@hookform/resolvers':
                 specifier: ^5.4.0
-                version: 5.4.0(react-hook-form@7.78.0(react@19.2.7))
+                version: 5.4.0(react-hook-form@7.79.0(react@19.2.7))
             '@mui/icons-material':
                 specifier: ^9.1.1
                 version: 9.1.1(@mui/material@9.1.1(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.2.7))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.2.7))(@types/react@19.2.17)(react@19.2.7))(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(@types/react@19.2.17)(react@19.2.7)
@@ -50,8 +50,8 @@ importers:
                 specifier: ^1.167.0
                 version: 1.167.0(@tanstack/react-router@1.170.15(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(@tanstack/router-core@1.171.13)(csstype@3.2.3)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
             axios:
-                specifier: ^1.17.0
-                version: 1.17.0
+                specifier: ^1.18.0
+                version: 1.18.0
             dayjs:
                 specifier: ^1.11.21
                 version: 1.11.21
@@ -68,8 +68,8 @@ importers:
                 specifier: ^19.2.7
                 version: 19.2.7(react@19.2.7)
             react-hook-form:
-                specifier: ^7.78.0
-                version: 7.78.0(react@19.2.7)
+                specifier: ^7.79.0
+                version: 7.79.0(react@19.2.7)
             react-i18next:
                 specifier: ^17.0.8
                 version: 17.0.8(i18next@26.3.1(typescript@6.0.3))(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(typescript@6.0.3)
@@ -138,8 +138,8 @@ importers:
                 specifier: ^7.1.1
                 version: 7.1.1(eslint@10.5.0(jiti@2.7.0))
             eslint-plugin-react-refresh:
-                specifier: ^0.5.2
-                version: 0.5.2(eslint@10.5.0(jiti@2.7.0))
+                specifier: ^0.5.3
+                version: 0.5.3(eslint@10.5.0(jiti@2.7.0))
             globals:
                 specifier: ^17.6.0
                 version: 17.6.0
@@ -2003,10 +2003,10 @@ packages:
                 integrity: sha512-caYkukvroVPO8KrzuJEb50Hm07KwfBZPEC3VeFHTsqWHvKTsy54hjJz9BS/cdaypROE2rH6xvm9mHX4fgWkr3A==,
             }
 
-    axios@1.17.0:
+    axios@1.18.0:
         resolution:
             {
-                integrity: sha512-J8SwNxprqqpbfenehxWYXE7CW+wM1BB4w3+N+g+/Wx40xM4rsLrfPmHHxSWIxJLYDgSY/HqlFPIYb2/S3rxafw==,
+                integrity: sha512-E32NzpYKp++W7XRe52rHiXV2ehxmh3wbdgO7MHeFM+vqxLBYHzt0ElkiImtOBxtOmyp0yoC8C6uESVV84Y2/hw==,
             }
 
     babel-dead-code-elimination@1.0.12:
@@ -2494,10 +2494,10 @@ packages:
         peerDependencies:
             eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0 || ^10.0.0
 
-    eslint-plugin-react-refresh@0.5.2:
+    eslint-plugin-react-refresh@0.5.3:
         resolution:
             {
-                integrity: sha512-hmgTH57GfzoTFjVN0yBwTggnsVUF2tcqi7RJZHqi9lIezSs4eFyAMktA68YD4r5kNw1mxyY4dmkyoFDb3FIqrA==,
+                integrity: sha512-5EMmLCV98Pi4o/f/3DP/v/tNqLHMIc9I8LKClNDWhZ9JTho89/kQcitCXQBMG7sAfVRK0Ie3T2EDOzp1YXYiVA==,
             }
         peerDependencies:
             eslint: ^9 || ^10
@@ -3643,10 +3643,10 @@ packages:
         peerDependencies:
             react: ^19.2.7
 
-    react-hook-form@7.78.0:
+    react-hook-form@7.79.0:
         resolution:
             {
-                integrity: sha512-EEZqc+N23moyzTlz61Pj+JvcXo76ICkpfOZo8JZw+sM4+wLQGh6nI2Ms+PdMOYNluFu0ghlM7B8mCzhRYtJCnA==,
+                integrity: sha512-mhYp/MTmXvzYX6AJcJVko0rktoIhhmRnEouObj4wF5i/tCttgJvnp1+9wRkpITZjDTqpo4IOSJqu0dBlPlV/Lw==,
             }
         engines: { node: '>=18.0.0' }
         peerDependencies:
@@ -4801,10 +4801,10 @@ snapshots:
 
     '@fontsource/roboto@5.2.10': {}
 
-    '@hookform/resolvers@5.4.0(react-hook-form@7.78.0(react@19.2.7))':
+    '@hookform/resolvers@5.4.0(react-hook-form@7.79.0(react@19.2.7))':
         dependencies:
             '@standard-schema/utils': 0.3.0
-            react-hook-form: 7.78.0(react@19.2.7)
+            react-hook-form: 7.79.0(react@19.2.7)
 
     '@humanfs/core@0.19.2':
         dependencies:
@@ -5771,7 +5771,7 @@ snapshots:
             - debug
             - supports-color
 
-    axios@1.17.0:
+    axios@1.18.0:
         dependencies:
             follow-redirects: 1.16.0
             form-data: 4.0.5
@@ -6029,7 +6029,7 @@ snapshots:
         transitivePeerDependencies:
             - supports-color
 
-    eslint-plugin-react-refresh@0.5.2(eslint@10.5.0(jiti@2.7.0)):
+    eslint-plugin-react-refresh@0.5.3(eslint@10.5.0(jiti@2.7.0)):
         dependencies:
             eslint: 10.5.0(jiti@2.7.0)
 
@@ -6614,7 +6614,7 @@ snapshots:
             react: 19.2.7
             scheduler: 0.27.0
 
-    react-hook-form@7.78.0(react@19.2.7):
+    react-hook-form@7.79.0(react@19.2.7):
         dependencies:
             react: 19.2.7
 
