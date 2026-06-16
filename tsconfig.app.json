@@ -50,13 +50,10 @@
     },
     "include": ["src"],
     "exclude": [
-        "node_modules",
-        "dist",
         "**/*.test.ts",
         "**/*.test.tsx",
         "src/__mocks__/*",
         "src/__tests__/*",
-        "src/main.tsx",
         "src/router.tsx",
         "src/routeTree.gen.ts"
     ]
