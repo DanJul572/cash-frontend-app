@@ -39,6 +39,7 @@
             "@layouts/*": ["./src/layouts/*"],
             "@locales/*": ["./src/locales/*"],
             "@mappers/*": ["./src/mappers/*"],
+            "@mocks/*": ["./src/mocks/*"],
             "@queries/*": ["./src/queries/*"],
             "@requests/*": ["./src/requests/*"],
             "@schemas/*": ["./src/schemas/*"],

@@ -21,6 +21,7 @@
         "^@layouts/(.*)$",
         "^@locales/(.*)$",
         "^@mappers/(.*)$",
+        "^@mocks/(.*)$",
         "^@queries/(.*)$",
         "^@requests/(.*)$",
         "^@schemas/(.*)$",
