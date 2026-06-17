@@ -14,25 +14,28 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { RouterProvider } from '@tanstack/react-router';
 
 import { PageLoaderComponent } from './components';
-import { queryClientConfig, setRouter, themeConfig } from './configs';
+import { themeConfig } from './configs';
+import { setRouter, queryClientInstance } from './instances';
 import { router } from './router';
-import { initTranslation, showVersionInfo } from './utils';
+import { enableMocking, initTranslation, showVersionInfo } from './utils';
 
 initTranslation();
 setRouter(router);
 showVersionInfo();
 
-createRoot(document.getElementById('root')!).render(
-    <StrictMode>
-        <QueryClientProvider client={queryClientConfig}>
-            <ThemeProvider theme={themeConfig}>
-                <CssBaseline />
-                <RouterProvider
-                    router={router}
-                    context={{ queryClient: queryClientConfig }}
-                    defaultPendingComponent={PageLoaderComponent}
-                />
-            </ThemeProvider>
-        </QueryClientProvider>
-    </StrictMode>,
-);
+enableMocking().then(() => {
+    createRoot(document.getElementById('root')!).render(
+        <StrictMode>
+            <QueryClientProvider client={queryClientInstance}>
+                <ThemeProvider theme={themeConfig}>
+                    <CssBaseline />
+                    <RouterProvider
+                        router={router}
+                        context={{ queryClient: queryClientInstance }}
+                        defaultPendingComponent={PageLoaderComponent}
+                    />
+                </ThemeProvider>
+            </QueryClientProvider>
+        </StrictMode>,
+    );
+});

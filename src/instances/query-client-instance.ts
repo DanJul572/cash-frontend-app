@@ -1,7 +1,7 @@
 import { QueryClient } from '@tanstack/react-query';
 import { isAxios401Error } from '@utils';
 
-export const queryClientConfig = new QueryClient({
+export const queryClientInstance = new QueryClient({
     defaultOptions: {
         queries: {
             retry: (failureCount, error) => {
