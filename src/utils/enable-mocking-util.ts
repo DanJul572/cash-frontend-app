@@ -1,13 +1,14 @@
 import { setupWorker } from 'msw/browser';
 
-import { mockConfig } from '@configs';
 import { authMock } from '@mocks';
+
+const enableMockingApiResponse = import.meta.env.VITE_ENABLE_MOCK === 'true';
 
 const handlers = [...authMock];
 const worker = setupWorker(...handlers);
 
 const enableMocking = async () => {
-    if (!mockConfig.enabled) return;
+    if (!enableMockingApiResponse) return;
     return worker.start({
         onUnhandledRequest: 'bypass',
     });

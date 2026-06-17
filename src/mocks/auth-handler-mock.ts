@@ -1,8 +1,8 @@
 import { http, HttpResponse, delay } from 'msw';
 
-import { mockConfig } from '@configs';
 import { AuthEndpoint } from '@endpoints';
 import type { ApiResponseType, AuthMeResponseType } from '@types';
+import { getApiUrl } from '@utils';
 
 const mockAuthMeData: ApiResponseType<AuthMeResponseType> = {
     status: true,
@@ -15,7 +15,7 @@ const mockAuthMeData: ApiResponseType<AuthMeResponseType> = {
 };
 
 export const authMock = [
-    http.get(`${mockConfig.baseURL}${AuthEndpoint.me}`, async () => {
+    http.get(`${getApiUrl(AuthEndpoint.me)}`, async () => {
         await delay(300);
         return HttpResponse.json(mockAuthMeData);
     }),
