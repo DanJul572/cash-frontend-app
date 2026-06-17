@@ -1,1 +1,1 @@
-export * from './auth-handler-mock';
+export * from './auth-request-mock';
