@@ -1,12 +1,16 @@
-import { mockConfig } from '@mocks/mock';
+import { setupWorker } from 'msw/browser';
 
-async function enableMocking() {
+import { mockConfig } from '@configs';
+import { authMock } from '@mocks';
+
+const handlers = [...authMock];
+const worker = setupWorker(...handlers);
+
+const enableMocking = async () => {
     if (!mockConfig.enabled) return;
-
-    const { worker } = await import('@mocks/browser');
     return worker.start({
-        onUnhandledRequest: 'bypass', // request selain yang di-mock tetap jalan normal
+        onUnhandledRequest: 'bypass',
     });
-}
+};
 
 export { enableMocking };
