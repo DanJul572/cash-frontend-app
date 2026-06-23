@@ -1,11 +1,9 @@
 import { setupWorker } from 'msw/browser';
 
-import { authMeRequestMock } from '@mocks';
+import { requestMockListConfig } from '@configs';
 
 const enableMockingApiResponse = import.meta.env.VITE_ENABLE_MOCK === 'true';
-
-const handlers = [...authMeRequestMock];
-const worker = setupWorker(...handlers);
+const worker = setupWorker(...requestMockListConfig);
 
 const enableMocking = async () => {
     if (!enableMockingApiResponse) return;
