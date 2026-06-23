@@ -1,3 +1,1 @@
-export const requestMockScenarioConfig = {
-    scenarios: ['auth-me:200'],
-};
+export const requestMockScenarioConfig = ['auth-me:200'];
