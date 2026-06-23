@@ -14,7 +14,7 @@ const mockAuthMeData: ApiResponseType<AuthMeResponseType> = {
     },
 };
 
-export const authMeRequestMock = [
+export const authMeRequest200Mock = [
     http.get(`${getApiUrl(AuthEndpoint.me)}`, async () => {
         await delay(300);
         return HttpResponse.json(mockAuthMeData);
