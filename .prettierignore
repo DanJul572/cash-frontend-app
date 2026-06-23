@@ -1,5 +1,6 @@
 # Ignore artifacts:
-build
+dist
+dist-app
 coverage
 src/routeTree.gen.ts
 public/mockServiceWorker.ts
