@@ -25,7 +25,7 @@
         "prepare": "husky",
         "lint": "eslint .",
         "format": "prettier . --write",
-        "verdaccio": "node publish.cjs"
+        "publish:verdaccio": "node publish.cjs"
     },
     "dependencies": {
         "@emotion/react": "^11.14.0",
