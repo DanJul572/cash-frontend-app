@@ -30,7 +30,7 @@ export default function LoginPage() {
                     </Alert>
                 )}
                 <Typography variant="h6" color="primary">
-                    {t('label')}
+                    {t('login')}
                 </Typography>
                 <Card sx={loginStyle.card}>
                     <Controller

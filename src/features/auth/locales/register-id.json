@@ -1,5 +1,4 @@
 {
-    "label": "Daftar",
     "name": {
         "label": "Nama",
         "validation": {
@@ -30,8 +29,5 @@
     },
     "register": "Daftar",
     "login": "Masuk",
-    "haveAccount": "Sudah punya akun?",
-    "success": {
-        "registerSuccess": "Pendaftaran berhasil! Anda sekarang dapat masuk."
-    }
+    "haveAccount": "Sudah punya akun?"
 }

@@ -30,7 +30,7 @@ export default function RegisterPage() {
                     </Alert>
                 )}
                 <Typography variant="h6" color="primary">
-                    {t('label')}
+                    {t('login')}
                 </Typography>
                 <Card sx={registerStyle.card}>
                     <Controller

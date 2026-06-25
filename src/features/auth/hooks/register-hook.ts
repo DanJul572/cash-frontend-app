@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import { getErrorMessageUtil } from '@utils';
 
 import { usePostRegisterMutation } from '../mutations';
 import { registerFormSchema } from '../schemas';
@@ -24,16 +25,13 @@ export default function useRegister() {
 
     const onSubmit = (values: RegisterFormType) => {
         mutation.mutate(values, {
-            onSuccess: () => {
-                setAlert({
-                    type: 'success',
-                    message: t('success.registerSuccess'),
-                });
+            onSuccess: (res) => {
+                console.log(res);
             },
             onError: (error) => {
                 setAlert({
                     type: 'error',
-                    message: error.message,
+                    message: getErrorMessageUtil(error.message),
                 });
             },
         });
