@@ -17,5 +17,6 @@
     "error": {
         "loginFailed": "Login failed. Please check your credentials and try again."
     },
-    "goToRegister": "Don't have an account? Register"
+    "register": "Register",
+    "dontHaveAccount": "Don't have an account?"
 }

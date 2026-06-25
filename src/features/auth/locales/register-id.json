@@ -29,7 +29,8 @@
         }
     },
     "register": "Daftar",
-    "goToLogin": "Sudah punya akun? Masuk",
+    "login": "Masuk",
+    "haveAccount": "Sudah punya akun?",
     "success": {
         "registerSuccess": "Pendaftaran berhasil! Anda sekarang dapat masuk."
     }

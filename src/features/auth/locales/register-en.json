@@ -29,7 +29,8 @@
         }
     },
     "register": "Register",
-    "goToLogin": "Already have an account? Login",
+    "login": "Login",
+    "haveAccount": "Already have an account?",
     "success": {
         "registerSuccess": "Registration successful! You can now login."
     }

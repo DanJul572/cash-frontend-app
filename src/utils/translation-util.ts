@@ -3,8 +3,8 @@ import { initReactI18next } from 'react-i18next';
 import i18n from 'i18next';
 
 import { languageConfig } from '@configs';
-import loginEN from '@features/auth/locales/en.json';
-import loginID from '@features/auth/locales/id.json';
+import loginEN from '@features/auth/locales/login-en.json';
+import loginID from '@features/auth/locales/login-id.json';
 import registerEN from '@features/auth/locales/register-en.json';
 import registerID from '@features/auth/locales/register-id.json';
 import commonEN from '@locales/en.json';

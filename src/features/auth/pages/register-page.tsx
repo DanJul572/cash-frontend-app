@@ -4,6 +4,7 @@ import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
+import MuiLink from '@mui/material/Link';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
@@ -28,8 +29,10 @@ export default function RegisterPage() {
                         {alert.message}
                     </Alert>
                 )}
+                <Typography variant="h6" color="primary">
+                    {t('label')}
+                </Typography>
                 <Card sx={registerStyle.card}>
-                    <Typography>{t('label')}</Typography>
                     <Controller
                         name="name"
                         control={form.control}
@@ -87,7 +90,7 @@ export default function RegisterPage() {
                         )}
                     />
                     <Button
-                        variant="outlined"
+                        variant="contained"
                         fullWidth
                         type="submit"
                         disabled={mutation.isPending}
@@ -95,9 +98,12 @@ export default function RegisterPage() {
                     >
                         {t('register')}
                     </Button>
-                    <Button variant="text" fullWidth component={Link} to="/login">
-                        {t('goToLogin')}
-                    </Button>
+                    <Typography>
+                        {t('haveAccount')}{' '}
+                        <MuiLink component={Link} to="/login">
+                            {t('login')}
+                        </MuiLink>
+                    </Typography>
                 </Card>
             </Box>
         </form>

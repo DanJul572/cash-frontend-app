@@ -6,6 +6,7 @@ const containerStyle: SxProps<Theme> = {
     alignItems: 'center',
     justifyContent: 'center',
     height: '100vh',
+    gap: 1,
 };
 
 const cardStyle: SxProps<Theme> = {
