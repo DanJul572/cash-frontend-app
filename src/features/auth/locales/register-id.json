@@ -1,0 +1,36 @@
+{
+    "label": "Daftar",
+    "name": {
+        "label": "Nama",
+        "validation": {
+            "required": "Nama harus diisi",
+            "minLength": "Nama harus memiliki setidaknya {{minLengthName}} karakter"
+        }
+    },
+    "email": {
+        "label": "Email",
+        "validation": {
+            "required": "Email harus diisi",
+            "invalidFormat": "Silakan masukkan alamat email yang valid"
+        }
+    },
+    "password": {
+        "label": "Kata Sandi",
+        "validation": {
+            "required": "Kata sandi harus diisi",
+            "minLength": "Kata sandi harus memiliki setidaknya {{minLengthPassword}} karakter"
+        }
+    },
+    "confirmPassword": {
+        "label": "Konfirmasi Kata Sandi",
+        "validation": {
+            "required": "Konfirmasi kata sandi harus diisi",
+            "mismatch": "Kata sandi tidak cocok"
+        }
+    },
+    "register": "Daftar",
+    "goToLogin": "Sudah punya akun? Masuk",
+    "success": {
+        "registerSuccess": "Pendaftaran berhasil! Anda sekarang dapat masuk."
+    }
+}

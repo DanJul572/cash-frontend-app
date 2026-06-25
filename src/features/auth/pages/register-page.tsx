@@ -11,25 +11,39 @@ import { useTitle } from '@hooks';
 import { Link } from '@tanstack/react-router';
 
 import { PasswordFieldComponent } from '../components';
-import { loginConfig } from '../configs';
-import { useLogin } from '../hooks';
-import { loginStyle } from '../styles';
+import { registerConfig } from '../configs';
+import { useRegister } from '../hooks';
+import { registerStyle } from '../styles';
 
-export default function LoginPage() {
-    useTitle('Login');
+export default function RegisterPage() {
+    useTitle('Register');
 
-    const { t, form, alert, mutation, onSubmit } = useLogin();
+    const { t, form, alert, mutation, onSubmit } = useRegister();
 
     return (
         <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
-            <Box sx={loginStyle.container}>
+            <Box sx={registerStyle.container}>
                 {alert && (
-                    <Alert severity={alert.type} sx={loginStyle.alert}>
+                    <Alert severity={alert.type} sx={registerStyle.alert}>
                         {alert.message}
                     </Alert>
                 )}
-                <Card sx={loginStyle.card}>
+                <Card sx={registerStyle.card}>
                     <Typography>{t('label')}</Typography>
+                    <Controller
+                        name="name"
+                        control={form.control}
+                        render={({ field, fieldState }) => (
+                            <TextField
+                                {...field}
+                                label={t('name.label')}
+                                variant="outlined"
+                                fullWidth
+                                error={!!fieldState.error}
+                                helperText={t(fieldState.error?.message || '')}
+                            />
+                        )}
+                    />
                     <Controller
                         name="email"
                         control={form.control}
@@ -54,7 +68,21 @@ export default function LoginPage() {
                                 variant="outlined"
                                 fullWidth
                                 error={!!fieldState.error}
-                                helperText={t(fieldState.error?.message || '', loginConfig)}
+                                helperText={t(fieldState.error?.message || '', registerConfig)}
+                            />
+                        )}
+                    />
+                    <Controller
+                        name="confirmPassword"
+                        control={form.control}
+                        render={({ field, fieldState }) => (
+                            <PasswordFieldComponent
+                                {...field}
+                                label={t('confirmPassword.label')}
+                                variant="outlined"
+                                fullWidth
+                                error={!!fieldState.error}
+                                helperText={t(fieldState.error?.message || '', registerConfig)}
                             />
                         )}
                     />
@@ -65,10 +93,10 @@ export default function LoginPage() {
                         disabled={mutation.isPending}
                         loading={mutation.isPending}
                     >
-                        {t('login')}
+                        {t('register')}
                     </Button>
-                    <Button variant="text" fullWidth component={Link} to="/register">
-                        {t('goToRegister')}
+                    <Button variant="text" fullWidth component={Link} to="/login">
+                        {t('goToLogin')}
                     </Button>
                 </Card>
             </Box>

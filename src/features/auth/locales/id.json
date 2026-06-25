@@ -16,5 +16,6 @@
     },
     "error": {
         "loginFailed": "Login gagal. Silakan periksa kredensial Anda dan coba lagi."
-    }
+    },
+    "goToRegister": "Belum punya akun? Daftar"
 }

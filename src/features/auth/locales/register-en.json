@@ -1,0 +1,36 @@
+{
+    "label": "Register",
+    "name": {
+        "label": "Name",
+        "validation": {
+            "required": "Name is required",
+            "minLength": "Name must be at least {{minLengthName}} characters"
+        }
+    },
+    "email": {
+        "label": "Email",
+        "validation": {
+            "required": "Email is required",
+            "invalidFormat": "Please enter a valid email address"
+        }
+    },
+    "password": {
+        "label": "Password",
+        "validation": {
+            "required": "Password is required",
+            "minLength": "Password must be at least {{minLengthPassword}} characters"
+        }
+    },
+    "confirmPassword": {
+        "label": "Confirm Password",
+        "validation": {
+            "required": "Confirm password is required",
+            "mismatch": "Passwords do not match"
+        }
+    },
+    "register": "Register",
+    "goToLogin": "Already have an account? Login",
+    "success": {
+        "registerSuccess": "Registration successful! You can now login."
+    }
+}
