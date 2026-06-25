@@ -16,6 +16,7 @@
     "error": {
         "loginFailed": "Login gagal. Silakan periksa kredensial Anda dan coba lagi."
     },
-    "register": "Register",
+    "login": "Masuk",
+    "register": "Daftar",
     "dontHaveAccount": "Belum punya akun?"
 }

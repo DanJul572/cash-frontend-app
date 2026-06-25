@@ -27,7 +27,7 @@
             "mismatch": "Kata sandi tidak cocok"
         }
     },
-    "register": "Daftar",
     "login": "Masuk",
+    "register": "Daftar",
     "haveAccount": "Sudah punya akun?"
 }

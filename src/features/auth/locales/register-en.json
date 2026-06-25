@@ -27,10 +27,7 @@
             "mismatch": "Passwords do not match"
         }
     },
-    "register": "Register",
     "login": "Login",
-    "haveAccount": "Already have an account?",
-    "success": {
-        "registerSuccess": "Registration successful! You can now login."
-    }
+    "register": "Register",
+    "haveAccount": "Already have an account?"
 }
