@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import { getErrorMessageUtil } from '@utils';
 
 import { usePostLoginMutation } from '../mutations';
 import { loginFormSchema } from '../schemas';
@@ -34,7 +35,7 @@ export default function useLogin() {
         onError: (error) => {
             setAlert({
                 type: 'error',
-                message: error.message || t('error.loginFailed'),
+                message: getErrorMessageUtil(error),
             });
         },
     });
