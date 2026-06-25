@@ -1,26 +1,19 @@
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
-import TextField from '@mui/material/TextField';
+import TextField, { type TextFieldProps } from '@mui/material/TextField';
 
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
-import { loginConfig } from '../configs';
 import { usePasswordField } from '../hooks';
-import type { PasswordFieldComponent } from '../types';
 
-export default function PasswordFieldComponent({ field, fieldState }: PasswordFieldComponent) {
-    const { showPassword, setShowPassword, t } = usePasswordField();
+export default function PasswordFieldComponent(props: TextFieldProps) {
+    const { showPassword, setShowPassword } = usePasswordField();
 
     return (
         <TextField
-            {...field}
-            label={t('password.label')}
-            variant="outlined"
+            {...props}
             type={showPassword ? 'text' : 'password'}
-            fullWidth
-            error={!!fieldState.error}
-            helperText={t(fieldState.error?.message || '', loginConfig)}
             slotProps={{
                 input: {
                     endAdornment: (
