@@ -7,10 +7,10 @@ import LayersIcon from '@mui/icons-material/Layers';
 
 import { useBuilderStateHook } from '../hooks';
 import type { SchemaNodeType } from '../types';
-import { ComponentPalette } from './ComponentPalette';
 import { JsonPreview } from './JsonPreview';
 import { PropertiesPanel } from './PropertiesPanel';
 import { TreeNode } from './TreeNode';
+import ComponentPaletteComponent from './component-palette-component';
 
 const panelSx = {
     p: 2,
@@ -53,7 +53,7 @@ export const ContentStructureBuilder: React.FC = () => {
             <Box sx={{ display: 'flex', gap: 1, flex: 1, minHeight: 0 }}>
                 {/* Left: palette — fixed height, no scroll */}
                 <Paper sx={{ ...panelSx, flexShrink: 0, height: '100%', overflow: 'hidden' }}>
-                    <ComponentPalette onAdd={addToRoot} />
+                    <ComponentPaletteComponent onAdd={addToRoot} />
                 </Paper>
 
                 {/* Middle: tree — scrolls when content overflows */}

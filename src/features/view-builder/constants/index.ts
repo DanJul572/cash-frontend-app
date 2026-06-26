@@ -1,1 +1,2 @@
-export * from './node-type-contant';
+export * from './component-constant';
+export * from './node-type-constant';
