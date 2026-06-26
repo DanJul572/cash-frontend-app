@@ -4,6 +4,12 @@ import { isAxios401Error } from '@utils';
 
 import type { router } from '../router';
 
+declare module 'axios' {
+    interface AxiosRequestConfig {
+        _skipAuthRedirect?: boolean;
+    }
+}
+
 type AppRouter = typeof router;
 
 let routerInstance: AppRouter | null = null;
@@ -20,7 +26,7 @@ const axiosInstance = axios.create({
 axiosInstance.interceptors.response.use(
     (response) => response,
     (error) => {
-        if (isAxios401Error(error)) {
+        if (isAxios401Error(error) && !error.config?._skipAuthRedirect) {
             if (routerInstance) {
                 routerInstance.navigate({ to: '/login', replace: true });
             } else {

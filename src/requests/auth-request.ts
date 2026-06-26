@@ -6,7 +6,9 @@ import { isAxios401Error } from '@utils';
 
 export const authMeRequest = async () => {
     try {
-        const response = await axiosInstance.get<AuthMeResponseType>(AuthEndpoint.me);
+        const response = await axiosInstance.get<AuthMeResponseType>(AuthEndpoint.me, {
+            _skipAuthRedirect: true,
+        });
         const result = authMeResponseMapper.parse(response.data);
         console.log('haha', result);
         return result;
