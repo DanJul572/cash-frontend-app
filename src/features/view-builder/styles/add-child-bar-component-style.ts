@@ -1,13 +1,14 @@
 import type { SxProps, Theme } from '@mui/material';
 
-const containerStyle: SxProps<Theme> = {
+const containerStyle = {
     display: 'flex',
     flexWrap: 'wrap',
     gap: 0.5,
     alignItems: 'center',
     mt: 0.5,
 };
-const buttonStyle: SxProps<Theme> = {
+
+const buttonStyle = {
     fontSize: 11,
     minWidth: 0,
     px: 1,
@@ -17,7 +18,10 @@ const buttonStyle: SxProps<Theme> = {
     '&:hover': { bgcolor: 'primary.50' },
 };
 
-export const addChildBarComponentStyle: Record<string, SxProps<Theme>> = {
-    button: buttonStyle,
-    container: containerStyle,
-};
+const addIconStyle = { fontSize: 14, color: 'text.disabled' };
+
+export const addChildBarComponentStyle = {
+    addIconStyle,
+    buttonStyle,
+    containerStyle,
+} satisfies Record<string, SxProps<Theme>>;

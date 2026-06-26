@@ -8,8 +8,8 @@ import { addChildBarComponentStyle } from '../styles';
 import type { AddChildBarComponentPropsType } from '../types';
 
 const AddChildBarComponent = ({ onAdd }: AddChildBarComponentPropsType) => (
-    <Box sx={addChildBarComponentStyle.container}>
-        <AddIcon sx={{ fontSize: 14, color: 'text.disabled' }} />
+    <Box sx={addChildBarComponentStyle.containerStyle}>
+        <AddIcon sx={addChildBarComponentStyle.addIconStyle} />
         {NODE_TYPE_CONSTANT.map((t) => (
             <Button
                 key={t}
@@ -18,7 +18,7 @@ const AddChildBarComponent = ({ onAdd }: AddChildBarComponentPropsType) => (
                     e.stopPropagation();
                     onAdd(t);
                 }}
-                sx={addChildBarComponentStyle.button}
+                sx={addChildBarComponentStyle.buttonStyle}
             >
                 {t}
             </Button>
