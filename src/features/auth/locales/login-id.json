@@ -18,5 +18,6 @@
     },
     "login": "Masuk",
     "register": "Daftar",
+    "forgotPassword": "Lupa Kata Sandi?",
     "dontHaveAccount": "Belum punya akun?"
 }

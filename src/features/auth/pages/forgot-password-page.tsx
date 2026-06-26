@@ -11,28 +11,26 @@ import Typography from '@mui/material/Typography';
 import { useTitle } from '@hooks';
 import { Link } from '@tanstack/react-router';
 
-import { PasswordFieldComponent } from '../components';
-import { loginConfig } from '../configs';
-import { useLogin } from '../hooks';
-import { loginStyle } from '../styles';
+import { useForgotPassword } from '../hooks';
+import { forgotPasswordStyle } from '../styles';
 
-export default function LoginPage() {
-    useTitle('Login');
+export default function ForgotPasswordPage() {
+    useTitle('Forgot Password');
 
-    const { t, form, alert, mutation, onSubmit } = useLogin();
+    const { t, form, alert, mutation, onSubmit } = useForgotPassword();
 
     return (
         <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
-            <Box sx={loginStyle.container}>
+            <Box sx={forgotPasswordStyle.container}>
                 {alert && (
-                    <Alert severity={alert.type} sx={loginStyle.alert}>
+                    <Alert severity={alert.type} sx={forgotPasswordStyle.alert}>
                         {alert.message}
                     </Alert>
                 )}
                 <Typography variant="h6" color="primary">
-                    {t('login')}
+                    {t('forgotPassword')}
                 </Typography>
-                <Card sx={loginStyle.card}>
+                <Card sx={forgotPasswordStyle.card}>
                     <Controller
                         name="email"
                         control={form.control}
@@ -47,20 +45,6 @@ export default function LoginPage() {
                             />
                         )}
                     />
-                    <Controller
-                        name="password"
-                        control={form.control}
-                        render={({ field, fieldState }) => (
-                            <PasswordFieldComponent
-                                {...field}
-                                label={t('password.label')}
-                                variant="outlined"
-                                fullWidth
-                                error={!!fieldState.error}
-                                helperText={t(fieldState.error?.message || '', loginConfig)}
-                            />
-                        )}
-                    />
                     <Button
                         variant="contained"
                         fullWidth
@@ -68,17 +52,11 @@ export default function LoginPage() {
                         disabled={mutation.isPending}
                         loading={mutation.isPending}
                     >
-                        {t('login')}
+                        {t('submit')}
                     </Button>
                     <Typography>
-                        <MuiLink component={Link} to="/forgot-password">
-                            {t('forgotPassword')}
-                        </MuiLink>
-                    </Typography>
-                    <Typography>
-                        {t('dontHaveAccount')}{' '}
-                        <MuiLink component={Link} to="/register">
-                            {t('register')}
+                        <MuiLink component={Link} to="/login">
+                            {t('backToLogin')}
                         </MuiLink>
                     </Typography>
                 </Card>

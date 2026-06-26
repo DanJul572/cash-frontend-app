@@ -18,5 +18,6 @@
     },
     "login": "Login",
     "register": "Register",
+    "forgotPassword": "Forgot Password?",
     "dontHaveAccount": "Don't have an account?"
 }
