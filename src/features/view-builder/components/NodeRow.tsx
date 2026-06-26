@@ -8,7 +8,7 @@ import GridViewIcon from '@mui/icons-material/GridView';
 import InputIcon from '@mui/icons-material/Input';
 import SmartButtonIcon from '@mui/icons-material/SmartButton';
 
-import type { SchemaNode } from '../types/schema';
+import type { SchemaNodeType } from '../types';
 
 const TYPE_META: Record<
     string,
@@ -21,7 +21,7 @@ const TYPE_META: Record<
 };
 
 interface Props {
-    node: SchemaNode;
+    node: SchemaNodeType;
     selected: boolean;
     onSelect: () => void;
     onDelete: () => void;

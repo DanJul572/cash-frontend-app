@@ -1,16 +1,20 @@
 import React from 'react';
 
-import { Box, Button, IconButton, Tooltip, Typography } from '@mui/material';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
+import Typography from '@mui/material/Typography';
 
 import AddIcon from '@mui/icons-material/Add';
 import Delete from '@mui/icons-material/Delete';
 
-import type { SchemaNode, ComponentType } from '../types/schema';
+import type { SchemaNodeType, ComponentType } from '../types';
 import { AddChildBar } from './AddChildBar';
 import { NodeRow } from './NodeRow';
 
 interface Props {
-    node: SchemaNode;
+    node: SchemaNodeType;
     selectedId: string | null;
     onSelect: (id: string) => void;
     onDelete: (id: string) => void;

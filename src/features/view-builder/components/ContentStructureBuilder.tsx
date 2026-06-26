@@ -1,11 +1,12 @@
-import React from 'react';
-
-import { Box, Divider, Paper, Typography } from '@mui/material';
+import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
 
 import LayersIcon from '@mui/icons-material/Layers';
 
-import { useBuilderState } from '../hooks/useBuilderState';
-import type { SchemaNode } from '../types/schema';
+import { useBuilderStateHook } from '../hooks';
+import type { SchemaNodeType } from '../types';
 import { ComponentPalette } from './ComponentPalette';
 import { JsonPreview } from './JsonPreview';
 import { PropertiesPanel } from './PropertiesPanel';
@@ -32,23 +33,31 @@ export const ContentStructureBuilder: React.FC = () => {
         deleteNode,
         updateNode,
         toggleSelect,
-    } = useBuilderState();
+    } = useBuilderStateHook();
 
     return (
-        <Box sx={{ p: 3 }}>
-            <Box>
+        <Box sx={{ p: 3, height: '90vh', display: 'flex', flexDirection: 'column' }}>
+            <Box
+                sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 1,
+                    paddingBottom: 1,
+                    flexShrink: 0,
+                }}
+            >
                 <LayersIcon color="primary" />
                 <Typography variant="h6">Content Structure Builder</Typography>
             </Box>
 
-            <Box>
-                {/* Left: palette */}
-                <Paper sx={{ ...panelSx, width: 190, flexShrink: 0 }}>
+            <Box sx={{ display: 'flex', gap: 1, flex: 1, minHeight: 0 }}>
+                {/* Left: palette — fixed height, no scroll */}
+                <Paper sx={{ ...panelSx, flexShrink: 0, height: '100%', overflow: 'hidden' }}>
                     <ComponentPalette onAdd={addToRoot} />
                 </Paper>
 
-                {/* Middle: tree */}
-                <Paper sx={{ ...panelSx, flex: 1, minWidth: 0, maxHeight: 560, overflowY: 'auto' }}>
+                {/* Middle: tree — scrolls when content overflows */}
+                <Paper sx={{ ...panelSx, flex: 1, minWidth: 0, height: '100%', overflowY: 'auto' }}>
                     <Typography
                         variant="overline"
                         color="text.secondary"
@@ -82,12 +91,14 @@ export const ContentStructureBuilder: React.FC = () => {
                     )}
                 </Paper>
 
-                {/* Right: properties + json */}
+                {/* Right: properties + json — fixed height, no scroll */}
                 <Paper
                     sx={{
                         ...panelSx,
                         width: 240,
                         flexShrink: 0,
+                        height: '100%',
+                        overflow: 'hidden',
                         display: 'flex',
                         flexDirection: 'column',
                         gap: 0,
@@ -95,7 +106,9 @@ export const ContentStructureBuilder: React.FC = () => {
                 >
                     <PropertiesPanel
                         node={selectedNode}
-                        onChange={(id, updates) => updateNode(id, updates as Partial<SchemaNode>)}
+                        onChange={(id, updates) =>
+                            updateNode(id, updates as Partial<SchemaNodeType>)
+                        }
                     />
                     <Divider sx={{ my: 2 }} />
                     <JsonPreview nodes={nodes} />

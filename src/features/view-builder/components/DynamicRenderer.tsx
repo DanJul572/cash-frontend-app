@@ -1,8 +1,17 @@
-import React from 'react';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Grid from '@mui/material/Grid';
+import TextField from '@mui/material/TextField';
 
-import { Box, Button, Card, CardContent, Grid, TextField } from '@mui/material';
-
-import type { SchemaNode, ButtonNode, InputNode, CardNode, GridNode } from '../types/schema';
+import type {
+    ButtonNodeType,
+    CardNodeType,
+    GridNodeType,
+    InputNodeType,
+    SchemaNodeType,
+} from '../types';
 
 // Map of handler names to actual functions.
 // Replace or extend this with your real handlers.
@@ -14,13 +23,13 @@ const defaultHandlers: HandlerMap = {
 };
 
 interface RenderNodeProps {
-    node: SchemaNode;
+    node: SchemaNodeType;
     handlers?: HandlerMap;
 }
 
 export const RenderNode: React.FC<RenderNodeProps> = ({ node, handlers = defaultHandlers }) => {
     if (node.type === 'card') {
-        const card = node as CardNode;
+        const card = node as CardNodeType;
         return (
             <Card elevation={card.elevation} sx={{ mb: 2 }}>
                 <CardContent>
@@ -33,7 +42,7 @@ export const RenderNode: React.FC<RenderNodeProps> = ({ node, handlers = default
     }
 
     if (node.type === 'grid') {
-        const grid = node as GridNode;
+        const grid = node as GridNodeType;
         return (
             <Box sx={{ mb: 2 }}>
                 {grid.rows.map((row, ri) => (
@@ -53,7 +62,7 @@ export const RenderNode: React.FC<RenderNodeProps> = ({ node, handlers = default
     }
 
     if (node.type === 'button') {
-        const btn = node as ButtonNode;
+        const btn = node as ButtonNodeType;
         return (
             <Button
                 variant={btn.variant}
@@ -67,7 +76,7 @@ export const RenderNode: React.FC<RenderNodeProps> = ({ node, handlers = default
     }
 
     if (node.type === 'input') {
-        const inp = node as InputNode;
+        const inp = node as InputNodeType;
         return (
             <TextField
                 fullWidth
@@ -84,10 +93,8 @@ export const RenderNode: React.FC<RenderNodeProps> = ({ node, handlers = default
 
     return null;
 };
-
-// Top-level renderer for an entire schema
 interface DynamicLayoutProps {
-    schema: SchemaNode[];
+    schema: SchemaNodeType[];
     handlers?: HandlerMap;
 }
 

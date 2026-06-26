@@ -1,13 +1,14 @@
-import React from 'react';
-
-import { Box, Button, Divider, Typography } from '@mui/material';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import GridViewIcon from '@mui/icons-material/GridView';
 import InputIcon from '@mui/icons-material/Input';
 import SmartButtonIcon from '@mui/icons-material/SmartButton';
 
-import type { ComponentType } from '../types/schema';
+import type { ComponentType } from '../types';
 
 interface Props {
     onAdd: (type: ComponentType) => void;

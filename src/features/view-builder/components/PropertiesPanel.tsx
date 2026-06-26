@@ -1,12 +1,22 @@
-import React from 'react';
+import Box from '@mui/material/Box';
+import Chip from '@mui/material/Chip';
+import Divider from '@mui/material/Divider';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
 
-import { Box, Chip, Divider, MenuItem, Select, TextField, Typography } from '@mui/material';
-
-import type { SchemaNode, ButtonNode, InputNode, CardNode, GridNode } from '../types/schema';
+import type {
+    SchemaNodeType,
+    ButtonNodeType,
+    InputNodeType,
+    CardNodeType,
+    GridNodeType,
+} from '../types';
 
 interface Props {
-    node: SchemaNode | null;
-    onChange: (id: string, updates: Partial<SchemaNode>) => void;
+    node: SchemaNodeType | null;
+    onChange: (id: string, updates: Partial<SchemaNodeType>) => void;
 }
 
 export const PropertiesPanel: React.FC<Props> = ({ node, onChange }) => {
@@ -49,7 +59,7 @@ export const PropertiesPanel: React.FC<Props> = ({ node, onChange }) => {
                         fullWidth
                         value={node.label}
                         onChange={(e) =>
-                            onChange(node.id, { label: e.target.value } as Partial<SchemaNode>)
+                            onChange(node.id, { label: e.target.value } as Partial<SchemaNodeType>)
                         }
                     />,
                 )}
@@ -61,11 +71,11 @@ export const PropertiesPanel: React.FC<Props> = ({ node, onChange }) => {
                             size="small"
                             type="number"
                             fullWidth
-                            value={(node as CardNode).elevation}
+                            value={(node as CardNodeType).elevation}
                             onChange={(e) =>
                                 onChange(node.id, {
                                     elevation: parseInt(e.target.value) || 0,
-                                } as Partial<CardNode>)
+                                } as Partial<CardNodeType>)
                             }
                         />,
                     )}
@@ -77,11 +87,11 @@ export const PropertiesPanel: React.FC<Props> = ({ node, onChange }) => {
                             size="small"
                             type="number"
                             fullWidth
-                            value={(node as GridNode).spacing}
+                            value={(node as GridNodeType).spacing}
                             onChange={(e) =>
                                 onChange(node.id, {
                                     spacing: parseInt(e.target.value) || 0,
-                                } as Partial<GridNode>)
+                                } as Partial<GridNodeType>)
                             }
                         />,
                     )}
@@ -93,11 +103,11 @@ export const PropertiesPanel: React.FC<Props> = ({ node, onChange }) => {
                             <Select
                                 size="small"
                                 sx={sx}
-                                value={(node as ButtonNode).variant}
+                                value={(node as ButtonNodeType).variant}
                                 onChange={(e) =>
                                     onChange(node.id, {
                                         variant: e.target.value,
-                                    } as Partial<ButtonNode>)
+                                    } as Partial<ButtonNodeType>)
                                 }
                             >
                                 <MenuItem value="contained">contained</MenuItem>
@@ -110,11 +120,11 @@ export const PropertiesPanel: React.FC<Props> = ({ node, onChange }) => {
                             <Select
                                 size="small"
                                 sx={sx}
-                                value={(node as ButtonNode).color}
+                                value={(node as ButtonNodeType).color}
                                 onChange={(e) =>
                                     onChange(node.id, {
                                         color: e.target.value,
-                                    } as Partial<ButtonNode>)
+                                    } as Partial<ButtonNodeType>)
                                 }
                             >
                                 <MenuItem value="primary">primary</MenuItem>
@@ -128,12 +138,12 @@ export const PropertiesPanel: React.FC<Props> = ({ node, onChange }) => {
                             <TextField
                                 size="small"
                                 fullWidth
-                                value={(node as ButtonNode).onClick}
+                                value={(node as ButtonNodeType).onClick}
                                 placeholder="handleClick"
                                 onChange={(e) =>
                                     onChange(node.id, {
                                         onClick: e.target.value,
-                                    } as Partial<ButtonNode>)
+                                    } as Partial<ButtonNodeType>)
                                 }
                             />,
                         )}
@@ -147,11 +157,11 @@ export const PropertiesPanel: React.FC<Props> = ({ node, onChange }) => {
                             <Select
                                 size="small"
                                 sx={sx}
-                                value={(node as InputNode).inputType}
+                                value={(node as InputNodeType).inputType}
                                 onChange={(e) =>
                                     onChange(node.id, {
                                         inputType: e.target.value,
-                                    } as Partial<InputNode>)
+                                    } as Partial<InputNodeType>)
                                 }
                             >
                                 <MenuItem value="text">text</MenuItem>
@@ -165,11 +175,11 @@ export const PropertiesPanel: React.FC<Props> = ({ node, onChange }) => {
                             <TextField
                                 size="small"
                                 fullWidth
-                                value={(node as InputNode).placeholder}
+                                value={(node as InputNodeType).placeholder}
                                 onChange={(e) =>
                                     onChange(node.id, {
                                         placeholder: e.target.value,
-                                    } as Partial<InputNode>)
+                                    } as Partial<InputNodeType>)
                                 }
                             />,
                         )}
@@ -178,12 +188,12 @@ export const PropertiesPanel: React.FC<Props> = ({ node, onChange }) => {
                             <TextField
                                 size="small"
                                 fullWidth
-                                value={(node as InputNode).onChange}
+                                value={(node as InputNodeType).onChange}
                                 placeholder="handleChange"
                                 onChange={(e) =>
                                     onChange(node.id, {
                                         onChange: e.target.value,
-                                    } as Partial<InputNode>)
+                                    } as Partial<InputNodeType>)
                                 }
                             />,
                         )}

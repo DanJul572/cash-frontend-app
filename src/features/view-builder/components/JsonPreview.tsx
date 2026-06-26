@@ -1,35 +1,42 @@
 import React, { useState } from 'react';
 
-import { Box, Button, Typography } from '@mui/material';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 
 import CheckIcon from '@mui/icons-material/Check';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
-import type { SchemaNode, CardNode, GridNode, ButtonNode, InputNode } from '../types/schema';
+import type {
+    SchemaNodeType,
+    CardNodeType,
+    GridNodeType,
+    ButtonNodeType,
+    InputNodeType,
+} from '../types';
 
-function toJson(list: SchemaNode[]): unknown[] {
+function toJson(list: SchemaNodeType[]): unknown[] {
     return list.map((n) => {
         const out: Record<string, unknown> = { id: n.id, type: n.type };
         if (n.label) out.label = n.label;
         if (n.type === 'button') {
-            const b = n as ButtonNode;
+            const b = n as ButtonNodeType;
             out.variant = b.variant;
             out.color = b.color;
             out.onClick = b.onClick || null;
         }
         if (n.type === 'input') {
-            const inp = n as InputNode;
+            const inp = n as InputNodeType;
             out.inputType = inp.inputType;
             if (inp.placeholder) out.placeholder = inp.placeholder;
             out.onChange = inp.onChange || null;
         }
         if (n.type === 'card') {
-            const c = n as CardNode;
+            const c = n as CardNodeType;
             out.elevation = c.elevation;
             out.children = toJson(c.children);
         }
         if (n.type === 'grid') {
-            const g = n as GridNode;
+            const g = n as GridNodeType;
             out.spacing = g.spacing;
             out.rows = g.rows.map((row) => ({ columns: toJson(row.columns) }));
         }
@@ -38,7 +45,7 @@ function toJson(list: SchemaNode[]): unknown[] {
 }
 
 interface Props {
-    nodes: SchemaNode[];
+    nodes: SchemaNodeType[];
 }
 
 export const JsonPreview: React.FC<Props> = ({ nodes }) => {
@@ -54,33 +61,6 @@ export const JsonPreview: React.FC<Props> = ({ nodes }) => {
 
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0 }}>
-            <Typography
-                variant="overline"
-                color="text.secondary"
-                sx={{ fontSize: 11, letterSpacing: '0.08em' }}
-            >
-                JSON Output
-            </Typography>
-            <Box
-                component="pre"
-                sx={{
-                    mt: 1,
-                    flex: 1,
-                    overflow: 'auto',
-                    bgcolor: 'grey.50',
-                    border: '0.5px solid',
-                    borderColor: 'divider',
-                    borderRadius: 1,
-                    p: 1.25,
-                    fontSize: 11,
-                    fontFamily: 'monospace',
-                    color: 'text.secondary',
-                    lineHeight: 1.5,
-                    minHeight: 120,
-                }}
-            >
-                {nodes.length ? json : '[]'}
-            </Box>
             <Button
                 fullWidth
                 startIcon={copied ? <CheckIcon /> : <ContentCopyIcon />}
