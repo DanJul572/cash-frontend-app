@@ -6,7 +6,7 @@ const containerStyle = {
     gap: 0.5,
     alignItems: 'center',
     mt: 0.5,
-};
+} as const satisfies SxProps<Theme>;
 
 const buttonStyle = {
     fontSize: 11,
@@ -16,9 +16,9 @@ const buttonStyle = {
     textTransform: 'none',
     color: 'primary.main',
     '&:hover': { bgcolor: 'primary.50' },
-};
+} as const satisfies SxProps<Theme>;
 
-const addIconStyle = { fontSize: 14, color: 'text.disabled' };
+const addIconStyle = { fontSize: 14, color: 'text.disabled' } as const satisfies SxProps<Theme>;
 
 export const addChildBarComponentStyle = {
     addIconStyle,
