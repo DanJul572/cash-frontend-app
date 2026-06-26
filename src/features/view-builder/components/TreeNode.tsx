@@ -10,8 +10,8 @@ import AddIcon from '@mui/icons-material/Add';
 import Delete from '@mui/icons-material/Delete';
 
 import type { SchemaNodeType, ComponentType } from '../types';
-import { AddChildBar } from './AddChildBar';
 import { NodeRow } from './NodeRow';
+import AddChildBarComponent from './add-child-bar-component';
 
 interface Props {
     node: SchemaNodeType;
@@ -50,7 +50,7 @@ export const TreeNode: React.FC<Props> = ({
                             onDeleteRow={onDeleteRow}
                         />
                     ))}
-                    <AddChildBar onAdd={(type) => onAddChild(node.id, type)} />
+                    <AddChildBarComponent onAdd={(type) => onAddChild(node.id, type)} />
                 </>
             );
         }
@@ -118,7 +118,7 @@ export const TreeNode: React.FC<Props> = ({
                                 />
                             ))}
 
-                            <AddChildBar onAdd={(type) => onAddChild(node.id, type)} />
+                            <AddChildBarComponent onAdd={(type) => onAddChild(node.id, type)} />
                         </Box>
                     ))}
 

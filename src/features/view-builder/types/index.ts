@@ -1,3 +1,4 @@
+export * from './add-child-bar-component-props-type';
 export * from './base-node-type';
 export * from './button-node-type';
 export * from './card-node-type';
