@@ -13,6 +13,21 @@ export const themeConfig = createTheme({
             dark: '#E64A19',
             light: '#FF8A65',
         },
+        info: {
+            main: '#2A6F97',
+            dark: '#1E4D6B',
+            light: '#7EC8E3',
+        },
+        warning: {
+            main: '#A67C3A',
+            dark: '#7A5C1E',
+            light: '#E6B566',
+        },
+        error: {
+            main: '#A83D46',
+            dark: '#7A2E35',
+            light: '#E89099',
+        },
         background: {
             default: '#0A1628',
             paper: '#102035',
