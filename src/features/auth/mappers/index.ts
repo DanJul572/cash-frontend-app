@@ -1,3 +1,5 @@
+export * from './change-password-form-mapper';
+export * from './change-password-response-mapper';
 export * from './forgot-password-form-mapper';
 export * from './forgot-password-response-mapper';
 export * from './login-form-mapper';

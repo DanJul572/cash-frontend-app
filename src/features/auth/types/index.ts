@@ -1,4 +1,6 @@
 export * from './alert-type';
+export * from './change-password-form-type';
+export * from './change-password-request-type';
 export * from './forgot-password-form-type';
 export * from './forgot-password-request-type';
 export * from './login-form-type';
