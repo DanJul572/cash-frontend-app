@@ -12,7 +12,7 @@ import {
     updateNodeInListUtil,
 } from '../utils';
 
-export function useBuilderStateHook() {
+export default function useViewBuilderPageHook() {
     const [nodes, setNodes] = useState<SchemaNodeType[]>([]);
     const [selectedId, setSelectedId] = useState<string | null>(null);
 

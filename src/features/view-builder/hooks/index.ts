@@ -1,1 +1,3 @@
-export * from './builder-state-hook';
+import useViewBuilderPageHook from './use-view-builder-page-hook';
+
+export { useViewBuilderPageHook };

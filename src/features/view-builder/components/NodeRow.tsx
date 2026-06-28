@@ -27,7 +27,7 @@ interface Props {
     onDelete: () => void;
 }
 
-export const NodeRow: React.FC<Props> = ({ node, selected, onSelect, onDelete }) => {
+const NodeRow: React.FC<Props> = ({ node, selected, onSelect, onDelete }) => {
     const meta = TYPE_META[node.type];
 
     return (
@@ -87,3 +87,5 @@ export const NodeRow: React.FC<Props> = ({ node, selected, onSelect, onDelete })
         </Box>
     );
 };
+
+export default NodeRow;

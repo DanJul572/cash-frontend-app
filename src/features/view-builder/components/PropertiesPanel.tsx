@@ -19,7 +19,7 @@ interface Props {
     onChange: (id: string, updates: Partial<SchemaNodeType>) => void;
 }
 
-export const PropertiesPanel: React.FC<Props> = ({ node, onChange }) => {
+const PropertiesPanel: React.FC<Props> = ({ node, onChange }) => {
     if (!node) {
         return (
             <Box sx={{ pt: 4, textAlign: 'center' }}>
@@ -233,3 +233,5 @@ export const PropertiesPanel: React.FC<Props> = ({ node, onChange }) => {
         </>
     );
 };
+
+export default PropertiesPanel;

@@ -98,10 +98,12 @@ interface DynamicLayoutProps {
     handlers?: HandlerMap;
 }
 
-export const DynamicLayout: React.FC<DynamicLayoutProps> = ({ schema, handlers }) => (
+const DynamicLayout: React.FC<DynamicLayoutProps> = ({ schema, handlers }) => (
     <>
         {schema.map((node) => (
             <RenderNode key={node.id} node={node} handlers={handlers} />
         ))}
     </>
 );
+
+export default DynamicLayout;

@@ -48,7 +48,7 @@ interface Props {
     nodes: SchemaNodeType[];
 }
 
-export const JsonPreview: React.FC<Props> = ({ nodes }) => {
+const JsonPreview: React.FC<Props> = ({ nodes }) => {
     const [copied, setCopied] = useState(false);
     const json = JSON.stringify(toJson(nodes), null, 2);
 
@@ -75,3 +75,5 @@ export const JsonPreview: React.FC<Props> = ({ nodes }) => {
         </Box>
     );
 };
+
+export default JsonPreview;

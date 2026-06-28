@@ -10,7 +10,7 @@ import AddIcon from '@mui/icons-material/Add';
 import Delete from '@mui/icons-material/Delete';
 
 import type { SchemaNodeType, ComponentType } from '../types';
-import { NodeRow } from './NodeRow';
+import NodeRow from './NodeRow';
 import AddChildBarComponent from './add-child-bar-component';
 
 interface Props {
@@ -23,7 +23,7 @@ interface Props {
     onDeleteRow: (parentId: string, rowIndex: number) => void;
 }
 
-export const TreeNode: React.FC<Props> = ({
+const TreeNode: React.FC<Props> = ({
     node,
     selectedId,
     onSelect,
@@ -163,3 +163,5 @@ export const TreeNode: React.FC<Props> = ({
         </Box>
     );
 };
+
+export default TreeNode;
