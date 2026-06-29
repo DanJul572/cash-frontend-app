@@ -38,11 +38,11 @@ importers:
                 specifier: ^9.7.0
                 version: 9.7.0(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.2.7))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.2.7))(@types/react@19.2.17)(react@19.2.7))(@mui/material@9.1.2(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.2.7))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.2.7))(@types/react@19.2.17)(react@19.2.7))(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(@mui/system@9.1.2(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.2.7))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.2.7))(@types/react@19.2.17)(react@19.2.7))(@types/react@19.2.17)(react@19.2.7))(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
             '@tanstack/react-query':
-                specifier: ^5.101.1
-                version: 5.101.1(react@19.2.7)
+                specifier: ^5.101.2
+                version: 5.101.2(react@19.2.7)
             '@tanstack/react-query-devtools':
-                specifier: ^5.101.1
-                version: 5.101.1(@tanstack/react-query@5.101.1(react@19.2.7))(react@19.2.7)
+                specifier: ^5.101.2
+                version: 5.101.2(@tanstack/react-query@5.101.2(react@19.2.7))(react@19.2.7)
             '@tanstack/react-router':
                 specifier: ^1.170.16
                 version: 1.170.16(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
@@ -103,7 +103,7 @@ importers:
                 version: 16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
             '@trivago/prettier-plugin-sort-imports':
                 specifier: ^6.0.2
-                version: 6.0.2(prettier@3.8.5)
+                version: 6.0.2(prettier@3.9.1)
             '@types/babel__core':
                 specifier: ^7.20.5
                 version: 7.20.5
@@ -147,11 +147,11 @@ importers:
                 specifier: ^2.14.6
                 version: 2.14.6(@types/node@26.0.1)(typescript@6.0.3)
             npm-check-updates:
-                specifier: ^22.2.7
-                version: 22.2.7
+                specifier: ^22.2.8
+                version: 22.2.8
             prettier:
-                specifier: 3.8.5
-                version: 3.8.5
+                specifier: 3.9.1
+                version: 3.9.1
             typescript:
                 specifier: 6.0.3
                 version: 6.0.3
@@ -1324,31 +1324,31 @@ packages:
             }
         engines: { node: '>=20.19' }
 
-    '@tanstack/query-core@5.101.1':
+    '@tanstack/query-core@5.101.2':
         resolution:
             {
-                integrity: sha512-Y6Y92dkXtNqx67m2pMSxUsA3zOCwv862JexZRP8/EPwvKXMPu9m8rv43spiXWzOUIggQ3SQApttALStzhA8B4g==,
+                integrity: sha512-hH5MLoJhF7KaIGd7q3xTXGXvslI+GYlM1Z/35aSHHWaCJWB7XvTSHYuV3eM7tw+aE0mT/xMro4M4Q9rCGHT0lw==,
             }
 
-    '@tanstack/query-devtools@5.101.1':
+    '@tanstack/query-devtools@5.101.2':
         resolution:
             {
-                integrity: sha512-37RQ9U2PxlXQiv1era2t+uHgVhmiyvxqTMu30+KoVf0rufiucu6rpGRKFJk61Wh5OAZFKqCQd6lxTzFWfLZiuQ==,
+                integrity: sha512-o+wHcqgN7Pp0s8v1i0UGq/ZrrEKrxdIiMQmKRdYb2w7NPtylYSJ4+wg/tIn71m9DLstwUwdEGAvROdly6HXP6w==,
             }
 
-    '@tanstack/react-query-devtools@5.101.1':
+    '@tanstack/react-query-devtools@5.101.2':
         resolution:
             {
-                integrity: sha512-OXFR9XKdEslraq3cpl3kCUeNvTIq/xGWEZiFZdn2bLB/q4WxSALMEDKYZ5yYjMQytsfnQxwQYqV4qtVEf0nuog==,
+                integrity: sha512-eU7HctdA9gDjqoERoEdzLbw9DiqnBDfh5+Hu0u26gjqoHJezOpQAuiesDL2VvkU+2cPV76zgv0tMZsOrI4LjnQ==,
             }
         peerDependencies:
-            '@tanstack/react-query': ^5.101.1
+            '@tanstack/react-query': ^5.101.2
             react: ^18 || ^19
 
-    '@tanstack/react-query@5.101.1':
+    '@tanstack/react-query@5.101.2':
         resolution:
             {
-                integrity: sha512-ZnONUuQKJe1bJMStXUL1s5uKN9FcfC28j5cK+iDZcdSHtUv1wtin1cGc/Oewhf2Oc4eKY7lggtpvT/AbMmhHew==,
+                integrity: sha512-seDkr6kzGzX1okaaTtZPtgA688CDPlXUz1C6xSg0ESqn04Vuc8tlrYms1s3de+znBqhPVxFRfpAfUf+6XvfPWg==,
             }
         peerDependencies:
             react: ^18 || ^19
@@ -3618,10 +3618,10 @@ packages:
             }
         engines: { node: '>=18' }
 
-    npm-check-updates@22.2.7:
+    npm-check-updates@22.2.8:
         resolution:
             {
-                integrity: sha512-Pzs/lTswEe23hT8JUXABl4vgrr0WRKOhw55wAldwngUflk8CwP+grXJt00yGjYiZf2wD1HIfdPa3xaOi1RCyZQ==,
+                integrity: sha512-jL2cs1TSDSj3ieDlMVFf0bZFVqLNtXt+ExvCMF1OYxR7PiVjFcmAP80rJFNOFrrt0KLyPqeRBZtD7xZu9emd8w==,
             }
         engines: { node: ^20.19.0 || ^22.12.0 || >=24.0.0, npm: '>=10.0.0' }
         hasBin: true
@@ -3791,10 +3791,10 @@ packages:
             }
         engines: { node: '>= 0.8.0' }
 
-    prettier@3.8.5:
+    prettier@3.9.1:
         resolution:
             {
-                integrity: sha512-zxcTTCedNGJM4R8sj/Cq/F0W/c4iE0afWBcBwMTRtw4WHYP9TWkYjdiH3npPRUYsXQCPR0hTU9yjovOu+E6EQA==,
+                integrity: sha512-ppiDo2CSwexck1eyZUwJHg/N3nf1+6IRCv7W/VJ5vaLnVCmB7+3CdRfMwoCHBBX6xTrREDTksZ4OZl5SSf4zXA==,
             }
         engines: { node: '>=14' }
         hasBin: true
@@ -5512,19 +5512,19 @@ snapshots:
 
     '@tanstack/history@1.162.0': {}
 
-    '@tanstack/query-core@5.101.1': {}
+    '@tanstack/query-core@5.101.2': {}
 
-    '@tanstack/query-devtools@5.101.1': {}
+    '@tanstack/query-devtools@5.101.2': {}
 
-    '@tanstack/react-query-devtools@5.101.1(@tanstack/react-query@5.101.1(react@19.2.7))(react@19.2.7)':
+    '@tanstack/react-query-devtools@5.101.2(@tanstack/react-query@5.101.2(react@19.2.7))(react@19.2.7)':
         dependencies:
-            '@tanstack/query-devtools': 5.101.1
-            '@tanstack/react-query': 5.101.1(react@19.2.7)
+            '@tanstack/query-devtools': 5.101.2
+            '@tanstack/react-query': 5.101.2(react@19.2.7)
             react: 19.2.7
 
-    '@tanstack/react-query@5.101.1(react@19.2.7)':
+    '@tanstack/react-query@5.101.2(react@19.2.7)':
         dependencies:
-            '@tanstack/query-core': 5.101.1
+            '@tanstack/query-core': 5.101.2
             react: 19.2.7
 
     '@tanstack/react-router-devtools@1.167.0(@tanstack/react-router@1.170.16(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(@tanstack/router-core@1.171.13)(csstype@3.2.3)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
@@ -5585,7 +5585,7 @@ snapshots:
             '@tanstack/virtual-file-routes': 1.162.0
             jiti: 2.7.0
             magic-string: 0.30.21
-            prettier: 3.8.5
+            prettier: 3.9.1
             zod: 4.4.3
         transitivePeerDependencies:
             - supports-color
@@ -5655,7 +5655,7 @@ snapshots:
             '@types/react': 19.2.17
             '@types/react-dom': 19.2.3(@types/react@19.2.17)
 
-    '@trivago/prettier-plugin-sort-imports@6.0.2(prettier@3.8.5)':
+    '@trivago/prettier-plugin-sort-imports@6.0.2(prettier@3.9.1)':
         dependencies:
             '@babel/generator': 7.29.7
             '@babel/parser': 7.29.7
@@ -5665,7 +5665,7 @@ snapshots:
             lodash-es: 4.18.1
             minimatch: 9.0.9
             parse-imports-exports: 0.2.4
-            prettier: 3.8.5
+            prettier: 3.9.1
         transitivePeerDependencies:
             - supports-color
 
@@ -6901,7 +6901,7 @@ snapshots:
 
     node-releases@2.0.47: {}
 
-    npm-check-updates@22.2.7: {}
+    npm-check-updates@22.2.8: {}
 
     object-assign@4.1.1: {}
 
@@ -6987,7 +6987,7 @@ snapshots:
 
     prelude-ls@1.2.1: {}
 
-    prettier@3.8.5: {}
+    prettier@3.9.1: {}
 
     pretty-format@27.5.1:
         dependencies:
