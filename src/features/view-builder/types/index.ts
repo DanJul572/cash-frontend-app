@@ -9,3 +9,4 @@ export * from './grid-node-type';
 export * from './grid-row-type';
 export * from './input-node-type';
 export * from './shema-node-type';
+export * from './json-preview-hook-props-type';

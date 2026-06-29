@@ -6,5 +6,6 @@ export * from './find-node-by-id-util';
 export * from './find-node-util';
 export * from './make-node-util';
 export * from './remove-node-util';
+export * from './schema-to-json-util';
 export * from './uid-util';
 export * from './updte-node-in-list-util';

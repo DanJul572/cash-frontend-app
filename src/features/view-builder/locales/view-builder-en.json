@@ -3,5 +3,7 @@
     "add-new-component": "Click to add to root, or select a node then click",
     "child": "Child",
     "structure": "Structure",
-    "empty_content": "No components yet"
+    "empty_content": "No components yet",
+    "copy": "Copy",
+    "copied": "Copied"
 }

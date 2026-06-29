@@ -7,7 +7,12 @@ import Typography from '@mui/material/Typography';
 
 import LayersIcon from '@mui/icons-material/Layers';
 
-import { ComponentPaletteComponent, JsonPreview, PropertiesPanel, TreeNode } from '../components';
+import {
+    ComponentPaletteComponent,
+    JsonPreviewComponent,
+    PropertiesPanel,
+    TreeNode,
+} from '../components';
 import { useViewBuilderPageHook } from '../hooks';
 import { viewBuilderPageStyle } from '../styles';
 import type { SchemaNodeType } from '../types';
@@ -76,7 +81,7 @@ export default function ViewBuilderPage() {
                         }
                     />
                     <Divider sx={viewBuilderPageStyle.rightContentDividerStyle} />
-                    <JsonPreview nodes={nodes} />
+                    <JsonPreviewComponent nodes={nodes} />
                 </Paper>
             </Box>
         </Box>
