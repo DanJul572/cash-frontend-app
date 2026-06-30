@@ -1,9 +1,10 @@
 {
-    "components": "Components",
     "add-new-component": "Click to add to root, or select a node then click",
     "child": "Child",
-    "structure": "Structure",
-    "empty_content": "No components yet",
+    "components": "Components",
+    "copied": "Copied",
     "copy": "Copy",
-    "copied": "Copied"
+    "delete": "Delete",
+    "empty_content": "No components yet",
+    "structure": "Structure"
 }

@@ -10,8 +10,8 @@ import AddIcon from '@mui/icons-material/Add';
 import Delete from '@mui/icons-material/Delete';
 
 import type { SchemaNodeType, ComponentType } from '../types';
-import NodeRow from './NodeRow';
 import AddChildBarComponent from './add-child-bar-component';
+import NodeRowComponent from './node-row-component';
 
 interface Props {
     node: SchemaNodeType;
@@ -142,7 +142,7 @@ const TreeNode: React.FC<Props> = ({
 
     return (
         <Box sx={{ position: 'relative' }}>
-            <NodeRow
+            <NodeRowComponent
                 node={node}
                 selected={selectedId === node.id}
                 onSelect={() => onSelect(node.id)}
