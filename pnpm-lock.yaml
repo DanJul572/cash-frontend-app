@@ -103,7 +103,7 @@ importers:
                 version: 16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
             '@trivago/prettier-plugin-sort-imports':
                 specifier: ^6.0.2
-                version: 6.0.2(prettier@3.9.1)
+                version: 6.0.2(prettier@3.9.3)
             '@types/babel__core':
                 specifier: ^7.20.5
                 version: 7.20.5
@@ -150,8 +150,8 @@ importers:
                 specifier: ^22.2.9
                 version: 22.2.9
             prettier:
-                specifier: 3.9.1
-                version: 3.9.1
+                specifier: 3.9.3
+                version: 3.9.3
             typescript:
                 specifier: 6.0.3
                 version: 6.0.3
@@ -3791,10 +3791,10 @@ packages:
             }
         engines: { node: '>= 0.8.0' }
 
-    prettier@3.9.1:
+    prettier@3.9.3:
         resolution:
             {
-                integrity: sha512-ppiDo2CSwexck1eyZUwJHg/N3nf1+6IRCv7W/VJ5vaLnVCmB7+3CdRfMwoCHBBX6xTrREDTksZ4OZl5SSf4zXA==,
+                integrity: sha512-HWmu+K+zvHNpaMfSnYeqdqrDbR16cuIXaPx8WoHaviQkDJh1/0BNtOZmHVQI5jc3wXv0H1yXc9wjvFdXh+n3hQ==,
             }
         engines: { node: '>=14' }
         hasBin: true
@@ -5585,7 +5585,7 @@ snapshots:
             '@tanstack/virtual-file-routes': 1.162.0
             jiti: 2.7.0
             magic-string: 0.30.21
-            prettier: 3.9.1
+            prettier: 3.9.3
             zod: 4.4.3
         transitivePeerDependencies:
             - supports-color
@@ -5655,7 +5655,7 @@ snapshots:
             '@types/react': 19.2.17
             '@types/react-dom': 19.2.3(@types/react@19.2.17)
 
-    '@trivago/prettier-plugin-sort-imports@6.0.2(prettier@3.9.1)':
+    '@trivago/prettier-plugin-sort-imports@6.0.2(prettier@3.9.3)':
         dependencies:
             '@babel/generator': 7.29.7
             '@babel/parser': 7.29.7
@@ -5665,7 +5665,7 @@ snapshots:
             lodash-es: 4.18.1
             minimatch: 9.0.9
             parse-imports-exports: 0.2.4
-            prettier: 3.9.1
+            prettier: 3.9.3
         transitivePeerDependencies:
             - supports-color
 
@@ -6987,7 +6987,7 @@ snapshots:
 
     prelude-ls@1.2.1: {}
 
-    prettier@3.9.1: {}
+    prettier@3.9.3: {}
 
     pretty-format@27.5.1:
         dependencies:
