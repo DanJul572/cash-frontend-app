@@ -77,9 +77,9 @@
         "jsdom": "^29.1.1",
         "msw": "^2.14.6",
         "npm-check-updates": "^22.2.9",
-        "prettier": "3.9.3",
+        "prettier": "3.9.4",
         "typescript": "6.0.3",
-        "typescript-eslint": "^8.62.0",
+        "typescript-eslint": "^8.62.1",
         "vite": "^8.1.0",
         "vite-plugin-dts": "^5.0.3",
         "vitest": "^4.1.9"
