@@ -21,16 +21,16 @@ export default function ForgotPasswordPage() {
 
     return (
         <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
-            <Box sx={forgotPasswordStyle.container}>
+            <Box sx={forgotPasswordStyle.containerStyle}>
                 {alert && (
-                    <Alert severity={alert.type} sx={forgotPasswordStyle.alert}>
+                    <Alert severity={alert.type} sx={forgotPasswordStyle.alertStyle}>
                         {alert.message}
                     </Alert>
                 )}
                 <Typography variant="h6" color="primary">
                     {t('forgotPassword')}
                 </Typography>
-                <Card sx={forgotPasswordStyle.card}>
+                <Card sx={forgotPasswordStyle.cardStyle}>
                     <Controller
                         name="email"
                         control={form.control}
