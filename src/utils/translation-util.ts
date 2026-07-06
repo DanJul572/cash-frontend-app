@@ -11,8 +11,6 @@ import registerEN from '@features/auth/locales/register-en.json';
 import registerID from '@features/auth/locales/register-id.json';
 import forgotPasswordEN from '@features/forgot-password/locales/forgot-password-en.json';
 import forgotPasswordID from '@features/forgot-password/locales/forgot-password-id.json';
-import viewBuilderEN from '@features/view-builder/locales/view-builder-en.json';
-import viewBuilderID from '@features/view-builder/locales/view-builder-id.json';
 import commonEN from '@locales/en.json';
 import commonID from '@locales/id.json';
 
@@ -26,7 +24,6 @@ export const initTranslation = () => {
                     forgotPassword: forgotPasswordEN,
                     login: loginEN,
                     register: registerEN,
-                    viewBuilder: viewBuilderEN,
                 },
                 id: {
                     changePassword: changePasswordID,
@@ -34,7 +31,6 @@ export const initTranslation = () => {
                     forgotPassword: forgotPasswordID,
                     login: loginID,
                     register: registerID,
-                    viewBuilder: viewBuilderID,
                 },
             },
             lng: languageConfig.lng,
