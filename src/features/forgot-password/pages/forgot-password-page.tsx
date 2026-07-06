@@ -51,6 +51,7 @@ export default function ForgotPasswordPage() {
                         type="submit"
                         disabled={mutation.isPending}
                         loading={mutation.isPending}
+                        color="primary"
                     >
                         {t('submit')}
                     </Button>
