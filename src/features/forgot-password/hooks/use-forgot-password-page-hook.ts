@@ -10,7 +10,7 @@ import { usePostForgotPasswordMutation } from '../mutations';
 import { forgotPasswordFormSchema } from '../schemas';
 import type { ALertType, ForgotPasswordFormType } from '../types';
 
-export default function useForgotPassword() {
+export default function useForgotPasswordPageHook() {
     const { t } = useTranslation('forgotPassword');
 
     const form = useForm<ForgotPasswordFormType>({
