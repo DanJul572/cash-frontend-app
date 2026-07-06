@@ -10,10 +10,8 @@ export const authMeRequest = async () => {
             _skipAuthRedirect: true,
         });
         const result = authMeResponseMapper.parse(response.data);
-        console.log('haha', result);
         return result;
     } catch (error) {
-        console.log('error', error);
         if (isAxios401Error(error)) {
             return null;
         }

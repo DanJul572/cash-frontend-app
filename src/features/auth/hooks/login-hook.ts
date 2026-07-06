@@ -29,9 +29,7 @@ export default function useLogin() {
     const [alert, setAlert] = useState<ALertType | null>(null);
 
     const mutation = usePostLoginMutation({
-        onSuccess: (data) => {
-            console.log(data);
-        },
+        onSuccess: (_data) => {},
         onError: (error) => {
             setAlert({
                 type: 'error',

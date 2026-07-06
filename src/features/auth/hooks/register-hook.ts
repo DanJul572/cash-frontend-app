@@ -25,9 +25,7 @@ export default function useRegister() {
 
     const onSubmit = (values: RegisterFormType) => {
         mutation.mutate(values, {
-            onSuccess: (res) => {
-                console.log(res);
-            },
+            onSuccess: (_res) => {},
             onError: (error) => {
                 setAlert({
                     type: 'error',
