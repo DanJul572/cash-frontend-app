@@ -5,12 +5,12 @@ import i18n from 'i18next';
 import { languageConfig } from '@configs';
 import changePasswordEN from '@features/auth/locales/change-password-en.json';
 import changePasswordID from '@features/auth/locales/change-password-id.json';
-import loginEN from '@features/auth/locales/login-en.json';
-import loginID from '@features/auth/locales/login-id.json';
 import registerEN from '@features/auth/locales/register-en.json';
 import registerID from '@features/auth/locales/register-id.json';
 import forgotPasswordEN from '@features/forgot-password/locales/forgot-password-en.json';
 import forgotPasswordID from '@features/forgot-password/locales/forgot-password-id.json';
+import loginEN from '@features/login/locales/login-en.json';
+import loginID from '@features/login/locales/login-id.json';
 import commonEN from '@locales/en.json';
 import commonID from '@locales/id.json';
 

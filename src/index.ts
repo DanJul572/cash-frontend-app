@@ -1,7 +1,7 @@
 import { initTranslation } from '@utils';
 
-import { LoginPage } from './features/auth/pages';
 import { Error400Page, Error500Page } from './features/error/pages';
+import { LoginPage } from './features/login/pages';
 
 export const pages = {
     auth: {

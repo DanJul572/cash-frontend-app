@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography';
 import { useTitle } from '@hooks';
 import { Link } from '@tanstack/react-router';
 
-import { PasswordFieldComponent } from '../components';
+import { PasswordFieldComponent } from '../../auth/components';
 import { loginConfig } from '../configs';
 import { useLogin } from '../hooks';
 import { loginStyle } from '../styles';
