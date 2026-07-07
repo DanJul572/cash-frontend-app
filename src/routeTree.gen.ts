@@ -13,7 +13,7 @@ import { Route as GuestRouteImport } from './routes/_guest'
 import { Route as AuthenticatedRouteImport } from './routes/_authenticated'
 import { Route as R500RouteImport } from './routes/500'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as GuestSendOtpRouteImport } from './routes/_guest/send-otp'
+import { Route as GuestValidateOtpRouteImport } from './routes/_guest/validate-otp'
 import { Route as GuestRegisterRouteImport } from './routes/_guest/register'
 import { Route as GuestLoginRouteImport } from './routes/_guest/login'
 import { Route as GuestForgotPasswordRouteImport } from './routes/_guest/forgot-password'
@@ -38,9 +38,9 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const GuestSendOtpRoute = GuestSendOtpRouteImport.update({
-  id: '/send-otp',
-  path: '/send-otp',
+const GuestValidateOtpRoute = GuestValidateOtpRouteImport.update({
+  id: '/validate-otp',
+  path: '/validate-otp',
   getParentRoute: () => GuestRoute,
 } as any)
 const GuestRegisterRoute = GuestRegisterRouteImport.update({
@@ -77,7 +77,7 @@ export interface FileRoutesByFullPath {
   '/forgot-password': typeof GuestForgotPasswordRoute
   '/login': typeof GuestLoginRoute
   '/register': typeof GuestRegisterRoute
-  '/send-otp': typeof GuestSendOtpRoute
+  '/validate-otp': typeof GuestValidateOtpRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -87,7 +87,7 @@ export interface FileRoutesByTo {
   '/forgot-password': typeof GuestForgotPasswordRoute
   '/login': typeof GuestLoginRoute
   '/register': typeof GuestRegisterRoute
-  '/send-otp': typeof GuestSendOtpRoute
+  '/validate-otp': typeof GuestValidateOtpRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -100,7 +100,7 @@ export interface FileRoutesById {
   '/_guest/forgot-password': typeof GuestForgotPasswordRoute
   '/_guest/login': typeof GuestLoginRoute
   '/_guest/register': typeof GuestRegisterRoute
-  '/_guest/send-otp': typeof GuestSendOtpRoute
+  '/_guest/validate-otp': typeof GuestValidateOtpRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -112,7 +112,7 @@ export interface FileRouteTypes {
     | '/forgot-password'
     | '/login'
     | '/register'
-    | '/send-otp'
+    | '/validate-otp'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -122,7 +122,7 @@ export interface FileRouteTypes {
     | '/forgot-password'
     | '/login'
     | '/register'
-    | '/send-otp'
+    | '/validate-otp'
   id:
     | '__root__'
     | '/'
@@ -134,7 +134,7 @@ export interface FileRouteTypes {
     | '/_guest/forgot-password'
     | '/_guest/login'
     | '/_guest/register'
-    | '/_guest/send-otp'
+    | '/_guest/validate-otp'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -174,11 +174,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_guest/send-otp': {
-      id: '/_guest/send-otp'
-      path: '/send-otp'
-      fullPath: '/send-otp'
-      preLoaderRoute: typeof GuestSendOtpRouteImport
+    '/_guest/validate-otp': {
+      id: '/_guest/validate-otp'
+      path: '/validate-otp'
+      fullPath: '/validate-otp'
+      preLoaderRoute: typeof GuestValidateOtpRouteImport
       parentRoute: typeof GuestRoute
     }
     '/_guest/register': {
@@ -236,7 +236,7 @@ interface GuestRouteChildren {
   GuestForgotPasswordRoute: typeof GuestForgotPasswordRoute
   GuestLoginRoute: typeof GuestLoginRoute
   GuestRegisterRoute: typeof GuestRegisterRoute
-  GuestSendOtpRoute: typeof GuestSendOtpRoute
+  GuestValidateOtpRoute: typeof GuestValidateOtpRoute
 }
 
 const GuestRouteChildren: GuestRouteChildren = {
@@ -244,7 +244,7 @@ const GuestRouteChildren: GuestRouteChildren = {
   GuestForgotPasswordRoute: GuestForgotPasswordRoute,
   GuestLoginRoute: GuestLoginRoute,
   GuestRegisterRoute: GuestRegisterRoute,
-  GuestSendOtpRoute: GuestSendOtpRoute,
+  GuestValidateOtpRoute: GuestValidateOtpRoute,
 }
 
 const GuestRouteWithChildren = GuestRoute._addFileChildren(GuestRouteChildren)

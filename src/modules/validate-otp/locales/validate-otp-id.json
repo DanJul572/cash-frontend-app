@@ -1,0 +1,18 @@
+{
+    "otp": {
+        "validation": {
+            "required": "Digit OTP harus diisi",
+            "invalidDigit": "Silakan masukkan digit yang valid",
+            "invalidLength": "Panjang OTP tidak valid"
+        }
+    },
+    "success": {
+        "otpValidated": "OTP berhasil divalidasi."
+    },
+    "error": {
+        "validateOtpFailed": "Gagal memvalidasi OTP. Silakan coba lagi nanti."
+    },
+    "validateOtp": "Validasi OTP",
+    "backToLogin": "Kembali ke Login",
+    "subtitle": "Masukkan kode OTP yang dikirim ke email Anda"
+}

@@ -1,0 +1,18 @@
+{
+    "otp": {
+        "validation": {
+            "required": "OTP digit is required",
+            "invalidDigit": "Please enter a valid digit",
+            "invalidLength": "Invalid OTP length"
+        }
+    },
+    "success": {
+        "otpValidated": "OTP has been validated successfully."
+    },
+    "error": {
+        "validateOtpFailed": "Failed to validate OTP. Please try again later."
+    },
+    "validateOtp": "Validate OTP",
+    "backToLogin": "Back to Login",
+    "subtitle": "Enter the OTP code sent to your email"
+}
