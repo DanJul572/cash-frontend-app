@@ -1,4 +1,5 @@
 import { QueryClient } from '@tanstack/react-query';
+
 import { isAxios401Error } from '@utils';
 
 export const queryClientInstance = new QueryClient({

@@ -3,6 +3,7 @@ import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 
 import { tanstackRouter } from '@tanstack/router-plugin/vite';
+
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({

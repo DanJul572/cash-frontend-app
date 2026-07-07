@@ -8,8 +8,9 @@ import InsertDriveFile from '@mui/icons-material/InsertDriveFile';
 import { RichTreeView, TreeItem, treeItemClasses, useTreeItemModel } from '@mui/x-tree-view';
 import type { TreeItemProps } from '@mui/x-tree-view';
 
-import { treeMenuComponentStyle } from '@styles';
 import { Link } from '@tanstack/react-router';
+
+import { treeMenuComponentStyle } from '@styles';
 import type { TreeMenuItem } from '@types';
 
 import { treeMenuConfig } from '../configs';

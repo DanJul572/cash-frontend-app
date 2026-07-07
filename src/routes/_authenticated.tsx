@@ -1,6 +1,7 @@
+import { createFileRoute, isRedirect, redirect } from '@tanstack/react-router';
+
 import MainLayout from '@layouts/main-layout';
 import { authMeQuery } from '@queries';
-import { createFileRoute, isRedirect, redirect } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/_authenticated')({
     beforeLoad: async ({ context }) => {

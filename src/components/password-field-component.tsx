@@ -5,10 +5,10 @@ import TextField, { type TextFieldProps } from '@mui/material/TextField';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
-import { usePasswordField } from '../hooks';
+import { usePasswordFieldComponentHook } from '../hooks';
 
 export default function PasswordFieldComponent(props: TextFieldProps) {
-    const { showPassword, setShowPassword } = usePasswordField();
+    const { showPassword, setShowPassword } = usePasswordFieldComponentHook();
 
     return (
         <TextField

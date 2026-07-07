@@ -1,6 +1,7 @@
+import { createFileRoute, redirect } from '@tanstack/react-router';
+
 import { ChangePasswordPage } from '@features/auth/pages';
 import { changePasswordSearchParamSchema } from '@features/auth/schemas';
-import { createFileRoute, redirect } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/_guest/change-password')({
     validateSearch: changePasswordSearchParamSchema,

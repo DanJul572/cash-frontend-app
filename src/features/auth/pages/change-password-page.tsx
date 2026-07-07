@@ -6,9 +6,9 @@ import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 
+import { PasswordFieldComponent } from '@components';
 import { useTitle } from '@hooks';
 
-import { PasswordFieldComponent } from '../components';
 import { useChangePassword } from '../hooks';
 import { changePasswordStyle } from '../styles';
 

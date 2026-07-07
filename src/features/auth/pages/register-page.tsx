@@ -8,10 +8,11 @@ import MuiLink from '@mui/material/Link';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
-import { useTitle } from '@hooks';
 import { Link } from '@tanstack/react-router';
 
-import { PasswordFieldComponent } from '../components';
+import { PasswordFieldComponent } from '@components';
+import { useTitle } from '@hooks';
+
 import { registerConfig } from '../configs';
 import { useRegister } from '../hooks';
 import { registerStyle } from '../styles';
