@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material/styles';
 
-import { emberTheme } from '@themes/ember-theme';
+import { emberTheme } from '@themes';
 
 export const themeConfig = createTheme({
     palette: emberTheme,
