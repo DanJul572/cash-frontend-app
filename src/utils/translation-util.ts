@@ -13,6 +13,8 @@ import loginEN from '@modules/login/locales/login-en.json';
 import loginID from '@modules/login/locales/login-id.json';
 import registerEN from '@modules/register/locales/register-en.json';
 import registerID from '@modules/register/locales/register-id.json';
+import sendOtpEN from '@modules/send-otp/locales/send-otp-en.json';
+import sendOtpID from '@modules/send-otp/locales/send-otp-id.json';
 
 export const initTranslation = () => {
     if (!i18n.isInitialized) {
@@ -24,6 +26,7 @@ export const initTranslation = () => {
                     forgotPassword: forgotPasswordEN,
                     login: loginEN,
                     register: registerEN,
+                    sendOtp: sendOtpEN,
                 },
                 id: {
                     changePassword: changePasswordID,
@@ -31,11 +34,12 @@ export const initTranslation = () => {
                     forgotPassword: forgotPasswordID,
                     login: loginID,
                     register: registerID,
+                    sendOtp: sendOtpID,
                 },
             },
             lng: languageConfig.lng,
             fallbackLng: languageConfig.fallbackLng,
-            ns: ['login', 'register', 'common'],
+            ns: ['login', 'register', 'sendOtp', 'common'],
             defaultNS: 'common',
             interpolation: {
                 escapeValue: false,

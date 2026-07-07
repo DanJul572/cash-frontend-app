@@ -1,0 +1,19 @@
+{
+    "email": {
+        "label": "Email",
+        "validation": {
+            "required": "Email is required",
+            "invalidFormat": "Please enter a valid email address"
+        }
+    },
+    "success": {
+        "otpSent": "OTP has been sent to your email. Please check your inbox."
+    },
+    "error": {
+        "sendOtpFailed": "Failed to send OTP. Please try again later."
+    },
+    "sendOtp": "Send OTP",
+    "backToLogin": "Back to Login",
+    "subtitle": "Enter your email to receive a one-time password",
+    "otpLengthInfo": "Please enter the {{otpLength}}-digit code sent to your email"
+}

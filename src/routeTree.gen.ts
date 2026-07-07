@@ -13,6 +13,7 @@ import { Route as GuestRouteImport } from './routes/_guest'
 import { Route as AuthenticatedRouteImport } from './routes/_authenticated'
 import { Route as R500RouteImport } from './routes/500'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GuestSendOtpRouteImport } from './routes/_guest/send-otp'
 import { Route as GuestRegisterRouteImport } from './routes/_guest/register'
 import { Route as GuestLoginRouteImport } from './routes/_guest/login'
 import { Route as GuestForgotPasswordRouteImport } from './routes/_guest/forgot-password'
@@ -36,6 +37,11 @@ const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const GuestSendOtpRoute = GuestSendOtpRouteImport.update({
+  id: '/send-otp',
+  path: '/send-otp',
+  getParentRoute: () => GuestRoute,
 } as any)
 const GuestRegisterRoute = GuestRegisterRouteImport.update({
   id: '/register',
@@ -71,6 +77,7 @@ export interface FileRoutesByFullPath {
   '/forgot-password': typeof GuestForgotPasswordRoute
   '/login': typeof GuestLoginRoute
   '/register': typeof GuestRegisterRoute
+  '/send-otp': typeof GuestSendOtpRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -80,6 +87,7 @@ export interface FileRoutesByTo {
   '/forgot-password': typeof GuestForgotPasswordRoute
   '/login': typeof GuestLoginRoute
   '/register': typeof GuestRegisterRoute
+  '/send-otp': typeof GuestSendOtpRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -92,6 +100,7 @@ export interface FileRoutesById {
   '/_guest/forgot-password': typeof GuestForgotPasswordRoute
   '/_guest/login': typeof GuestLoginRoute
   '/_guest/register': typeof GuestRegisterRoute
+  '/_guest/send-otp': typeof GuestSendOtpRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -103,6 +112,7 @@ export interface FileRouteTypes {
     | '/forgot-password'
     | '/login'
     | '/register'
+    | '/send-otp'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -112,6 +122,7 @@ export interface FileRouteTypes {
     | '/forgot-password'
     | '/login'
     | '/register'
+    | '/send-otp'
   id:
     | '__root__'
     | '/'
@@ -123,6 +134,7 @@ export interface FileRouteTypes {
     | '/_guest/forgot-password'
     | '/_guest/login'
     | '/_guest/register'
+    | '/_guest/send-otp'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -161,6 +173,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/_guest/send-otp': {
+      id: '/_guest/send-otp'
+      path: '/send-otp'
+      fullPath: '/send-otp'
+      preLoaderRoute: typeof GuestSendOtpRouteImport
+      parentRoute: typeof GuestRoute
     }
     '/_guest/register': {
       id: '/_guest/register'
@@ -217,6 +236,7 @@ interface GuestRouteChildren {
   GuestForgotPasswordRoute: typeof GuestForgotPasswordRoute
   GuestLoginRoute: typeof GuestLoginRoute
   GuestRegisterRoute: typeof GuestRegisterRoute
+  GuestSendOtpRoute: typeof GuestSendOtpRoute
 }
 
 const GuestRouteChildren: GuestRouteChildren = {
@@ -224,6 +244,7 @@ const GuestRouteChildren: GuestRouteChildren = {
   GuestForgotPasswordRoute: GuestForgotPasswordRoute,
   GuestLoginRoute: GuestLoginRoute,
   GuestRegisterRoute: GuestRegisterRoute,
+  GuestSendOtpRoute: GuestSendOtpRoute,
 }
 
 const GuestRouteWithChildren = GuestRoute._addFileChildren(GuestRouteChildren)
