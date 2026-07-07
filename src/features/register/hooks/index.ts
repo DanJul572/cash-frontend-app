@@ -1,3 +1,3 @@
-import useRegister from './register-hook';
+import useRegisterPageHook from './use-register-page-hook';
 
-export { useRegister };
+export { useRegisterPageHook };

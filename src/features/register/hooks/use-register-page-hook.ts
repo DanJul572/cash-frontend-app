@@ -10,7 +10,7 @@ import { usePostRegisterMutation } from '../mutations';
 import { registerFormSchema } from '../schemas';
 import type { ALertType, RegisterFormType } from '../types';
 
-export default function useRegister() {
+export default function useRegisterPageHook() {
     const { t } = useTranslation('register');
 
     const form = useForm<RegisterFormType>({

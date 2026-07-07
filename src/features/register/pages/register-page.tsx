@@ -14,13 +14,13 @@ import { PasswordFieldComponent } from '@components';
 import { useTitleHook } from '@hooks';
 
 import { registerConfig } from '../configs';
-import { useRegister } from '../hooks';
+import { useRegisterPageHook } from '../hooks';
 import { registerStyle } from '../styles';
 
 export default function RegisterPage() {
     useTitleHook('Register');
 
-    const { t, form, alert, mutation, onSubmit } = useRegister();
+    const { t, form, alert, mutation, onSubmit } = useRegisterPageHook();
 
     return (
         <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
