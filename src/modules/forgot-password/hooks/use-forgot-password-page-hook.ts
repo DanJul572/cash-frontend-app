@@ -21,23 +21,23 @@ export default function useForgotPasswordPageHook() {
 
     const [alert, setAlert] = useState<ALertType | null>(null);
 
-    const mutation = usePostForgotPasswordMutation();
+    const mutation = usePostForgotPasswordMutation({
+        onSuccess: (res) => {
+            setAlert({
+                type: 'success',
+                message: res.message,
+            });
+        },
+        onError: (error) => {
+            setAlert({
+                type: 'error',
+                message: getErrorMessageUtil(error.message),
+            });
+        },
+    });
 
     const onSubmit = (values: ForgotPasswordFormType) => {
-        mutation.mutate(values, {
-            onSuccess: (res) => {
-                setAlert({
-                    type: 'success',
-                    message: res.message,
-                });
-            },
-            onError: (error) => {
-                setAlert({
-                    type: 'error',
-                    message: getErrorMessageUtil(error.message),
-                });
-            },
-        });
+        mutation.mutate(values);
     };
 
     return {
