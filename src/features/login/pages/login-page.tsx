@@ -14,13 +14,13 @@ import { PasswordFieldComponent } from '@components';
 import { useTitleHook } from '@hooks';
 
 import { loginConfig } from '../configs';
-import { useLogin } from '../hooks';
+import { useLoginPageHook } from '../hooks';
 import { loginStyle } from '../styles';
 
 export default function LoginPage() {
     useTitleHook('Login');
 
-    const { t, form, alert, mutation, onSubmit } = useLogin();
+    const { t, form, alert, mutation, onSubmit } = useLoginPageHook();
 
     return (
         <form onSubmit={form.handleSubmit(onSubmit)} noValidate>

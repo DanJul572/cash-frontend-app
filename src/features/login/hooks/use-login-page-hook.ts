@@ -17,7 +17,7 @@ const formatPayloads = (values: LoginFormType) => {
     };
 };
 
-export default function useLogin() {
+export default function useLoginPageHook() {
     const { t } = useTranslation('login');
 
     const form = useForm<LoginFormType>({

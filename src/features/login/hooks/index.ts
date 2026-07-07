@@ -1,3 +1,3 @@
-import useLogin from './login-hook';
+import useLoginPageHook from './use-login-page-hook';
 
-export { useLogin };
+export { useLoginPageHook };
