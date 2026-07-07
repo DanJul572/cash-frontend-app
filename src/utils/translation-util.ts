@@ -3,16 +3,16 @@ import { initReactI18next } from 'react-i18next';
 import i18n from 'i18next';
 
 import { languageConfig } from '@configs';
-import changePasswordEN from '@features/change-password/locales/change-password-en.json';
-import changePasswordID from '@features/change-password/locales/change-password-id.json';
-import forgotPasswordEN from '@features/forgot-password/locales/forgot-password-en.json';
-import forgotPasswordID from '@features/forgot-password/locales/forgot-password-id.json';
-import loginEN from '@features/login/locales/login-en.json';
-import loginID from '@features/login/locales/login-id.json';
-import registerEN from '@features/register/locales/register-en.json';
-import registerID from '@features/register/locales/register-id.json';
 import commonEN from '@locales/en.json';
 import commonID from '@locales/id.json';
+import changePasswordEN from '@modules/change-password/locales/change-password-en.json';
+import changePasswordID from '@modules/change-password/locales/change-password-id.json';
+import forgotPasswordEN from '@modules/forgot-password/locales/forgot-password-en.json';
+import forgotPasswordID from '@modules/forgot-password/locales/forgot-password-id.json';
+import loginEN from '@modules/login/locales/login-en.json';
+import loginID from '@modules/login/locales/login-id.json';
+import registerEN from '@modules/register/locales/register-en.json';
+import registerID from '@modules/register/locales/register-id.json';
 
 export const initTranslation = () => {
     if (!i18n.isInitialized) {
