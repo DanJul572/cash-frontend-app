@@ -2,12 +2,12 @@ import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 
-import { useTitle } from '@hooks';
+import { useTitleHook } from '@hooks';
 
 import { error500Style } from '../styles';
 
 export default function Error500Page() {
-    useTitle('500 Internal Server Error');
+    useTitleHook('500 Internal Server Error');
 
     return (
         <Box sx={error500Style.container}>

@@ -10,13 +10,13 @@ import Typography from '@mui/material/Typography';
 
 import { Link } from '@tanstack/react-router';
 
-import { useTitle } from '@hooks';
+import { useTitleHook } from '@hooks';
 
 import { useForgotPasswordPageHook } from '../hooks';
 import { forgotPasswordStyle } from '../styles';
 
 export default function ForgotPasswordPage() {
-    useTitle('Forgot Password');
+    useTitleHook('Forgot Password');
 
     const { t, form, alert, mutation, onSubmit } = useForgotPasswordPageHook();
 

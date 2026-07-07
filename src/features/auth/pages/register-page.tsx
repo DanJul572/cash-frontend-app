@@ -11,14 +11,14 @@ import Typography from '@mui/material/Typography';
 import { Link } from '@tanstack/react-router';
 
 import { PasswordFieldComponent } from '@components';
-import { useTitle } from '@hooks';
+import { useTitleHook } from '@hooks';
 
 import { registerConfig } from '../configs';
 import { useRegister } from '../hooks';
 import { registerStyle } from '../styles';
 
 export default function RegisterPage() {
-    useTitle('Register');
+    useTitleHook('Register');
 
     const { t, form, alert, mutation, onSubmit } = useRegister();
 

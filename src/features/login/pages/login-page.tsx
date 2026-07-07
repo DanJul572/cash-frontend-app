@@ -11,14 +11,14 @@ import Typography from '@mui/material/Typography';
 import { Link } from '@tanstack/react-router';
 
 import { PasswordFieldComponent } from '@components';
-import { useTitle } from '@hooks';
+import { useTitleHook } from '@hooks';
 
 import { loginConfig } from '../configs';
 import { useLogin } from '../hooks';
 import { loginStyle } from '../styles';
 
 export default function LoginPage() {
-    useTitle('Login');
+    useTitleHook('Login');
 
     const { t, form, alert, mutation, onSubmit } = useLogin();
 

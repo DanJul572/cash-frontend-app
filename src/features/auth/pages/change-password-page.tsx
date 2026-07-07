@@ -7,13 +7,13 @@ import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 
 import { PasswordFieldComponent } from '@components';
-import { useTitle } from '@hooks';
+import { useTitleHook } from '@hooks';
 
 import { useChangePassword } from '../hooks';
 import { changePasswordStyle } from '../styles';
 
 export default function ChangePasswordPage() {
-    useTitle('Change Password');
+    useTitleHook('Change Password');
 
     const { t, form, alert, mutation, onSubmit } = useChangePassword();
 
