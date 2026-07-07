@@ -1,5 +1,6 @@
 import { http, HttpResponse, delay } from 'msw';
 
+import { STATUS_CODE_CONSTANT } from '@constants';
 import { AuthEndpoint } from '@endpoints';
 import type { ApiResponseType } from '@types';
 import { getApiUrl } from '@utils';
@@ -13,6 +14,6 @@ const mockAuthMeData: ApiResponseType<null> = {
 export const authMeRequest401Mock = [
     http.get(`${getApiUrl(AuthEndpoint.me)}`, async () => {
         await delay(300);
-        return HttpResponse.json(mockAuthMeData, { status: 401 });
+        return HttpResponse.json(mockAuthMeData, { status: STATUS_CODE_CONSTANT.UNAUTHORIZED });
     }),
 ];
