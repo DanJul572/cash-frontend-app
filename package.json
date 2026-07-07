@@ -14,18 +14,19 @@
         "dist"
     ],
     "scripts": {
-        "dev": "vite --config vite.app.config.ts",
         "build:app": "tsc -b && vite build --config vite.app.config.ts",
         "build:lib": "tsc -b && vite build --config vite.lib.config.ts",
-        "preview": "vite preview --config vite.app.config.ts",
-        "prepublishOnly": "pnpm build:lib",
-        "test": "vitest --globals",
-        "test:coverage": "vitest --globals --coverage",
-        "update:deps": "ncu -u --cooldown 1",
-        "prepare": "husky",
-        "lint": "eslint .",
+        "dev": "vite --config vite.app.config.ts",
         "format": "prettier . --write",
-        "publish:verdaccio": "node publish.cjs"
+        "lint": "eslint .",
+        "prepare": "husky",
+        "prepublishOnly": "pnpm build:lib",
+        "preview": "vite preview --config vite.app.config.ts",
+        "publish:verdaccio": "node publish.cjs",
+        "test:coverage": "vitest --globals --coverage",
+        "test": "vitest --globals",
+        "typecheck": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json",
+        "update:deps": "ncu -u --cooldown 1"
     },
     "dependencies": {
         "@emotion/react": "^11.14.0",
