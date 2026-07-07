@@ -4,7 +4,7 @@ import { Error400Page, Error500Page } from './modules/error/pages';
 import { LoginPage } from './modules/login/pages';
 
 export const pages = {
-    auth: {
+    modules: {
         login: LoginPage,
     },
     error: {
