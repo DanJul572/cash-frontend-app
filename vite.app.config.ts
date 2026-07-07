@@ -20,7 +20,7 @@ export default defineConfig({
             '@locales': path.resolve(__dirname, './src/locales'),
             '@mappers': path.resolve(__dirname, './src/mappers'),
             '@mocks': path.resolve(__dirname, './src/mocks'),
-            '@modules': path.resolve(__dirname, './src/features'),
+            '@modules': path.resolve(__dirname, './src/modules'),
             '@queries': path.resolve(__dirname, './src/queries'),
             '@requests': path.resolve(__dirname, './src/requests'),
             '@schemas': path.resolve(__dirname, './src/schemas'),
