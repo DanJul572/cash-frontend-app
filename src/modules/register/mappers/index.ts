@@ -1,2 +1,2 @@
-export * from './register-form-mapper';
+export * from './register-request-mapper';
 export * from './register-response-mapper';

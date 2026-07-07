@@ -21,18 +21,18 @@ export default function useRegisterPageHook() {
 
     const [alert, setAlert] = useState<ALertType | null>(null);
 
-    const mutation = usePostRegisterMutation();
+    const mutation = usePostRegisterMutation({
+        onSuccess: (_res) => {},
+        onError: (error) => {
+            setAlert({
+                type: 'error',
+                message: getErrorMessageUtil(error.message),
+            });
+        },
+    });
 
     const onSubmit = (values: RegisterFormType) => {
-        mutation.mutate(values, {
-            onSuccess: (_res) => {},
-            onError: (error) => {
-                setAlert({
-                    type: 'error',
-                    message: getErrorMessageUtil(error.message),
-                });
-            },
-        });
+        mutation.mutate(values);
     };
 
     return {

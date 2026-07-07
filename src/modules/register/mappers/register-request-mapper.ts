@@ -1,6 +1,6 @@
 import { registerFormSchema } from '../schemas';
 
-export const registerFormMapper = registerFormSchema.transform((data) => ({
+export const registerRequestMapper = registerFormSchema.transform((data) => ({
     email: data.email,
     password: data.password,
 }));
