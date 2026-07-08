@@ -58,7 +58,10 @@ export default function LoginPage() {
                                 variant="outlined"
                                 fullWidth
                                 error={!!fieldState.error}
-                                helperText={t(fieldState.error?.message || '', loginConfig)}
+                                helperText={t(
+                                    fieldState.error?.message || '',
+                                    loginConfig,
+                                )}
                             />
                         )}
                     />

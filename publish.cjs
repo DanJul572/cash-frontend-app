@@ -50,9 +50,12 @@ async function unpublishVersion() {
 
     console.log(`\n🗑️ Unpublishing ${packageName}@${version}...\n`);
 
-    execSync(`pnpm unpublish ${packageName}@${version} --registry ${REGISTRY}`, {
-        stdio: 'inherit',
-    });
+    execSync(
+        `pnpm unpublish ${packageName}@${version} --registry ${REGISTRY}`,
+        {
+            stdio: 'inherit',
+        },
+    );
 }
 
 async function main() {

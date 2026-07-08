@@ -23,7 +23,10 @@ export default function useChangePassword() {
             setAlert({ type: 'success', message: res.message });
         },
         onError: (error) => {
-            setAlert({ type: 'error', message: getErrorMessageUtil(error.message) });
+            setAlert({
+                type: 'error',
+                message: getErrorMessageUtil(error.message),
+            });
         },
     });
 

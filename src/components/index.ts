@@ -3,4 +3,9 @@ import PasswordFieldComponent from './password-field-component';
 import TopbarComponent from './topbar-component';
 import TreeMenuComponent from './tree-menu-components';
 
-export { PageLoaderComponent, TopbarComponent, PasswordFieldComponent, TreeMenuComponent };
+export {
+    PageLoaderComponent,
+    TopbarComponent,
+    PasswordFieldComponent,
+    TreeMenuComponent,
+};

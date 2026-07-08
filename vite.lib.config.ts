@@ -84,7 +84,9 @@ export default defineConfig({
                     'zod',
                     'zustand',
                 ];
-                return externalPackages.some((pkg) => id === pkg || id.startsWith(`${pkg}/`));
+                return externalPackages.some(
+                    (pkg) => id === pkg || id.startsWith(`${pkg}/`),
+                );
             },
             output: {
                 format: 'es',

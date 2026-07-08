@@ -5,7 +5,12 @@ interface ButtonProps extends PropsWithChildren {
     type?: 'button' | 'submit' | 'reset';
 }
 
-const Button = ({ children, onClick, type = 'button', ...props }: ButtonProps) => {
+const Button = ({
+    children,
+    onClick,
+    type = 'button',
+    ...props
+}: ButtonProps) => {
     return (
         <button type={type} onClick={onClick} {...props}>
             {children}

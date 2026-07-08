@@ -34,6 +34,6 @@
     ],
     "singleQuote": true,
     "importOrderSeparation": true,
-    "printWidth": 100,
+    "printWidth": 80,
     "tabWidth": 4
 }

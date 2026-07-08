@@ -6,7 +6,11 @@ export const treeMenuConfig: TreeMenuItem[] = [
         label: 'Users',
         children: [
             { id: 'user-list', label: 'User List', href: '/users' },
-            { id: 'user-register', label: 'User Register', href: '/users/register' },
+            {
+                id: 'user-register',
+                label: 'User Register',
+                href: '/users/register',
+            },
         ],
     },
 ];

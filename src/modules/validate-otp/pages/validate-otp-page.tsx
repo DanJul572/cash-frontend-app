@@ -1,5 +1,3 @@
-import { useRef } from 'react';
-
 import { Controller } from 'react-hook-form';
 
 import Alert from '@mui/material/Alert';
@@ -21,22 +19,16 @@ import { validateOtpStyle } from '../styles';
 export default function ValidateOtpPage() {
     useTitleHook('Validate OTP');
 
-    const { t, form, alert, mutation, onSubmit } = useValidateOtpPageHook();
-    const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
-
-    const handleChange = (index: number, value: string, onChange: (v: string) => void) => {
-        const digit = value.replace(/\D/g, '').slice(-1);
-        onChange(digit);
-        if (digit && index < validateOtpConfig.otpLength - 1) {
-            inputRefs.current[index + 1]?.focus();
-        }
-    };
-
-    const handleKeyDown = (index: number, e: React.KeyboardEvent<HTMLDivElement>) => {
-        if (e.key === 'Backspace' && !form.getValues(`otp.${index}`) && index > 0) {
-            inputRefs.current[index - 1]?.focus();
-        }
-    };
+    const {
+        t,
+        inputRefs,
+        form,
+        alert,
+        mutation,
+        onSubmit,
+        handleChange,
+        handleKeyDown,
+    } = useValidateOtpPageHook();
 
     return (
         <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
@@ -54,7 +46,9 @@ export default function ValidateOtpPage() {
                 </Typography>
                 <Card sx={validateOtpStyle.card}>
                     <Box sx={validateOtpStyle.boxesRow}>
-                        {Array.from({ length: validateOtpConfig.otpLength }).map((_, index) => (
+                        {Array.from({
+                            length: validateOtpConfig.otpLength,
+                        }).map((_, index) => (
                             <Controller
                                 key={index}
                                 name={`otp.${index}`}
@@ -62,14 +56,22 @@ export default function ValidateOtpPage() {
                                 render={({ field, fieldState }) => (
                                     <TextField
                                         {...field}
-                                        inputRef={(el: HTMLInputElement | null) => {
+                                        inputRef={(
+                                            el: HTMLInputElement | null,
+                                        ) => {
                                             inputRefs.current[index] = el;
                                         }}
                                         value={field.value || ''}
                                         onChange={(e) =>
-                                            handleChange(index, e.target.value, field.onChange)
+                                            handleChange(
+                                                index,
+                                                e.target.value,
+                                                field.onChange,
+                                            )
                                         }
-                                        onKeyDown={(e) => handleKeyDown(index, e)}
+                                        onKeyDown={(e) =>
+                                            handleKeyDown(index, e)
+                                        }
                                         variant="outlined"
                                         error={!!fieldState.error}
                                         slotProps={{

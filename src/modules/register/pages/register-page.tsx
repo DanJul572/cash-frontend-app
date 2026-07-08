@@ -72,7 +72,10 @@ export default function RegisterPage() {
                                 variant="outlined"
                                 fullWidth
                                 error={!!fieldState.error}
-                                helperText={t(fieldState.error?.message || '', registerConfig)}
+                                helperText={t(
+                                    fieldState.error?.message || '',
+                                    registerConfig,
+                                )}
                             />
                         )}
                     />
@@ -86,7 +89,10 @@ export default function RegisterPage() {
                                 variant="outlined"
                                 fullWidth
                                 error={!!fieldState.error}
-                                helperText={t(fieldState.error?.message || '', registerConfig)}
+                                helperText={t(
+                                    fieldState.error?.message || '',
+                                    registerConfig,
+                                )}
                             />
                         )}
                     />

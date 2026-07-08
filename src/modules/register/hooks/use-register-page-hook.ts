@@ -15,7 +15,12 @@ export default function useRegisterPageHook() {
 
     const form = useForm<RegisterFormType>({
         resolver: zodResolver(registerFormSchema),
-        defaultValues: { name: '', email: '', password: '', confirmPassword: '' },
+        defaultValues: {
+            name: '',
+            email: '',
+            password: '',
+            confirmPassword: '',
+        },
         mode: 'onSubmit',
     });
 

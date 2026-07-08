@@ -14,6 +14,8 @@ const mockAuthMeData: ApiResponseType<null> = {
 export const authMeRequest401Mock = [
     http.get(`${getApiUrl(AuthEndpoint.me)}`, async () => {
         await delay(300);
-        return HttpResponse.json(mockAuthMeData, { status: STATUS_CODE_CONSTANT.UNAUTHORIZED });
+        return HttpResponse.json(mockAuthMeData, {
+            status: STATUS_CODE_CONSTANT.UNAUTHORIZED,
+        });
     }),
 ];

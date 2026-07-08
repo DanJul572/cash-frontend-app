@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -13,6 +13,8 @@ import type { ALertType, ValidateOtpFormType } from '../types';
 
 export default function useValidateOtpPageHook() {
     const { t } = useTranslation('validateOtp');
+
+    const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
     const form = useForm<ValidateOtpFormType>({
         resolver: zodResolver(validateOtpFormSchema),
@@ -41,11 +43,39 @@ export default function useValidateOtpPageHook() {
         mutation.mutate(values);
     };
 
+    const handleChange = (
+        index: number,
+        value: string,
+        onChange: (v: string) => void,
+    ) => {
+        const digit = value.replace(/\D/g, '').slice(-1);
+        onChange(digit);
+        if (digit && index < validateOtpConfig.otpLength - 1) {
+            inputRefs.current[index + 1]?.focus();
+        }
+    };
+
+    const handleKeyDown = (
+        index: number,
+        e: React.KeyboardEvent<HTMLDivElement>,
+    ) => {
+        if (
+            e.key === 'Backspace' &&
+            !form.getValues(`otp.${index}`) &&
+            index > 0
+        ) {
+            inputRefs.current[index - 1]?.focus();
+        }
+    };
+
     return {
         t,
+        inputRefs,
         form,
         alert,
         mutation,
         onSubmit,
+        handleChange,
+        handleKeyDown,
     };
 }

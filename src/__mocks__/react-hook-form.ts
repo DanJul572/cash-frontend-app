@@ -85,10 +85,11 @@ const makeFormMethods = () => ({
     trigger: vi.fn(async () => true),
     setFocus: vi.fn(),
     handleSubmit: vi.fn(
-        (onValid: (data: FieldValues) => void) => async (e?: BaseSyntheticEvent) => {
-            e?.preventDefault?.();
-            onValid({});
-        },
+        (onValid: (data: FieldValues) => void) =>
+            async (e?: BaseSyntheticEvent) => {
+                e?.preventDefault?.();
+                onValid({});
+            },
     ),
     formState: defaultFormState,
     control: {},
@@ -104,11 +105,13 @@ export const useWatch = vi.fn(
     (options?: { defaultValue?: unknown }) => options?.defaultValue ?? '',
 );
 
-export const useController = vi.fn((options?: { name?: string; defaultValue?: unknown }) => ({
-    field: makeField(options?.name ?? '', options?.defaultValue),
-    fieldState: defaultFieldState,
-    formState: defaultFormState,
-}));
+export const useController = vi.fn(
+    (options?: { name?: string; defaultValue?: unknown }) => ({
+        field: makeField(options?.name ?? '', options?.defaultValue),
+        fieldState: defaultFieldState,
+        formState: defaultFormState,
+    }),
+);
 
 export const useFieldArray = vi.fn(() => ({
     fields: [] as unknown[],
@@ -122,15 +125,18 @@ export const useFieldArray = vi.fn(() => ({
     replace: vi.fn(),
 }));
 
-export const Controller = vi.fn(({ name, defaultValue, render }: ControllerProps) =>
-    render({
-        field: makeField(name, defaultValue),
-        fieldState: defaultFieldState,
-        formState: defaultFormState,
-    }),
+export const Controller = vi.fn(
+    ({ name, defaultValue, render }: ControllerProps) =>
+        render({
+            field: makeField(name, defaultValue),
+            fieldState: defaultFieldState,
+            formState: defaultFormState,
+        }),
 );
 
-export const FormProvider = vi.fn(({ children }: PropsWithChildren) => children);
+export const FormProvider = vi.fn(
+    ({ children }: PropsWithChildren) => children,
+);
 
 export default {
     useForm,

@@ -5,7 +5,12 @@ import Folder from '@mui/icons-material/Folder';
 import FolderOpen from '@mui/icons-material/FolderOpen';
 import InsertDriveFile from '@mui/icons-material/InsertDriveFile';
 
-import { RichTreeView, TreeItem, treeItemClasses, useTreeItemModel } from '@mui/x-tree-view';
+import {
+    RichTreeView,
+    TreeItem,
+    treeItemClasses,
+    useTreeItemModel,
+} from '@mui/x-tree-view';
 import type { TreeItemProps } from '@mui/x-tree-view';
 
 import { Link } from '@tanstack/react-router';
