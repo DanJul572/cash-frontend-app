@@ -24,16 +24,16 @@ export default function LoginPage() {
 
     return (
         <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
-            <Box sx={loginStyle.container}>
+            <Box sx={loginStyle.containerStyle}>
                 {alert && (
-                    <Alert severity={alert.type} sx={loginStyle.alert}>
+                    <Alert severity={alert.type} sx={loginStyle.alertStyle}>
                         {alert.message}
                     </Alert>
                 )}
                 <Typography variant="h6" color="primary">
                     {t('login')}
                 </Typography>
-                <Card sx={loginStyle.card}>
+                <Card sx={loginStyle.cardStyle}>
                     <Controller
                         name="email"
                         control={form.control}

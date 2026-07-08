@@ -1,1 +1,1 @@
-export * from './login-style';
+export * from './login-page-style';
