@@ -19,14 +19,9 @@ export const registerFormSchema = z
         password: z
             .string()
             .min(1, 'password.validation.required')
-            .min(
-                registerConfig.minLengthPassword,
-                'password.validation.minLength',
-            ),
+            .min(registerConfig.minLengthPassword, 'password.validation.minLength'),
 
-        confirmPassword: z
-            .string()
-            .min(1, 'confirmPassword.validation.required'),
+        confirmPassword: z.string().min(1, 'confirmPassword.validation.required'),
     })
     .refine((data) => data.password === data.confirmPassword, {
         message: 'confirmPassword.validation.mismatch',

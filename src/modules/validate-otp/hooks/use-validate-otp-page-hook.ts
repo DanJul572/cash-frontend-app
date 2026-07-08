@@ -43,11 +43,7 @@ export default function useValidateOtpPageHook() {
         mutation.mutate(values);
     };
 
-    const handleChange = (
-        index: number,
-        value: string,
-        onChange: (v: string) => void,
-    ) => {
+    const handleChange = (index: number, value: string, onChange: (v: string) => void) => {
         const digit = value.replace(/\D/g, '').slice(-1);
         onChange(digit);
         if (digit && index < validateOtpConfig.otpLength - 1) {
@@ -55,15 +51,8 @@ export default function useValidateOtpPageHook() {
         }
     };
 
-    const handleKeyDown = (
-        index: number,
-        e: React.KeyboardEvent<HTMLDivElement>,
-    ) => {
-        if (
-            e.key === 'Backspace' &&
-            !form.getValues(`otp.${index}`) &&
-            index > 0
-        ) {
+    const handleKeyDown = (index: number, e: React.KeyboardEvent<HTMLDivElement>) => {
+        if (e.key === 'Backspace' && !form.getValues(`otp.${index}`) && index > 0) {
             inputRefs.current[index - 1]?.focus();
         }
     };

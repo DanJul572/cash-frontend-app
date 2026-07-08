@@ -24,10 +24,7 @@ export default function ForgotPasswordPage() {
         <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
             <Box sx={forgotPasswordStyle.containerStyle}>
                 {alert && (
-                    <Alert
-                        severity={alert.type}
-                        sx={forgotPasswordStyle.alertStyle}
-                    >
+                    <Alert severity={alert.type} sx={forgotPasswordStyle.alertStyle}>
                         {alert.message}
                     </Alert>
                 )}

@@ -6,8 +6,7 @@ export const useTranslation = () => {
             if (!params) return key;
 
             return Object.entries(params).reduce(
-                (acc, [paramKey, value]) =>
-                    acc.replace(`{{${paramKey}}}`, String(value)),
+                (acc, [paramKey, value]) => acc.replace(`{{${paramKey}}}`, String(value)),
                 key,
             );
         },

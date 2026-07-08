@@ -7,9 +7,7 @@ import type { validateOtpResponseSchema } from '../schemas';
 import type { ValidateOtpFormType } from './validate-otp-form-type';
 
 export type ValidateOtpResponseType = z.input<typeof validateOtpResponseSchema>;
-export type ValidateOtpResponseMappedType = z.output<
-    typeof validateOtpResponseMapper
->;
+export type ValidateOtpResponseMappedType = z.output<typeof validateOtpResponseMapper>;
 
 export type PostValidateOtpMutationOptionsType = MutateOptions<
     ValidateOtpResponseMappedType,

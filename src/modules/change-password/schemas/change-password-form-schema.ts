@@ -7,13 +7,8 @@ export const changePasswordFormSchema = z
         newPassword: z
             .string()
             .min(1, 'newPassword.validation.required')
-            .min(
-                changePasswordConfig.minLengthPassword,
-                'newPassword.validation.minLength',
-            ),
-        confirmNewPassword: z
-            .string()
-            .min(1, 'confirmNewPassword.validation.required'),
+            .min(changePasswordConfig.minLengthPassword, 'newPassword.validation.minLength'),
+        confirmNewPassword: z.string().min(1, 'confirmNewPassword.validation.required'),
     })
     .refine((data) => data.newPassword === data.confirmNewPassword, {
         message: 'confirmNewPassword.validation.mismatch',

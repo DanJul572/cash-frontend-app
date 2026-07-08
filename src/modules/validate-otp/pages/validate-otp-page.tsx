@@ -19,16 +19,8 @@ import { validateOtpStyle } from '../styles';
 export default function ValidateOtpPage() {
     useTitleHook('Validate OTP');
 
-    const {
-        t,
-        inputRefs,
-        form,
-        alert,
-        mutation,
-        onSubmit,
-        handleChange,
-        handleKeyDown,
-    } = useValidateOtpPageHook();
+    const { t, inputRefs, form, alert, mutation, onSubmit, handleChange, handleKeyDown } =
+        useValidateOtpPageHook();
 
     return (
         <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
@@ -56,22 +48,14 @@ export default function ValidateOtpPage() {
                                 render={({ field, fieldState }) => (
                                     <TextField
                                         {...field}
-                                        inputRef={(
-                                            el: HTMLInputElement | null,
-                                        ) => {
+                                        inputRef={(el: HTMLInputElement | null) => {
                                             inputRefs.current[index] = el;
                                         }}
                                         value={field.value || ''}
                                         onChange={(e) =>
-                                            handleChange(
-                                                index,
-                                                e.target.value,
-                                                field.onChange,
-                                            )
+                                            handleChange(index, e.target.value, field.onChange)
                                         }
-                                        onKeyDown={(e) =>
-                                            handleKeyDown(index, e)
-                                        }
+                                        onKeyDown={(e) => handleKeyDown(index, e)}
                                         variant="outlined"
                                         error={!!fieldState.error}
                                         slotProps={{
