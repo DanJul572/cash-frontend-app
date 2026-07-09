@@ -8,7 +8,7 @@ export const appNameAsTitle = appName
     .replace(/-/g, ' ')
     .replace(/\b\w/g, (char) => char.toUpperCase());
 
-export const showVersionInfo = () => {
+export const showAppVersionInConsole = () => {
     console.log(
         `%c${appNameAsTitle} %cv${appVersion}`,
         'color: #4CAF50; font-weight: bold; font-size: 14px;',

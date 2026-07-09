@@ -17,11 +17,11 @@ import { PageLoaderComponent } from './components';
 import { themeConfig } from './configs';
 import { setRouter, queryClientInstance } from './instances';
 import { router } from './router';
-import { enableMocking, initTranslation, showVersionInfo } from './utils';
+import { enableMocking, initTranslation, showAppVersionInConsole } from './utils';
 
 initTranslation();
 setRouter(router);
-showVersionInfo();
+showAppVersionInConsole();
 
 enableMocking().then(() => {
     createRoot(document.getElementById('root')!).render(

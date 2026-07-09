@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { getErrorMessageUtil } from '@utils';
+import { getErrorMessage } from '@utils';
 
 import { validateOtpConfig } from '../configs';
 import { usePostValidateOtpMutation } from '../mutations';
@@ -34,7 +34,7 @@ export default function useValidateOtpPageHook() {
         onError: (error) => {
             setAlert({
                 type: 'error',
-                message: getErrorMessageUtil(error),
+                message: getErrorMessage(error),
             });
         },
     });

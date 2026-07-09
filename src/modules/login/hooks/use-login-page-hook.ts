@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { getErrorMessageUtil } from '@utils';
+import { getErrorMessage } from '@utils';
 
 import { usePostLoginMutation } from '../mutations';
 import { loginFormSchema } from '../schemas';
@@ -33,7 +33,7 @@ export default function useLoginPageHook() {
         onError: (error) => {
             setAlert({
                 type: 'error',
-                message: getErrorMessageUtil(error),
+                message: getErrorMessage(error),
             });
         },
     });

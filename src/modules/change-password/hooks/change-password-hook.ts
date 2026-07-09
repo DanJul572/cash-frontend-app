@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { getErrorMessageUtil } from '@utils';
+import { getErrorMessage } from '@utils';
 
 import { usePostChangePasswordMutation } from '../mutations';
 import { changePasswordFormSchema } from '../schemas';
@@ -25,7 +25,7 @@ export default function useChangePassword() {
         onError: (error) => {
             setAlert({
                 type: 'error',
-                message: getErrorMessageUtil(error.message),
+                message: getErrorMessage(error.message),
             });
         },
     });

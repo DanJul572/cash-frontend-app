@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { getErrorMessageUtil } from '@utils';
+import { getErrorMessage } from '@utils';
 
 import { usePostRegisterMutation } from '../mutations';
 import { registerFormSchema } from '../schemas';
@@ -31,7 +31,7 @@ export default function useRegisterPageHook() {
         onError: (error) => {
             setAlert({
                 type: 'error',
-                message: getErrorMessageUtil(error.message),
+                message: getErrorMessage(error.message),
             });
         },
     });

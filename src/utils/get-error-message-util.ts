@@ -1,4 +1,4 @@
-export const getErrorMessageUtil = (error: unknown): string => {
+export const getErrorMessage = (error: unknown): string => {
     if (error && typeof error === 'object' && 'response' in error) {
         const axiosError = error as {
             response?: { data?: { message?: string } };
