@@ -6,7 +6,7 @@ DIM="\033[2m"
 BOLD="\033[1m"
 RESET="\033[0m"
 
-SPIN_CHARS='⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏'
+SPIN_CHARS=(⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏)
 LOG_FILE="/tmp/husky-step-output.log"
 
 # run_step "<icon>" "<label>" "<command>"
@@ -20,12 +20,12 @@ run_step() {
   pid=$!
 
   i=0
-  len=${#SPIN_CHARS}
+  len=${#SPIN_CHARS[@]}
   start=$(date +%s)
 
   # spinner loop selama process masih hidup
   while kill -0 "$pid" 2>/dev/null; do
-    char=$(printf '%s' "$SPIN_CHARS" | cut -c $((i % len + 1)))
+    char="${SPIN_CHARS[$((i % len))]}"
     printf "\r${CYAN}%s${RESET}  %s  %s" "$char" "$icon" "$label"
     i=$((i + 1))
     sleep 0.1
