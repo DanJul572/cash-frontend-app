@@ -15,6 +15,7 @@ import { changePasswordStyle } from '../styles';
 
 export default function ChangePasswordPage() {
     useTitleHook('Change Password');
+
     const { t, form, alert, mutation, onSubmit } = useChangePassword();
 
     return (
@@ -26,7 +27,7 @@ export default function ChangePasswordPage() {
                     </Alert>
                 )}
                 <Typography variant="h6" color="primary">
-                    {t('changePassword')}
+                    {t('title')}
                 </Typography>
                 <Card sx={changePasswordStyle.card}>
                     <Controller
