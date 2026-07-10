@@ -1,9 +1,9 @@
 import { createTheme } from '@mui/material/styles';
 
-import { nordicLightTheme } from '@themes';
+import { deepOceanTheme } from '@themes';
 
 export const themeConfig = createTheme({
-    palette: nordicLightTheme,
+    palette: deepOceanTheme,
     components: {
         MuiCssBaseline: {
             styleOverrides: (theme) => ({
