@@ -1,13 +1,13 @@
-import { setupWorker } from 'msw/browser';
+export const enableMocking = async () => {
+    if (import.meta.env.PROD) {
+        return;
+    }
 
-import { requestMockHandler } from '@mocks';
+    const { setupWorker } = await import('msw/browser');
+    const { requestMockHandler } = await import('@mocks');
+    const worker = setupWorker(...requestMockHandler);
 
-const worker = setupWorker(...requestMockHandler);
-
-const enableMocking = async () => {
     return worker.start({
         onUnhandledRequest: 'bypass',
     });
 };
-
-export { enableMocking };
