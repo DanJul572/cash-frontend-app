@@ -1,24 +1,65 @@
-#!/bin/sh
+# ── Colors ────────────────────────────────────────────────
+GREEN="\033[0;32m"
+RED="\033[0;31m"
+CYAN="\033[0;36m"
+DIM="\033[2m"
+BOLD="\033[1m"
+RESET="\033[0m"
 
-echo "🔧 Running TanStack Router generate..."
-pnpm exec tsr generate
+SPIN_CHARS='⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏'
+LOG_FILE="/tmp/husky-step-output.log"
 
-echo "🔍 Running format..."
-pnpm format
-git add -u
+# run_step "<icon>" "<label>" "<command>"
+run_step() {
+  icon="$1"
+  label="$2"
+  cmd="$3"
 
-echo "🔍 Running lint..."
-pnpm lint
+  # jalankan command di background, redirect output ke log file
+  eval "$cmd" > "$LOG_FILE" 2>&1 &
+  pid=$!
 
-echo "🔍 Running typecheck..."
-pnpm typecheck
+  i=0
+  len=${#SPIN_CHARS}
+  start=$(date +%s)
 
-echo "🔍 Running tests..."
-if pnpm test:silent > /dev/null 2>&1; then
-  echo "✅ All tests passed!"
-else
-  echo "❌ Tests failed. Commit aborted."
-  exit 1
-fi
+  # spinner loop selama process masih hidup
+  while kill -0 "$pid" 2>/dev/null; do
+    char=$(printf '%s' "$SPIN_CHARS" | cut -c $((i % len + 1)))
+    printf "\r${CYAN}%s${RESET}  %s  %s" "$char" "$icon" "$label"
+    i=$((i + 1))
+    sleep 0.1
+  done
 
-echo "✅ All checks passed!"
+  wait "$pid"
+  status=$?
+  end=$(date +%s)
+  elapsed=$((end - start))
+
+  if [ $status -eq 0 ]; then
+    printf "\r${GREEN}✅${RESET}  %s  %s  ${DIM}(%ss)${RESET}\n" "$icon" "$label" "$elapsed"
+  else
+    printf "\r${RED}❌${RESET}  %s  %s  ${DIM}(%ss)${RESET}\n" "$icon" "$label" "$elapsed"
+    echo ""
+    printf "${RED}${BOLD}── Output ──────────────────────────────${RESET}\n"
+    cat "$LOG_FILE"
+    printf "${RED}${BOLD}────────────────────────────────────────${RESET}\n"
+    echo ""
+    printf "${RED}${BOLD}✖ Commit aborted at: %s${RESET}\n" "$label"
+    exit 1
+  fi
+}
+
+echo ""
+printf "${BOLD}🚀 Running pre-commit checks...${RESET}\n"
+echo ""
+
+run_step "🧭" "Generating TanStack routes"     "pnpm exec tsr generate"
+run_step "🎨" "Formatting code"                "pnpm format && git add -u"
+run_step "🧹" "Linting"                        "pnpm lint"
+run_step "🧠" "Type checking"                  "pnpm typecheck"
+run_step "🧪" "Running tests"                  "pnpm test:silent"
+
+echo ""
+printf "${GREEN}${BOLD}✨ All checks passed! Ready to commit.${RESET}\n"
+echo ""
