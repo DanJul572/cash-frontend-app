@@ -24,6 +24,7 @@
         "preview": "vite preview --config vite.app.config.ts",
         "publish:verdaccio": "node publish.cjs",
         "test:coverage": "vitest --globals --coverage",
+        "test:silent": "vitest run --globals --silent",
         "test": "vitest --globals",
         "typecheck": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json",
         "update:deps": "ncu -u --cooldown 1"

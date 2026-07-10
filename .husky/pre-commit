@@ -13,7 +13,12 @@ pnpm lint
 echo "🔍 Running typecheck..."
 pnpm typecheck
 
-echo "🧪 Running test..."
-pnpm test
+echo "🔍 Running tests..."
+if pnpm test:silent > /dev/null 2>&1; then
+  echo "✅ All tests passed!"
+else
+  echo "❌ Tests failed. Commit aborted."
+  exit 1
+fi
 
 echo "✅ All checks passed!"
