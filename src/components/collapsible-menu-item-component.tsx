@@ -1,35 +1,26 @@
-import { useState, type MouseEvent } from 'react';
-
 import Box from '@mui/material/Box';
 
 import { Link } from '@tanstack/react-router';
 
-import type { TreeMenuItem } from '@types';
+import { useCollapsibleMenuItemComponentHook } from '@hooks';
+import { collapsibleMenuItemComponentStyle } from '@styles';
+import type { CollapsibleMenuItemComponentPropsType } from '@types';
 
 import CollapsibleMenuItemButtonComponent from './collapsible-menu-item-button-component';
 import CollapsedMenuPopoverComponent from './collapsible-menu-popover-component';
 
-interface CollapsedMenuItemProps {
-    item: TreeMenuItem;
-    onNavigate: () => void;
-}
-
-export default function CollapsibleMenuItemComponent({ item, onNavigate }: CollapsedMenuItemProps) {
-    const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
-    const hasChildren = Boolean(item.children && item.children.length > 0);
-
-    const handleClick = (event: MouseEvent<HTMLElement>) => {
-        if (hasChildren) {
-            setAnchorEl(event.currentTarget);
-        } else {
-            onNavigate();
-        }
-    };
+export default function CollapsibleMenuItemComponent({
+    item,
+    onNavigate,
+}: CollapsibleMenuItemComponentPropsType) {
+    const { hasChildren, handleClick, anchorEl, setAnchorEl } = useCollapsibleMenuItemComponentHook(
+        { item, onNavigate },
+    );
 
     return (
         <Box>
             {item.href && !hasChildren ? (
-                <Link to={item.href} style={{ textDecoration: 'none', color: 'inherit' }}>
+                <Link to={item.href} style={collapsibleMenuItemComponentStyle.linkStyle}>
                     <CollapsibleMenuItemButtonComponent
                         handleClick={handleClick}
                         hasChildren={hasChildren}

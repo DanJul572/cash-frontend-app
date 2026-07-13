@@ -1,5 +1,5 @@
-export interface AuthMeResponseType {
+export type AuthMeResponseType = {
     id: string;
     name: string;
     email: string;
-}
+};

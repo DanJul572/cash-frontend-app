@@ -55,7 +55,7 @@ printf "${BOLD}🚀 Running pre-commit checks...${RESET}\n"
 echo ""
 
 run_step "🧭" "Generating TanStack routes"     "pnpm exec tsr generate"
-run_step "🎨" "Formatting code"                "pnpm format && git add -u"
+run_step "🎨" "Formatting code"                "pnpm format:silent && git add -u"
 run_step "🧹" "Linting"                        "pnpm lint"
 run_step "🧠" "Type checking"                  "pnpm typecheck"
 run_step "🧪" "Running tests"                  "pnpm test:silent"

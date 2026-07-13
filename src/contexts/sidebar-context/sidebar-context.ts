@@ -1,8 +1,8 @@
 import { createContext } from 'react';
 
-export interface SidebarContextType {
+export type SidebarContextType = {
     isCollapsed: boolean;
     toggleSidebar: () => void;
-}
+};
 
 export const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
