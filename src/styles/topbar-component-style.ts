@@ -35,7 +35,6 @@ const avatarStyle = {
 const popoverStyle = {
     mt: 1.5,
     '& .MuiPopover-paper': {
-        borderRadius: 2,
         overflow: 'hidden',
         width: 280,
     },
@@ -78,11 +77,6 @@ const titleSectionStyle = {
     userSelect: 'none',
 } as const satisfies SxProps<Theme>;
 
-const titleIconStyle = {
-    color: 'common.white',
-    fontSize: '1.75rem',
-} as const satisfies SxProps<Theme>;
-
 const titleTextStyle = {
     color: 'common.white',
     fontSize: '1.15rem',
@@ -123,7 +117,6 @@ export const topbarComponentStyle = {
     popoverContentStyle,
     profileHeaderStyle,
     rightSectionStyle,
-    titleIconStyle,
     titleSectionStyle,
     titleSubtextStyle,
     titleTextStyle,

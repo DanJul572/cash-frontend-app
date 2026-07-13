@@ -11,7 +11,6 @@ import MenuList from '@mui/material/MenuList';
 import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 
-import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import LogoutIcon from '@mui/icons-material/Logout';
 import MenuIcon from '@mui/icons-material/Menu';
 
@@ -35,7 +34,6 @@ export default function TopbarComponent() {
             </IconButton>
 
             <Box sx={topbarComponentStyle.titleSectionStyle}>
-                <AccountBalanceWalletIcon sx={topbarComponentStyle.titleIconStyle} />
                 <Box>
                     <Typography sx={topbarComponentStyle.titleTextStyle}>
                         {appNameAsTitle}
