@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type MouseEvent } from 'react';
 
 import { useQueryClient } from '@tanstack/react-query';
 import { useRouteContext, useNavigate } from '@tanstack/react-router';
@@ -15,7 +15,7 @@ const useTopbarComponentHook = () => {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
 
-    const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
+    const handleOpen = (event: MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
     };
 
