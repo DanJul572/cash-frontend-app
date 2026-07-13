@@ -104,9 +104,15 @@ const menuItemStyle = {
     py: 1.5,
 } as const satisfies SxProps<Theme>;
 
+const hamburgerButtonStyle = {
+    mr: 1,
+    p: 1,
+} as const satisfies SxProps<Theme>;
+
 export const topbarComponentStyle = {
     avatarStyle,
     containerStyle,
+    hamburgerButtonStyle,
     iconButtonStyle,
     largeAvatarStyle,
     menuItemStyle,

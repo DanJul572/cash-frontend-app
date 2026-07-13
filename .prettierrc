@@ -15,6 +15,7 @@
         "^@components/(.*)$",
         "^@configs/(.*)$",
         "^@constants/(.*)$",
+        "^@contexts/(.*)$",
         "^@endpoints/(.*)$",
         "^@hooks/(.*)$",
         "^@instances/(.*)$",

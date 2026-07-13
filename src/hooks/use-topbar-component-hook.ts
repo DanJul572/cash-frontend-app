@@ -6,7 +6,9 @@ import { useRouteContext, useNavigate } from '@tanstack/react-router';
 import type { AuthMeResponseType } from '@types';
 
 const useTopbarComponentHook = () => {
-    const { user } = useRouteContext({ from: '/_authenticated' }) as { user: AuthMeResponseType };
+    const { user } = useRouteContext({ from: '/_authenticated' }) as {
+        user: AuthMeResponseType;
+    };
     const navigate = useNavigate();
     const queryClient = useQueryClient();
 

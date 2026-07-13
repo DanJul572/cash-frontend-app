@@ -1,4 +1,5 @@
 import { styled } from '@mui/material';
+import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 
 import Folder from '@mui/icons-material/Folder';
@@ -10,10 +11,12 @@ import type { TreeItemProps } from '@mui/x-tree-view';
 
 import { Link } from '@tanstack/react-router';
 
+import { useSidebarContext } from '@contexts';
 import { treeMenuComponentStyle } from '@styles';
 import type { TreeMenuItem } from '@types';
 
 import { treeMenuConfig } from '../configs';
+import CollapsedMenuIconComponent from './collapsible-menu-icon-component';
 
 const CustomTreeItem = styled(TreeItem)(({ theme }) => ({
     [`& .${treeItemClasses.iconContainer}`]: {
@@ -47,17 +50,41 @@ function LinkTreeItem(props: TreeItemProps) {
 }
 
 export default function TreeMenuComponent() {
+    const { isCollapsed } = useSidebarContext();
+
     return (
-        <Card sx={treeMenuComponentStyle.container}>
-            <RichTreeView
-                slots={{
-                    expandIcon: Folder,
-                    collapseIcon: FolderOpen,
-                    endIcon: InsertDriveFile,
-                    item: LinkTreeItem,
-                }}
-                items={treeMenuConfig}
-            />
+        <Card
+            sx={{
+                ...treeMenuComponentStyle.container,
+                width: isCollapsed ? 72 : 350,
+                transition: 'width 0.3s ease-in-out',
+                overflowX: 'hidden',
+            }}
+        >
+            {isCollapsed ? (
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        pt: 1,
+                    }}
+                >
+                    {treeMenuConfig.map((item) => (
+                        <CollapsedMenuIconComponent key={item.id} item={item} />
+                    ))}
+                </Box>
+            ) : (
+                <RichTreeView
+                    slots={{
+                        expandIcon: Folder,
+                        collapseIcon: FolderOpen,
+                        endIcon: InsertDriveFile,
+                        item: LinkTreeItem,
+                    }}
+                    items={treeMenuConfig}
+                />
+            )}
         </Card>
     );
 }

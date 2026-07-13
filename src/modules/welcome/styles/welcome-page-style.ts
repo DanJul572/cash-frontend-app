@@ -9,7 +9,11 @@ const containerStyle = {
     gap: 1,
 } as const satisfies SxProps<Theme>;
 
-const dividerStyle = { width: 50, height: 5, borderRadius: 5 } as const satisfies SxProps<Theme>;
+const dividerStyle = {
+    width: 50,
+    height: 5,
+    borderRadius: 5,
+} as const satisfies SxProps<Theme>;
 
 export const welcomePageStyle = {
     containerStyle,

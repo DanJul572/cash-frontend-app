@@ -13,7 +13,9 @@ import Typography from '@mui/material/Typography';
 
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import LogoutIcon from '@mui/icons-material/Logout';
+import MenuIcon from '@mui/icons-material/Menu';
 
+import { useSidebarContext } from '@contexts';
 import { useTopbarComponentHook } from '@hooks';
 import { topbarComponentStyle } from '@styles';
 import { appNameAsTitle, appVersion } from '@utils';
@@ -24,8 +26,14 @@ export default function TopbarComponent() {
     const { user, anchorEl, open, handleOpen, handleClose, handleLogout, getInitials } =
         useTopbarComponentHook();
 
+    const { toggleSidebar } = useSidebarContext();
+
     return (
         <Box sx={topbarComponentStyle.containerStyle}>
+            <IconButton onClick={toggleSidebar} sx={topbarComponentStyle.hamburgerButtonStyle}>
+                <MenuIcon sx={{ color: 'common.white' }} />
+            </IconButton>
+
             <Box sx={topbarComponentStyle.titleSectionStyle}>
                 <AccountBalanceWalletIcon sx={topbarComponentStyle.titleIconStyle} />
                 <Box>
