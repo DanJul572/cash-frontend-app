@@ -1,21 +1,16 @@
 import List from '@mui/material/List';
 import Popover from '@mui/material/Popover';
 
-import type { TreeMenuItem } from '@types';
+import { collapsedMenuPopoverComponentStyle } from '@styles';
+import type { CollapsedMenuPopoverComponentPropsType } from '@types';
 
 import CollapsedMenuItemComponent from './collapsible-menu-item-component';
-
-interface CollapsedMenuPopoverComponentProps {
-    items: TreeMenuItem[];
-    anchorEl: HTMLElement | null;
-    onClose: () => void;
-}
 
 export default function CollapsedMenuPopoverComponent({
     items,
     anchorEl,
     onClose,
-}: CollapsedMenuPopoverComponentProps) {
+}: CollapsedMenuPopoverComponentPropsType) {
     return (
         <Popover
             open={Boolean(anchorEl)}
@@ -24,7 +19,7 @@ export default function CollapsedMenuPopoverComponent({
             anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
             transformOrigin={{ vertical: 'top', horizontal: 'left' }}
             slotProps={{
-                paper: { sx: { minWidth: 220, py: 0.5 } },
+                paper: { sx: collapsedMenuPopoverComponentStyle.popoverStyle },
             }}
         >
             <List disablePadding>
