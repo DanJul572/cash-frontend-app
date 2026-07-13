@@ -31,7 +31,7 @@ export default function TopbarComponent() {
     return (
         <Box sx={topbarComponentStyle.containerStyle}>
             <IconButton onClick={toggleSidebar} sx={topbarComponentStyle.hamburgerButtonStyle}>
-                <MenuIcon sx={{ color: 'common.white' }} />
+                <MenuIcon sx={topbarComponentStyle.hamburgerIconButtonStyle} />
             </IconButton>
 
             <Box sx={topbarComponentStyle.titleSectionStyle}>

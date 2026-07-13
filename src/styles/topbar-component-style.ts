@@ -109,10 +109,13 @@ const hamburgerButtonStyle = {
     p: 1,
 } as const satisfies SxProps<Theme>;
 
+const hamburgerIconButtonStyle = { color: 'common.white' } as const satisfies SxProps<Theme>;
+
 export const topbarComponentStyle = {
     avatarStyle,
     containerStyle,
     hamburgerButtonStyle,
+    hamburgerIconButtonStyle,
     iconButtonStyle,
     largeAvatarStyle,
     menuItemStyle,
