@@ -12,6 +12,7 @@ import { Link } from '@tanstack/react-router';
 
 import { useTitleHook } from '@hooks';
 
+import { CountdownResendComponent } from '../components';
 import { validateOtpConfig } from '../configs';
 import { useValidateOtpPageHook } from '../hooks';
 import { validateOtpStyle } from '../styles';
@@ -19,8 +20,18 @@ import { validateOtpStyle } from '../styles';
 export default function ValidateOtpPage() {
     useTitleHook('Validate OTP');
 
-    const { t, inputRefs, form, alert, mutation, onSubmit, handleChange, handleKeyDown } =
-        useValidateOtpPageHook();
+    const {
+        t,
+        inputRefs,
+        form,
+        alert,
+        mutation,
+        resendMutation,
+        onSubmit,
+        handleResend,
+        handleChange,
+        handleKeyDown,
+    } = useValidateOtpPageHook();
 
     return (
         <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
@@ -78,6 +89,10 @@ export default function ValidateOtpPage() {
                     >
                         {t('validateOtp')}
                     </Button>
+                    <CountdownResendComponent
+                        onResend={handleResend}
+                        isPending={resendMutation.isPending}
+                    />
                     <Typography>
                         <MuiLink component={Link} to="/login">
                             {t('backToLogin')}

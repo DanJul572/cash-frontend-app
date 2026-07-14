@@ -7,12 +7,16 @@
         }
     },
     "success": {
-        "otpValidated": "OTP has been validated successfully."
+        "otpValidated": "OTP has been validated successfully.",
+        "otpResent": "OTP has been resent successfully."
     },
     "error": {
-        "validateOtpFailed": "Failed to validate OTP. Please try again later."
+        "validateOtpFailed": "Failed to validate OTP. Please try again later.",
+        "resendOtpFailed": "Failed to resend OTP. Please try again later."
     },
     "validateOtp": "Validate OTP",
     "backToLogin": "Back to Login",
-    "subtitle": "Enter the OTP code sent to your email"
+    "subtitle": "Enter the OTP code sent to your email",
+    "resendOtp": "Resend OTP",
+    "resendIn": "Resend in {{seconds}}s"
 }

@@ -7,12 +7,16 @@
         }
     },
     "success": {
-        "otpValidated": "OTP berhasil divalidasi."
+        "otpValidated": "OTP berhasil divalidasi.",
+        "otpResent": "OTP berhasil dikirim ulang."
     },
     "error": {
-        "validateOtpFailed": "Gagal memvalidasi OTP. Silakan coba lagi nanti."
+        "validateOtpFailed": "Gagal memvalidasi OTP. Silakan coba lagi nanti.",
+        "resendOtpFailed": "Gagal mengirim ulang OTP. Silakan coba lagi nanti."
     },
     "validateOtp": "Validasi OTP",
     "backToLogin": "Kembali ke Login",
-    "subtitle": "Masukkan kode OTP yang dikirim ke email Anda"
+    "subtitle": "Masukkan kode OTP yang dikirim ke email Anda",
+    "resendOtp": "Kirim Ulang OTP",
+    "resendIn": "Kirim ulang dalam {{seconds}}d"
 }

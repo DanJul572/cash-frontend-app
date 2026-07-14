@@ -14,3 +14,10 @@ export type PostValidateOtpMutationOptionsType = MutateOptions<
     Error,
     ValidateOtpFormType
 >;
+
+export type ResendOtpResponseType = {
+    status: boolean;
+    message: string;
+};
+
+export type PostResendOtpMutationOptionsType = MutateOptions<ResendOtpResponseType, Error, void>;

@@ -7,7 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { getErrorMessage } from '@utils';
 
 import { validateOtpConfig } from '../configs';
-import { usePostValidateOtpMutation } from '../mutations';
+import { usePostResendOtpMutation, usePostValidateOtpMutation } from '../mutations';
 import { validateOtpFormSchema } from '../schemas';
 import type { ALertType, ValidateOtpFormType } from '../types';
 
@@ -39,8 +39,27 @@ export default function useValidateOtpPageHook() {
         },
     });
 
+    const resendMutation = usePostResendOtpMutation({
+        onSuccess: (_data) => {
+            setAlert({
+                type: 'success',
+                message: t('success.otpResent'),
+            });
+        },
+        onError: (error) => {
+            setAlert({
+                type: 'error',
+                message: getErrorMessage(error),
+            });
+        },
+    });
+
     const onSubmit = (values: ValidateOtpFormType) => {
         mutation.mutate(values);
+    };
+
+    const handleResend = () => {
+        resendMutation.mutate();
     };
 
     const handleChange = (index: number, value: string, onChange: (v: string) => void) => {
@@ -63,7 +82,9 @@ export default function useValidateOtpPageHook() {
         form,
         alert,
         mutation,
+        resendMutation,
         onSubmit,
+        handleResend,
         handleChange,
         handleKeyDown,
     };
