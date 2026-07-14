@@ -1,12 +1,12 @@
 import type { SxProps, Theme } from '@mui/material';
 
-const containerStyle: SxProps<Theme> = {
+const containerStyle = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     height: '100vh',
-};
+} as const satisfies SxProps<Theme>;
 
-export const pageLoaderComponentStyle: Record<string, SxProps<Theme>> = {
-    container: containerStyle,
-};
+export const pageLoaderComponentStyle = {
+    containerStyle,
+} satisfies Record<string, SxProps<Theme>>;

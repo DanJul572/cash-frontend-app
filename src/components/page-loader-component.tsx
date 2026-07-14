@@ -5,7 +5,7 @@ import { pageLoaderComponentStyle } from '@styles';
 
 export default function PageLoaderComponent() {
     return (
-        <Box sx={pageLoaderComponentStyle.container}>
+        <Box sx={pageLoaderComponentStyle.containerStyle}>
             <CircularProgress />
         </Box>
     );
