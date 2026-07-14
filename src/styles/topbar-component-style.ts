@@ -91,7 +91,6 @@ const titleSubtextStyle = {
     fontWeight: 400,
     letterSpacing: '1.5px',
     lineHeight: 1,
-    textTransform: 'uppercase',
 } as const satisfies SxProps<Theme>;
 
 const menuItemStyle = {
