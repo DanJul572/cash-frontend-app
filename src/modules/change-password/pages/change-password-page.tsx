@@ -1,4 +1,5 @@
 import { Controller } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 
 import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
@@ -16,7 +17,9 @@ import { changePasswordStyle } from '../styles';
 export default function ChangePasswordPage() {
     useTitleHook('Change Password');
 
-    const { t, form, alert, mutation, onSubmit } = useChangePassword();
+    const { t } = useTranslation('changePassword');
+
+    const { form, alert, mutation, onSubmit } = useChangePassword();
 
     return (
         <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
