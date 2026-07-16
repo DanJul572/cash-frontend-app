@@ -4,17 +4,14 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-import useCountdownResendComponentHook from '../hooks/use-countdown-resend-component-hook';
-
-type CountdownResendComponentProps = {
-    onResend: () => void;
-    isPending: boolean;
-};
+import { useCountdownResendComponentHook } from '../hooks';
+import { countdownResendComponentStyle } from '../styles';
+import type { CountdownResendComponentPropsType } from '../types';
 
 export default function CountdownResendComponent({
     onResend,
     isPending,
-}: CountdownResendComponentProps) {
+}: CountdownResendComponentPropsType) {
     const { t } = useTranslation('validateOtp');
     const { secondsRemaining, isDisabled, resetCountdown } = useCountdownResendComponentHook();
 
@@ -24,7 +21,7 @@ export default function CountdownResendComponent({
     };
 
     return (
-        <Box sx={{ textAlign: 'center' }}>
+        <Box sx={countdownResendComponentStyle.containerStyle}>
             {isDisabled ? (
                 <Typography variant="body2" color="text.secondary">
                     {t('resendIn', { seconds: secondsRemaining })}

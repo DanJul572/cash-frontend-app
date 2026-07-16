@@ -15,7 +15,7 @@ import { useTitleHook } from '@hooks';
 import { CountdownResendComponent } from '../components';
 import { validateOtpConfig } from '../configs';
 import { useValidateOtpPageHook } from '../hooks';
-import { validateOtpStyle } from '../styles';
+import { validateOtpPageStyle } from '../styles';
 
 export default function ValidateOtpPage() {
     useTitleHook('Validate OTP');
@@ -35,9 +35,9 @@ export default function ValidateOtpPage() {
 
     return (
         <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
-            <Box sx={validateOtpStyle.container}>
+            <Box sx={validateOtpPageStyle.containerStyle}>
                 {alert && (
-                    <Alert severity={alert.type} sx={validateOtpStyle.alert}>
+                    <Alert severity={alert.type} sx={validateOtpPageStyle.alertStyle}>
                         {alert.message}
                     </Alert>
                 )}
@@ -47,8 +47,8 @@ export default function ValidateOtpPage() {
                 <Typography variant="body2" color="text.secondary">
                     {t('subtitle')}
                 </Typography>
-                <Card sx={validateOtpStyle.card}>
-                    <Box sx={validateOtpStyle.boxesRow}>
+                <Card sx={validateOtpPageStyle.cardStyle}>
+                    <Box sx={validateOtpPageStyle.boxesRowStyle}>
                         {Array.from({
                             length: validateOtpConfig.otpLength,
                         }).map((_, index) => (
@@ -74,7 +74,7 @@ export default function ValidateOtpPage() {
                                                 maxLength: 1,
                                             },
                                         }}
-                                        sx={validateOtpStyle.otpBox}
+                                        sx={validateOtpPageStyle.otpBoxStyle}
                                     />
                                 )}
                             />
