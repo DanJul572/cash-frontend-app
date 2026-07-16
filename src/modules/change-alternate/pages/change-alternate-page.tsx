@@ -1,17 +1,21 @@
+import { useTranslation } from 'react-i18next';
+
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
 import Typography from '@mui/material/Typography';
 
 import { useTitleHook } from '@hooks';
 
-import { UserCard } from '../components';
+import { UserCardComponent } from '../components';
 import { useChangeAlternatePageHook } from '../hooks';
 import { changeAlternateStyle } from '../styles';
 
 export default function ChangeAlternatePage() {
+    const { t } = useTranslation('changeAlternate');
+
     useTitleHook('Change Alternate');
 
-    const { t, users, isLoading, error, mutation, handleUserClick } = useChangeAlternatePageHook();
+    const { users, isLoading, error, mutation, handleUserClick } = useChangeAlternatePageHook();
 
     if (isLoading) {
         return (
@@ -21,7 +25,6 @@ export default function ChangeAlternatePage() {
         );
     }
 
-    console.log(error);
     if (error) {
         return (
             <Box sx={changeAlternateStyle.errorStyle}>
@@ -32,12 +35,9 @@ export default function ChangeAlternatePage() {
 
     return (
         <Box sx={changeAlternateStyle.containerStyle}>
-            <Typography variant="h5" color="primary">
-                {t('title')}
-            </Typography>
             <Box sx={changeAlternateStyle.gridStyle}>
                 {users?.map((user) => (
-                    <UserCard
+                    <UserCardComponent
                         key={user.id}
                         user={user}
                         onClick={handleUserClick}
