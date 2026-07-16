@@ -1,0 +1,1428 @@
+{
+    "directed": false,
+    "multigraph": false,
+    "graph": {
+        "hyperedges": [
+            {
+                "id": "vite_plugin_ecosystem",
+                "label": "Vite Plugin Ecosystem",
+                "nodes": [
+                    "readme_vitejs_plugin_react",
+                    "readme_vitejs_plugin_react_swc",
+                    "readme_oxc",
+                    "readme_swc"
+                ],
+                "relation": "form",
+                "confidence": "EXTRACTED",
+                "confidence_score": 1.0,
+                "source_file": "README.md"
+            },
+            {
+                "id": "eslint_configuration_stack",
+                "label": "ESLint Configuration Stack",
+                "nodes": [
+                    "readme_eslint_configuration",
+                    "readme_tseslint_configs",
+                    "readme_eslint_plugin_react_x",
+                    "readme_eslint_plugin_react_dom",
+                    "readme_tsconfig_node_tsconfig_app",
+                    "readme_type_aware_lint_rules"
+                ],
+                "relation": "form",
+                "confidence": "EXTRACTED",
+                "confidence_score": 1.0,
+                "source_file": "README.md"
+            },
+            {
+                "id": "social_platform_icons",
+                "label": "Social Platform Icon Group",
+                "nodes": [
+                    "public_iconssvg_bluesky_icon",
+                    "public_iconssvg_discord_icon",
+                    "public_iconssvg_x_icon"
+                ],
+                "relation": "form",
+                "confidence": "INFERRED",
+                "confidence_score": 0.85,
+                "source_file": "public/icons.svg"
+            },
+            {
+                "id": "developer_platform_icons",
+                "label": "Developer Platform Icon Group",
+                "nodes": [
+                    "public_iconssvg_github_icon",
+                    "public_iconssvg_discord_icon",
+                    "public_iconssvg_documentation_icon"
+                ],
+                "relation": "form",
+                "confidence": "INFERRED",
+                "confidence_score": 0.75,
+                "source_file": "public/icons.svg"
+            }
+        ]
+    },
+    "nodes": [
+        {
+            "label": "CollapsedMenuIconComponent",
+            "file_type": "code",
+            "source_file": "src/components/collapsible-menu-icon-component.tsx",
+            "source_location": "L14",
+            "_origin": "ast",
+            "id": "src_components_collapsible_menu_icon_component_collapsedmenuiconcomponent",
+            "community": 6,
+            "norm_label": "collapsedmenuiconcomponent"
+        },
+        {
+            "label": "CollapsibleMenuItemButtonComponent",
+            "file_type": "code",
+            "source_file": "src/components/collapsible-menu-item-button-component.tsx",
+            "source_location": "L12",
+            "_origin": "ast",
+            "id": "src_components_collapsible_menu_item_button_component_collapsiblemenuitembuttoncomponent",
+            "community": 7,
+            "norm_label": "collapsiblemenuitembuttoncomponent"
+        },
+        {
+            "label": "CollapsedMenuPopoverComponent",
+            "file_type": "code",
+            "source_file": "src/components/collapsible-menu-popover-component.tsx",
+            "source_location": "L9",
+            "_origin": "ast",
+            "id": "src_components_collapsible_menu_popover_component_collapsedmenupopovercomponent",
+            "community": 8,
+            "norm_label": "collapsedmenupopovercomponent"
+        },
+        {
+            "label": "PageLoaderComponent",
+            "file_type": "code",
+            "source_file": "src/components/page-loader-component.tsx",
+            "source_location": "L6",
+            "_origin": "ast",
+            "id": "src_components_page_loader_component_pageloadercomponent",
+            "community": 9,
+            "norm_label": "pageloadercomponent"
+        },
+        {
+            "label": "TreeMenuLinkTreeItemComponent",
+            "file_type": "code",
+            "source_file": "src/components/tree-menu-link-tree-item-component.tsx",
+            "source_location": "L27",
+            "_origin": "ast",
+            "id": "src_components_tree_menu_link_tree_item_component_treemenulinktreeitemcomponent",
+            "community": 10,
+            "norm_label": "treemenulinktreeitemcomponent"
+        },
+        {
+            "label": "SidebarContextType",
+            "file_type": "code",
+            "source_file": "src/contexts/sidebar-context/sidebar-context.ts",
+            "source_location": "L3",
+            "_origin": "ast",
+            "id": "src_contexts_sidebar_context_sidebar_context_sidebarcontexttype",
+            "community": 11,
+            "norm_label": "sidebarcontexttype"
+        },
+        {
+            "label": "SidebarProvider",
+            "file_type": "code",
+            "source_file": "src/contexts/sidebar-context/sidebar-provider.tsx",
+            "source_location": "L5",
+            "_origin": "ast",
+            "id": "src_contexts_sidebar_context_sidebar_provider_sidebarprovider",
+            "community": 12,
+            "norm_label": "sidebarprovider"
+        },
+        {
+            "label": "useSidebarContext",
+            "file_type": "code",
+            "source_file": "src/contexts/sidebar-context/use-sidebar-context.ts",
+            "source_location": "L5",
+            "_origin": "ast",
+            "id": "src_contexts_sidebar_context_use_sidebar_context_usesidebarcontext",
+            "community": 13,
+            "norm_label": "usesidebarcontext"
+        },
+        {
+            "label": "useCollapsibleMenuIconComponentHook",
+            "file_type": "code",
+            "source_file": "src/hooks/use-collapsible-menu-icon-component-hook.ts",
+            "source_location": "L5",
+            "_origin": "ast",
+            "id": "src_hooks_use_collapsible_menu_icon_component_hook_usecollapsiblemenuiconcomponenthook",
+            "community": 14,
+            "norm_label": "usecollapsiblemenuiconcomponenthook"
+        },
+        {
+            "label": "useCollapsibleMenuItemComponentHook",
+            "file_type": "code",
+            "source_file": "src/hooks/use-collapsible-menu-item-component-hook.ts",
+            "source_location": "L5",
+            "_origin": "ast",
+            "id": "src_hooks_use_collapsible_menu_item_component_hook_usecollapsiblemenuitemcomponenthook",
+            "community": 15,
+            "norm_label": "usecollapsiblemenuitemcomponenthook"
+        },
+        {
+            "label": "usePasswordFieldComponentHook",
+            "file_type": "code",
+            "source_file": "src/hooks/use-password-field-component-hook.ts",
+            "source_location": "L5",
+            "_origin": "ast",
+            "id": "src_hooks_use_password_field_component_hook_usepasswordfieldcomponenthook",
+            "community": 16,
+            "norm_label": "usepasswordfieldcomponenthook"
+        },
+        {
+            "label": "useTitleHook",
+            "file_type": "code",
+            "source_file": "src/hooks/use-title-hook.ts",
+            "source_location": "L5",
+            "_origin": "ast",
+            "id": "src_hooks_use_title_hook_usetitlehook",
+            "community": 17,
+            "norm_label": "usetitlehook"
+        },
+        {
+            "label": "PagesType",
+            "file_type": "code",
+            "source_file": "src/index.ts",
+            "source_location": "L22",
+            "_origin": "ast",
+            "id": "src_index_pagestype",
+            "community": 18,
+            "norm_label": "pagestype"
+        },
+        {
+            "label": "UtilsType",
+            "file_type": "code",
+            "source_file": "src/index.ts",
+            "source_location": "L23",
+            "_origin": "ast",
+            "id": "src_index_utilstype",
+            "community": 19,
+            "norm_label": "utilstype"
+        },
+        {
+            "label": "MainLayout",
+            "file_type": "code",
+            "source_file": "src/layouts/main-layout.tsx",
+            "source_location": "L31",
+            "_origin": "ast",
+            "id": "src_layouts_main_layout_mainlayout",
+            "community": 20,
+            "norm_label": "mainlayout"
+        },
+        {
+            "label": "useChangePassword",
+            "file_type": "code",
+            "source_file": "src/modules/change-password/hooks/change-password-hook.ts",
+            "source_location": "L12",
+            "_origin": "ast",
+            "id": "src_modules_change_password_hooks_change_password_hook_usechangepassword",
+            "community": 21,
+            "norm_label": "usechangepassword"
+        },
+        {
+            "label": "ALertType",
+            "file_type": "code",
+            "source_file": "src/modules/change-password/types/alert-type.ts",
+            "source_location": "L1",
+            "_origin": "ast",
+            "id": "src_modules_change_password_types_alert_type_alerttype",
+            "community": 22,
+            "norm_label": "alerttype"
+        },
+        {
+            "label": "ChangePasswordFormType",
+            "file_type": "code",
+            "source_file": "src/modules/change-password/types/change-password-form-type.ts",
+            "source_location": "L5",
+            "_origin": "ast",
+            "id": "src_modules_change_password_types_change_password_form_type_changepasswordformtype",
+            "community": 23,
+            "norm_label": "changepasswordformtype"
+        },
+        {
+            "label": "ChangePasswordResponseType",
+            "file_type": "code",
+            "source_file": "src/modules/change-password/types/change-password-request-type.ts",
+            "source_location": "L9",
+            "_origin": "ast",
+            "id": "src_modules_change_password_types_change_password_request_type_changepasswordresponsetype",
+            "community": 25,
+            "norm_label": "changepasswordresponsetype"
+        },
+        {
+            "label": "ChangePasswordResponseMappedType",
+            "file_type": "code",
+            "source_file": "src/modules/change-password/types/change-password-request-type.ts",
+            "source_location": "L10",
+            "_origin": "ast",
+            "id": "src_modules_change_password_types_change_password_request_type_changepasswordresponsemappedtype",
+            "community": 24,
+            "norm_label": "changepasswordresponsemappedtype"
+        },
+        {
+            "label": "PostChangePasswordMutationOptionsType",
+            "file_type": "code",
+            "source_file": "src/modules/change-password/types/change-password-request-type.ts",
+            "source_location": "L11",
+            "_origin": "ast",
+            "id": "src_modules_change_password_types_change_password_request_type_postchangepasswordmutationoptionstype",
+            "community": 26,
+            "norm_label": "postchangepasswordmutationoptionstype"
+        },
+        {
+            "label": "Error404Page",
+            "file_type": "code",
+            "source_file": "src/modules/error/pages/error-400-page.tsx",
+            "source_location": "L9",
+            "_origin": "ast",
+            "id": "src_modules_error_pages_error_400_page_error404page",
+            "community": 27,
+            "norm_label": "error404page"
+        },
+        {
+            "label": "Error500Page",
+            "file_type": "code",
+            "source_file": "src/modules/error/pages/error-500-page.tsx",
+            "source_location": "L9",
+            "_origin": "ast",
+            "id": "src_modules_error_pages_error_500_page_error500page",
+            "community": 28,
+            "norm_label": "error500page"
+        },
+        {
+            "label": "useForgotPasswordPageHook",
+            "file_type": "code",
+            "source_file": "src/modules/forgot-password/hooks/use-forgot-password-page-hook.ts",
+            "source_location": "L13",
+            "_origin": "ast",
+            "id": "src_modules_forgot_password_hooks_use_forgot_password_page_hook_useforgotpasswordpagehook",
+            "community": 29,
+            "norm_label": "useforgotpasswordpagehook"
+        },
+        {
+            "label": "ALertType",
+            "file_type": "code",
+            "source_file": "src/modules/forgot-password/types/alert-type.ts",
+            "source_location": "L1",
+            "_origin": "ast",
+            "id": "src_modules_forgot_password_types_alert_type_alerttype",
+            "community": 30,
+            "norm_label": "alerttype"
+        },
+        {
+            "label": "ForgotPasswordFormType",
+            "file_type": "code",
+            "source_file": "src/modules/forgot-password/types/forgot-password-form-type.ts",
+            "source_location": "L5",
+            "_origin": "ast",
+            "id": "src_modules_forgot_password_types_forgot_password_form_type_forgotpasswordformtype",
+            "community": 31,
+            "norm_label": "forgotpasswordformtype"
+        },
+        {
+            "label": "ForgotPasswordResponseType",
+            "file_type": "code",
+            "source_file": "src/modules/forgot-password/types/forgot-password-request-type.ts",
+            "source_location": "L9",
+            "_origin": "ast",
+            "id": "src_modules_forgot_password_types_forgot_password_request_type_forgotpasswordresponsetype",
+            "community": 33,
+            "norm_label": "forgotpasswordresponsetype"
+        },
+        {
+            "label": "ForgotPasswordResponseMappedType",
+            "file_type": "code",
+            "source_file": "src/modules/forgot-password/types/forgot-password-request-type.ts",
+            "source_location": "L10",
+            "_origin": "ast",
+            "id": "src_modules_forgot_password_types_forgot_password_request_type_forgotpasswordresponsemappedtype",
+            "community": 32,
+            "norm_label": "forgotpasswordresponsemappedtype"
+        },
+        {
+            "label": "PostForgotPasswordMutationOptionsType",
+            "file_type": "code",
+            "source_file": "src/modules/forgot-password/types/forgot-password-request-type.ts",
+            "source_location": "L12",
+            "_origin": "ast",
+            "id": "src_modules_forgot_password_types_forgot_password_request_type_postforgotpasswordmutationoptionstype",
+            "community": 34,
+            "norm_label": "postforgotpasswordmutationoptionstype"
+        },
+        {
+            "label": "useLoginPageHook",
+            "file_type": "code",
+            "source_file": "src/modules/login/hooks/use-login-page-hook.ts",
+            "source_location": "L20",
+            "_origin": "ast",
+            "id": "src_modules_login_hooks_use_login_page_hook_useloginpagehook",
+            "community": 35,
+            "norm_label": "useloginpagehook"
+        },
+        {
+            "label": "ALertType",
+            "file_type": "code",
+            "source_file": "src/modules/login/types/alert-type.ts",
+            "source_location": "L1",
+            "_origin": "ast",
+            "id": "src_modules_login_types_alert_type_alerttype",
+            "community": 36,
+            "norm_label": "alerttype"
+        },
+        {
+            "label": "LoginFormType",
+            "file_type": "code",
+            "source_file": "src/modules/login/types/login-form-type.ts",
+            "source_location": "L5",
+            "_origin": "ast",
+            "id": "src_modules_login_types_login_form_type_loginformtype",
+            "community": 37,
+            "norm_label": "loginformtype"
+        },
+        {
+            "label": "LoginResponseType",
+            "file_type": "code",
+            "source_file": "src/modules/login/types/login-request-type.ts",
+            "source_location": "L9",
+            "_origin": "ast",
+            "id": "src_modules_login_types_login_request_type_loginresponsetype",
+            "community": 39,
+            "norm_label": "loginresponsetype"
+        },
+        {
+            "label": "LoginResponseMappedType",
+            "file_type": "code",
+            "source_file": "src/modules/login/types/login-request-type.ts",
+            "source_location": "L10",
+            "_origin": "ast",
+            "id": "src_modules_login_types_login_request_type_loginresponsemappedtype",
+            "community": 38,
+            "norm_label": "loginresponsemappedtype"
+        },
+        {
+            "label": "PostLoginMutationOptionsType",
+            "file_type": "code",
+            "source_file": "src/modules/login/types/login-request-type.ts",
+            "source_location": "L12",
+            "_origin": "ast",
+            "id": "src_modules_login_types_login_request_type_postloginmutationoptionstype",
+            "community": 40,
+            "norm_label": "postloginmutationoptionstype"
+        },
+        {
+            "label": "useRegisterPageHook",
+            "file_type": "code",
+            "source_file": "src/modules/register/hooks/use-register-page-hook.ts",
+            "source_location": "L13",
+            "_origin": "ast",
+            "id": "src_modules_register_hooks_use_register_page_hook_useregisterpagehook",
+            "community": 41,
+            "norm_label": "useregisterpagehook"
+        },
+        {
+            "label": "ALertType",
+            "file_type": "code",
+            "source_file": "src/modules/register/types/alert-type.ts",
+            "source_location": "L1",
+            "_origin": "ast",
+            "id": "src_modules_register_types_alert_type_alerttype",
+            "community": 42,
+            "norm_label": "alerttype"
+        },
+        {
+            "label": "RegisterFormType",
+            "file_type": "code",
+            "source_file": "src/modules/register/types/register-form-type.ts",
+            "source_location": "L5",
+            "_origin": "ast",
+            "id": "src_modules_register_types_register_form_type_registerformtype",
+            "community": 43,
+            "norm_label": "registerformtype"
+        },
+        {
+            "label": "RegisterResponseType",
+            "file_type": "code",
+            "source_file": "src/modules/register/types/register-request-type.ts",
+            "source_location": "L9",
+            "_origin": "ast",
+            "id": "src_modules_register_types_register_request_type_registerresponsetype",
+            "community": 46,
+            "norm_label": "registerresponsetype"
+        },
+        {
+            "label": "RegisterResponseMappedType",
+            "file_type": "code",
+            "source_file": "src/modules/register/types/register-request-type.ts",
+            "source_location": "L10",
+            "_origin": "ast",
+            "id": "src_modules_register_types_register_request_type_registerresponsemappedtype",
+            "community": 45,
+            "norm_label": "registerresponsemappedtype"
+        },
+        {
+            "label": "PostRegisterMutationOptionsType",
+            "file_type": "code",
+            "source_file": "src/modules/register/types/register-request-type.ts",
+            "source_location": "L12",
+            "_origin": "ast",
+            "id": "src_modules_register_types_register_request_type_postregistermutationoptionstype",
+            "community": 44,
+            "norm_label": "postregistermutationoptionstype"
+        },
+        {
+            "label": "useCountdownResendComponentHook",
+            "file_type": "code",
+            "source_file": "src/modules/validate-otp/hooks/use-countdown-resend-component-hook.ts",
+            "source_location": "L5",
+            "_origin": "ast",
+            "id": "src_modules_validate_otp_hooks_use_countdown_resend_component_hook_usecountdownresendcomponenthook",
+            "community": 47,
+            "norm_label": "usecountdownresendcomponenthook"
+        },
+        {
+            "label": "useValidateOtpPageHook",
+            "file_type": "code",
+            "source_file": "src/modules/validate-otp/hooks/use-validate-otp-page-hook.ts",
+            "source_location": "L14",
+            "_origin": "ast",
+            "id": "src_modules_validate_otp_hooks_use_validate_otp_page_hook_usevalidateotppagehook",
+            "community": 48,
+            "norm_label": "usevalidateotppagehook"
+        },
+        {
+            "label": "ALertType",
+            "file_type": "code",
+            "source_file": "src/modules/validate-otp/types/alert-type.ts",
+            "source_location": "L1",
+            "_origin": "ast",
+            "id": "src_modules_validate_otp_types_alert_type_alerttype",
+            "community": 49,
+            "norm_label": "alerttype"
+        },
+        {
+            "label": "ValidateOtpFormType",
+            "file_type": "code",
+            "source_file": "src/modules/validate-otp/types/validate-otp-form-type.ts",
+            "source_location": "L5",
+            "_origin": "ast",
+            "id": "src_modules_validate_otp_types_validate_otp_form_type_validateotpformtype",
+            "community": 50,
+            "norm_label": "validateotpformtype"
+        },
+        {
+            "label": "ValidateOtpResponseType",
+            "file_type": "code",
+            "source_file": "src/modules/validate-otp/types/validate-otp-request-type.ts",
+            "source_location": "L9",
+            "_origin": "ast",
+            "id": "src_modules_validate_otp_types_validate_otp_request_type_validateotpresponsetype",
+            "community": 55,
+            "norm_label": "validateotpresponsetype"
+        },
+        {
+            "label": "ValidateOtpResponseMappedType",
+            "file_type": "code",
+            "source_file": "src/modules/validate-otp/types/validate-otp-request-type.ts",
+            "source_location": "L10",
+            "_origin": "ast",
+            "id": "src_modules_validate_otp_types_validate_otp_request_type_validateotpresponsemappedtype",
+            "community": 54,
+            "norm_label": "validateotpresponsemappedtype"
+        },
+        {
+            "label": "PostValidateOtpMutationOptionsType",
+            "file_type": "code",
+            "source_file": "src/modules/validate-otp/types/validate-otp-request-type.ts",
+            "source_location": "L12",
+            "_origin": "ast",
+            "id": "src_modules_validate_otp_types_validate_otp_request_type_postvalidateotpmutationoptionstype",
+            "community": 52,
+            "norm_label": "postvalidateotpmutationoptionstype"
+        },
+        {
+            "label": "ResendOtpResponseType",
+            "file_type": "code",
+            "source_file": "src/modules/validate-otp/types/validate-otp-request-type.ts",
+            "source_location": "L18",
+            "_origin": "ast",
+            "id": "src_modules_validate_otp_types_validate_otp_request_type_resendotpresponsetype",
+            "community": 53,
+            "norm_label": "resendotpresponsetype"
+        },
+        {
+            "label": "PostResendOtpMutationOptionsType",
+            "file_type": "code",
+            "source_file": "src/modules/validate-otp/types/validate-otp-request-type.ts",
+            "source_location": "L23",
+            "_origin": "ast",
+            "id": "src_modules_validate_otp_types_validate_otp_request_type_postresendotpmutationoptionstype",
+            "community": 51,
+            "norm_label": "postresendotpmutationoptionstype"
+        },
+        {
+            "label": "WelcomePage",
+            "file_type": "code",
+            "source_file": "src/modules/welcome/pages/welcome-page.tsx",
+            "source_location": "L9",
+            "_origin": "ast",
+            "id": "src_modules_welcome_pages_welcome_page_welcomepage",
+            "community": 56,
+            "norm_label": "welcomepage"
+        },
+        {
+            "label": "FileRoutesByFullPath",
+            "file_type": "code",
+            "source_file": "src/routeTree.gen.ts",
+            "source_location": "L72",
+            "_origin": "ast",
+            "id": "src_routetree_gen_fileroutesbyfullpath",
+            "community": 57,
+            "norm_label": "fileroutesbyfullpath"
+        },
+        {
+            "label": "FileRoutesByTo",
+            "file_type": "code",
+            "source_file": "src/routeTree.gen.ts",
+            "source_location": "L82",
+            "_origin": "ast",
+            "id": "src_routetree_gen_fileroutesbyto",
+            "community": 59,
+            "norm_label": "fileroutesbyto"
+        },
+        {
+            "label": "FileRoutesById",
+            "file_type": "code",
+            "source_file": "src/routeTree.gen.ts",
+            "source_location": "L92",
+            "_origin": "ast",
+            "id": "src_routetree_gen_fileroutesbyid",
+            "community": 58,
+            "norm_label": "fileroutesbyid"
+        },
+        {
+            "label": "FileRouteTypes",
+            "file_type": "code",
+            "source_file": "src/routeTree.gen.ts",
+            "source_location": "L105",
+            "_origin": "ast",
+            "id": "src_routetree_gen_fileroutetypes",
+            "community": 60,
+            "norm_label": "fileroutetypes"
+        },
+        {
+            "label": "RootRouteChildren",
+            "file_type": "code",
+            "source_file": "src/routeTree.gen.ts",
+            "source_location": "L140",
+            "_origin": "ast",
+            "id": "src_routetree_gen_rootroutechildren",
+            "community": 61,
+            "norm_label": "rootroutechildren"
+        },
+        {
+            "label": "ApiResponseType",
+            "file_type": "code",
+            "source_file": "src/types/api-response-type.ts",
+            "source_location": "L1",
+            "_origin": "ast",
+            "id": "src_types_api_response_type_apiresponsetype",
+            "community": 62,
+            "norm_label": "apiresponsetype"
+        },
+        {
+            "label": "AuthMeResponseType",
+            "file_type": "code",
+            "source_file": "src/types/auth-me-response-type.ts",
+            "source_location": "L1",
+            "_origin": "ast",
+            "id": "src_types_auth_me_response_type_authmeresponsetype",
+            "community": 63,
+            "norm_label": "authmeresponsetype"
+        },
+        {
+            "label": "CollapsibleMenuIconComponentPropsType",
+            "file_type": "code",
+            "source_file": "src/types/collapsible-menu-icon-component-props-type.ts",
+            "source_location": "L3",
+            "_origin": "ast",
+            "id": "src_types_collapsible_menu_icon_component_props_type_collapsiblemenuiconcomponentpropstype",
+            "community": 64,
+            "norm_label": "collapsiblemenuiconcomponentpropstype"
+        },
+        {
+            "label": "CollapsibleMenuItemButtonComponentPropsType",
+            "file_type": "code",
+            "source_file": "src/types/collapsible-menu-item-button-component-props-type.ts",
+            "source_location": "L5",
+            "_origin": "ast",
+            "id": "src_types_collapsible_menu_item_button_component_props_type_collapsiblemenuitembuttoncomponentpropstype",
+            "community": 65,
+            "norm_label": "collapsiblemenuitembuttoncomponentpropstype"
+        },
+        {
+            "label": "CollapsibleMenuItemComponentPropsType",
+            "file_type": "code",
+            "source_file": "src/types/collapsible-menu-item-component-props-type.ts",
+            "source_location": "L3",
+            "_origin": "ast",
+            "id": "src_types_collapsible_menu_item_component_props_type_collapsiblemenuitemcomponentpropstype",
+            "community": 66,
+            "norm_label": "collapsiblemenuitemcomponentpropstype"
+        },
+        {
+            "label": "CollapsedMenuPopoverComponentPropsType",
+            "file_type": "code",
+            "source_file": "src/types/collapsible-menu-popover-component-props-type.ts",
+            "source_location": "L3",
+            "_origin": "ast",
+            "id": "src_types_collapsible_menu_popover_component_props_type_collapsedmenupopovercomponentpropstype",
+            "community": 67,
+            "norm_label": "collapsedmenupopovercomponentpropstype"
+        },
+        {
+            "label": "RouterContextType",
+            "file_type": "code",
+            "source_file": "src/types/router-context-type.ts",
+            "source_location": "L3",
+            "_origin": "ast",
+            "id": "src_types_router_context_type_routercontexttype",
+            "community": 68,
+            "norm_label": "routercontexttype"
+        },
+        {
+            "label": "TreeMenuItem",
+            "file_type": "code",
+            "source_file": "src/types/tree-menu-item-type.ts",
+            "source_location": "L3",
+            "_origin": "ast",
+            "id": "src_types_tree_menu_item_type_treemenuitem",
+            "community": 69,
+            "norm_label": "treemenuitem"
+        },
+        {
+            "label": "React TypeScript Vite Template",
+            "file_type": "document",
+            "source_file": "README.md",
+            "source_location": null,
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null,
+            "id": "readme_react_typescript_vite",
+            "community": 0,
+            "norm_label": "react typescript vite template"
+        },
+        {
+            "label": "Vite HMR",
+            "file_type": "concept",
+            "source_file": "README.md",
+            "source_location": null,
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null,
+            "id": "readme_vite_hmr",
+            "community": 0,
+            "norm_label": "vite hmr"
+        },
+        {
+            "label": "React Compiler",
+            "file_type": "concept",
+            "source_file": "README.md",
+            "source_location": null,
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null,
+            "id": "readme_react_compiler",
+            "community": 0,
+            "norm_label": "react compiler"
+        },
+        {
+            "label": "ESLint Configuration",
+            "file_type": "concept",
+            "source_file": "README.md",
+            "source_location": null,
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null,
+            "id": "readme_eslint_configuration",
+            "community": 2,
+            "norm_label": "eslint configuration"
+        },
+        {
+            "label": "eslint-plugin-react-x",
+            "file_type": "concept",
+            "source_file": "README.md",
+            "source_location": null,
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null,
+            "id": "readme_eslint_plugin_react_x",
+            "community": 2,
+            "norm_label": "eslint-plugin-react-x"
+        },
+        {
+            "label": "eslint-plugin-react-dom",
+            "file_type": "concept",
+            "source_file": "README.md",
+            "source_location": null,
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null,
+            "id": "readme_eslint_plugin_react_dom",
+            "community": 2,
+            "norm_label": "eslint-plugin-react-dom"
+        },
+        {
+            "label": "@vitejs/plugin-react",
+            "file_type": "concept",
+            "source_file": "README.md",
+            "source_location": null,
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null,
+            "id": "readme_vitejs_plugin_react",
+            "community": 0,
+            "norm_label": "@vitejs/plugin-react"
+        },
+        {
+            "label": "@vitejs/plugin-react-swc",
+            "file_type": "concept",
+            "source_file": "README.md",
+            "source_location": null,
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null,
+            "id": "readme_vitejs_plugin_react_swc",
+            "community": 0,
+            "norm_label": "@vitejs/plugin-react-swc"
+        },
+        {
+            "label": "Oxc",
+            "file_type": "concept",
+            "source_file": "README.md",
+            "source_location": null,
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null,
+            "id": "readme_oxc",
+            "community": 0,
+            "norm_label": "oxc"
+        },
+        {
+            "label": "SWC",
+            "file_type": "concept",
+            "source_file": "README.md",
+            "source_location": null,
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null,
+            "id": "readme_swc",
+            "community": 0,
+            "norm_label": "swc"
+        },
+        {
+            "label": "typescript-eslint Configs",
+            "file_type": "concept",
+            "source_file": "README.md",
+            "source_location": null,
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null,
+            "id": "readme_tseslint_configs",
+            "community": 2,
+            "norm_label": "typescript-eslint configs"
+        },
+        {
+            "label": "tsconfig.node.json and tsconfig.app.json",
+            "file_type": "concept",
+            "source_file": "README.md",
+            "source_location": null,
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null,
+            "id": "readme_tsconfig_node_tsconfig_app",
+            "community": 2,
+            "norm_label": "tsconfig.node.json and tsconfig.app.json"
+        },
+        {
+            "label": "Type-Aware Lint Rules",
+            "file_type": "rationale",
+            "source_file": "README.md",
+            "source_location": null,
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null,
+            "id": "readme_type_aware_lint_rules",
+            "community": 2,
+            "norm_label": "type-aware lint rules"
+        },
+        {
+            "label": "index.html Entry Point",
+            "file_type": "code",
+            "source_file": "index.html",
+            "source_location": null,
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null,
+            "id": "index_html",
+            "community": 3,
+            "norm_label": "index.html entry point"
+        },
+        {
+            "label": "VITE_APP_NAME Environment Variable",
+            "file_type": "concept",
+            "source_file": "index.html",
+            "source_location": null,
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null,
+            "id": "index_html_app_title_env_var",
+            "community": 3,
+            "norm_label": "vite_app_name environment variable"
+        },
+        {
+            "label": "src/main.tsx Entry Module",
+            "file_type": "concept",
+            "source_file": "index.html",
+            "source_location": null,
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null,
+            "id": "index_html_src_main_tsx",
+            "community": 3,
+            "norm_label": "src/main.tsx entry module"
+        },
+        {
+            "label": "favicon.svg",
+            "file_type": "concept",
+            "source_file": "index.html",
+            "source_location": null,
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null,
+            "id": "index_html_favicon_svg",
+            "community": 3,
+            "norm_label": "favicon.svg"
+        },
+        {
+            "label": "pnpm Workspace Configuration",
+            "file_type": "document",
+            "source_file": "pnpm-workspace.yaml",
+            "source_location": null,
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null,
+            "id": "pnpm_workspace_yaml",
+            "community": 0,
+            "norm_label": "pnpm workspace configuration"
+        },
+        {
+            "label": "App Favicon - Purple Lightning Bolt",
+            "file_type": "image",
+            "source_file": "public/favicon.svg",
+            "source_location": null,
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null,
+            "id": "public_favicon_svg",
+            "community": 4,
+            "norm_label": "app favicon - purple lightning bolt"
+        },
+        {
+            "label": "Icon Sprite Sheet",
+            "file_type": "image",
+            "source_file": "public/icons.svg",
+            "source_location": null,
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null,
+            "id": "public_iconssvg",
+            "community": 1,
+            "norm_label": "icon sprite sheet"
+        },
+        {
+            "label": "Bluesky Icon",
+            "file_type": "image",
+            "source_file": "public/icons.svg",
+            "source_location": "symbol id=\"bluesky-icon\" line 2",
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null,
+            "id": "public_iconssvg_bluesky_icon",
+            "community": 1,
+            "norm_label": "bluesky icon"
+        },
+        {
+            "label": "Discord Icon",
+            "file_type": "image",
+            "source_file": "public/icons.svg",
+            "source_location": "symbol id=\"discord-icon\" line 6",
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null,
+            "id": "public_iconssvg_discord_icon",
+            "community": 1,
+            "norm_label": "discord icon"
+        },
+        {
+            "label": "Documentation Icon",
+            "file_type": "image",
+            "source_file": "public/icons.svg",
+            "source_location": "symbol id=\"documentation-icon\" line 9",
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null,
+            "id": "public_iconssvg_documentation_icon",
+            "community": 1,
+            "norm_label": "documentation icon"
+        },
+        {
+            "label": "GitHub Icon",
+            "file_type": "image",
+            "source_file": "public/icons.svg",
+            "source_location": "symbol id=\"github-icon\" line 14",
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null,
+            "id": "public_iconssvg_github_icon",
+            "community": 1,
+            "norm_label": "github icon"
+        },
+        {
+            "label": "Social / Star Icon",
+            "file_type": "image",
+            "source_file": "public/icons.svg",
+            "source_location": "symbol id=\"social-icon\" line 17",
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null,
+            "id": "public_iconssvg_social_icon",
+            "community": 1,
+            "norm_label": "social / star icon"
+        },
+        {
+            "label": "X (Twitter) Icon",
+            "file_type": "image",
+            "source_file": "public/icons.svg",
+            "source_location": "symbol id=\"x-icon\" line 21",
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null,
+            "id": "public_iconssvg_x_icon",
+            "community": 1,
+            "norm_label": "x (twitter) icon"
+        },
+        {
+            "label": "Vite Logo",
+            "file_type": "image",
+            "source_file": "src/assets/vite.svg",
+            "source_location": null,
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null,
+            "id": "src_assets_vite_svg",
+            "community": 5,
+            "norm_label": "vite logo"
+        }
+    ],
+    "links": [
+        {
+            "relation": "conceptually_related_to",
+            "confidence": "INFERRED",
+            "confidence_score": 0.85,
+            "source_file": "pnpm-workspace.yaml",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "pnpm_workspace_yaml",
+            "target": "readme_react_typescript_vite"
+        },
+        {
+            "relation": "references",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "README.md",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "readme_react_typescript_vite",
+            "target": "readme_eslint_configuration"
+        },
+        {
+            "relation": "references",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "README.md",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "readme_react_typescript_vite",
+            "target": "readme_react_compiler"
+        },
+        {
+            "relation": "references",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "README.md",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "readme_react_typescript_vite",
+            "target": "readme_vite_hmr"
+        },
+        {
+            "relation": "references",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "README.md",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "readme_react_typescript_vite",
+            "target": "readme_vitejs_plugin_react"
+        },
+        {
+            "relation": "references",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "README.md",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "readme_react_typescript_vite",
+            "target": "readme_vitejs_plugin_react_swc"
+        },
+        {
+            "relation": "references",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "README.md",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "readme_eslint_configuration",
+            "target": "readme_eslint_plugin_react_dom"
+        },
+        {
+            "relation": "references",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "README.md",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "readme_eslint_configuration",
+            "target": "readme_eslint_plugin_react_x"
+        },
+        {
+            "relation": "references",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "README.md",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "readme_eslint_configuration",
+            "target": "readme_tsconfig_node_tsconfig_app"
+        },
+        {
+            "relation": "references",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "README.md",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "readme_eslint_configuration",
+            "target": "readme_tseslint_configs"
+        },
+        {
+            "relation": "rationale_for",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "README.md",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "readme_type_aware_lint_rules",
+            "target": "readme_eslint_configuration"
+        },
+        {
+            "relation": "references",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "README.md",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "readme_vitejs_plugin_react",
+            "target": "readme_oxc"
+        },
+        {
+            "relation": "references",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "README.md",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "readme_vitejs_plugin_react_swc",
+            "target": "readme_swc"
+        },
+        {
+            "relation": "references",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "index.html",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "index_html",
+            "target": "index_html_app_title_env_var"
+        },
+        {
+            "relation": "references",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "index.html",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "index_html",
+            "target": "index_html_favicon_svg"
+        },
+        {
+            "relation": "references",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "index.html",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "index_html",
+            "target": "index_html_src_main_tsx"
+        },
+        {
+            "relation": "references",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "public/icons.svg",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "public_iconssvg",
+            "target": "public_iconssvg_bluesky_icon"
+        },
+        {
+            "relation": "references",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "public/icons.svg",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "public_iconssvg",
+            "target": "public_iconssvg_discord_icon"
+        },
+        {
+            "relation": "references",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "public/icons.svg",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "public_iconssvg",
+            "target": "public_iconssvg_documentation_icon"
+        },
+        {
+            "relation": "references",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "public/icons.svg",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "public_iconssvg",
+            "target": "public_iconssvg_github_icon"
+        },
+        {
+            "relation": "references",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "public/icons.svg",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "public_iconssvg",
+            "target": "public_iconssvg_social_icon"
+        },
+        {
+            "relation": "references",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "public/icons.svg",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "public_iconssvg",
+            "target": "public_iconssvg_x_icon"
+        },
+        {
+            "relation": "semantically_similar_to",
+            "confidence": "INFERRED",
+            "confidence_score": 0.75,
+            "source_file": "public/icons.svg",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "public_iconssvg_bluesky_icon",
+            "target": "public_iconssvg_discord_icon"
+        },
+        {
+            "relation": "semantically_similar_to",
+            "confidence": "INFERRED",
+            "confidence_score": 0.85,
+            "source_file": "public/icons.svg",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "public_iconssvg_bluesky_icon",
+            "target": "public_iconssvg_x_icon"
+        },
+        {
+            "relation": "semantically_similar_to",
+            "confidence": "INFERRED",
+            "confidence_score": 0.65,
+            "source_file": "public/icons.svg",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "public_iconssvg_github_icon",
+            "target": "public_iconssvg_bluesky_icon"
+        },
+        {
+            "relation": "conceptually_related_to",
+            "confidence": "INFERRED",
+            "confidence_score": 0.75,
+            "source_file": "public/icons.svg",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "public_iconssvg_social_icon",
+            "target": "public_iconssvg_bluesky_icon"
+        },
+        {
+            "relation": "semantically_similar_to",
+            "confidence": "INFERRED",
+            "confidence_score": 0.75,
+            "source_file": "public/icons.svg",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "public_iconssvg_discord_icon",
+            "target": "public_iconssvg_x_icon"
+        },
+        {
+            "relation": "semantically_similar_to",
+            "confidence": "INFERRED",
+            "confidence_score": 0.65,
+            "source_file": "public/icons.svg",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "public_iconssvg_github_icon",
+            "target": "public_iconssvg_discord_icon"
+        },
+        {
+            "relation": "conceptually_related_to",
+            "confidence": "INFERRED",
+            "confidence_score": 0.75,
+            "source_file": "public/icons.svg",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "public_iconssvg_social_icon",
+            "target": "public_iconssvg_discord_icon"
+        },
+        {
+            "relation": "semantically_similar_to",
+            "confidence": "INFERRED",
+            "confidence_score": 0.65,
+            "source_file": "public/icons.svg",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "public_iconssvg_documentation_icon",
+            "target": "public_iconssvg_github_icon"
+        },
+        {
+            "relation": "conceptually_related_to",
+            "confidence": "INFERRED",
+            "confidence_score": 0.75,
+            "source_file": "public/icons.svg",
+            "source_location": null,
+            "weight": 1.0,
+            "source": "public_iconssvg_social_icon",
+            "target": "public_iconssvg_x_icon"
+        }
+    ],
+    "hyperedges": [
+        {
+            "id": "vite_plugin_ecosystem",
+            "label": "Vite Plugin Ecosystem",
+            "nodes": [
+                "readme_vitejs_plugin_react",
+                "readme_vitejs_plugin_react_swc",
+                "readme_oxc",
+                "readme_swc"
+            ],
+            "relation": "form",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "README.md"
+        },
+        {
+            "id": "eslint_configuration_stack",
+            "label": "ESLint Configuration Stack",
+            "nodes": [
+                "readme_eslint_configuration",
+                "readme_tseslint_configs",
+                "readme_eslint_plugin_react_x",
+                "readme_eslint_plugin_react_dom",
+                "readme_tsconfig_node_tsconfig_app",
+                "readme_type_aware_lint_rules"
+            ],
+            "relation": "form",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "README.md"
+        },
+        {
+            "id": "social_platform_icons",
+            "label": "Social Platform Icon Group",
+            "nodes": [
+                "public_iconssvg_bluesky_icon",
+                "public_iconssvg_discord_icon",
+                "public_iconssvg_x_icon"
+            ],
+            "relation": "form",
+            "confidence": "INFERRED",
+            "confidence_score": 0.85,
+            "source_file": "public/icons.svg"
+        },
+        {
+            "id": "developer_platform_icons",
+            "label": "Developer Platform Icon Group",
+            "nodes": [
+                "public_iconssvg_github_icon",
+                "public_iconssvg_discord_icon",
+                "public_iconssvg_documentation_icon"
+            ],
+            "relation": "form",
+            "confidence": "INFERRED",
+            "confidence_score": 0.75,
+            "source_file": "public/icons.svg"
+        }
+    ],
+    "built_at_commit": "16fd7b05b7a9f4546e5c4eb792b4dd6b13c885fd"
+}

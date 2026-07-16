@@ -1,0 +1,81 @@
+{
+    "nodes": [
+        {
+            "id": "index_html",
+            "label": "index.html Entry Point",
+            "file_type": "code",
+            "source_file": "index.html",
+            "source_location": null,
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null
+        },
+        {
+            "id": "index_html_app_title_env_var",
+            "label": "VITE_APP_NAME Environment Variable",
+            "file_type": "concept",
+            "source_file": "index.html",
+            "source_location": null,
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null
+        },
+        {
+            "id": "index_html_src_main_tsx",
+            "label": "src/main.tsx Entry Module",
+            "file_type": "concept",
+            "source_file": "index.html",
+            "source_location": null,
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null
+        },
+        {
+            "id": "index_html_favicon_svg",
+            "label": "favicon.svg",
+            "file_type": "concept",
+            "source_file": "index.html",
+            "source_location": null,
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null
+        }
+    ],
+    "edges": [
+        {
+            "source": "index_html",
+            "target": "index_html_src_main_tsx",
+            "relation": "references",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "index.html",
+            "source_location": null,
+            "weight": 1.0
+        },
+        {
+            "source": "index_html",
+            "target": "index_html_favicon_svg",
+            "relation": "references",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "index.html",
+            "source_location": null,
+            "weight": 1.0
+        },
+        {
+            "source": "index_html",
+            "target": "index_html_app_title_env_var",
+            "relation": "references",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "index.html",
+            "source_location": null,
+            "weight": 1.0
+        }
+    ],
+    "hyperedges": []
+}

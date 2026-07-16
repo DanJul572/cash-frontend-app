@@ -5,6 +5,8 @@ import i18n from 'i18next';
 import { languageConfig } from '@configs';
 import commonEN from '@locales/en.json';
 import commonID from '@locales/id.json';
+import changeAlternateEN from '@modules/change-alternate/locales/change-alternate-en.json';
+import changeAlternateID from '@modules/change-alternate/locales/change-alternate-id.json';
 import changePasswordEN from '@modules/change-password/locales/change-password-en.json';
 import changePasswordID from '@modules/change-password/locales/change-password-id.json';
 import forgotPasswordEN from '@modules/forgot-password/locales/forgot-password-en.json';
@@ -21,6 +23,7 @@ export const initTranslation = () => {
         i18n.use(initReactI18next).init({
             resources: {
                 en: {
+                    changeAlternate: changeAlternateEN,
                     changePassword: changePasswordEN,
                     common: commonEN,
                     forgotPassword: forgotPasswordEN,
@@ -29,6 +32,7 @@ export const initTranslation = () => {
                     validateOtp: validateOtpEN,
                 },
                 id: {
+                    changeAlternate: changeAlternateID,
                     changePassword: changePasswordID,
                     common: commonID,
                     forgotPassword: forgotPasswordID,

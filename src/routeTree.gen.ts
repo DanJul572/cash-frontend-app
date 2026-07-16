@@ -18,6 +18,7 @@ import { Route as GuestRegisterRouteImport } from './routes/_guest/register'
 import { Route as GuestLoginRouteImport } from './routes/_guest/login'
 import { Route as GuestForgotPasswordRouteImport } from './routes/_guest/forgot-password'
 import { Route as GuestChangePasswordRouteImport } from './routes/_guest/change-password'
+import { Route as GuestChangeAlternateRouteImport } from './routes/_guest/change-alternate'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 
 const GuestRoute = GuestRouteImport.update({
@@ -63,6 +64,11 @@ const GuestChangePasswordRoute = GuestChangePasswordRouteImport.update({
   path: '/change-password',
   getParentRoute: () => GuestRoute,
 } as any)
+const GuestChangeAlternateRoute = GuestChangeAlternateRouteImport.update({
+  id: '/change-alternate',
+  path: '/change-alternate',
+  getParentRoute: () => GuestRoute,
+} as any)
 const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
@@ -73,6 +79,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/500': typeof R500Route
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/change-alternate': typeof GuestChangeAlternateRoute
   '/change-password': typeof GuestChangePasswordRoute
   '/forgot-password': typeof GuestForgotPasswordRoute
   '/login': typeof GuestLoginRoute
@@ -83,6 +90,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/500': typeof R500Route
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/change-alternate': typeof GuestChangeAlternateRoute
   '/change-password': typeof GuestChangePasswordRoute
   '/forgot-password': typeof GuestForgotPasswordRoute
   '/login': typeof GuestLoginRoute
@@ -96,6 +104,7 @@ export interface FileRoutesById {
   '/_authenticated': typeof AuthenticatedRouteWithChildren
   '/_guest': typeof GuestRouteWithChildren
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
+  '/_guest/change-alternate': typeof GuestChangeAlternateRoute
   '/_guest/change-password': typeof GuestChangePasswordRoute
   '/_guest/forgot-password': typeof GuestForgotPasswordRoute
   '/_guest/login': typeof GuestLoginRoute
@@ -108,6 +117,7 @@ export interface FileRouteTypes {
     | '/'
     | '/500'
     | '/dashboard'
+    | '/change-alternate'
     | '/change-password'
     | '/forgot-password'
     | '/login'
@@ -118,6 +128,7 @@ export interface FileRouteTypes {
     | '/'
     | '/500'
     | '/dashboard'
+    | '/change-alternate'
     | '/change-password'
     | '/forgot-password'
     | '/login'
@@ -130,6 +141,7 @@ export interface FileRouteTypes {
     | '/_authenticated'
     | '/_guest'
     | '/_authenticated/dashboard'
+    | '/_guest/change-alternate'
     | '/_guest/change-password'
     | '/_guest/forgot-password'
     | '/_guest/login'
@@ -209,6 +221,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuestChangePasswordRouteImport
       parentRoute: typeof GuestRoute
     }
+    '/_guest/change-alternate': {
+      id: '/_guest/change-alternate'
+      path: '/change-alternate'
+      fullPath: '/change-alternate'
+      preLoaderRoute: typeof GuestChangeAlternateRouteImport
+      parentRoute: typeof GuestRoute
+    }
     '/_authenticated/dashboard': {
       id: '/_authenticated/dashboard'
       path: '/dashboard'
@@ -232,6 +251,7 @@ const AuthenticatedRouteWithChildren = AuthenticatedRoute._addFileChildren(
 )
 
 interface GuestRouteChildren {
+  GuestChangeAlternateRoute: typeof GuestChangeAlternateRoute
   GuestChangePasswordRoute: typeof GuestChangePasswordRoute
   GuestForgotPasswordRoute: typeof GuestForgotPasswordRoute
   GuestLoginRoute: typeof GuestLoginRoute
@@ -240,6 +260,7 @@ interface GuestRouteChildren {
 }
 
 const GuestRouteChildren: GuestRouteChildren = {
+  GuestChangeAlternateRoute: GuestChangeAlternateRoute,
   GuestChangePasswordRoute: GuestChangePasswordRoute,
   GuestForgotPasswordRoute: GuestForgotPasswordRoute,
   GuestLoginRoute: GuestLoginRoute,

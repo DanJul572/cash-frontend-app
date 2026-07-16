@@ -1,0 +1,1354 @@
+{
+    "D:\\Coding\\React\\cash-frontend-app\\README.md": {
+        "size": 2625,
+        "mtime_ns": 1779197224741188900,
+        "word_count": 211,
+        "hash": "d4d26dd1331b24187ac96dd7a6da665a7322517a28b64626d6869e5e6c89c0f9"
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\eslint.config.js": {
+        "size": 935,
+        "mtime_ns": 1782173422432480300,
+        "word_count": 64
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\index.html": {
+        "size": 399,
+        "mtime_ns": 1783436233854028700,
+        "word_count": 28,
+        "hash": "1cb9a15c2cc6a0fd641e62f7bd78bd22424aa7b2733c5d0cbf5f1f445109abf9"
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\package.json": {
+        "size": 3395,
+        "mtime_ns": 1784033655572701400,
+        "word_count": 222,
+        "hash": "a2ef20090450c3a51dbf872525bd82febf6a78df51d615535099f7ad32434087"
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\pnpm-workspace.yaml": {
+        "size": 3128,
+        "mtime_ns": 1782137040143509900,
+        "word_count": 166,
+        "hash": "44e86a8f02f0663f1bea7a6f40b45b220c85dfdccafeb50b0d7bc7648cf0febb"
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\public\\favicon.svg": {
+        "size": 9522,
+        "mtime_ns": 1778157884873246300,
+        "word_count": 491,
+        "hash": "892990fa5e09648dab3c25af3670bec40a7f09601c3c5096959840060ebeac14"
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\public\\icons.svg": {
+        "size": 5055,
+        "mtime_ns": 1778157884873246300,
+        "word_count": 382,
+        "hash": "bf365c3d12388b9e0d2987233dac165848273923d0e822b14c9f30ec9c19f01b"
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\public\\mockServiceWorker.js": {
+        "size": 10695,
+        "mtime_ns": 1783759389282920400,
+        "word_count": 1046
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\__mocks__\\@hookform\\resolvers\\zod.ts": {
+        "size": 142,
+        "mtime_ns": 1780041738613190700,
+        "word_count": 22
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\__mocks__\\@mui\\material\\Alert.tsx": {
+        "size": 337,
+        "mtime_ns": 1780041738640138700,
+        "word_count": 39
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\__mocks__\\@mui\\material\\Box.tsx": {
+        "size": 179,
+        "mtime_ns": 1780041738650362500,
+        "word_count": 24
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\__mocks__\\@mui\\material\\Button.tsx": {
+        "size": 400,
+        "mtime_ns": 1780279361154285900,
+        "word_count": 50
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\__mocks__\\@mui\\material\\Card.tsx": {
+        "size": 189,
+        "mtime_ns": 1780041738678436000,
+        "word_count": 24
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\__mocks__\\@mui\\material\\IconButton.tsx": {
+        "size": 359,
+        "mtime_ns": 1780041738692023400,
+        "word_count": 41
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\__mocks__\\@mui\\material\\InputAdornment.tsx": {
+        "size": 203,
+        "mtime_ns": 1780041738703893200,
+        "word_count": 24
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\__mocks__\\@mui\\material\\TextField.tsx": {
+        "size": 690,
+        "mtime_ns": 1780041738723173200,
+        "word_count": 56
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\__mocks__\\react-hook-form.ts": {
+        "size": 3527,
+        "mtime_ns": 1780279361211770700,
+        "word_count": 364
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\__mocks__\\react-i18next.ts": {
+        "size": 624,
+        "mtime_ns": 1780279361222545100,
+        "word_count": 66
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\__tests__\\example.test.ts": {
+        "size": 104,
+        "mtime_ns": 1780713079548540700,
+        "word_count": 13
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\__tests__\\setup.ts": {
+        "size": 36,
+        "mtime_ns": 1780041738846502700,
+        "word_count": 2
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\assets\\vite.svg": {
+        "size": 8710,
+        "mtime_ns": 1778157884873246300,
+        "word_count": 439,
+        "hash": "bfa36572f6ef9b037041288a2602cfa6997312914a974d94a2dfbd10971d17b6"
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\components\\collapsible-menu-icon-component.tsx": {
+        "size": 1456,
+        "mtime_ns": 1783944873881087800,
+        "word_count": 103
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\components\\collapsible-menu-item-button-component.tsx": {
+        "size": 1396,
+        "mtime_ns": 1783944873892051200,
+        "word_count": 83
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\components\\collapsible-menu-item-component.tsx": {
+        "size": 1616,
+        "mtime_ns": 1783944873907047900,
+        "word_count": 100
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\components\\collapsible-menu-popover-component.tsx": {
+        "size": 1070,
+        "mtime_ns": 1783944873920276600,
+        "word_count": 76
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\components\\index.ts": {
+        "size": 933,
+        "mtime_ns": 1783952943824151300,
+        "word_count": 48
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\components\\page-loader-component.tsx": {
+        "size": 331,
+        "mtime_ns": 1783988195033857600,
+        "word_count": 28
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\components\\password-field-component.tsx": {
+        "size": 1114,
+        "mtime_ns": 1783436235642646300,
+        "word_count": 81
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\components\\topbar-component.tsx": {
+        "size": 3851,
+        "mtime_ns": 1783988547121865800,
+        "word_count": 198
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\components\\tree-menu-components.tsx": {
+        "size": 1564,
+        "mtime_ns": 1783953060006251400,
+        "word_count": 110
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\components\\tree-menu-link-tree-item-component.tsx": {
+        "size": 1066,
+        "mtime_ns": 1783952943874966000,
+        "word_count": 105
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\configs\\index.ts": {
+        "size": 151,
+        "mtime_ns": 1782390839133921500,
+        "word_count": 16
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\configs\\language-config.ts": {
+        "size": 73,
+        "mtime_ns": 1779197225011289100,
+        "word_count": 10
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\configs\\request-mock-scenario-config.ts": {
+        "size": 58,
+        "mtime_ns": 1784033847398809400,
+        "word_count": 5
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\configs\\theme-config.ts": {
+        "size": 997,
+        "mtime_ns": 1783988094899315400,
+        "word_count": 63
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\configs\\tree-menu-config.ts": {
+        "size": 401,
+        "mtime_ns": 1783954203096142900,
+        "word_count": 41
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\constants\\index.ts": {
+        "size": 40,
+        "mtime_ns": 1779197225066225900,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\constants\\status-code-constant.ts": {
+        "size": 229,
+        "mtime_ns": 1779197225089928200,
+        "word_count": 24
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\contexts\\index.ts": {
+        "size": 35,
+        "mtime_ns": 1783944874081308600,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\contexts\\sidebar-context\\index.ts": {
+        "size": 110,
+        "mtime_ns": 1783944874088309000,
+        "word_count": 12
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\contexts\\sidebar-context\\sidebar-context.ts": {
+        "size": 315,
+        "mtime_ns": 1783944874096344600,
+        "word_count": 31
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\contexts\\sidebar-context\\sidebar-provider.tsx": {
+        "size": 489,
+        "mtime_ns": 1783944874108308100,
+        "word_count": 51
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\contexts\\sidebar-context\\use-sidebar-context.ts": {
+        "size": 308,
+        "mtime_ns": 1783944874117309100,
+        "word_count": 36
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\endpoints\\auth-endpoint.ts": {
+        "size": 48,
+        "mtime_ns": 1780713079867061500,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\endpoints\\index.ts": {
+        "size": 33,
+        "mtime_ns": 1779197225139244800,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\hooks\\index.ts": {
+        "size": 556,
+        "mtime_ns": 1783944874136306400,
+        "word_count": 28
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\hooks\\use-collapsible-menu-icon-component-hook.ts": {
+        "size": 634,
+        "mtime_ns": 1783944874146309500,
+        "word_count": 59
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\hooks\\use-collapsible-menu-item-component-hook.ts": {
+        "size": 702,
+        "mtime_ns": 1783944874157328800,
+        "word_count": 64
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\hooks\\use-password-field-component-hook.ts": {
+        "size": 306,
+        "mtime_ns": 1783436235730002700,
+        "word_count": 35
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\hooks\\use-title-hook.ts": {
+        "size": 335,
+        "mtime_ns": 1783436235736002300,
+        "word_count": 39
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\hooks\\use-topbar-component-hook.ts": {
+        "size": 1313,
+        "mtime_ns": 1783944980435210800,
+        "word_count": 134
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\index.ts": {
+        "size": 466,
+        "mtime_ns": 1783436235743798000,
+        "word_count": 59
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\instances\\axios-instance.ts": {
+        "size": 925,
+        "mtime_ns": 1783759267952294500,
+        "word_count": 98
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\instances\\index.ts": {
+        "size": 75,
+        "mtime_ns": 1781617088803000200,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\instances\\query-client-instance.ts": {
+        "size": 373,
+        "mtime_ns": 1783759267996941400,
+        "word_count": 39
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\layouts\\index.ts": {
+        "size": 31,
+        "mtime_ns": 1779197225961768100,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\layouts\\main-layout.tsx": {
+        "size": 986,
+        "mtime_ns": 1783944874238800200,
+        "word_count": 83
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\locales\\en.json": {
+        "size": 49,
+        "mtime_ns": 1783944874247763800,
+        "word_count": 6,
+        "hash": "c0d283e42198a8ad16721a2c9d6f96d98809807d479a819815d3cc299cc1ae0f"
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\locales\\id.json": {
+        "size": 49,
+        "mtime_ns": 1783944874252764000,
+        "word_count": 6,
+        "hash": "f8c1ec86dfaaa5071b783d3d9276e1a644a0a85dacf544f33f417ea6238779ee"
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\main.tsx": {
+        "size": 1393,
+        "mtime_ns": 1783759268079747100,
+        "word_count": 104
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\mappers\\auth-me-response-mapper.ts": {
+        "size": 207,
+        "mtime_ns": 1781618903347195300,
+        "word_count": 20
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\mappers\\index.ts": {
+        "size": 43,
+        "mtime_ns": 1779508855205650900,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\mocks\\auth-request-mock\\auth-me-request-200-mock.ts": {
+        "size": 595,
+        "mtime_ns": 1782390840311783600,
+        "word_count": 65
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\mocks\\auth-request-mock\\auth-me-request-401-mock.ts": {
+        "size": 600,
+        "mtime_ns": 1783759268183261200,
+        "word_count": 65
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\mocks\\auth-request-mock\\index.ts": {
+        "size": 88,
+        "mtime_ns": 1782390840357725900,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\mocks\\index.ts": {
+        "size": 340,
+        "mtime_ns": 1782390840384110700,
+        "word_count": 37
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\mocks\\scenarios.ts": {
+        "size": 271,
+        "mtime_ns": 1782390840401855900,
+        "word_count": 26
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\change-password\\configs\\change-password-config.ts": {
+        "size": 68,
+        "mtime_ns": 1783436235855588100,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\change-password\\configs\\index.ts": {
+        "size": 42,
+        "mtime_ns": 1783436235860584500,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\change-password\\endpoints\\change-password-endpoint.ts": {
+        "size": 87,
+        "mtime_ns": 1783436235868532500,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\change-password\\endpoints\\index.ts": {
+        "size": 44,
+        "mtime_ns": 1783436235877372300,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\change-password\\hooks\\change-password-hook.ts": {
+        "size": 1208,
+        "mtime_ns": 1784033514359314400,
+        "word_count": 116
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\change-password\\hooks\\index.ts": {
+        "size": 87,
+        "mtime_ns": 1783436235893518900,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\change-password\\locales\\change-password-en.json": {
+        "size": 649,
+        "mtime_ns": 1783759268421384200,
+        "word_count": 57,
+        "hash": "fea8f6003892f2eb2f17d9cfdb7a40c737f9ded0dfe592d9bcc2356cc9a75d4e"
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\change-password\\locales\\change-password-id.json": {
+        "size": 643,
+        "mtime_ns": 1783759268438136300,
+        "word_count": 60,
+        "hash": "dbacc5ddc63e46411385c5ca89e032c700f8ddb9ff7ed9004bcb128c0cb4e0d0"
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\change-password\\mappers\\change-password-request-mapper.ts": {
+        "size": 236,
+        "mtime_ns": 1783436235920166800,
+        "word_count": 18
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\change-password\\mappers\\change-password-response-mapper.ts": {
+        "size": 186,
+        "mtime_ns": 1783436235925549500,
+        "word_count": 16
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\change-password\\mappers\\index.ts": {
+        "size": 101,
+        "mtime_ns": 1783436235930068600,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\change-password\\mutations\\change-password-mutation.ts": {
+        "size": 494,
+        "mtime_ns": 1783436235938140700,
+        "word_count": 40
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\change-password\\mutations\\index.ts": {
+        "size": 44,
+        "mtime_ns": 1783436235944609700,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\change-password\\pages\\change-password-page.tsx": {
+        "size": 3367,
+        "mtime_ns": 1784033514360374500,
+        "word_count": 169
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\change-password\\pages\\index.ts": {
+        "size": 89,
+        "mtime_ns": 1783436235965373300,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\change-password\\requests\\change-password-request.ts": {
+        "size": 634,
+        "mtime_ns": 1783436235976203900,
+        "word_count": 51
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\change-password\\requests\\index.ts": {
+        "size": 43,
+        "mtime_ns": 1783436235980634700,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\change-password\\schemas\\change-password-form-schema.ts": {
+        "size": 686,
+        "mtime_ns": 1783759268680271500,
+        "word_count": 42
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\change-password\\schemas\\change-password-response-schema.ts": {
+        "size": 131,
+        "mtime_ns": 1783436235998965600,
+        "word_count": 14
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\change-password\\schemas\\change-password-search-param-schema.ts": {
+        "size": 122,
+        "mtime_ns": 1783436236004965600,
+        "word_count": 14
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\change-password\\schemas\\index.ts": {
+        "size": 153,
+        "mtime_ns": 1783436236027627300,
+        "word_count": 12
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\change-password\\styles\\change-password-style.ts": {
+        "size": 672,
+        "mtime_ns": 1783436236036266600,
+        "word_count": 73
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\change-password\\styles\\index.ts": {
+        "size": 41,
+        "mtime_ns": 1783436236040266300,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\change-password\\types\\alert-type.ts": {
+        "size": 102,
+        "mtime_ns": 1783436236045692300,
+        "word_count": 16
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\change-password\\types\\change-password-form-type.ts": {
+        "size": 166,
+        "mtime_ns": 1783436236052081700,
+        "word_count": 19
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\change-password\\types\\change-password-request-type.ts": {
+        "size": 619,
+        "mtime_ns": 1783436236058141200,
+        "word_count": 54
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\change-password\\types\\index.ts": {
+        "size": 123,
+        "mtime_ns": 1783436236064803800,
+        "word_count": 12
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\error\\pages\\error-400-page.tsx": {
+        "size": 653,
+        "mtime_ns": 1783436236076202500,
+        "word_count": 54
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\error\\pages\\error-500-page.tsx": {
+        "size": 672,
+        "mtime_ns": 1783436236083619500,
+        "word_count": 55
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\error\\pages\\index.ts": {
+        "size": 130,
+        "mtime_ns": 1783436236090092700,
+        "word_count": 13
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\error\\styles\\error-404-style.ts": {
+        "size": 832,
+        "mtime_ns": 1783436236103171500,
+        "word_count": 89
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\error\\styles\\error-500-style.ts": {
+        "size": 832,
+        "mtime_ns": 1783436236110614900,
+        "word_count": 89
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\error\\styles\\index.ts": {
+        "size": 70,
+        "mtime_ns": 1783436236114861900,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\forgot-password\\endpoints\\forgot-password-endpoint.ts": {
+        "size": 87,
+        "mtime_ns": 1783436236121095700,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\forgot-password\\endpoints\\index.ts": {
+        "size": 44,
+        "mtime_ns": 1783436236125582700,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\forgot-password\\hooks\\index.ts": {
+        "size": 112,
+        "mtime_ns": 1783436236132112800,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\forgot-password\\hooks\\use-forgot-password-page-hook.ts": {
+        "size": 1342,
+        "mtime_ns": 1783759269071407800,
+        "word_count": 127
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\forgot-password\\locales\\forgot-password-en.json": {
+        "size": 306,
+        "mtime_ns": 1783436236147493600,
+        "word_count": 32,
+        "hash": "0e26b0e1822d308bcb5aab79c6bbd01c87dbd8d238b23691c2d2d690554343ba"
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\forgot-password\\locales\\forgot-password-id.json": {
+        "size": 318,
+        "mtime_ns": 1783436236152135200,
+        "word_count": 33,
+        "hash": "29cb27083b3afcdab04b762d53ce2cb860ffda5d795da7e6b93d8ee5bb742596"
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\forgot-password\\mappers\\forgot-password-request-mapper.ts": {
+        "size": 175,
+        "mtime_ns": 1783436236159057000,
+        "word_count": 16
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\forgot-password\\mappers\\forgot-password-response-mapper.ts": {
+        "size": 186,
+        "mtime_ns": 1783436236163708300,
+        "word_count": 16
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\forgot-password\\mappers\\index.ts": {
+        "size": 101,
+        "mtime_ns": 1783436236169568000,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\forgot-password\\mutations\\forgot-password-mutation.ts": {
+        "size": 494,
+        "mtime_ns": 1783436236176402100,
+        "word_count": 40
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\forgot-password\\mutations\\index.ts": {
+        "size": 44,
+        "mtime_ns": 1783436236182460000,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\forgot-password\\pages\\forgot-password-page.tsx": {
+        "size": 2524,
+        "mtime_ns": 1783436236206462300,
+        "word_count": 141
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\forgot-password\\pages\\index.ts": {
+        "size": 89,
+        "mtime_ns": 1783436236211289400,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\forgot-password\\requests\\forgot-password-request.ts": {
+        "size": 634,
+        "mtime_ns": 1783436236220755600,
+        "word_count": 51
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\forgot-password\\requests\\index.ts": {
+        "size": 43,
+        "mtime_ns": 1783436236226394400,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\forgot-password\\schemas\\forgot-password-form-schema.ts": {
+        "size": 298,
+        "mtime_ns": 1783436236235174300,
+        "word_count": 24
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\forgot-password\\schemas\\forgot-password-response-schema.ts": {
+        "size": 131,
+        "mtime_ns": 1783436236241932000,
+        "word_count": 14
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\forgot-password\\schemas\\index.ts": {
+        "size": 98,
+        "mtime_ns": 1783436236247407300,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\forgot-password\\styles\\forgot-password-style.ts": {
+        "size": 722,
+        "mtime_ns": 1783436236257850400,
+        "word_count": 80
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\forgot-password\\styles\\index.ts": {
+        "size": 41,
+        "mtime_ns": 1783436236264719500,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\forgot-password\\types\\alert-type.ts": {
+        "size": 102,
+        "mtime_ns": 1783436236270656200,
+        "word_count": 16
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\forgot-password\\types\\forgot-password-form-type.ts": {
+        "size": 166,
+        "mtime_ns": 1783436236277016500,
+        "word_count": 19
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\forgot-password\\types\\forgot-password-request-type.ts": {
+        "size": 620,
+        "mtime_ns": 1783436236283803100,
+        "word_count": 54
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\forgot-password\\types\\index.ts": {
+        "size": 123,
+        "mtime_ns": 1783436236289502300,
+        "word_count": 12
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\login\\configs\\index.ts": {
+        "size": 32,
+        "mtime_ns": 1783436236297278600,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\login\\configs\\login-config.ts": {
+        "size": 59,
+        "mtime_ns": 1783436236304455200,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\login\\endpoints\\index.ts": {
+        "size": 34,
+        "mtime_ns": 1783436236309817600,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\login\\endpoints\\login-endpoint.ts": {
+        "size": 59,
+        "mtime_ns": 1783436236317306600,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\login\\hooks\\index.ts": {
+        "size": 84,
+        "mtime_ns": 1783436236323112000,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\login\\hooks\\use-login-page-hook.ts": {
+        "size": 1320,
+        "mtime_ns": 1783759269641096000,
+        "word_count": 137
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\login\\locales\\login-en.json": {
+        "size": 665,
+        "mtime_ns": 1783436236341933100,
+        "word_count": 66,
+        "hash": "a21f58568be3519b6188af41518b67354275b2e6dc528f44f04d8e1d8bf9f6e1"
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\login\\locales\\login-id.json": {
+        "size": 672,
+        "mtime_ns": 1783436236347800300,
+        "word_count": 65,
+        "hash": "4529c0b77bb0a4e760bd2b8bd5768615dacb4aad63e6f32af02a20ca575f40b9"
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\login\\mappers\\index.ts": {
+        "size": 81,
+        "mtime_ns": 1783436236354047000,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\login\\mappers\\login-request-mapper.ts": {
+        "size": 177,
+        "mtime_ns": 1783436236362197400,
+        "word_count": 18
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\login\\mappers\\login-response-mapper.ts": {
+        "size": 213,
+        "mtime_ns": 1783436236370589800,
+        "word_count": 18
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\login\\mutations\\index.ts": {
+        "size": 34,
+        "mtime_ns": 1783436236376079600,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\login\\mutations\\login-mutation.ts": {
+        "size": 422,
+        "mtime_ns": 1783436236385065600,
+        "word_count": 40
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\login\\pages\\index.ts": {
+        "size": 61,
+        "mtime_ns": 1783436236393105100,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\login\\pages\\login-page.tsx": {
+        "size": 3435,
+        "mtime_ns": 1783759269826673200,
+        "word_count": 182
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\login\\requests\\index.ts": {
+        "size": 33,
+        "mtime_ns": 1783436236429995400,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\login\\requests\\login-request.ts": {
+        "size": 503,
+        "mtime_ns": 1783436236437927200,
+        "word_count": 49
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\login\\schemas\\index.ts": {
+        "size": 78,
+        "mtime_ns": 1783436236442143100,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\login\\schemas\\login-form-schema.ts": {
+        "size": 484,
+        "mtime_ns": 1783436236450209200,
+        "word_count": 37
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\login\\schemas\\login-response-schema.ts": {
+        "size": 218,
+        "mtime_ns": 1783436236455229600,
+        "word_count": 21
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\login\\styles\\index.ts": {
+        "size": 36,
+        "mtime_ns": 1783759269949379700,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\login\\styles\\login-page-style.ts": {
+        "size": 713,
+        "mtime_ns": 1783759269976005000,
+        "word_count": 80
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\login\\types\\alert-type.ts": {
+        "size": 102,
+        "mtime_ns": 1783436236481033600,
+        "word_count": 16
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\login\\types\\index.ts": {
+        "size": 103,
+        "mtime_ns": 1783436236485625900,
+        "word_count": 12
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\login\\types\\login-form-type.ts": {
+        "size": 139,
+        "mtime_ns": 1783436236490627200,
+        "word_count": 19
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\login\\types\\login-request-type.ts": {
+        "size": 520,
+        "mtime_ns": 1783436236496628200,
+        "word_count": 54
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\register\\configs\\index.ts": {
+        "size": 35,
+        "mtime_ns": 1783436236503766100,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\register\\configs\\register-config.ts": {
+        "size": 84,
+        "mtime_ns": 1783436236508444100,
+        "word_count": 10
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\register\\endpoints\\index.ts": {
+        "size": 37,
+        "mtime_ns": 1783436236514003300,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\register\\endpoints\\register-endpoint.ts": {
+        "size": 68,
+        "mtime_ns": 1783436236518941500,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\register\\hooks\\index.ts": {
+        "size": 93,
+        "mtime_ns": 1783436236524073900,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\register\\hooks\\use-register-page-hook.ts": {
+        "size": 1272,
+        "mtime_ns": 1783759270168174800,
+        "word_count": 126
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\register\\locales\\register-en.json": {
+        "size": 925,
+        "mtime_ns": 1783436236538356000,
+        "word_count": 89,
+        "hash": "e3d9185ac41fa532dfcb0fc2a44f08424851be7b1610de99fab1b40113a56a28"
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\register\\locales\\register-id.json": {
+        "size": 952,
+        "mtime_ns": 1783436236541884900,
+        "word_count": 91,
+        "hash": "aa4dc47c4df163028591fa35d362b3c2b5ed5dc1b164c0b438cc754b244f5baf"
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\register\\mappers\\index.ts": {
+        "size": 87,
+        "mtime_ns": 1783436236547249100,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\register\\mappers\\register-request-mapper.ts": {
+        "size": 186,
+        "mtime_ns": 1783436236552248500,
+        "word_count": 18
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\register\\mappers\\register-response-mapper.ts": {
+        "size": 168,
+        "mtime_ns": 1783436236558384000,
+        "word_count": 16
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\register\\mutations\\index.ts": {
+        "size": 37,
+        "mtime_ns": 1783436236563453400,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\register\\mutations\\register-mutation.ts": {
+        "size": 446,
+        "mtime_ns": 1783436236570402500,
+        "word_count": 40
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\register\\pages\\index.ts": {
+        "size": 70,
+        "mtime_ns": 1783436236575859100,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\register\\pages\\register-page.tsx": {
+        "size": 4526,
+        "mtime_ns": 1783436236591109000,
+        "word_count": 218
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\register\\requests\\index.ts": {
+        "size": 36,
+        "mtime_ns": 1783436236597248600,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\register\\requests\\register-request.ts": {
+        "size": 635,
+        "mtime_ns": 1783436236602772700,
+        "word_count": 59
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\register\\schemas\\index.ts": {
+        "size": 84,
+        "mtime_ns": 1783436236609472800,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\register\\schemas\\register-form-schema.ts": {
+        "size": 952,
+        "mtime_ns": 1783436236615719500,
+        "word_count": 59
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\register\\schemas\\register-response-schema.ts": {
+        "size": 125,
+        "mtime_ns": 1783436236622326600,
+        "word_count": 14
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\register\\styles\\index.ts": {
+        "size": 34,
+        "mtime_ns": 1783436236626602700,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\register\\styles\\register-style.ts": {
+        "size": 677,
+        "mtime_ns": 1783436236633589700,
+        "word_count": 73
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\register\\types\\alert-type.ts": {
+        "size": 102,
+        "mtime_ns": 1783436236640768800,
+        "word_count": 16
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\register\\types\\index.ts": {
+        "size": 109,
+        "mtime_ns": 1783436236643963800,
+        "word_count": 12
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\register\\types\\register-form-type.ts": {
+        "size": 148,
+        "mtime_ns": 1783436236648811400,
+        "word_count": 19
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\register\\types\\register-request-type.ts": {
+        "size": 553,
+        "mtime_ns": 1783436236653809500,
+        "word_count": 54
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\validate-otp\\components\\countdown-resend-component.tsx": {
+        "size": 1364,
+        "mtime_ns": 1784033514360374500,
+        "word_count": 100
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\validate-otp\\components\\index.ts": {
+        "size": 110,
+        "mtime_ns": 1784033514361367700,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\validate-otp\\configs\\index.ts": {
+        "size": 39,
+        "mtime_ns": 1783436236662532200,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\validate-otp\\configs\\validate-otp-config.ts": {
+        "size": 84,
+        "mtime_ns": 1784033514361367700,
+        "word_count": 10
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\validate-otp\\endpoints\\index.ts": {
+        "size": 41,
+        "mtime_ns": 1783436236673808300,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\validate-otp\\endpoints\\validate-otp-endpoint.ts": {
+        "size": 116,
+        "mtime_ns": 1784033514362367400,
+        "word_count": 10
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\validate-otp\\hooks\\index.ts": {
+        "size": 225,
+        "mtime_ns": 1784033514362367400,
+        "word_count": 13
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\validate-otp\\hooks\\use-countdown-resend-component-hook.ts": {
+        "size": 1214,
+        "mtime_ns": 1784033514363368300,
+        "word_count": 102
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\validate-otp\\hooks\\use-validate-otp-page-hook.ts": {
+        "size": 2719,
+        "mtime_ns": 1784033514363874400,
+        "word_count": 240
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\validate-otp\\locales\\validate-otp-en.json": {
+        "size": 759,
+        "mtime_ns": 1784033514364379100,
+        "word_count": 82,
+        "hash": "212805302ddfb7519cc68f65783334dd139557e5455beea80b68a1d689b3165d"
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\validate-otp\\locales\\validate-otp-id.json": {
+        "size": 781,
+        "mtime_ns": 1784033514364379100,
+        "word_count": 81,
+        "hash": "6d451000cfb7a73bba94b88816c6e4086e3a2d7d7fcf1c2acdb5f601833956c1"
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\validate-otp\\mappers\\index.ts": {
+        "size": 95,
+        "mtime_ns": 1783436236728645900,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\validate-otp\\mappers\\validate-otp-request-mapper.ts": {
+        "size": 171,
+        "mtime_ns": 1783435892249857500,
+        "word_count": 16
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\validate-otp\\mappers\\validate-otp-response-mapper.ts": {
+        "size": 178,
+        "mtime_ns": 1783435892740048100,
+        "word_count": 16
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\validate-otp\\mutations\\index.ts": {
+        "size": 82,
+        "mtime_ns": 1784033514365505200,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\validate-otp\\mutations\\resend-otp-mutation.ts": {
+        "size": 420,
+        "mtime_ns": 1784033514365505200,
+        "word_count": 38
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\validate-otp\\mutations\\validate-otp-mutation.ts": {
+        "size": 470,
+        "mtime_ns": 1783435893568318500,
+        "word_count": 40
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\validate-otp\\pages\\index.ts": {
+        "size": 80,
+        "mtime_ns": 1783436236755645900,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\validate-otp\\pages\\validate-otp-page.tsx": {
+        "size": 4227,
+        "mtime_ns": 1784033514366512300,
+        "word_count": 204
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\validate-otp\\requests\\index.ts": {
+        "size": 40,
+        "mtime_ns": 1783436236782323400,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\validate-otp\\requests\\validate-otp-request.ts": {
+        "size": 842,
+        "mtime_ns": 1784033514366512300,
+        "word_count": 70
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\validate-otp\\schemas\\index.ts": {
+        "size": 92,
+        "mtime_ns": 1783436236793561200,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\validate-otp\\schemas\\validate-otp-form-schema.ts": {
+        "size": 399,
+        "mtime_ns": 1783435889586984600,
+        "word_count": 30
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\validate-otp\\schemas\\validate-otp-response-schema.ts": {
+        "size": 189,
+        "mtime_ns": 1783435889979348300,
+        "word_count": 21
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\validate-otp\\styles\\index.ts": {
+        "size": 38,
+        "mtime_ns": 1783436236813116400,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\validate-otp\\styles\\validate-otp-style.ts": {
+        "size": 1009,
+        "mtime_ns": 1783435896484066600,
+        "word_count": 107
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\validate-otp\\types\\alert-type.ts": {
+        "size": 102,
+        "mtime_ns": 1783436236826821200,
+        "word_count": 16
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\validate-otp\\types\\index.ts": {
+        "size": 117,
+        "mtime_ns": 1783436236829866800,
+        "word_count": 12
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\validate-otp\\types\\validate-otp-form-type.ts": {
+        "size": 157,
+        "mtime_ns": 1783435890546122900,
+        "word_count": 19
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\validate-otp\\types\\validate-otp-request-type.ts": {
+        "size": 793,
+        "mtime_ns": 1784033514367509300,
+        "word_count": 71
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\welcome\\pages\\index.ts": {
+        "size": 67,
+        "mtime_ns": 1783759271111395500,
+        "word_count": 8
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\welcome\\pages\\welcome-page.tsx": {
+        "size": 548,
+        "mtime_ns": 1783759271129569700,
+        "word_count": 49
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\welcome\\styles\\index.ts": {
+        "size": 38,
+        "mtime_ns": 1783759271145594400,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\modules\\welcome\\styles\\welcome-page-style.ts": {
+        "size": 484,
+        "mtime_ns": 1783944875328249500,
+        "word_count": 55
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\queries\\auth-query.ts": {
+        "size": 251,
+        "mtime_ns": 1783436236847987500,
+        "word_count": 31
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\queries\\index.ts": {
+        "size": 30,
+        "mtime_ns": 1779197226046867800,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\requests\\auth-request.ts": {
+        "size": 633,
+        "mtime_ns": 1783759271218445100,
+        "word_count": 70
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\requests\\index.ts": {
+        "size": 32,
+        "mtime_ns": 1779197226081028700,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\routeTree.gen.ts": {
+        "size": 8259,
+        "mtime_ns": 1783436074982687600,
+        "word_count": 708
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\router.tsx": {
+        "size": 320,
+        "mtime_ns": 1779197226102244800,
+        "word_count": 36
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\routes\\500.tsx": {
+        "size": 193,
+        "mtime_ns": 1783436236936612400,
+        "word_count": 20
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\routes\\__root.tsx": {
+        "size": 630,
+        "mtime_ns": 1783436236878823100,
+        "word_count": 57
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\routes\\_authenticated.tsx": {
+        "size": 703,
+        "mtime_ns": 1783436236884966100,
+        "word_count": 74
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\routes\\_authenticated\\dashboard.tsx": {
+        "size": 198,
+        "mtime_ns": 1779198255943826800,
+        "word_count": 19
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\routes\\_guest.tsx": {
+        "size": 595,
+        "mtime_ns": 1783436236899219500,
+        "word_count": 64
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\routes\\_guest\\change-password.tsx": {
+        "size": 543,
+        "mtime_ns": 1783436236907706600,
+        "word_count": 46
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\routes\\_guest\\forgot-password.tsx": {
+        "size": 234,
+        "mtime_ns": 1783436236913236600,
+        "word_count": 20
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\routes\\_guest\\login.tsx": {
+        "size": 196,
+        "mtime_ns": 1783436236919072300,
+        "word_count": 20
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\routes\\_guest\\register.tsx": {
+        "size": 208,
+        "mtime_ns": 1783436236925143600,
+        "word_count": 20
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\routes\\_guest\\validate-otp.tsx": {
+        "size": 222,
+        "mtime_ns": 1783435927520909800,
+        "word_count": 20
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\routes\\index.tsx": {
+        "size": 190,
+        "mtime_ns": 1783759271299545700,
+        "word_count": 20
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\schemas\\auth-me-response-schema.ts": {
+        "size": 237,
+        "mtime_ns": 1779508855504230200,
+        "word_count": 23
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\schemas\\index.ts": {
+        "size": 43,
+        "mtime_ns": 1779508855521678800,
+        "word_count": 4
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\styles\\collapsible-menu-icon-component-style.ts": {
+        "size": 257,
+        "mtime_ns": 1783944875480548200,
+        "word_count": 31
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\styles\\collapsible-menu-item-button-component-style.ts": {
+        "size": 571,
+        "mtime_ns": 1783944875488549500,
+        "word_count": 65
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\styles\\collapsible-menu-item-component-style.ts": {
+        "size": 263,
+        "mtime_ns": 1783944875502072700,
+        "word_count": 31
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\styles\\collapsible-menu-popover-component-style.ts": {
+        "size": 252,
+        "mtime_ns": 1783944875516073100,
+        "word_count": 31
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\styles\\index.ts": {
+        "size": 409,
+        "mtime_ns": 1783944875524169700,
+        "word_count": 32
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\styles\\main-layout-style.ts": {
+        "size": 421,
+        "mtime_ns": 1781580574810440300,
+        "word_count": 48
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\styles\\page-loader-component-style.ts": {
+        "size": 321,
+        "mtime_ns": 1783988189943026900,
+        "word_count": 35
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\styles\\topbar-component-style.ts": {
+        "size": 2751,
+        "mtime_ns": 1783988535763044900,
+        "word_count": 297
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\styles\\tree-menu-component-style.ts": {
+        "size": 640,
+        "mtime_ns": 1783953061199733900,
+        "word_count": 68
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\themes\\deep-ocean-theme.ts": {
+        "size": 766,
+        "mtime_ns": 1783350442084316000,
+        "word_count": 75
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\themes\\ember-theme.ts": {
+        "size": 762,
+        "mtime_ns": 1783350442089517100,
+        "word_count": 75
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\themes\\index.ts": {
+        "size": 143,
+        "mtime_ns": 1783436236998604100,
+        "word_count": 16
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\themes\\nature-light-theme.ts": {
+        "size": 891,
+        "mtime_ns": 1783436237003207600,
+        "word_count": 86
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\themes\\nordic-light-theme.ts": {
+        "size": 687,
+        "mtime_ns": 1783436237011239400,
+        "word_count": 70
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\types\\api-response-type.ts": {
+        "size": 93,
+        "mtime_ns": 1781619078737677300,
+        "word_count": 12
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\types\\auth-me-response-type.ts": {
+        "size": 91,
+        "mtime_ns": 1783944875604122800,
+        "word_count": 12
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\types\\collapsible-menu-icon-component-props-type.ts": {
+        "size": 141,
+        "mtime_ns": 1783944875610297300,
+        "word_count": 15
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\types\\collapsible-menu-item-button-component-props-type.ts": {
+        "size": 274,
+        "mtime_ns": 1783944875615383400,
+        "word_count": 29
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\types\\collapsible-menu-item-component-props-type.ts": {
+        "size": 169,
+        "mtime_ns": 1783944875619319800,
+        "word_count": 19
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\types\\collapsible-menu-popover-component-props-type.ts": {
+        "size": 204,
+        "mtime_ns": 1783944875623452600,
+        "word_count": 23
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\types\\index.ts": {
+        "size": 414,
+        "mtime_ns": 1783944875627879500,
+        "word_count": 32
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\types\\router-context-type.ts": {
+        "size": 126,
+        "mtime_ns": 1779508855662389100,
+        "word_count": 15
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\types\\tree-menu-item-type.ts": {
+        "size": 196,
+        "mtime_ns": 1779197226393059100,
+        "word_count": 19
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\utils\\app-info-util.ts": {
+        "size": 491,
+        "mtime_ns": 1783759271583610300,
+        "word_count": 50
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\utils\\base-url-util.ts": {
+        "size": 144,
+        "mtime_ns": 1781831101545602300,
+        "word_count": 15
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\utils\\enable-mocking-util.ts": {
+        "size": 345,
+        "mtime_ns": 1783759271624408700,
+        "word_count": 37
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\utils\\get-error-message-util.ts": {
+        "size": 467,
+        "mtime_ns": 1783759271648118900,
+        "word_count": 57
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\utils\\index.ts": {
+        "size": 222,
+        "mtime_ns": 1783436237061402200,
+        "word_count": 24
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\utils\\is-axios-error-util.ts": {
+        "size": 254,
+        "mtime_ns": 1783759271683770000,
+        "word_count": 27
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\utils\\translation-util.ts": {
+        "size": 2063,
+        "mtime_ns": 1783436237076192400,
+        "word_count": 129
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\src\\vite-env.d.ts": {
+        "size": 202,
+        "mtime_ns": 1783436237084475300,
+        "word_count": 21
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\tsconfig.app.json": {
+        "size": 2032,
+        "mtime_ns": 1783944875687866400,
+        "word_count": 110,
+        "hash": "dbf5c4ff03191aa64054c969b41759c317c93aef6233c8207b2ae1de3670ee2a"
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\tsconfig.json": {
+        "size": 1165,
+        "mtime_ns": 1784117135351645000,
+        "word_count": 63,
+        "hash": "d39f814276d2b84083314888e9142cd66238753735e6a1060e562f94bca115e4"
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\tsconfig.node.json": {
+        "size": 669,
+        "mtime_ns": 1781580575141210900,
+        "word_count": 44,
+        "hash": "eedaefbb5a6fbed407638784a5d373793651767f7de15e8c14e3e98dec5c1ed9"
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\vite.app.config.ts": {
+        "size": 1815,
+        "mtime_ns": 1783944875702721200,
+        "word_count": 108
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\vite.lib.config.ts": {
+        "size": 3893,
+        "mtime_ns": 1783436237157238100,
+        "word_count": 240
+    },
+    "D:\\Coding\\React\\cash-frontend-app\\vitest.config.ts": {
+        "size": 1517,
+        "mtime_ns": 1780279361729780900,
+        "word_count": 67
+    }
+}

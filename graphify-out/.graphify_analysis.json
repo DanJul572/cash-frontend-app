@@ -1,0 +1,304 @@
+{
+    "communities": {
+        "0": [
+            "pnpm_workspace_yaml",
+            "readme_oxc",
+            "readme_react_compiler",
+            "readme_react_typescript_vite",
+            "readme_swc",
+            "readme_vite_hmr",
+            "readme_vitejs_plugin_react",
+            "readme_vitejs_plugin_react_swc"
+        ],
+        "1": [
+            "public_iconssvg",
+            "public_iconssvg_bluesky_icon",
+            "public_iconssvg_discord_icon",
+            "public_iconssvg_documentation_icon",
+            "public_iconssvg_github_icon",
+            "public_iconssvg_social_icon",
+            "public_iconssvg_x_icon"
+        ],
+        "2": [
+            "readme_eslint_configuration",
+            "readme_eslint_plugin_react_dom",
+            "readme_eslint_plugin_react_x",
+            "readme_tsconfig_node_tsconfig_app",
+            "readme_tseslint_configs",
+            "readme_type_aware_lint_rules"
+        ],
+        "3": [
+            "index_html",
+            "index_html_app_title_env_var",
+            "index_html_favicon_svg",
+            "index_html_src_main_tsx"
+        ],
+        "4": ["public_favicon_svg"],
+        "5": ["src_assets_vite_svg"],
+        "6": ["src_components_collapsible_menu_icon_component_collapsedmenuiconcomponent"],
+        "7": [
+            "src_components_collapsible_menu_item_button_component_collapsiblemenuitembuttoncomponent"
+        ],
+        "8": ["src_components_collapsible_menu_popover_component_collapsedmenupopovercomponent"],
+        "9": ["src_components_page_loader_component_pageloadercomponent"],
+        "10": ["src_components_tree_menu_link_tree_item_component_treemenulinktreeitemcomponent"],
+        "11": ["src_contexts_sidebar_context_sidebar_context_sidebarcontexttype"],
+        "12": ["src_contexts_sidebar_context_sidebar_provider_sidebarprovider"],
+        "13": ["src_contexts_sidebar_context_use_sidebar_context_usesidebarcontext"],
+        "14": [
+            "src_hooks_use_collapsible_menu_icon_component_hook_usecollapsiblemenuiconcomponenthook"
+        ],
+        "15": [
+            "src_hooks_use_collapsible_menu_item_component_hook_usecollapsiblemenuitemcomponenthook"
+        ],
+        "16": ["src_hooks_use_password_field_component_hook_usepasswordfieldcomponenthook"],
+        "17": ["src_hooks_use_title_hook_usetitlehook"],
+        "18": ["src_index_pagestype"],
+        "19": ["src_index_utilstype"],
+        "20": ["src_layouts_main_layout_mainlayout"],
+        "21": ["src_modules_change_password_hooks_change_password_hook_usechangepassword"],
+        "22": ["src_modules_change_password_types_alert_type_alerttype"],
+        "23": [
+            "src_modules_change_password_types_change_password_form_type_changepasswordformtype"
+        ],
+        "24": [
+            "src_modules_change_password_types_change_password_request_type_changepasswordresponsemappedtype"
+        ],
+        "25": [
+            "src_modules_change_password_types_change_password_request_type_changepasswordresponsetype"
+        ],
+        "26": [
+            "src_modules_change_password_types_change_password_request_type_postchangepasswordmutationoptionstype"
+        ],
+        "27": ["src_modules_error_pages_error_400_page_error404page"],
+        "28": ["src_modules_error_pages_error_500_page_error500page"],
+        "29": [
+            "src_modules_forgot_password_hooks_use_forgot_password_page_hook_useforgotpasswordpagehook"
+        ],
+        "30": ["src_modules_forgot_password_types_alert_type_alerttype"],
+        "31": [
+            "src_modules_forgot_password_types_forgot_password_form_type_forgotpasswordformtype"
+        ],
+        "32": [
+            "src_modules_forgot_password_types_forgot_password_request_type_forgotpasswordresponsemappedtype"
+        ],
+        "33": [
+            "src_modules_forgot_password_types_forgot_password_request_type_forgotpasswordresponsetype"
+        ],
+        "34": [
+            "src_modules_forgot_password_types_forgot_password_request_type_postforgotpasswordmutationoptionstype"
+        ],
+        "35": ["src_modules_login_hooks_use_login_page_hook_useloginpagehook"],
+        "36": ["src_modules_login_types_alert_type_alerttype"],
+        "37": ["src_modules_login_types_login_form_type_loginformtype"],
+        "38": ["src_modules_login_types_login_request_type_loginresponsemappedtype"],
+        "39": ["src_modules_login_types_login_request_type_loginresponsetype"],
+        "40": ["src_modules_login_types_login_request_type_postloginmutationoptionstype"],
+        "41": ["src_modules_register_hooks_use_register_page_hook_useregisterpagehook"],
+        "42": ["src_modules_register_types_alert_type_alerttype"],
+        "43": ["src_modules_register_types_register_form_type_registerformtype"],
+        "44": ["src_modules_register_types_register_request_type_postregistermutationoptionstype"],
+        "45": ["src_modules_register_types_register_request_type_registerresponsemappedtype"],
+        "46": ["src_modules_register_types_register_request_type_registerresponsetype"],
+        "47": [
+            "src_modules_validate_otp_hooks_use_countdown_resend_component_hook_usecountdownresendcomponenthook"
+        ],
+        "48": ["src_modules_validate_otp_hooks_use_validate_otp_page_hook_usevalidateotppagehook"],
+        "49": ["src_modules_validate_otp_types_alert_type_alerttype"],
+        "50": ["src_modules_validate_otp_types_validate_otp_form_type_validateotpformtype"],
+        "51": [
+            "src_modules_validate_otp_types_validate_otp_request_type_postresendotpmutationoptionstype"
+        ],
+        "52": [
+            "src_modules_validate_otp_types_validate_otp_request_type_postvalidateotpmutationoptionstype"
+        ],
+        "53": ["src_modules_validate_otp_types_validate_otp_request_type_resendotpresponsetype"],
+        "54": [
+            "src_modules_validate_otp_types_validate_otp_request_type_validateotpresponsemappedtype"
+        ],
+        "55": ["src_modules_validate_otp_types_validate_otp_request_type_validateotpresponsetype"],
+        "56": ["src_modules_welcome_pages_welcome_page_welcomepage"],
+        "57": ["src_routetree_gen_fileroutesbyfullpath"],
+        "58": ["src_routetree_gen_fileroutesbyid"],
+        "59": ["src_routetree_gen_fileroutesbyto"],
+        "60": ["src_routetree_gen_fileroutetypes"],
+        "61": ["src_routetree_gen_rootroutechildren"],
+        "62": ["src_types_api_response_type_apiresponsetype"],
+        "63": ["src_types_auth_me_response_type_authmeresponsetype"],
+        "64": [
+            "src_types_collapsible_menu_icon_component_props_type_collapsiblemenuiconcomponentpropstype"
+        ],
+        "65": [
+            "src_types_collapsible_menu_item_button_component_props_type_collapsiblemenuitembuttoncomponentpropstype"
+        ],
+        "66": [
+            "src_types_collapsible_menu_item_component_props_type_collapsiblemenuitemcomponentpropstype"
+        ],
+        "67": [
+            "src_types_collapsible_menu_popover_component_props_type_collapsedmenupopovercomponentpropstype"
+        ],
+        "68": ["src_types_router_context_type_routercontexttype"],
+        "69": ["src_types_tree_menu_item_type_treemenuitem"]
+    },
+    "cohesion": {
+        "0": 0.25,
+        "1": 0.7142857142857143,
+        "2": 0.3333333333333333,
+        "3": 0.5,
+        "4": 1.0,
+        "5": 1.0,
+        "6": 1.0,
+        "7": 1.0,
+        "8": 1.0,
+        "9": 1.0,
+        "10": 1.0,
+        "11": 1.0,
+        "12": 1.0,
+        "13": 1.0,
+        "14": 1.0,
+        "15": 1.0,
+        "16": 1.0,
+        "17": 1.0,
+        "18": 1.0,
+        "19": 1.0,
+        "20": 1.0,
+        "21": 1.0,
+        "22": 1.0,
+        "23": 1.0,
+        "24": 1.0,
+        "25": 1.0,
+        "26": 1.0,
+        "27": 1.0,
+        "28": 1.0,
+        "29": 1.0,
+        "30": 1.0,
+        "31": 1.0,
+        "32": 1.0,
+        "33": 1.0,
+        "34": 1.0,
+        "35": 1.0,
+        "36": 1.0,
+        "37": 1.0,
+        "38": 1.0,
+        "39": 1.0,
+        "40": 1.0,
+        "41": 1.0,
+        "42": 1.0,
+        "43": 1.0,
+        "44": 1.0,
+        "45": 1.0,
+        "46": 1.0,
+        "47": 1.0,
+        "48": 1.0,
+        "49": 1.0,
+        "50": 1.0,
+        "51": 1.0,
+        "52": 1.0,
+        "53": 1.0,
+        "54": 1.0,
+        "55": 1.0,
+        "56": 1.0,
+        "57": 1.0,
+        "58": 1.0,
+        "59": 1.0,
+        "60": 1.0,
+        "61": 1.0,
+        "62": 1.0,
+        "63": 1.0,
+        "64": 1.0,
+        "65": 1.0,
+        "66": 1.0,
+        "67": 1.0,
+        "68": 1.0,
+        "69": 1.0
+    },
+    "gods": [
+        {
+            "id": "readme_react_typescript_vite",
+            "label": "React TypeScript Vite Template",
+            "degree": 6
+        },
+        {
+            "id": "readme_eslint_configuration",
+            "label": "ESLint Configuration",
+            "degree": 6
+        },
+        {
+            "id": "public_iconssvg",
+            "label": "Icon Sprite Sheet",
+            "degree": 6
+        },
+        {
+            "id": "public_iconssvg_bluesky_icon",
+            "label": "Bluesky Icon",
+            "degree": 5
+        },
+        {
+            "id": "public_iconssvg_discord_icon",
+            "label": "Discord Icon",
+            "degree": 5
+        },
+        {
+            "id": "public_iconssvg_github_icon",
+            "label": "GitHub Icon",
+            "degree": 4
+        },
+        {
+            "id": "public_iconssvg_social_icon",
+            "label": "Social / Star Icon",
+            "degree": 4
+        },
+        {
+            "id": "public_iconssvg_x_icon",
+            "label": "X (Twitter) Icon",
+            "degree": 4
+        },
+        {
+            "id": "index_html",
+            "label": "index.html Entry Point",
+            "degree": 3
+        },
+        {
+            "id": "readme_vitejs_plugin_react",
+            "label": "@vitejs/plugin-react",
+            "degree": 2
+        }
+    ],
+    "surprises": [
+        {
+            "source": "pnpm Workspace Configuration",
+            "target": "React TypeScript Vite Template",
+            "source_files": ["pnpm-workspace.yaml", "README.md"],
+            "confidence": "INFERRED",
+            "relation": "conceptually_related_to",
+            "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; peripheral node `pnpm Workspace Configuration` unexpectedly reaches hub `React TypeScript Vite Template`"
+        }
+    ],
+    "questions": [
+        {
+            "type": "bridge_node",
+            "question": "Why does `React TypeScript Vite Template` connect `Community 0` to `Community 2`?",
+            "why": "High betweenness centrality (0.015) - this node is a cross-community bridge."
+        },
+        {
+            "type": "bridge_node",
+            "question": "Why does `ESLint Configuration` connect `Community 2` to `Community 0`?",
+            "why": "High betweenness centrality (0.012) - this node is a cross-community bridge."
+        },
+        {
+            "type": "verify_inferred",
+            "question": "Are the 4 inferred relationships involving `Bluesky Icon` (e.g. with `Discord Icon` and `X (Twitter) Icon`) actually correct?",
+            "why": "`Bluesky Icon` has 4 INFERRED edges - model-reasoned connections that need verification."
+        },
+        {
+            "type": "verify_inferred",
+            "question": "Are the 4 inferred relationships involving `Discord Icon` (e.g. with `Bluesky Icon` and `X (Twitter) Icon`) actually correct?",
+            "why": "`Discord Icon` has 4 INFERRED edges - model-reasoned connections that need verification."
+        },
+        {
+            "type": "isolated_nodes",
+            "question": "What connects `CollapsedMenuIconComponent`, `CollapsibleMenuItemButtonComponent`, `CollapsedMenuPopoverComponent` to the rest of the system?",
+            "why": "78 weakly-connected nodes found - possible documentation gaps or missing edges."
+        }
+    ]
+}

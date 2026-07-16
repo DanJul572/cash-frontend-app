@@ -1,0 +1,2590 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>graphify - graphify-out\graph.html</title>
+        <script
+            src="https://unpkg.com/vis-network@9.1.6/standalone/umd/vis-network.min.js"
+            integrity="sha384-Ux6phic9PEHJ38YtrijhkzyJ8yQlH8i/+buBR8s3mAZOJrP1gwyvAcIYl3GWtpX1"
+            crossorigin="anonymous"
+        ></script>
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                background: #0f0f1a;
+                color: #e0e0e0;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+                display: flex;
+                height: 100vh;
+                overflow: hidden;
+            }
+            #graph {
+                flex: 1;
+            }
+            #sidebar {
+                width: 280px;
+                background: #1a1a2e;
+                border-left: 1px solid #2a2a4e;
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
+            }
+            #search-wrap {
+                padding: 12px;
+                border-bottom: 1px solid #2a2a4e;
+            }
+            #search {
+                width: 100%;
+                background: #0f0f1a;
+                border: 1px solid #3a3a5e;
+                color: #e0e0e0;
+                padding: 7px 10px;
+                border-radius: 6px;
+                font-size: 13px;
+                outline: none;
+            }
+            #search:focus {
+                border-color: #4e79a7;
+            }
+            #search-results {
+                max-height: 140px;
+                overflow-y: auto;
+                padding: 4px 12px;
+                border-bottom: 1px solid #2a2a4e;
+                display: none;
+            }
+            .search-item {
+                padding: 4px 6px;
+                cursor: pointer;
+                border-radius: 4px;
+                font-size: 12px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .search-item:hover {
+                background: #2a2a4e;
+            }
+            #info-panel {
+                padding: 14px;
+                border-bottom: 1px solid #2a2a4e;
+                min-height: 140px;
+            }
+            #info-panel h3 {
+                font-size: 13px;
+                color: #aaa;
+                margin-bottom: 8px;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+            }
+            #info-content {
+                font-size: 13px;
+                color: #ccc;
+                line-height: 1.6;
+            }
+            #info-content .field {
+                margin-bottom: 5px;
+            }
+            #info-content .field b {
+                color: #e0e0e0;
+            }
+            #info-content .empty {
+                color: #555;
+                font-style: italic;
+            }
+            .neighbor-link {
+                display: block;
+                padding: 2px 6px;
+                margin: 2px 0;
+                border-radius: 3px;
+                cursor: pointer;
+                font-size: 12px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                border-left: 3px solid #333;
+            }
+            .neighbor-link:hover {
+                background: #2a2a4e;
+            }
+            #neighbors-list {
+                max-height: 160px;
+                overflow-y: auto;
+                margin-top: 4px;
+            }
+            #legend-wrap {
+                flex: 1;
+                overflow-y: auto;
+                padding: 12px;
+            }
+            #legend-wrap h3 {
+                font-size: 13px;
+                color: #aaa;
+                margin-bottom: 10px;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+            }
+            .legend-item {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 4px 0;
+                cursor: pointer;
+                border-radius: 4px;
+                font-size: 12px;
+            }
+            .legend-item:hover {
+                background: #2a2a4e;
+                padding-left: 4px;
+            }
+            .legend-item.dimmed {
+                opacity: 0.35;
+            }
+            .legend-dot {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                flex-shrink: 0;
+            }
+            .legend-label {
+                flex: 1;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .legend-count {
+                color: #666;
+                font-size: 11px;
+            }
+            #stats {
+                padding: 10px 14px;
+                border-top: 1px solid #2a2a4e;
+                font-size: 11px;
+                color: #555;
+            }
+            #legend-controls {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                margin-bottom: 8px;
+                padding: 4px 0;
+            }
+            #legend-controls label {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                cursor: pointer;
+                font-size: 12px;
+                color: #aaa;
+                user-select: none;
+            }
+            #legend-controls label:hover {
+                color: #e0e0e0;
+            }
+            .legend-cb,
+            #select-all-cb {
+                appearance: none;
+                -webkit-appearance: none;
+                width: 14px;
+                height: 14px;
+                border: 1.5px solid #3a3a5e;
+                border-radius: 3px;
+                background: #0f0f1a;
+                cursor: pointer;
+                position: relative;
+                flex-shrink: 0;
+            }
+            .legend-cb:checked,
+            #select-all-cb:checked {
+                background: #4e79a7;
+                border-color: #4e79a7;
+            }
+            .legend-cb:checked::after,
+            #select-all-cb:checked::after {
+                content: '';
+                position: absolute;
+                left: 3.5px;
+                top: 1px;
+                width: 4px;
+                height: 7px;
+                border: solid #fff;
+                border-width: 0 2px 2px 0;
+                transform: rotate(45deg);
+            }
+            #select-all-cb:indeterminate {
+                background: #4e79a7;
+                border-color: #4e79a7;
+            }
+            #select-all-cb:indeterminate::after {
+                content: '';
+                position: absolute;
+                left: 2px;
+                top: 5px;
+                width: 8px;
+                height: 2px;
+                background: #fff;
+                border: none;
+                transform: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="graph"></div>
+        <div id="sidebar">
+            <div id="search-wrap">
+                <input id="search" type="text" placeholder="Search nodes..." autocomplete="off" />
+                <div id="search-results"></div>
+            </div>
+            <div id="info-panel">
+                <h3>Node Info</h3>
+                <div id="info-content"><span class="empty">Click a node to inspect it</span></div>
+            </div>
+            <div id="legend-wrap">
+                <h3>Communities</h3>
+                <div id="legend-controls">
+                    <label
+                        ><input
+                            type="checkbox"
+                            id="select-all-cb"
+                            checked
+                            onchange="toggleAllCommunities(!this.checked)"
+                        />Select All</label
+                    >
+                </div>
+                <div id="legend"></div>
+            </div>
+            <div id="stats">91 nodes &middot; 31 edges &middot; 70 communities</div>
+        </div>
+        <script>
+            const RAW_NODES = [
+                {
+                    id: 'src_components_collapsible_menu_icon_component_collapsedmenuiconcomponent',
+                    label: 'CollapsedMenuIconComponent',
+                    color: {
+                        background: '#B07AA1',
+                        border: '#B07AA1',
+                        highlight: { background: '#ffffff', border: '#B07AA1' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'CollapsedMenuIconComponent',
+                    community: 6,
+                    community_name: 'CollapsedMenuIconComponent',
+                    source_file: 'src/components/collapsible-menu-icon-component.tsx',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_components_collapsible_menu_item_button_component_collapsiblemenuitembuttoncomponent',
+                    label: 'CollapsibleMenuItemButtonComponent',
+                    color: {
+                        background: '#FF9DA7',
+                        border: '#FF9DA7',
+                        highlight: { background: '#ffffff', border: '#FF9DA7' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'CollapsibleMenuItemButtonComponent',
+                    community: 7,
+                    community_name: 'CollapsibleMenuItemButtonComponent',
+                    source_file: 'src/components/collapsible-menu-item-button-component.tsx',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_components_collapsible_menu_popover_component_collapsedmenupopovercomponent',
+                    label: 'CollapsedMenuPopoverComponent',
+                    color: {
+                        background: '#9C755F',
+                        border: '#9C755F',
+                        highlight: { background: '#ffffff', border: '#9C755F' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'CollapsedMenuPopoverComponent',
+                    community: 8,
+                    community_name: 'CollapsedMenuPopoverComponent',
+                    source_file: 'src/components/collapsible-menu-popover-component.tsx',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_components_page_loader_component_pageloadercomponent',
+                    label: 'PageLoaderComponent',
+                    color: {
+                        background: '#BAB0AC',
+                        border: '#BAB0AC',
+                        highlight: { background: '#ffffff', border: '#BAB0AC' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'PageLoaderComponent',
+                    community: 9,
+                    community_name: 'PageLoaderComponent',
+                    source_file: 'src/components/page-loader-component.tsx',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_components_tree_menu_link_tree_item_component_treemenulinktreeitemcomponent',
+                    label: 'TreeMenuLinkTreeItemComponent',
+                    color: {
+                        background: '#4E79A7',
+                        border: '#4E79A7',
+                        highlight: { background: '#ffffff', border: '#4E79A7' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'TreeMenuLinkTreeItemComponent',
+                    community: 10,
+                    community_name: 'TreeMenuLinkTreeItemComponent',
+                    source_file: 'src/components/tree-menu-link-tree-item-component.tsx',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_contexts_sidebar_context_sidebar_context_sidebarcontexttype',
+                    label: 'SidebarContextType',
+                    color: {
+                        background: '#F28E2B',
+                        border: '#F28E2B',
+                        highlight: { background: '#ffffff', border: '#F28E2B' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'SidebarContextType',
+                    community: 11,
+                    community_name: 'SidebarContextType',
+                    source_file: 'src/contexts/sidebar-context/sidebar-context.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_contexts_sidebar_context_sidebar_provider_sidebarprovider',
+                    label: 'SidebarProvider',
+                    color: {
+                        background: '#E15759',
+                        border: '#E15759',
+                        highlight: { background: '#ffffff', border: '#E15759' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'SidebarProvider',
+                    community: 12,
+                    community_name: 'SidebarProvider',
+                    source_file: 'src/contexts/sidebar-context/sidebar-provider.tsx',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_contexts_sidebar_context_use_sidebar_context_usesidebarcontext',
+                    label: 'useSidebarContext',
+                    color: {
+                        background: '#76B7B2',
+                        border: '#76B7B2',
+                        highlight: { background: '#ffffff', border: '#76B7B2' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'useSidebarContext',
+                    community: 13,
+                    community_name: 'useSidebarContext',
+                    source_file: 'src/contexts/sidebar-context/use-sidebar-context.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_hooks_use_collapsible_menu_icon_component_hook_usecollapsiblemenuiconcomponenthook',
+                    label: 'useCollapsibleMenuIconComponentHook',
+                    color: {
+                        background: '#59A14F',
+                        border: '#59A14F',
+                        highlight: { background: '#ffffff', border: '#59A14F' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'useCollapsibleMenuIconComponentHook',
+                    community: 14,
+                    community_name: 'useCollapsibleMenuIconComponentHook',
+                    source_file: 'src/hooks/use-collapsible-menu-icon-component-hook.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_hooks_use_collapsible_menu_item_component_hook_usecollapsiblemenuitemcomponenthook',
+                    label: 'useCollapsibleMenuItemComponentHook',
+                    color: {
+                        background: '#EDC948',
+                        border: '#EDC948',
+                        highlight: { background: '#ffffff', border: '#EDC948' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'useCollapsibleMenuItemComponentHook',
+                    community: 15,
+                    community_name: 'useCollapsibleMenuItemComponentHook',
+                    source_file: 'src/hooks/use-collapsible-menu-item-component-hook.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_hooks_use_password_field_component_hook_usepasswordfieldcomponenthook',
+                    label: 'usePasswordFieldComponentHook',
+                    color: {
+                        background: '#B07AA1',
+                        border: '#B07AA1',
+                        highlight: { background: '#ffffff', border: '#B07AA1' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'usePasswordFieldComponentHook',
+                    community: 16,
+                    community_name: 'usePasswordFieldComponentHook',
+                    source_file: 'src/hooks/use-password-field-component-hook.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_hooks_use_title_hook_usetitlehook',
+                    label: 'useTitleHook',
+                    color: {
+                        background: '#FF9DA7',
+                        border: '#FF9DA7',
+                        highlight: { background: '#ffffff', border: '#FF9DA7' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'useTitleHook',
+                    community: 17,
+                    community_name: 'useTitleHook',
+                    source_file: 'src/hooks/use-title-hook.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_index_pagestype',
+                    label: 'PagesType',
+                    color: {
+                        background: '#9C755F',
+                        border: '#9C755F',
+                        highlight: { background: '#ffffff', border: '#9C755F' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'PagesType',
+                    community: 18,
+                    community_name: 'PagesType',
+                    source_file: 'src/index.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_index_utilstype',
+                    label: 'UtilsType',
+                    color: {
+                        background: '#BAB0AC',
+                        border: '#BAB0AC',
+                        highlight: { background: '#ffffff', border: '#BAB0AC' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'UtilsType',
+                    community: 19,
+                    community_name: 'UtilsType',
+                    source_file: 'src/index.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_layouts_main_layout_mainlayout',
+                    label: 'MainLayout',
+                    color: {
+                        background: '#4E79A7',
+                        border: '#4E79A7',
+                        highlight: { background: '#ffffff', border: '#4E79A7' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'MainLayout',
+                    community: 20,
+                    community_name: 'MainLayout',
+                    source_file: 'src/layouts/main-layout.tsx',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_change_password_hooks_change_password_hook_usechangepassword',
+                    label: 'useChangePassword',
+                    color: {
+                        background: '#F28E2B',
+                        border: '#F28E2B',
+                        highlight: { background: '#ffffff', border: '#F28E2B' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'useChangePassword',
+                    community: 21,
+                    community_name: 'useChangePassword',
+                    source_file: 'src/modules/change-password/hooks/change-password-hook.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_change_password_types_alert_type_alerttype',
+                    label: 'ALertType',
+                    color: {
+                        background: '#E15759',
+                        border: '#E15759',
+                        highlight: { background: '#ffffff', border: '#E15759' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'ALertType',
+                    community: 22,
+                    community_name: 'ALertType',
+                    source_file: 'src/modules/change-password/types/alert-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_change_password_types_change_password_form_type_changepasswordformtype',
+                    label: 'ChangePasswordFormType',
+                    color: {
+                        background: '#76B7B2',
+                        border: '#76B7B2',
+                        highlight: { background: '#ffffff', border: '#76B7B2' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'ChangePasswordFormType',
+                    community: 23,
+                    community_name: 'ChangePasswordFormType',
+                    source_file: 'src/modules/change-password/types/change-password-form-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_change_password_types_change_password_request_type_changepasswordresponsetype',
+                    label: 'ChangePasswordResponseType',
+                    color: {
+                        background: '#EDC948',
+                        border: '#EDC948',
+                        highlight: { background: '#ffffff', border: '#EDC948' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'ChangePasswordResponseType',
+                    community: 25,
+                    community_name: 'ChangePasswordResponseType',
+                    source_file:
+                        'src/modules/change-password/types/change-password-request-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_change_password_types_change_password_request_type_changepasswordresponsemappedtype',
+                    label: 'ChangePasswordResponseMappedType',
+                    color: {
+                        background: '#59A14F',
+                        border: '#59A14F',
+                        highlight: { background: '#ffffff', border: '#59A14F' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'ChangePasswordResponseMappedType',
+                    community: 24,
+                    community_name: 'ChangePasswordResponseMappedType',
+                    source_file:
+                        'src/modules/change-password/types/change-password-request-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_change_password_types_change_password_request_type_postchangepasswordmutationoptionstype',
+                    label: 'PostChangePasswordMutationOptionsType',
+                    color: {
+                        background: '#B07AA1',
+                        border: '#B07AA1',
+                        highlight: { background: '#ffffff', border: '#B07AA1' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'PostChangePasswordMutationOptionsType',
+                    community: 26,
+                    community_name: 'PostChangePasswordMutationOptionsType',
+                    source_file:
+                        'src/modules/change-password/types/change-password-request-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_error_pages_error_400_page_error404page',
+                    label: 'Error404Page',
+                    color: {
+                        background: '#FF9DA7',
+                        border: '#FF9DA7',
+                        highlight: { background: '#ffffff', border: '#FF9DA7' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'Error404Page',
+                    community: 27,
+                    community_name: 'Error404Page',
+                    source_file: 'src/modules/error/pages/error-400-page.tsx',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_error_pages_error_500_page_error500page',
+                    label: 'Error500Page',
+                    color: {
+                        background: '#9C755F',
+                        border: '#9C755F',
+                        highlight: { background: '#ffffff', border: '#9C755F' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'Error500Page',
+                    community: 28,
+                    community_name: 'Error500Page',
+                    source_file: 'src/modules/error/pages/error-500-page.tsx',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_forgot_password_hooks_use_forgot_password_page_hook_useforgotpasswordpagehook',
+                    label: 'useForgotPasswordPageHook',
+                    color: {
+                        background: '#BAB0AC',
+                        border: '#BAB0AC',
+                        highlight: { background: '#ffffff', border: '#BAB0AC' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'useForgotPasswordPageHook',
+                    community: 29,
+                    community_name: 'useForgotPasswordPageHook',
+                    source_file:
+                        'src/modules/forgot-password/hooks/use-forgot-password-page-hook.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_forgot_password_types_alert_type_alerttype',
+                    label: 'ALertType',
+                    color: {
+                        background: '#4E79A7',
+                        border: '#4E79A7',
+                        highlight: { background: '#ffffff', border: '#4E79A7' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'ALertType',
+                    community: 30,
+                    community_name: 'ALertType',
+                    source_file: 'src/modules/forgot-password/types/alert-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_forgot_password_types_forgot_password_form_type_forgotpasswordformtype',
+                    label: 'ForgotPasswordFormType',
+                    color: {
+                        background: '#F28E2B',
+                        border: '#F28E2B',
+                        highlight: { background: '#ffffff', border: '#F28E2B' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'ForgotPasswordFormType',
+                    community: 31,
+                    community_name: 'ForgotPasswordFormType',
+                    source_file: 'src/modules/forgot-password/types/forgot-password-form-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_forgot_password_types_forgot_password_request_type_forgotpasswordresponsetype',
+                    label: 'ForgotPasswordResponseType',
+                    color: {
+                        background: '#76B7B2',
+                        border: '#76B7B2',
+                        highlight: { background: '#ffffff', border: '#76B7B2' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'ForgotPasswordResponseType',
+                    community: 33,
+                    community_name: 'ForgotPasswordResponseType',
+                    source_file:
+                        'src/modules/forgot-password/types/forgot-password-request-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_forgot_password_types_forgot_password_request_type_forgotpasswordresponsemappedtype',
+                    label: 'ForgotPasswordResponseMappedType',
+                    color: {
+                        background: '#E15759',
+                        border: '#E15759',
+                        highlight: { background: '#ffffff', border: '#E15759' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'ForgotPasswordResponseMappedType',
+                    community: 32,
+                    community_name: 'ForgotPasswordResponseMappedType',
+                    source_file:
+                        'src/modules/forgot-password/types/forgot-password-request-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_forgot_password_types_forgot_password_request_type_postforgotpasswordmutationoptionstype',
+                    label: 'PostForgotPasswordMutationOptionsType',
+                    color: {
+                        background: '#59A14F',
+                        border: '#59A14F',
+                        highlight: { background: '#ffffff', border: '#59A14F' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'PostForgotPasswordMutationOptionsType',
+                    community: 34,
+                    community_name: 'PostForgotPasswordMutationOptionsType',
+                    source_file:
+                        'src/modules/forgot-password/types/forgot-password-request-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_login_hooks_use_login_page_hook_useloginpagehook',
+                    label: 'useLoginPageHook',
+                    color: {
+                        background: '#EDC948',
+                        border: '#EDC948',
+                        highlight: { background: '#ffffff', border: '#EDC948' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'useLoginPageHook',
+                    community: 35,
+                    community_name: 'useLoginPageHook',
+                    source_file: 'src/modules/login/hooks/use-login-page-hook.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_login_types_alert_type_alerttype',
+                    label: 'ALertType',
+                    color: {
+                        background: '#B07AA1',
+                        border: '#B07AA1',
+                        highlight: { background: '#ffffff', border: '#B07AA1' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'ALertType',
+                    community: 36,
+                    community_name: 'ALertType',
+                    source_file: 'src/modules/login/types/alert-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_login_types_login_form_type_loginformtype',
+                    label: 'LoginFormType',
+                    color: {
+                        background: '#FF9DA7',
+                        border: '#FF9DA7',
+                        highlight: { background: '#ffffff', border: '#FF9DA7' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'LoginFormType',
+                    community: 37,
+                    community_name: 'LoginFormType',
+                    source_file: 'src/modules/login/types/login-form-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_login_types_login_request_type_loginresponsetype',
+                    label: 'LoginResponseType',
+                    color: {
+                        background: '#BAB0AC',
+                        border: '#BAB0AC',
+                        highlight: { background: '#ffffff', border: '#BAB0AC' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'LoginResponseType',
+                    community: 39,
+                    community_name: 'LoginResponseType',
+                    source_file: 'src/modules/login/types/login-request-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_login_types_login_request_type_loginresponsemappedtype',
+                    label: 'LoginResponseMappedType',
+                    color: {
+                        background: '#9C755F',
+                        border: '#9C755F',
+                        highlight: { background: '#ffffff', border: '#9C755F' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'LoginResponseMappedType',
+                    community: 38,
+                    community_name: 'LoginResponseMappedType',
+                    source_file: 'src/modules/login/types/login-request-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_login_types_login_request_type_postloginmutationoptionstype',
+                    label: 'PostLoginMutationOptionsType',
+                    color: {
+                        background: '#4E79A7',
+                        border: '#4E79A7',
+                        highlight: { background: '#ffffff', border: '#4E79A7' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'PostLoginMutationOptionsType',
+                    community: 40,
+                    community_name: 'PostLoginMutationOptionsType',
+                    source_file: 'src/modules/login/types/login-request-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_register_hooks_use_register_page_hook_useregisterpagehook',
+                    label: 'useRegisterPageHook',
+                    color: {
+                        background: '#F28E2B',
+                        border: '#F28E2B',
+                        highlight: { background: '#ffffff', border: '#F28E2B' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'useRegisterPageHook',
+                    community: 41,
+                    community_name: 'useRegisterPageHook',
+                    source_file: 'src/modules/register/hooks/use-register-page-hook.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_register_types_alert_type_alerttype',
+                    label: 'ALertType',
+                    color: {
+                        background: '#E15759',
+                        border: '#E15759',
+                        highlight: { background: '#ffffff', border: '#E15759' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'ALertType',
+                    community: 42,
+                    community_name: 'ALertType',
+                    source_file: 'src/modules/register/types/alert-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_register_types_register_form_type_registerformtype',
+                    label: 'RegisterFormType',
+                    color: {
+                        background: '#76B7B2',
+                        border: '#76B7B2',
+                        highlight: { background: '#ffffff', border: '#76B7B2' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'RegisterFormType',
+                    community: 43,
+                    community_name: 'RegisterFormType',
+                    source_file: 'src/modules/register/types/register-form-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_register_types_register_request_type_registerresponsetype',
+                    label: 'RegisterResponseType',
+                    color: {
+                        background: '#B07AA1',
+                        border: '#B07AA1',
+                        highlight: { background: '#ffffff', border: '#B07AA1' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'RegisterResponseType',
+                    community: 46,
+                    community_name: 'RegisterResponseType',
+                    source_file: 'src/modules/register/types/register-request-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_register_types_register_request_type_registerresponsemappedtype',
+                    label: 'RegisterResponseMappedType',
+                    color: {
+                        background: '#EDC948',
+                        border: '#EDC948',
+                        highlight: { background: '#ffffff', border: '#EDC948' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'RegisterResponseMappedType',
+                    community: 45,
+                    community_name: 'RegisterResponseMappedType',
+                    source_file: 'src/modules/register/types/register-request-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_register_types_register_request_type_postregistermutationoptionstype',
+                    label: 'PostRegisterMutationOptionsType',
+                    color: {
+                        background: '#59A14F',
+                        border: '#59A14F',
+                        highlight: { background: '#ffffff', border: '#59A14F' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'PostRegisterMutationOptionsType',
+                    community: 44,
+                    community_name: 'PostRegisterMutationOptionsType',
+                    source_file: 'src/modules/register/types/register-request-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_validate_otp_hooks_use_countdown_resend_component_hook_usecountdownresendcomponenthook',
+                    label: 'useCountdownResendComponentHook',
+                    color: {
+                        background: '#FF9DA7',
+                        border: '#FF9DA7',
+                        highlight: { background: '#ffffff', border: '#FF9DA7' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'useCountdownResendComponentHook',
+                    community: 47,
+                    community_name: 'useCountdownResendComponentHook',
+                    source_file:
+                        'src/modules/validate-otp/hooks/use-countdown-resend-component-hook.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_validate_otp_hooks_use_validate_otp_page_hook_usevalidateotppagehook',
+                    label: 'useValidateOtpPageHook',
+                    color: {
+                        background: '#9C755F',
+                        border: '#9C755F',
+                        highlight: { background: '#ffffff', border: '#9C755F' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'useValidateOtpPageHook',
+                    community: 48,
+                    community_name: 'useValidateOtpPageHook',
+                    source_file: 'src/modules/validate-otp/hooks/use-validate-otp-page-hook.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_validate_otp_types_alert_type_alerttype',
+                    label: 'ALertType',
+                    color: {
+                        background: '#BAB0AC',
+                        border: '#BAB0AC',
+                        highlight: { background: '#ffffff', border: '#BAB0AC' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'ALertType',
+                    community: 49,
+                    community_name: 'ALertType',
+                    source_file: 'src/modules/validate-otp/types/alert-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_validate_otp_types_validate_otp_form_type_validateotpformtype',
+                    label: 'ValidateOtpFormType',
+                    color: {
+                        background: '#4E79A7',
+                        border: '#4E79A7',
+                        highlight: { background: '#ffffff', border: '#4E79A7' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'ValidateOtpFormType',
+                    community: 50,
+                    community_name: 'ValidateOtpFormType',
+                    source_file: 'src/modules/validate-otp/types/validate-otp-form-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_validate_otp_types_validate_otp_request_type_validateotpresponsetype',
+                    label: 'ValidateOtpResponseType',
+                    color: {
+                        background: '#EDC948',
+                        border: '#EDC948',
+                        highlight: { background: '#ffffff', border: '#EDC948' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'ValidateOtpResponseType',
+                    community: 55,
+                    community_name: 'ValidateOtpResponseType',
+                    source_file: 'src/modules/validate-otp/types/validate-otp-request-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_validate_otp_types_validate_otp_request_type_validateotpresponsemappedtype',
+                    label: 'ValidateOtpResponseMappedType',
+                    color: {
+                        background: '#59A14F',
+                        border: '#59A14F',
+                        highlight: { background: '#ffffff', border: '#59A14F' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'ValidateOtpResponseMappedType',
+                    community: 54,
+                    community_name: 'ValidateOtpResponseMappedType',
+                    source_file: 'src/modules/validate-otp/types/validate-otp-request-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_validate_otp_types_validate_otp_request_type_postvalidateotpmutationoptionstype',
+                    label: 'PostValidateOtpMutationOptionsType',
+                    color: {
+                        background: '#E15759',
+                        border: '#E15759',
+                        highlight: { background: '#ffffff', border: '#E15759' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'PostValidateOtpMutationOptionsType',
+                    community: 52,
+                    community_name: 'PostValidateOtpMutationOptionsType',
+                    source_file: 'src/modules/validate-otp/types/validate-otp-request-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_validate_otp_types_validate_otp_request_type_resendotpresponsetype',
+                    label: 'ResendOtpResponseType',
+                    color: {
+                        background: '#76B7B2',
+                        border: '#76B7B2',
+                        highlight: { background: '#ffffff', border: '#76B7B2' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'ResendOtpResponseType',
+                    community: 53,
+                    community_name: 'ResendOtpResponseType',
+                    source_file: 'src/modules/validate-otp/types/validate-otp-request-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_validate_otp_types_validate_otp_request_type_postresendotpmutationoptionstype',
+                    label: 'PostResendOtpMutationOptionsType',
+                    color: {
+                        background: '#F28E2B',
+                        border: '#F28E2B',
+                        highlight: { background: '#ffffff', border: '#F28E2B' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'PostResendOtpMutationOptionsType',
+                    community: 51,
+                    community_name: 'PostResendOtpMutationOptionsType',
+                    source_file: 'src/modules/validate-otp/types/validate-otp-request-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_modules_welcome_pages_welcome_page_welcomepage',
+                    label: 'WelcomePage',
+                    color: {
+                        background: '#B07AA1',
+                        border: '#B07AA1',
+                        highlight: { background: '#ffffff', border: '#B07AA1' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'WelcomePage',
+                    community: 56,
+                    community_name: 'WelcomePage',
+                    source_file: 'src/modules/welcome/pages/welcome-page.tsx',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_routetree_gen_fileroutesbyfullpath',
+                    label: 'FileRoutesByFullPath',
+                    color: {
+                        background: '#FF9DA7',
+                        border: '#FF9DA7',
+                        highlight: { background: '#ffffff', border: '#FF9DA7' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'FileRoutesByFullPath',
+                    community: 57,
+                    community_name: 'FileRoutesByFullPath',
+                    source_file: 'src/routeTree.gen.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_routetree_gen_fileroutesbyto',
+                    label: 'FileRoutesByTo',
+                    color: {
+                        background: '#BAB0AC',
+                        border: '#BAB0AC',
+                        highlight: { background: '#ffffff', border: '#BAB0AC' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'FileRoutesByTo',
+                    community: 59,
+                    community_name: 'FileRoutesByTo',
+                    source_file: 'src/routeTree.gen.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_routetree_gen_fileroutesbyid',
+                    label: 'FileRoutesById',
+                    color: {
+                        background: '#9C755F',
+                        border: '#9C755F',
+                        highlight: { background: '#ffffff', border: '#9C755F' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'FileRoutesById',
+                    community: 58,
+                    community_name: 'FileRoutesById',
+                    source_file: 'src/routeTree.gen.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_routetree_gen_fileroutetypes',
+                    label: 'FileRouteTypes',
+                    color: {
+                        background: '#4E79A7',
+                        border: '#4E79A7',
+                        highlight: { background: '#ffffff', border: '#4E79A7' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'FileRouteTypes',
+                    community: 60,
+                    community_name: 'FileRouteTypes',
+                    source_file: 'src/routeTree.gen.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_routetree_gen_rootroutechildren',
+                    label: 'RootRouteChildren',
+                    color: {
+                        background: '#F28E2B',
+                        border: '#F28E2B',
+                        highlight: { background: '#ffffff', border: '#F28E2B' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'RootRouteChildren',
+                    community: 61,
+                    community_name: 'RootRouteChildren',
+                    source_file: 'src/routeTree.gen.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_types_api_response_type_apiresponsetype',
+                    label: 'ApiResponseType',
+                    color: {
+                        background: '#E15759',
+                        border: '#E15759',
+                        highlight: { background: '#ffffff', border: '#E15759' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'ApiResponseType',
+                    community: 62,
+                    community_name: 'ApiResponseType',
+                    source_file: 'src/types/api-response-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_types_auth_me_response_type_authmeresponsetype',
+                    label: 'AuthMeResponseType',
+                    color: {
+                        background: '#76B7B2',
+                        border: '#76B7B2',
+                        highlight: { background: '#ffffff', border: '#76B7B2' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'AuthMeResponseType',
+                    community: 63,
+                    community_name: 'AuthMeResponseType',
+                    source_file: 'src/types/auth-me-response-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_types_collapsible_menu_icon_component_props_type_collapsiblemenuiconcomponentpropstype',
+                    label: 'CollapsibleMenuIconComponentPropsType',
+                    color: {
+                        background: '#59A14F',
+                        border: '#59A14F',
+                        highlight: { background: '#ffffff', border: '#59A14F' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'CollapsibleMenuIconComponentPropsType',
+                    community: 64,
+                    community_name: 'CollapsibleMenuIconComponentPropsType',
+                    source_file: 'src/types/collapsible-menu-icon-component-props-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_types_collapsible_menu_item_button_component_props_type_collapsiblemenuitembuttoncomponentpropstype',
+                    label: 'CollapsibleMenuItemButtonComponentPropsType',
+                    color: {
+                        background: '#EDC948',
+                        border: '#EDC948',
+                        highlight: { background: '#ffffff', border: '#EDC948' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'CollapsibleMenuItemButtonComponentPropsType',
+                    community: 65,
+                    community_name: 'CollapsibleMenuItemButtonComponentPropsType',
+                    source_file: 'src/types/collapsible-menu-item-button-component-props-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_types_collapsible_menu_item_component_props_type_collapsiblemenuitemcomponentpropstype',
+                    label: 'CollapsibleMenuItemComponentPropsType',
+                    color: {
+                        background: '#B07AA1',
+                        border: '#B07AA1',
+                        highlight: { background: '#ffffff', border: '#B07AA1' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'CollapsibleMenuItemComponentPropsType',
+                    community: 66,
+                    community_name: 'CollapsibleMenuItemComponentPropsType',
+                    source_file: 'src/types/collapsible-menu-item-component-props-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_types_collapsible_menu_popover_component_props_type_collapsedmenupopovercomponentpropstype',
+                    label: 'CollapsedMenuPopoverComponentPropsType',
+                    color: {
+                        background: '#FF9DA7',
+                        border: '#FF9DA7',
+                        highlight: { background: '#ffffff', border: '#FF9DA7' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'CollapsedMenuPopoverComponentPropsType',
+                    community: 67,
+                    community_name: 'CollapsedMenuPopoverComponentPropsType',
+                    source_file: 'src/types/collapsible-menu-popover-component-props-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_types_router_context_type_routercontexttype',
+                    label: 'RouterContextType',
+                    color: {
+                        background: '#9C755F',
+                        border: '#9C755F',
+                        highlight: { background: '#ffffff', border: '#9C755F' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'RouterContextType',
+                    community: 68,
+                    community_name: 'RouterContextType',
+                    source_file: 'src/types/router-context-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'src_types_tree_menu_item_type_treemenuitem',
+                    label: 'TreeMenuItem',
+                    color: {
+                        background: '#BAB0AC',
+                        border: '#BAB0AC',
+                        highlight: { background: '#ffffff', border: '#BAB0AC' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'TreeMenuItem',
+                    community: 69,
+                    community_name: 'TreeMenuItem',
+                    source_file: 'src/types/tree-menu-item-type.ts',
+                    file_type: 'code',
+                    degree: 0,
+                },
+                {
+                    id: 'readme_react_typescript_vite',
+                    label: 'React TypeScript Vite Template',
+                    color: {
+                        background: '#4E79A7',
+                        border: '#4E79A7',
+                        highlight: { background: '#ffffff', border: '#4E79A7' },
+                    },
+                    size: 40.0,
+                    font: { size: 12, color: '#ffffff' },
+                    title: 'React TypeScript Vite Template',
+                    community: 0,
+                    community_name: 'Community 0',
+                    source_file: 'README.md',
+                    file_type: 'document',
+                    degree: 6,
+                },
+                {
+                    id: 'readme_vite_hmr',
+                    label: 'Vite HMR',
+                    color: {
+                        background: '#4E79A7',
+                        border: '#4E79A7',
+                        highlight: { background: '#ffffff', border: '#4E79A7' },
+                    },
+                    size: 15.0,
+                    font: { size: 12, color: '#ffffff' },
+                    title: 'Vite HMR',
+                    community: 0,
+                    community_name: 'Community 0',
+                    source_file: 'README.md',
+                    file_type: 'concept',
+                    degree: 1,
+                },
+                {
+                    id: 'readme_react_compiler',
+                    label: 'React Compiler',
+                    color: {
+                        background: '#4E79A7',
+                        border: '#4E79A7',
+                        highlight: { background: '#ffffff', border: '#4E79A7' },
+                    },
+                    size: 15.0,
+                    font: { size: 12, color: '#ffffff' },
+                    title: 'React Compiler',
+                    community: 0,
+                    community_name: 'Community 0',
+                    source_file: 'README.md',
+                    file_type: 'concept',
+                    degree: 1,
+                },
+                {
+                    id: 'readme_eslint_configuration',
+                    label: 'ESLint Configuration',
+                    color: {
+                        background: '#E15759',
+                        border: '#E15759',
+                        highlight: { background: '#ffffff', border: '#E15759' },
+                    },
+                    size: 40.0,
+                    font: { size: 12, color: '#ffffff' },
+                    title: 'ESLint Configuration',
+                    community: 2,
+                    community_name: 'Community 2',
+                    source_file: 'README.md',
+                    file_type: 'concept',
+                    degree: 6,
+                },
+                {
+                    id: 'readme_eslint_plugin_react_x',
+                    label: 'eslint-plugin-react-x',
+                    color: {
+                        background: '#E15759',
+                        border: '#E15759',
+                        highlight: { background: '#ffffff', border: '#E15759' },
+                    },
+                    size: 15.0,
+                    font: { size: 12, color: '#ffffff' },
+                    title: 'eslint-plugin-react-x',
+                    community: 2,
+                    community_name: 'Community 2',
+                    source_file: 'README.md',
+                    file_type: 'concept',
+                    degree: 1,
+                },
+                {
+                    id: 'readme_eslint_plugin_react_dom',
+                    label: 'eslint-plugin-react-dom',
+                    color: {
+                        background: '#E15759',
+                        border: '#E15759',
+                        highlight: { background: '#ffffff', border: '#E15759' },
+                    },
+                    size: 15.0,
+                    font: { size: 12, color: '#ffffff' },
+                    title: 'eslint-plugin-react-dom',
+                    community: 2,
+                    community_name: 'Community 2',
+                    source_file: 'README.md',
+                    file_type: 'concept',
+                    degree: 1,
+                },
+                {
+                    id: 'readme_vitejs_plugin_react',
+                    label: '@vitejs/plugin-react',
+                    color: {
+                        background: '#4E79A7',
+                        border: '#4E79A7',
+                        highlight: { background: '#ffffff', border: '#4E79A7' },
+                    },
+                    size: 20.0,
+                    font: { size: 12, color: '#ffffff' },
+                    title: '@vitejs/plugin-react',
+                    community: 0,
+                    community_name: 'Community 0',
+                    source_file: 'README.md',
+                    file_type: 'concept',
+                    degree: 2,
+                },
+                {
+                    id: 'readme_vitejs_plugin_react_swc',
+                    label: '@vitejs/plugin-react-swc',
+                    color: {
+                        background: '#4E79A7',
+                        border: '#4E79A7',
+                        highlight: { background: '#ffffff', border: '#4E79A7' },
+                    },
+                    size: 20.0,
+                    font: { size: 12, color: '#ffffff' },
+                    title: '@vitejs/plugin-react-swc',
+                    community: 0,
+                    community_name: 'Community 0',
+                    source_file: 'README.md',
+                    file_type: 'concept',
+                    degree: 2,
+                },
+                {
+                    id: 'readme_oxc',
+                    label: 'Oxc',
+                    color: {
+                        background: '#4E79A7',
+                        border: '#4E79A7',
+                        highlight: { background: '#ffffff', border: '#4E79A7' },
+                    },
+                    size: 15.0,
+                    font: { size: 12, color: '#ffffff' },
+                    title: 'Oxc',
+                    community: 0,
+                    community_name: 'Community 0',
+                    source_file: 'README.md',
+                    file_type: 'concept',
+                    degree: 1,
+                },
+                {
+                    id: 'readme_swc',
+                    label: 'SWC',
+                    color: {
+                        background: '#4E79A7',
+                        border: '#4E79A7',
+                        highlight: { background: '#ffffff', border: '#4E79A7' },
+                    },
+                    size: 15.0,
+                    font: { size: 12, color: '#ffffff' },
+                    title: 'SWC',
+                    community: 0,
+                    community_name: 'Community 0',
+                    source_file: 'README.md',
+                    file_type: 'concept',
+                    degree: 1,
+                },
+                {
+                    id: 'readme_tseslint_configs',
+                    label: 'typescript-eslint Configs',
+                    color: {
+                        background: '#E15759',
+                        border: '#E15759',
+                        highlight: { background: '#ffffff', border: '#E15759' },
+                    },
+                    size: 15.0,
+                    font: { size: 12, color: '#ffffff' },
+                    title: 'typescript-eslint Configs',
+                    community: 2,
+                    community_name: 'Community 2',
+                    source_file: 'README.md',
+                    file_type: 'concept',
+                    degree: 1,
+                },
+                {
+                    id: 'readme_tsconfig_node_tsconfig_app',
+                    label: 'tsconfig.node.json and tsconfig.app.json',
+                    color: {
+                        background: '#E15759',
+                        border: '#E15759',
+                        highlight: { background: '#ffffff', border: '#E15759' },
+                    },
+                    size: 15.0,
+                    font: { size: 12, color: '#ffffff' },
+                    title: 'tsconfig.node.json and tsconfig.app.json',
+                    community: 2,
+                    community_name: 'Community 2',
+                    source_file: 'README.md',
+                    file_type: 'concept',
+                    degree: 1,
+                },
+                {
+                    id: 'readme_type_aware_lint_rules',
+                    label: 'Type-Aware Lint Rules',
+                    color: {
+                        background: '#E15759',
+                        border: '#E15759',
+                        highlight: { background: '#ffffff', border: '#E15759' },
+                    },
+                    size: 15.0,
+                    font: { size: 12, color: '#ffffff' },
+                    title: 'Type-Aware Lint Rules',
+                    community: 2,
+                    community_name: 'Community 2',
+                    source_file: 'README.md',
+                    file_type: 'rationale',
+                    degree: 1,
+                },
+                {
+                    id: 'index_html',
+                    label: 'index.html Entry Point',
+                    color: {
+                        background: '#76B7B2',
+                        border: '#76B7B2',
+                        highlight: { background: '#ffffff', border: '#76B7B2' },
+                    },
+                    size: 25.0,
+                    font: { size: 12, color: '#ffffff' },
+                    title: 'index.html Entry Point',
+                    community: 3,
+                    community_name: 'Community 3',
+                    source_file: 'index.html',
+                    file_type: 'code',
+                    degree: 3,
+                },
+                {
+                    id: 'index_html_app_title_env_var',
+                    label: 'VITE_APP_NAME Environment Variable',
+                    color: {
+                        background: '#76B7B2',
+                        border: '#76B7B2',
+                        highlight: { background: '#ffffff', border: '#76B7B2' },
+                    },
+                    size: 15.0,
+                    font: { size: 12, color: '#ffffff' },
+                    title: 'VITE_APP_NAME Environment Variable',
+                    community: 3,
+                    community_name: 'Community 3',
+                    source_file: 'index.html',
+                    file_type: 'concept',
+                    degree: 1,
+                },
+                {
+                    id: 'index_html_src_main_tsx',
+                    label: 'src/main.tsx Entry Module',
+                    color: {
+                        background: '#76B7B2',
+                        border: '#76B7B2',
+                        highlight: { background: '#ffffff', border: '#76B7B2' },
+                    },
+                    size: 15.0,
+                    font: { size: 12, color: '#ffffff' },
+                    title: 'src/main.tsx Entry Module',
+                    community: 3,
+                    community_name: 'Community 3',
+                    source_file: 'index.html',
+                    file_type: 'concept',
+                    degree: 1,
+                },
+                {
+                    id: 'index_html_favicon_svg',
+                    label: 'favicon.svg',
+                    color: {
+                        background: '#76B7B2',
+                        border: '#76B7B2',
+                        highlight: { background: '#ffffff', border: '#76B7B2' },
+                    },
+                    size: 15.0,
+                    font: { size: 12, color: '#ffffff' },
+                    title: 'favicon.svg',
+                    community: 3,
+                    community_name: 'Community 3',
+                    source_file: 'index.html',
+                    file_type: 'concept',
+                    degree: 1,
+                },
+                {
+                    id: 'pnpm_workspace_yaml',
+                    label: 'pnpm Workspace Configuration',
+                    color: {
+                        background: '#4E79A7',
+                        border: '#4E79A7',
+                        highlight: { background: '#ffffff', border: '#4E79A7' },
+                    },
+                    size: 15.0,
+                    font: { size: 12, color: '#ffffff' },
+                    title: 'pnpm Workspace Configuration',
+                    community: 0,
+                    community_name: 'Community 0',
+                    source_file: 'pnpm-workspace.yaml',
+                    file_type: 'document',
+                    degree: 1,
+                },
+                {
+                    id: 'public_favicon_svg',
+                    label: 'App Favicon - Purple Lightning Bolt',
+                    color: {
+                        background: '#59A14F',
+                        border: '#59A14F',
+                        highlight: { background: '#ffffff', border: '#59A14F' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'App Favicon - Purple Lightning Bolt',
+                    community: 4,
+                    community_name: 'App Favicon - Purple Lightning',
+                    source_file: 'public/favicon.svg',
+                    file_type: 'image',
+                    degree: 0,
+                },
+                {
+                    id: 'public_iconssvg',
+                    label: 'Icon Sprite Sheet',
+                    color: {
+                        background: '#F28E2B',
+                        border: '#F28E2B',
+                        highlight: { background: '#ffffff', border: '#F28E2B' },
+                    },
+                    size: 40.0,
+                    font: { size: 12, color: '#ffffff' },
+                    title: 'Icon Sprite Sheet',
+                    community: 1,
+                    community_name: 'Community 1',
+                    source_file: 'public/icons.svg',
+                    file_type: 'image',
+                    degree: 6,
+                },
+                {
+                    id: 'public_iconssvg_bluesky_icon',
+                    label: 'Bluesky Icon',
+                    color: {
+                        background: '#F28E2B',
+                        border: '#F28E2B',
+                        highlight: { background: '#ffffff', border: '#F28E2B' },
+                    },
+                    size: 35.0,
+                    font: { size: 12, color: '#ffffff' },
+                    title: 'Bluesky Icon',
+                    community: 1,
+                    community_name: 'Community 1',
+                    source_file: 'public/icons.svg',
+                    file_type: 'image',
+                    degree: 5,
+                },
+                {
+                    id: 'public_iconssvg_discord_icon',
+                    label: 'Discord Icon',
+                    color: {
+                        background: '#F28E2B',
+                        border: '#F28E2B',
+                        highlight: { background: '#ffffff', border: '#F28E2B' },
+                    },
+                    size: 35.0,
+                    font: { size: 12, color: '#ffffff' },
+                    title: 'Discord Icon',
+                    community: 1,
+                    community_name: 'Community 1',
+                    source_file: 'public/icons.svg',
+                    file_type: 'image',
+                    degree: 5,
+                },
+                {
+                    id: 'public_iconssvg_documentation_icon',
+                    label: 'Documentation Icon',
+                    color: {
+                        background: '#F28E2B',
+                        border: '#F28E2B',
+                        highlight: { background: '#ffffff', border: '#F28E2B' },
+                    },
+                    size: 20.0,
+                    font: { size: 12, color: '#ffffff' },
+                    title: 'Documentation Icon',
+                    community: 1,
+                    community_name: 'Community 1',
+                    source_file: 'public/icons.svg',
+                    file_type: 'image',
+                    degree: 2,
+                },
+                {
+                    id: 'public_iconssvg_github_icon',
+                    label: 'GitHub Icon',
+                    color: {
+                        background: '#F28E2B',
+                        border: '#F28E2B',
+                        highlight: { background: '#ffffff', border: '#F28E2B' },
+                    },
+                    size: 30.0,
+                    font: { size: 12, color: '#ffffff' },
+                    title: 'GitHub Icon',
+                    community: 1,
+                    community_name: 'Community 1',
+                    source_file: 'public/icons.svg',
+                    file_type: 'image',
+                    degree: 4,
+                },
+                {
+                    id: 'public_iconssvg_social_icon',
+                    label: 'Social / Star Icon',
+                    color: {
+                        background: '#F28E2B',
+                        border: '#F28E2B',
+                        highlight: { background: '#ffffff', border: '#F28E2B' },
+                    },
+                    size: 30.0,
+                    font: { size: 12, color: '#ffffff' },
+                    title: 'Social / Star Icon',
+                    community: 1,
+                    community_name: 'Community 1',
+                    source_file: 'public/icons.svg',
+                    file_type: 'image',
+                    degree: 4,
+                },
+                {
+                    id: 'public_iconssvg_x_icon',
+                    label: 'X (Twitter) Icon',
+                    color: {
+                        background: '#F28E2B',
+                        border: '#F28E2B',
+                        highlight: { background: '#ffffff', border: '#F28E2B' },
+                    },
+                    size: 30.0,
+                    font: { size: 12, color: '#ffffff' },
+                    title: 'X (Twitter) Icon',
+                    community: 1,
+                    community_name: 'Community 1',
+                    source_file: 'public/icons.svg',
+                    file_type: 'image',
+                    degree: 4,
+                },
+                {
+                    id: 'src_assets_vite_svg',
+                    label: 'Vite Logo',
+                    color: {
+                        background: '#EDC948',
+                        border: '#EDC948',
+                        highlight: { background: '#ffffff', border: '#EDC948' },
+                    },
+                    size: 10.0,
+                    font: { size: 0, color: '#ffffff' },
+                    title: 'Vite Logo',
+                    community: 5,
+                    community_name: 'Vite Logo',
+                    source_file: 'src/assets/vite.svg',
+                    file_type: 'image',
+                    degree: 0,
+                },
+            ];
+            const RAW_EDGES = [
+                {
+                    from: 'readme_react_typescript_vite',
+                    to: 'pnpm_workspace_yaml',
+                    label: 'conceptually_related_to',
+                    title: 'conceptually_related_to [INFERRED]',
+                    dashes: true,
+                    width: 1,
+                    color: { opacity: 0.35 },
+                    confidence: 'INFERRED',
+                },
+                {
+                    from: 'readme_react_typescript_vite',
+                    to: 'readme_eslint_configuration',
+                    label: 'references',
+                    title: 'references [EXTRACTED]',
+                    dashes: false,
+                    width: 2,
+                    color: { opacity: 0.7 },
+                    confidence: 'EXTRACTED',
+                },
+                {
+                    from: 'readme_react_typescript_vite',
+                    to: 'readme_react_compiler',
+                    label: 'references',
+                    title: 'references [EXTRACTED]',
+                    dashes: false,
+                    width: 2,
+                    color: { opacity: 0.7 },
+                    confidence: 'EXTRACTED',
+                },
+                {
+                    from: 'readme_react_typescript_vite',
+                    to: 'readme_vite_hmr',
+                    label: 'references',
+                    title: 'references [EXTRACTED]',
+                    dashes: false,
+                    width: 2,
+                    color: { opacity: 0.7 },
+                    confidence: 'EXTRACTED',
+                },
+                {
+                    from: 'readme_react_typescript_vite',
+                    to: 'readme_vitejs_plugin_react',
+                    label: 'references',
+                    title: 'references [EXTRACTED]',
+                    dashes: false,
+                    width: 2,
+                    color: { opacity: 0.7 },
+                    confidence: 'EXTRACTED',
+                },
+                {
+                    from: 'readme_react_typescript_vite',
+                    to: 'readme_vitejs_plugin_react_swc',
+                    label: 'references',
+                    title: 'references [EXTRACTED]',
+                    dashes: false,
+                    width: 2,
+                    color: { opacity: 0.7 },
+                    confidence: 'EXTRACTED',
+                },
+                {
+                    from: 'readme_eslint_configuration',
+                    to: 'readme_eslint_plugin_react_dom',
+                    label: 'references',
+                    title: 'references [EXTRACTED]',
+                    dashes: false,
+                    width: 2,
+                    color: { opacity: 0.7 },
+                    confidence: 'EXTRACTED',
+                },
+                {
+                    from: 'readme_eslint_configuration',
+                    to: 'readme_eslint_plugin_react_x',
+                    label: 'references',
+                    title: 'references [EXTRACTED]',
+                    dashes: false,
+                    width: 2,
+                    color: { opacity: 0.7 },
+                    confidence: 'EXTRACTED',
+                },
+                {
+                    from: 'readme_eslint_configuration',
+                    to: 'readme_tsconfig_node_tsconfig_app',
+                    label: 'references',
+                    title: 'references [EXTRACTED]',
+                    dashes: false,
+                    width: 2,
+                    color: { opacity: 0.7 },
+                    confidence: 'EXTRACTED',
+                },
+                {
+                    from: 'readme_eslint_configuration',
+                    to: 'readme_tseslint_configs',
+                    label: 'references',
+                    title: 'references [EXTRACTED]',
+                    dashes: false,
+                    width: 2,
+                    color: { opacity: 0.7 },
+                    confidence: 'EXTRACTED',
+                },
+                {
+                    from: 'readme_eslint_configuration',
+                    to: 'readme_type_aware_lint_rules',
+                    label: 'rationale_for',
+                    title: 'rationale_for [EXTRACTED]',
+                    dashes: false,
+                    width: 2,
+                    color: { opacity: 0.7 },
+                    confidence: 'EXTRACTED',
+                },
+                {
+                    from: 'readme_vitejs_plugin_react',
+                    to: 'readme_oxc',
+                    label: 'references',
+                    title: 'references [EXTRACTED]',
+                    dashes: false,
+                    width: 2,
+                    color: { opacity: 0.7 },
+                    confidence: 'EXTRACTED',
+                },
+                {
+                    from: 'readme_vitejs_plugin_react_swc',
+                    to: 'readme_swc',
+                    label: 'references',
+                    title: 'references [EXTRACTED]',
+                    dashes: false,
+                    width: 2,
+                    color: { opacity: 0.7 },
+                    confidence: 'EXTRACTED',
+                },
+                {
+                    from: 'index_html',
+                    to: 'index_html_app_title_env_var',
+                    label: 'references',
+                    title: 'references [EXTRACTED]',
+                    dashes: false,
+                    width: 2,
+                    color: { opacity: 0.7 },
+                    confidence: 'EXTRACTED',
+                },
+                {
+                    from: 'index_html',
+                    to: 'index_html_favicon_svg',
+                    label: 'references',
+                    title: 'references [EXTRACTED]',
+                    dashes: false,
+                    width: 2,
+                    color: { opacity: 0.7 },
+                    confidence: 'EXTRACTED',
+                },
+                {
+                    from: 'index_html',
+                    to: 'index_html_src_main_tsx',
+                    label: 'references',
+                    title: 'references [EXTRACTED]',
+                    dashes: false,
+                    width: 2,
+                    color: { opacity: 0.7 },
+                    confidence: 'EXTRACTED',
+                },
+                {
+                    from: 'public_iconssvg',
+                    to: 'public_iconssvg_bluesky_icon',
+                    label: 'references',
+                    title: 'references [EXTRACTED]',
+                    dashes: false,
+                    width: 2,
+                    color: { opacity: 0.7 },
+                    confidence: 'EXTRACTED',
+                },
+                {
+                    from: 'public_iconssvg',
+                    to: 'public_iconssvg_discord_icon',
+                    label: 'references',
+                    title: 'references [EXTRACTED]',
+                    dashes: false,
+                    width: 2,
+                    color: { opacity: 0.7 },
+                    confidence: 'EXTRACTED',
+                },
+                {
+                    from: 'public_iconssvg',
+                    to: 'public_iconssvg_documentation_icon',
+                    label: 'references',
+                    title: 'references [EXTRACTED]',
+                    dashes: false,
+                    width: 2,
+                    color: { opacity: 0.7 },
+                    confidence: 'EXTRACTED',
+                },
+                {
+                    from: 'public_iconssvg',
+                    to: 'public_iconssvg_github_icon',
+                    label: 'references',
+                    title: 'references [EXTRACTED]',
+                    dashes: false,
+                    width: 2,
+                    color: { opacity: 0.7 },
+                    confidence: 'EXTRACTED',
+                },
+                {
+                    from: 'public_iconssvg',
+                    to: 'public_iconssvg_social_icon',
+                    label: 'references',
+                    title: 'references [EXTRACTED]',
+                    dashes: false,
+                    width: 2,
+                    color: { opacity: 0.7 },
+                    confidence: 'EXTRACTED',
+                },
+                {
+                    from: 'public_iconssvg',
+                    to: 'public_iconssvg_x_icon',
+                    label: 'references',
+                    title: 'references [EXTRACTED]',
+                    dashes: false,
+                    width: 2,
+                    color: { opacity: 0.7 },
+                    confidence: 'EXTRACTED',
+                },
+                {
+                    from: 'public_iconssvg_bluesky_icon',
+                    to: 'public_iconssvg_discord_icon',
+                    label: 'semantically_similar_to',
+                    title: 'semantically_similar_to [INFERRED]',
+                    dashes: true,
+                    width: 1,
+                    color: { opacity: 0.35 },
+                    confidence: 'INFERRED',
+                },
+                {
+                    from: 'public_iconssvg_bluesky_icon',
+                    to: 'public_iconssvg_x_icon',
+                    label: 'semantically_similar_to',
+                    title: 'semantically_similar_to [INFERRED]',
+                    dashes: true,
+                    width: 1,
+                    color: { opacity: 0.35 },
+                    confidence: 'INFERRED',
+                },
+                {
+                    from: 'public_iconssvg_bluesky_icon',
+                    to: 'public_iconssvg_github_icon',
+                    label: 'semantically_similar_to',
+                    title: 'semantically_similar_to [INFERRED]',
+                    dashes: true,
+                    width: 1,
+                    color: { opacity: 0.35 },
+                    confidence: 'INFERRED',
+                },
+                {
+                    from: 'public_iconssvg_bluesky_icon',
+                    to: 'public_iconssvg_social_icon',
+                    label: 'conceptually_related_to',
+                    title: 'conceptually_related_to [INFERRED]',
+                    dashes: true,
+                    width: 1,
+                    color: { opacity: 0.35 },
+                    confidence: 'INFERRED',
+                },
+                {
+                    from: 'public_iconssvg_discord_icon',
+                    to: 'public_iconssvg_x_icon',
+                    label: 'semantically_similar_to',
+                    title: 'semantically_similar_to [INFERRED]',
+                    dashes: true,
+                    width: 1,
+                    color: { opacity: 0.35 },
+                    confidence: 'INFERRED',
+                },
+                {
+                    from: 'public_iconssvg_discord_icon',
+                    to: 'public_iconssvg_github_icon',
+                    label: 'semantically_similar_to',
+                    title: 'semantically_similar_to [INFERRED]',
+                    dashes: true,
+                    width: 1,
+                    color: { opacity: 0.35 },
+                    confidence: 'INFERRED',
+                },
+                {
+                    from: 'public_iconssvg_discord_icon',
+                    to: 'public_iconssvg_social_icon',
+                    label: 'conceptually_related_to',
+                    title: 'conceptually_related_to [INFERRED]',
+                    dashes: true,
+                    width: 1,
+                    color: { opacity: 0.35 },
+                    confidence: 'INFERRED',
+                },
+                {
+                    from: 'public_iconssvg_documentation_icon',
+                    to: 'public_iconssvg_github_icon',
+                    label: 'semantically_similar_to',
+                    title: 'semantically_similar_to [INFERRED]',
+                    dashes: true,
+                    width: 1,
+                    color: { opacity: 0.35 },
+                    confidence: 'INFERRED',
+                },
+                {
+                    from: 'public_iconssvg_social_icon',
+                    to: 'public_iconssvg_x_icon',
+                    label: 'conceptually_related_to',
+                    title: 'conceptually_related_to [INFERRED]',
+                    dashes: true,
+                    width: 1,
+                    color: { opacity: 0.35 },
+                    confidence: 'INFERRED',
+                },
+            ];
+            const LEGEND = [
+                { cid: 0, color: '#4E79A7', label: 'Community 0', count: 8 },
+                { cid: 1, color: '#F28E2B', label: 'Community 1', count: 7 },
+                { cid: 2, color: '#E15759', label: 'Community 2', count: 6 },
+                { cid: 3, color: '#76B7B2', label: 'Community 3', count: 4 },
+                { cid: 4, color: '#59A14F', label: 'App Favicon - Purple Lightning', count: 1 },
+                { cid: 5, color: '#EDC948', label: 'Vite Logo', count: 1 },
+                { cid: 6, color: '#B07AA1', label: 'CollapsedMenuIconComponent', count: 1 },
+                { cid: 7, color: '#FF9DA7', label: 'CollapsibleMenuItemButtonComponent', count: 1 },
+                { cid: 8, color: '#9C755F', label: 'CollapsedMenuPopoverComponent', count: 1 },
+                { cid: 9, color: '#BAB0AC', label: 'PageLoaderComponent', count: 1 },
+                { cid: 10, color: '#4E79A7', label: 'TreeMenuLinkTreeItemComponent', count: 1 },
+                { cid: 11, color: '#F28E2B', label: 'SidebarContextType', count: 1 },
+                { cid: 12, color: '#E15759', label: 'SidebarProvider', count: 1 },
+                { cid: 13, color: '#76B7B2', label: 'useSidebarContext', count: 1 },
+                {
+                    cid: 14,
+                    color: '#59A14F',
+                    label: 'useCollapsibleMenuIconComponentHook',
+                    count: 1,
+                },
+                {
+                    cid: 15,
+                    color: '#EDC948',
+                    label: 'useCollapsibleMenuItemComponentHook',
+                    count: 1,
+                },
+                { cid: 16, color: '#B07AA1', label: 'usePasswordFieldComponentHook', count: 1 },
+                { cid: 17, color: '#FF9DA7', label: 'useTitleHook', count: 1 },
+                { cid: 18, color: '#9C755F', label: 'PagesType', count: 1 },
+                { cid: 19, color: '#BAB0AC', label: 'UtilsType', count: 1 },
+                { cid: 20, color: '#4E79A7', label: 'MainLayout', count: 1 },
+                { cid: 21, color: '#F28E2B', label: 'useChangePassword', count: 1 },
+                { cid: 22, color: '#E15759', label: 'ALertType', count: 1 },
+                { cid: 23, color: '#76B7B2', label: 'ChangePasswordFormType', count: 1 },
+                { cid: 24, color: '#59A14F', label: 'ChangePasswordResponseMappedType', count: 1 },
+                { cid: 25, color: '#EDC948', label: 'ChangePasswordResponseType', count: 1 },
+                {
+                    cid: 26,
+                    color: '#B07AA1',
+                    label: 'PostChangePasswordMutationOptionsType',
+                    count: 1,
+                },
+                { cid: 27, color: '#FF9DA7', label: 'Error404Page', count: 1 },
+                { cid: 28, color: '#9C755F', label: 'Error500Page', count: 1 },
+                { cid: 29, color: '#BAB0AC', label: 'useForgotPasswordPageHook', count: 1 },
+                { cid: 30, color: '#4E79A7', label: 'ALertType', count: 1 },
+                { cid: 31, color: '#F28E2B', label: 'ForgotPasswordFormType', count: 1 },
+                { cid: 32, color: '#E15759', label: 'ForgotPasswordResponseMappedType', count: 1 },
+                { cid: 33, color: '#76B7B2', label: 'ForgotPasswordResponseType', count: 1 },
+                {
+                    cid: 34,
+                    color: '#59A14F',
+                    label: 'PostForgotPasswordMutationOptionsType',
+                    count: 1,
+                },
+                { cid: 35, color: '#EDC948', label: 'useLoginPageHook', count: 1 },
+                { cid: 36, color: '#B07AA1', label: 'ALertType', count: 1 },
+                { cid: 37, color: '#FF9DA7', label: 'LoginFormType', count: 1 },
+                { cid: 38, color: '#9C755F', label: 'LoginResponseMappedType', count: 1 },
+                { cid: 39, color: '#BAB0AC', label: 'LoginResponseType', count: 1 },
+                { cid: 40, color: '#4E79A7', label: 'PostLoginMutationOptionsType', count: 1 },
+                { cid: 41, color: '#F28E2B', label: 'useRegisterPageHook', count: 1 },
+                { cid: 42, color: '#E15759', label: 'ALertType', count: 1 },
+                { cid: 43, color: '#76B7B2', label: 'RegisterFormType', count: 1 },
+                { cid: 44, color: '#59A14F', label: 'PostRegisterMutationOptionsType', count: 1 },
+                { cid: 45, color: '#EDC948', label: 'RegisterResponseMappedType', count: 1 },
+                { cid: 46, color: '#B07AA1', label: 'RegisterResponseType', count: 1 },
+                { cid: 47, color: '#FF9DA7', label: 'useCountdownResendComponentHook', count: 1 },
+                { cid: 48, color: '#9C755F', label: 'useValidateOtpPageHook', count: 1 },
+                { cid: 49, color: '#BAB0AC', label: 'ALertType', count: 1 },
+                { cid: 50, color: '#4E79A7', label: 'ValidateOtpFormType', count: 1 },
+                { cid: 51, color: '#F28E2B', label: 'PostResendOtpMutationOptionsType', count: 1 },
+                {
+                    cid: 52,
+                    color: '#E15759',
+                    label: 'PostValidateOtpMutationOptionsType',
+                    count: 1,
+                },
+                { cid: 53, color: '#76B7B2', label: 'ResendOtpResponseType', count: 1 },
+                { cid: 54, color: '#59A14F', label: 'ValidateOtpResponseMappedType', count: 1 },
+                { cid: 55, color: '#EDC948', label: 'ValidateOtpResponseType', count: 1 },
+                { cid: 56, color: '#B07AA1', label: 'WelcomePage', count: 1 },
+                { cid: 57, color: '#FF9DA7', label: 'FileRoutesByFullPath', count: 1 },
+                { cid: 58, color: '#9C755F', label: 'FileRoutesById', count: 1 },
+                { cid: 59, color: '#BAB0AC', label: 'FileRoutesByTo', count: 1 },
+                { cid: 60, color: '#4E79A7', label: 'FileRouteTypes', count: 1 },
+                { cid: 61, color: '#F28E2B', label: 'RootRouteChildren', count: 1 },
+                { cid: 62, color: '#E15759', label: 'ApiResponseType', count: 1 },
+                { cid: 63, color: '#76B7B2', label: 'AuthMeResponseType', count: 1 },
+                {
+                    cid: 64,
+                    color: '#59A14F',
+                    label: 'CollapsibleMenuIconComponentPropsType',
+                    count: 1,
+                },
+                {
+                    cid: 65,
+                    color: '#EDC948',
+                    label: 'CollapsibleMenuItemButtonComponentPropsType',
+                    count: 1,
+                },
+                {
+                    cid: 66,
+                    color: '#B07AA1',
+                    label: 'CollapsibleMenuItemComponentPropsType',
+                    count: 1,
+                },
+                {
+                    cid: 67,
+                    color: '#FF9DA7',
+                    label: 'CollapsedMenuPopoverComponentPropsType',
+                    count: 1,
+                },
+                { cid: 68, color: '#9C755F', label: 'RouterContextType', count: 1 },
+                { cid: 69, color: '#BAB0AC', label: 'TreeMenuItem', count: 1 },
+            ];
+
+            // HTML-escape helper — prevents XSS when injecting graph data into innerHTML
+            function esc(s) {
+                return String(s)
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;')
+                    .replace(/'/g, '&#39;');
+            }
+
+            // Build vis datasets
+            const nodesDS = new vis.DataSet(
+                RAW_NODES.map((n) => ({
+                    id: n.id,
+                    label: n.label,
+                    color: n.color,
+                    size: n.size,
+                    font: n.font,
+                    title: n.title,
+                    _community: n.community,
+                    _community_name: n.community_name,
+                    _source_file: n.source_file,
+                    _file_type: n.file_type,
+                    _degree: n.degree,
+                })),
+            );
+
+            const edgesDS = new vis.DataSet(
+                RAW_EDGES.map((e, i) => ({
+                    id: i,
+                    from: e.from,
+                    to: e.to,
+                    label: '',
+                    title: e.title,
+                    dashes: e.dashes,
+                    width: e.width,
+                    color: e.color,
+                    arrows: { to: { enabled: true, scaleFactor: 0.5 } },
+                })),
+            );
+
+            const container = document.getElementById('graph');
+            const network = new vis.Network(
+                container,
+                { nodes: nodesDS, edges: edgesDS },
+                {
+                    physics: {
+                        enabled: true,
+                        solver: 'forceAtlas2Based',
+                        forceAtlas2Based: {
+                            gravitationalConstant: -60,
+                            centralGravity: 0.005,
+                            springLength: 120,
+                            springConstant: 0.08,
+                            damping: 0.4,
+                            avoidOverlap: 0.8,
+                        },
+                        stabilization: { iterations: 200, fit: true },
+                    },
+                    interaction: {
+                        hover: true,
+                        tooltipDelay: 100,
+                        hideEdgesOnDrag: true,
+                        navigationButtons: false,
+                        keyboard: false,
+                    },
+                    nodes: { shape: 'dot', borderWidth: 1.5 },
+                    edges: { smooth: { type: 'continuous', roundness: 0.2 }, selectionWidth: 3 },
+                },
+            );
+
+            network.once('stabilizationIterationsDone', () => {
+                network.setOptions({ physics: { enabled: false } });
+            });
+
+            function showInfo(nodeId) {
+                const n = nodesDS.get(nodeId);
+                if (!n) return;
+                const neighborIds = network.getConnectedNodes(nodeId);
+                const neighborItems = neighborIds
+                    .map((nid) => {
+                        const nb = nodesDS.get(nid);
+                        const color = nb ? nb.color.background : '#555';
+                        return `<span class="neighbor-link" style="border-left-color:${esc(color)}" data-nid="${esc(nid)}">${esc(nb ? nb.label : nid)}</span>`;
+                    })
+                    .join('');
+                document.getElementById('info-content').innerHTML = `
+    <div class="field"><b>${esc(n.label)}</b></div>
+    <div class="field">Type: ${esc(n._file_type || 'unknown')}</div>
+    <div class="field">Community: ${esc(n._community_name)}</div>
+    <div class="field">Source: ${esc(n._source_file || '-')}</div>
+    <div class="field">Degree: ${n._degree}</div>
+    ${neighborIds.length ? `<div class="field" style="margin-top:8px;color:#aaa;font-size:11px">Neighbors (${neighborIds.length})</div><div id="neighbors-list">${neighborItems}</div>` : ''}
+  `;
+            }
+
+            function focusNode(nodeId) {
+                network.focus(nodeId, { scale: 1.4, animation: true });
+                network.selectNodes([nodeId]);
+                showInfo(nodeId);
+            }
+
+            // Neighbor links use a data attribute + one delegated listener rather than an
+            // inline onclick. A node id/label sourced from a document or a scraped URL
+            // (graphify add) can contain a double-quote; dropping the stringified id
+            // unescaped into a quoted onclick both broke every link and allowed a hostile
+            // source to inject an event handler into the local report (stored XSS, #1838).
+            // esc() on data-nid keeps the value inside the attribute; the listener reads it
+            // back verbatim. Bound to document so it survives the innerHTML rebuild that
+            // recreates #neighbors-list on each showInfo().
+            document.addEventListener('click', (e) => {
+                const el = e.target.closest('.neighbor-link');
+                if (el && el.dataset.nid !== undefined) focusNode(el.dataset.nid);
+            });
+
+            // Track hovered node — hover detection is more reliable than click params
+            let hoveredNodeId = null;
+            network.on('hoverNode', (params) => {
+                hoveredNodeId = params.node;
+                container.style.cursor = 'pointer';
+            });
+            network.on('blurNode', () => {
+                hoveredNodeId = null;
+                container.style.cursor = 'default';
+            });
+            container.addEventListener('click', () => {
+                if (hoveredNodeId !== null) {
+                    showInfo(hoveredNodeId);
+                    network.selectNodes([hoveredNodeId]);
+                }
+            });
+            network.on('click', (params) => {
+                if (params.nodes.length > 0) {
+                    showInfo(params.nodes[0]);
+                } else if (hoveredNodeId === null) {
+                    document.getElementById('info-content').innerHTML =
+                        '<span class="empty">Click a node to inspect it</span>';
+                }
+            });
+
+            const searchInput = document.getElementById('search');
+            const searchResults = document.getElementById('search-results');
+            searchInput.addEventListener('input', () => {
+                const q = searchInput.value.toLowerCase().trim();
+                searchResults.innerHTML = '';
+                if (!q) {
+                    searchResults.style.display = 'none';
+                    return;
+                }
+                const matches = RAW_NODES.filter((n) => n.label.toLowerCase().includes(q)).slice(
+                    0,
+                    20,
+                );
+                if (!matches.length) {
+                    searchResults.style.display = 'none';
+                    return;
+                }
+                searchResults.style.display = 'block';
+                matches.forEach((n) => {
+                    const el = document.createElement('div');
+                    el.className = 'search-item';
+                    el.textContent = n.label;
+                    el.style.borderLeft = `3px solid ${n.color.background}`;
+                    el.style.paddingLeft = '8px';
+                    el.onclick = () => {
+                        network.focus(n.id, { scale: 1.5, animation: true });
+                        network.selectNodes([n.id]);
+                        showInfo(n.id);
+                        searchResults.style.display = 'none';
+                        searchInput.value = '';
+                    };
+                    searchResults.appendChild(el);
+                });
+            });
+            document.addEventListener('click', (e) => {
+                if (!searchResults.contains(e.target) && e.target !== searchInput)
+                    searchResults.style.display = 'none';
+            });
+
+            const hiddenCommunities = new Set();
+
+            const selectAllCb = document.getElementById('select-all-cb');
+
+            function updateSelectAllState() {
+                const total = LEGEND.length;
+                const hidden = hiddenCommunities.size;
+                selectAllCb.checked = hidden === 0;
+                selectAllCb.indeterminate = hidden > 0 && hidden < total;
+            }
+
+            function toggleAllCommunities(hide) {
+                document.querySelectorAll('.legend-item').forEach((item) => {
+                    hide ? item.classList.add('dimmed') : item.classList.remove('dimmed');
+                });
+                document.querySelectorAll('.legend-cb').forEach((cb) => {
+                    cb.checked = !hide;
+                });
+                LEGEND.forEach((c) => {
+                    if (hide) hiddenCommunities.add(c.cid);
+                    else hiddenCommunities.delete(c.cid);
+                });
+                const updates = RAW_NODES.map((n) => ({ id: n.id, hidden: hide }));
+                nodesDS.update(updates);
+                updateSelectAllState();
+            }
+
+            const legendEl = document.getElementById('legend');
+            LEGEND.forEach((c) => {
+                const item = document.createElement('div');
+                item.className = 'legend-item';
+                const cb = document.createElement('input');
+                cb.type = 'checkbox';
+                cb.className = 'legend-cb';
+                cb.checked = true;
+                cb.addEventListener('change', (e) => {
+                    e.stopPropagation();
+                    if (cb.checked) {
+                        hiddenCommunities.delete(c.cid);
+                        item.classList.remove('dimmed');
+                    } else {
+                        hiddenCommunities.add(c.cid);
+                        item.classList.add('dimmed');
+                    }
+                    const updates = RAW_NODES.filter((n) => n.community === c.cid).map((n) => ({
+                        id: n.id,
+                        hidden: !cb.checked,
+                    }));
+                    nodesDS.update(updates);
+                    updateSelectAllState();
+                });
+                item.innerHTML = `<div class="legend-dot" style="background:${c.color}"></div>
+    <span class="legend-label">${c.label}</span>
+    <span class="legend-count">${c.count}</span>`;
+                item.prepend(cb);
+                item.onclick = (e) => {
+                    if (e.target === cb) return;
+                    cb.checked = !cb.checked;
+                    cb.dispatchEvent(new Event('change'));
+                };
+                legendEl.appendChild(item);
+            });
+        </script>
+        <script>
+            // Render hyperedges as shaded regions
+            const hyperedges = [
+                {
+                    id: 'vite_plugin_ecosystem',
+                    label: 'Vite Plugin Ecosystem',
+                    nodes: [
+                        'readme_vitejs_plugin_react',
+                        'readme_vitejs_plugin_react_swc',
+                        'readme_oxc',
+                        'readme_swc',
+                    ],
+                    relation: 'form',
+                    confidence: 'EXTRACTED',
+                    confidence_score: 1.0,
+                    source_file: 'README.md',
+                },
+                {
+                    id: 'eslint_configuration_stack',
+                    label: 'ESLint Configuration Stack',
+                    nodes: [
+                        'readme_eslint_configuration',
+                        'readme_tseslint_configs',
+                        'readme_eslint_plugin_react_x',
+                        'readme_eslint_plugin_react_dom',
+                        'readme_tsconfig_node_tsconfig_app',
+                        'readme_type_aware_lint_rules',
+                    ],
+                    relation: 'form',
+                    confidence: 'EXTRACTED',
+                    confidence_score: 1.0,
+                    source_file: 'README.md',
+                },
+                {
+                    id: 'social_platform_icons',
+                    label: 'Social Platform Icon Group',
+                    nodes: [
+                        'public_iconssvg_bluesky_icon',
+                        'public_iconssvg_discord_icon',
+                        'public_iconssvg_x_icon',
+                    ],
+                    relation: 'form',
+                    confidence: 'INFERRED',
+                    confidence_score: 0.85,
+                    source_file: 'public/icons.svg',
+                },
+                {
+                    id: 'developer_platform_icons',
+                    label: 'Developer Platform Icon Group',
+                    nodes: [
+                        'public_iconssvg_github_icon',
+                        'public_iconssvg_discord_icon',
+                        'public_iconssvg_documentation_icon',
+                    ],
+                    relation: 'form',
+                    confidence: 'INFERRED',
+                    confidence_score: 0.75,
+                    source_file: 'public/icons.svg',
+                },
+            ];
+            // afterDrawing passes ctx already transformed to network coordinate space.
+            // Draw node positions raw — no manual pan/zoom/DPR math needed.
+            network.on('afterDrawing', function (ctx) {
+                hyperedges.forEach((h) => {
+                    const positions = h.nodes
+                        .map((nid) => network.getPositions([nid])[nid])
+                        .filter((p) => p !== undefined);
+                    if (positions.length < 2) return;
+                    ctx.save();
+                    ctx.globalAlpha = 0.12;
+                    ctx.fillStyle = '#6366f1';
+                    ctx.strokeStyle = '#6366f1';
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    // Centroid and expanded hull in network coordinates
+                    const cx = positions.reduce((s, p) => s + p.x, 0) / positions.length;
+                    const cy = positions.reduce((s, p) => s + p.y, 0) / positions.length;
+                    const expanded = positions.map((p) => ({
+                        x: cx + (p.x - cx) * 1.15,
+                        y: cy + (p.y - cy) * 1.15,
+                    }));
+                    ctx.moveTo(expanded[0].x, expanded[0].y);
+                    expanded.slice(1).forEach((p) => ctx.lineTo(p.x, p.y));
+                    ctx.closePath();
+                    ctx.fill();
+                    ctx.globalAlpha = 0.4;
+                    ctx.stroke();
+                    // Label
+                    ctx.globalAlpha = 0.8;
+                    ctx.fillStyle = '#4f46e5';
+                    ctx.font = 'bold 11px sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.fillText(h.label, cx, cy - 5);
+                    ctx.restore();
+                });
+            });
+        </script>
+    </body>
+</html>

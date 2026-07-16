@@ -1,0 +1,263 @@
+{
+    "nodes": [
+        {
+            "id": "public_iconssvg",
+            "label": "Icon Sprite Sheet",
+            "file_type": "image",
+            "source_file": "D:\\\\Coding\\\\React\\\\cash-frontend-app\\\\public\\\\icons.svg",
+            "source_location": null,
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null
+        },
+        {
+            "id": "public_iconssvg_bluesky_icon",
+            "label": "Bluesky Icon",
+            "file_type": "image",
+            "source_file": "D:\\\\Coding\\\\React\\\\cash-frontend-app\\\\public\\\\icons.svg",
+            "source_location": "symbol id=\"bluesky-icon\" line 2",
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null
+        },
+        {
+            "id": "public_iconssvg_discord_icon",
+            "label": "Discord Icon",
+            "file_type": "image",
+            "source_file": "D:\\\\Coding\\\\React\\\\cash-frontend-app\\\\public\\\\icons.svg",
+            "source_location": "symbol id=\"discord-icon\" line 6",
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null
+        },
+        {
+            "id": "public_iconssvg_documentation_icon",
+            "label": "Documentation Icon",
+            "file_type": "image",
+            "source_file": "D:\\\\Coding\\React\\\\cash-frontend-app\\\\public\\\\icons.svg",
+            "source_location": "symbol id=\"documentation-icon\" line 9",
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null
+        },
+        {
+            "id": "public_iconssvg_github_icon",
+            "label": "GitHub Icon",
+            "file_type": "image",
+            "source_file": "D:\\\\Coding\\React\\\\cash-frontend-app\\\\public\\\\icons.svg",
+            "source_location": "symbol id=\"github-icon\" line 14",
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null
+        },
+        {
+            "id": "public_iconssvg_social_icon",
+            "label": "Social / Star Icon",
+            "file_type": "image",
+            "source_file": "D:\\\\Coding\\React\\\\cash-frontend-app\\\\public\\\\icons.svg",
+            "source_location": "symbol id=\"social-icon\" line 17",
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null
+        },
+        {
+            "id": "public_iconssvg_x_icon",
+            "label": "X (Twitter) Icon",
+            "file_type": "image",
+            "source_file": "D:\\\\Coding\\React\\\\cash-frontend-app\\\\public\\\\icons.svg",
+            "source_location": "symbol id=\"x-icon\" line 21",
+            "source_url": null,
+            "captured_at": null,
+            "author": null,
+            "contributor": null
+        }
+    ],
+    "edges": [
+        {
+            "source": "public_iconssvg",
+            "target": "public_iconssvg_bluesky_icon",
+            "relation": "references",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "D:\\\\Coding\\React\\\\cash-frontend-app\\\\public\\\\icons.svg",
+            "source_location": null,
+            "weight": 1.0
+        },
+        {
+            "source": "public_iconssvg",
+            "target": "public_iconssvg_discord_icon",
+            "relation": "references",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "D:\\\\Coding\\React\\\\cash-frontend-app\\\\public\\\\icons.svg",
+            "source_location": null,
+            "weight": 1.0
+        },
+        {
+            "source": "public_iconssvg",
+            "target": "public_iconssvg_documentation_icon",
+            "relation": "references",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "D:\\\\Coding\\React\\\\cash-frontend-app\\\\public\\\\icons.svg",
+            "source_location": null,
+            "weight": 1.0
+        },
+        {
+            "source": "public_iconssvg",
+            "target": "public_iconssvg_github_icon",
+            "relation": "references",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "D:\\\\Coding\\React\\\\cash-frontend-app\\\\public\\\\icons.svg",
+            "source_location": null,
+            "weight": 1.0
+        },
+        {
+            "source": "public_iconssvg",
+            "target": "public_iconssvg_social_icon",
+            "relation": "references",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "D:\\\\Coding\\React\\\\cash-frontend-app\\\\public\\\\icons.svg",
+            "source_location": null,
+            "weight": 1.0
+        },
+        {
+            "source": "public_iconssvg",
+            "target": "public_iconssvg_x_icon",
+            "relation": "references",
+            "confidence": "EXTRACTED",
+            "confidence_score": 1.0,
+            "source_file": "D:\\\\Coding\\React\\\\cash-frontend-app\\\\public\\\\icons.svg",
+            "source_location": null,
+            "weight": 1.0
+        },
+        {
+            "source": "public_iconssvg_bluesky_icon",
+            "target": "public_iconssvg_x_icon",
+            "relation": "semantically_similar_to",
+            "confidence": "INFERRED",
+            "confidence_score": 0.85,
+            "source_file": "D:\\\\Coding\\React\\\\cash-frontend-app\\\\public\\\\icons.svg",
+            "source_location": null,
+            "weight": 1.0
+        },
+        {
+            "source": "public_iconssvg_bluesky_icon",
+            "target": "public_iconssvg_discord_icon",
+            "relation": "semantically_similar_to",
+            "confidence": "INFERRED",
+            "confidence_score": 0.75,
+            "source_file": "D:\\\\Coding\\React\\\\cash-frontend-app\\\\public\\\\icons.svg",
+            "source_location": null,
+            "weight": 1.0
+        },
+        {
+            "source": "public_iconssvg_discord_icon",
+            "target": "public_iconssvg_x_icon",
+            "relation": "semantically_similar_to",
+            "confidence": "INFERRED",
+            "confidence_score": 0.75,
+            "source_file": "D:\\\\Coding\\React\\\\cash-frontend-app\\\\public\\\\icons.svg",
+            "source_location": null,
+            "weight": 1.0
+        },
+        {
+            "source": "public_iconssvg_documentation_icon",
+            "target": "public_iconssvg_github_icon",
+            "relation": "semantically_similar_to",
+            "confidence": "INFERRED",
+            "confidence_score": 0.65,
+            "source_file": "D:\\\\Coding\\React\\\\cash-frontend-app\\\\public\\\\icons.svg",
+            "source_location": null,
+            "weight": 1.0
+        },
+        {
+            "source": "public_iconssvg_github_icon",
+            "target": "public_iconssvg_bluesky_icon",
+            "relation": "semantically_similar_to",
+            "confidence": "INFERRED",
+            "confidence_score": 0.65,
+            "source_file": "D:\\\\Coding\\React\\\\cash-frontend-app\\\\public\\\\icons.svg",
+            "source_location": null,
+            "weight": 1.0
+        },
+        {
+            "source": "public_iconssvg_github_icon",
+            "target": "public_iconssvg_discord_icon",
+            "relation": "semantically_similar_to",
+            "confidence": "INFERRED",
+            "confidence_score": 0.65,
+            "source_file": "D:\\\\Coding\\React\\\\cash-frontend-app\\\\public\\\\icons.svg",
+            "source_location": null,
+            "weight": 1.0
+        },
+        {
+            "source": "public_iconssvg_social_icon",
+            "target": "public_iconssvg_bluesky_icon",
+            "relation": "conceptually_related_to",
+            "confidence": "INFERRED",
+            "confidence_score": 0.75,
+            "source_file": "D:\\\\Coding\\React\\\\cash-frontend-app\\\\public\\\\icons.svg",
+            "source_location": null,
+            "weight": 1.0
+        },
+        {
+            "source": "public_iconssvg_social_icon",
+            "target": "public_iconssvg_discord_icon",
+            "relation": "conceptually_related_to",
+            "confidence": "INFERRED",
+            "confidence_score": 0.75,
+            "source_file": "D:\\\\Coding\\React\\\\cash-frontend-app\\\\public\\\\icons.svg",
+            "source_location": null,
+            "weight": 1.0
+        },
+        {
+            "source": "public_iconssvg_social_icon",
+            "target": "public_iconssvg_x_icon",
+            "relation": "conceptually_related_to",
+            "confidence": "INFERRED",
+            "confidence_score": 0.75,
+            "source_file": "D:\\\\Coding\\React\\\\cash-frontend-app\\\\public\\\\icons.svg",
+            "source_location": null,
+            "weight": 1.0
+        }
+    ],
+    "hyperedges": [
+        {
+            "id": "social_platform_icons",
+            "label": "Social Platform Icon Group",
+            "nodes": [
+                "public_iconssvg_bluesky_icon",
+                "public_iconssvg_discord_icon",
+                "public_iconssvg_x_icon"
+            ],
+            "relation": "form",
+            "confidence": "INFERRED",
+            "confidence_score": 0.85,
+            "source_file": "D:\\\\Coding\\React\\\\cash-frontend-app\\\\public\\\\icons.svg"
+        },
+        {
+            "id": "developer_platform_icons",
+            "label": "Developer Platform Icon Group",
+            "nodes": [
+                "public_iconssvg_github_icon",
+                "public_iconssvg_discord_icon",
+                "public_iconssvg_documentation_icon"
+            ],
+            "relation": "form",
+            "confidence": "INFERRED",
+            "confidence_score": 0.75,
+            "source_file": "D:\\\\Coding\\React\\\\cash-frontend-app\\\\public\\\\icons.svg"
+        }
+    ],
+    "input_tokens": 0,
+    "output_tokens": 0
+}
