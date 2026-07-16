@@ -1,17 +1,14 @@
-import { useTranslation } from 'react-i18next';
-
-import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from '@tanstack/react-router';
 
 import { useChangeAlternateMutation } from '../mutations';
-import { alternatesQuery } from '../queries';
+import { useChangeAlternateQuery } from '../queries';
 
 export default function useChangeAlternatePageHook() {
-    const { t } = useTranslation('changeAlternate');
     const navigate = useNavigate();
     const queryClient = useQueryClient();
 
-    const { data: users, isLoading, error } = useQuery(alternatesQuery);
+    const { data: users, isLoading, error } = useChangeAlternateQuery();
 
     const mutation = useChangeAlternateMutation({
         onSuccess: () => {
@@ -26,7 +23,6 @@ export default function useChangeAlternatePageHook() {
     };
 
     return {
-        t,
         users,
         isLoading,
         error,
