@@ -1,1 +1,1 @@
-export * from './register-style';
+export * from './register-page-style';

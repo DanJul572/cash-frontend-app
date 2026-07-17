@@ -1,15 +1,15 @@
 import type { SxProps, Theme } from '@mui/material';
 
-const containerStyle: SxProps<Theme> = {
+const containerStyle = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
     height: '100vh',
     gap: 1,
-};
+} as const satisfies SxProps<Theme>;
 
-const cardStyle: SxProps<Theme> = {
+const cardStyle = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -18,15 +18,15 @@ const cardStyle: SxProps<Theme> = {
     gap: 2,
     width: '400px',
     margin: '0 auto',
-};
+} as const satisfies SxProps<Theme>;
 
-const alertStyle: SxProps<Theme> = {
+const alertStyle = {
     width: '400px',
     marginBottom: 2,
-};
+} as const satisfies SxProps<Theme>;
 
-export const registerStyle: Record<string, SxProps<Theme>> = {
-    alert: alertStyle,
-    card: cardStyle,
-    container: containerStyle,
-};
+export const registerPageStyle = {
+    alertStyle,
+    cardStyle,
+    containerStyle,
+} satisfies Record<string, SxProps<Theme>>;

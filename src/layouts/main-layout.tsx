@@ -12,11 +12,11 @@ function MainLayoutInner() {
     return (
         <Box>
             <TopbarComponent />
-            <Box sx={mainLayoutStyle.container}>
+            <Box sx={mainLayoutStyle.containerStyle}>
                 <TreeMenuComponent />
                 <Box
                     sx={{
-                        ...mainLayoutStyle.content,
+                        ...mainLayoutStyle.contentStyle,
                         left: isCollapsed ? 72 : 350,
                         transition: 'left 0.3s ease-in-out',
                     }}
