@@ -15,7 +15,7 @@ import { useTitleHook } from '@hooks';
 
 import { registerConfig } from '../configs';
 import { useRegisterPageHook } from '../hooks';
-import { registerStyle } from '../styles';
+import { registerPageStyle } from '../styles';
 
 export default function RegisterPage() {
     useTitleHook('Register');
@@ -24,16 +24,16 @@ export default function RegisterPage() {
 
     return (
         <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
-            <Box sx={registerStyle.container}>
+            <Box sx={registerPageStyle.containerStyle}>
                 {alert && (
-                    <Alert severity={alert.type} sx={registerStyle.alert}>
+                    <Alert severity={alert.type} sx={registerPageStyle.alertStyle}>
                         {alert.message}
                     </Alert>
                 )}
                 <Typography variant="h6" color="primary">
                     {t('register')}
                 </Typography>
-                <Card sx={registerStyle.card}>
+                <Card sx={registerPageStyle.cardStyle}>
                     <Controller
                         name="name"
                         control={form.control}

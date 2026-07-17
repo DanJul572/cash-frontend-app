@@ -1,10 +1,10 @@
 import type { SxProps, Theme } from '@mui/material';
 
-const containerStyle: SxProps<Theme> = {
+const containerStyle = {
     display: 'flex',
-};
+} as const satisfies SxProps<Theme>;
 
-const contentStyle: SxProps<Theme> = {
+const contentStyle = {
     bottom: 0,
     left: '350px',
     overflowY: 'auto',
@@ -12,9 +12,9 @@ const contentStyle: SxProps<Theme> = {
     position: 'fixed',
     right: 0,
     top: '64px',
-};
+} as const satisfies SxProps<Theme>;
 
-export const mainLayoutStyle: Record<string, SxProps<Theme>> = {
-    container: containerStyle,
-    content: contentStyle,
-};
+export const mainLayoutStyle = {
+    containerStyle,
+    contentStyle,
+} satisfies Record<string, SxProps<Theme>>;

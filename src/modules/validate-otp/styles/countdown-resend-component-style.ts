@@ -1,6 +1,8 @@
 import type { SxProps, Theme } from '@mui/material';
 
-const containerStyle = { textAlign: 'center' } satisfies SxProps<Theme>;
+const containerStyle = {
+    textAlign: 'center',
+} as const satisfies SxProps<Theme>;
 
 export const countdownResendComponentStyle = {
     containerStyle,

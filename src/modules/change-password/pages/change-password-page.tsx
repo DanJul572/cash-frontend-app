@@ -23,16 +23,16 @@ export default function ChangePasswordPage() {
 
     return (
         <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
-            <Box sx={changePasswordStyle.container}>
+            <Box sx={changePasswordStyle.containerStyle}>
                 {alert && (
-                    <Alert severity={alert.type} sx={changePasswordStyle.alert}>
+                    <Alert severity={alert.type} sx={changePasswordStyle.alertStyle}>
                         {alert.message}
                     </Alert>
                 )}
                 <Typography variant="h6" color="primary">
                     {t('title')}
                 </Typography>
-                <Card sx={changePasswordStyle.card}>
+                <Card sx={changePasswordStyle.cardStyle}>
                     <Controller
                         name="newPassword"
                         control={form.control}

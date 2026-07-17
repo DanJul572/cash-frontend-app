@@ -7,7 +7,7 @@ const containerStyle = {
     justifyContent: 'center',
     height: '100vh',
     gap: 1,
-} satisfies SxProps<Theme>;
+} as const satisfies SxProps<Theme>;
 
 const cardStyle = {
     display: 'flex',
@@ -18,18 +18,18 @@ const cardStyle = {
     gap: 2,
     width: '400px',
     margin: '0 auto',
-} satisfies SxProps<Theme>;
+} as const satisfies SxProps<Theme>;
 
 const alertStyle = {
     width: '400px',
     marginBottom: 2,
-} satisfies SxProps<Theme>;
+} as const satisfies SxProps<Theme>;
 
 const boxesRowStyle = {
     display: 'flex',
     gap: 1,
     justifyContent: 'center',
-} satisfies SxProps<Theme>;
+} as const satisfies SxProps<Theme>;
 
 const otpBoxStyle = {
     width: '48px',
@@ -38,12 +38,12 @@ const otpBoxStyle = {
         fontSize: '1.25rem',
         fontWeight: 600,
     },
-} satisfies SxProps<Theme>;
+} as const satisfies SxProps<Theme>;
 
 export const validateOtpPageStyle = {
     alertStyle,
+    boxesRowStyle,
     cardStyle,
     containerStyle,
-    boxesRowStyle,
     otpBoxStyle,
 } satisfies Record<string, SxProps<Theme>>;

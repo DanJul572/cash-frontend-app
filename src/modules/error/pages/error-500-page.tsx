@@ -10,12 +10,12 @@ export default function Error500Page() {
     useTitleHook('500 Internal Server Error');
 
     return (
-        <Box sx={error500Style.container}>
-            <Typography variant="h1" sx={error500Style.code}>
+        <Box sx={error500Style.containerStyle}>
+            <Typography variant="h1" sx={error500Style.codeStyle}>
                 500
             </Typography>
-            <Divider sx={error500Style.divider} />
-            <Typography variant="h6" sx={error500Style.text}>
+            <Divider sx={error500Style.dividerStyle} />
+            <Typography variant="h6" sx={error500Style.textStyle}>
                 Internal Server Error
             </Typography>
         </Box>

@@ -10,12 +10,12 @@ export default function Error404Page() {
     useTitleHook('404 Not Found');
 
     return (
-        <Box sx={error404Style.container}>
-            <Typography variant="h1" sx={error404Style.code}>
+        <Box sx={error404Style.containerStyle}>
+            <Typography variant="h1" sx={error404Style.codeStyle}>
                 404
             </Typography>
-            <Divider sx={error404Style.divider} />
-            <Typography variant="h6" sx={error404Style.text}>
+            <Divider sx={error404Style.dividerStyle} />
+            <Typography variant="h6" sx={error404Style.textStyle}>
                 Page Not Found
             </Typography>
         </Box>
