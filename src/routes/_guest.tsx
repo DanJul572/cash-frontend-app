@@ -1,5 +1,6 @@
 import { createFileRoute, isRedirect, redirect } from '@tanstack/react-router';
 
+import GuestLayout from '@layouts/guest-layout';
 import { authMeQuery } from '@queries';
 
 export const Route = createFileRoute('/_guest')({
@@ -16,4 +17,5 @@ export const Route = createFileRoute('/_guest')({
             throw redirect({ to: '/500' });
         }
     },
+    component: GuestLayout,
 });
