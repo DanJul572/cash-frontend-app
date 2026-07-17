@@ -1,3 +1,4 @@
 export const ConfigEndpoint = {
-    configs: `/confgis`,
+    guest: `/config/guest`,
+    authenticated: `/config/authenticated`,
 };

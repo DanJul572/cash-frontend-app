@@ -1,6 +1,6 @@
 import z from 'zod';
 
-export const configResponseSchema = z.object({
+export const guestConfigResponseSchema = z.object({
     status: z.boolean(),
     message: z.string(),
     data: z.object({
@@ -9,5 +9,13 @@ export const configResponseSchema = z.object({
                 minLengthPassword: z.number(),
             }),
         }),
+    }),
+});
+
+export const authenticatedConfigResponseSchema = z.object({
+    status: z.boolean(),
+    message: z.string(),
+    data: z.object({
+        dataPerPage: z.number(),
     }),
 });

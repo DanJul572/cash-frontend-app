@@ -8,9 +8,9 @@ import { PageLoaderComponent } from '@components';
 import { TopbarComponent, TreeMenuComponent } from '@components';
 import { ConfigProvider } from '@contexts';
 import { SidebarProvider, useSidebarContext } from '@contexts';
-import { useConfigQuery } from '@queries';
+import { useAuthenticatedConfigQuery } from '@queries';
 import { mainLayoutStyle } from '@styles';
-import type { ConfigResponseType } from '@types';
+import type { AuthenticatedConfigResponseType, GuestConfigResponseType } from '@types';
 
 function MainLayoutInner() {
     const { isCollapsed } = useSidebarContext();
@@ -37,7 +37,7 @@ function MainLayoutInner() {
 export default function MainLayout() {
     const navigate = useNavigate();
 
-    const { data: config, error, isPending } = useConfigQuery();
+    const { data: config, error, isPending } = useAuthenticatedConfigQuery();
 
     useEffect(() => {
         if (!isPending && (error || !config)) {
@@ -50,7 +50,9 @@ export default function MainLayout() {
     if (!config) return null;
 
     return (
-        <ConfigProvider config={config as ConfigResponseType}>
+        <ConfigProvider
+            config={config as GuestConfigResponseType | AuthenticatedConfigResponseType}
+        >
             <SidebarProvider>
                 <MainLayoutInner />
             </SidebarProvider>

@@ -1,5 +1,7 @@
 import { createContext } from 'react';
 
-import type { ConfigResponseType } from '@types';
+import type { AuthenticatedConfigResponseType, GuestConfigResponseType } from '@types';
 
-export const ConfigContext = createContext<ConfigResponseType | undefined>(undefined);
+export const ConfigContext = createContext<
+    GuestConfigResponseType | AuthenticatedConfigResponseType | undefined
+>(undefined);

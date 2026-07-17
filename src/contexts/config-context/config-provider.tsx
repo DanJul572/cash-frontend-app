@@ -1,11 +1,11 @@
 import type { ReactNode } from 'react';
 
-import type { ConfigResponseType } from '@types';
+import type { AuthenticatedConfigResponseType, GuestConfigResponseType } from '@types';
 
 import { ConfigContext } from './config-context';
 
 type ConfigProviderPropsType = {
-    config: ConfigResponseType;
+    config: GuestConfigResponseType | AuthenticatedConfigResponseType;
     children: ReactNode;
 };
 

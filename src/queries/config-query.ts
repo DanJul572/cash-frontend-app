@@ -1,11 +1,19 @@
 import { useQuery } from '@tanstack/react-query';
 
-import { configRequest } from '@requests';
+import { authenticatedConfigRequest, configRequest } from '@requests';
 
-export const useConfigQuery = () => {
+export const useGuestConfigQuery = () => {
     return useQuery({
-        queryKey: ['config'],
+        queryKey: ['config', 'guest'],
         queryFn: configRequest,
+        retry: false,
+    });
+};
+
+export const useAuthenticatedConfigQuery = () => {
+    return useQuery({
+        queryKey: ['config', 'authenticated'],
+        queryFn: authenticatedConfigRequest,
         retry: false,
     });
 };

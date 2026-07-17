@@ -6,11 +6,11 @@ import { Outlet, useNavigate } from '@tanstack/react-router';
 
 import { PageLoaderComponent } from '@components';
 import { ConfigProvider } from '@contexts';
-import { useConfigQuery } from '@queries';
+import { useGuestConfigQuery } from '@queries';
 
 export default function GuestLayout() {
     const navigate = useNavigate();
-    const { data: config, error, isPending } = useConfigQuery();
+    const { data: config, error, isPending } = useGuestConfigQuery();
 
     useEffect(() => {
         if (!isPending && (error || !config)) {
