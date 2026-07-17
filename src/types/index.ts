@@ -4,5 +4,6 @@ export * from './collapsible-menu-icon-component-props-type';
 export * from './collapsible-menu-item-button-component-props-type';
 export * from './collapsible-menu-item-component-props-type';
 export * from './collapsible-menu-popover-component-props-type';
+export * from './config-response-type';
 export * from './router-context-type';
 export * from './tree-menu-item-type';
