@@ -3,10 +3,10 @@ import { useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
+import { useGuestConfig } from '@contexts';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { getErrorMessage } from '@utils';
 
-import { validateOtpConfig } from '../configs';
 import { usePostResendOtpMutation, usePostValidateOtpMutation } from '../mutations';
 import { validateOtpFormSchema } from '../schemas';
 import type { ALertType, ValidateOtpFormType } from '../types';
@@ -14,17 +14,20 @@ import type { ALertType, ValidateOtpFormType } from '../types';
 export default function useValidateOtpPageHook() {
     const { t } = useTranslation('validateOtp');
 
+    const config = useGuestConfig();
+    const validateOtpConfig = config.modules.validateOtp;
+
     const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
     const form = useForm<ValidateOtpFormType>({
-        resolver: zodResolver(validateOtpFormSchema),
+        resolver: zodResolver(validateOtpFormSchema(validateOtpConfig)),
         defaultValues: { otp: Array(validateOtpConfig.otpLength).fill('') },
         mode: 'onSubmit',
     });
 
     const [alert, setAlert] = useState<ALertType | null>(null);
 
-    const mutation = usePostValidateOtpMutation({
+    const mutation = usePostValidateOtpMutation(validateOtpConfig, {
         onSuccess: (_data) => {
             setAlert({
                 type: 'success',
@@ -65,7 +68,7 @@ export default function useValidateOtpPageHook() {
     const handleChange = (index: number, value: string, onChange: (v: string) => void) => {
         const digit = value.replace(/\D/g, '').slice(-1);
         onChange(digit);
-        if (digit && index < validateOtpConfig.otpLength - 1) {
+        if (digit && index < config.modules.validateOtp.otpLength - 1) {
             inputRefs.current[index + 1]?.focus();
         }
     };

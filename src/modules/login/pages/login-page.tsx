@@ -1,4 +1,5 @@
 import { Controller } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 
 import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
@@ -11,16 +12,20 @@ import Typography from '@mui/material/Typography';
 import { Link } from '@tanstack/react-router';
 
 import { PasswordFieldComponent } from '@components';
+import { useGuestConfig } from '@contexts';
 import { useTitleHook } from '@hooks';
 
-import { loginConfig } from '../configs';
 import { useLoginPageHook } from '../hooks';
 import { loginStyle } from '../styles';
 
 export default function LoginPage() {
     useTitleHook('Login');
 
-    const { t, form, alert, mutation, onSubmit } = useLoginPageHook();
+    const { t } = useTranslation('login');
+
+    const config = useGuestConfig();
+
+    const { form, alert, mutation, onSubmit } = useLoginPageHook();
 
     return (
         <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
@@ -58,7 +63,10 @@ export default function LoginPage() {
                                 variant="outlined"
                                 fullWidth
                                 error={!!fieldState.error}
-                                helperText={t(fieldState.error?.message || '', loginConfig)}
+                                helperText={t(
+                                    fieldState.error?.message || '',
+                                    config.modules.login,
+                                )}
                             />
                         )}
                     />

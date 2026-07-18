@@ -8,6 +8,17 @@ export const guestConfigResponseSchema = z.object({
             login: z.object({
                 minLengthPassword: z.number(),
             }),
+            register: z.object({
+                minLengthPassword: z.number(),
+                minLengthName: z.number(),
+            }),
+            validateOtp: z.object({
+                otpLength: z.number(),
+                resendCooldown: z.number(),
+            }),
+            changePassword: z.object({
+                minLengthPassword: z.number(),
+            }),
         }),
     }),
 });

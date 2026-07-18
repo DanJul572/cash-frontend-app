@@ -10,15 +10,17 @@ import Typography from '@mui/material/Typography';
 
 import { Link } from '@tanstack/react-router';
 
+import { useGuestConfig } from '@contexts';
 import { useTitleHook } from '@hooks';
 
 import { CountdownResendComponent } from '../components';
-import { validateOtpConfig } from '../configs';
 import { useValidateOtpPageHook } from '../hooks';
 import { validateOtpPageStyle } from '../styles';
 
 export default function ValidateOtpPage() {
     useTitleHook('Validate OTP');
+
+    const config = useGuestConfig();
 
     const {
         t,
@@ -50,7 +52,7 @@ export default function ValidateOtpPage() {
                 <Card sx={validateOtpPageStyle.cardStyle}>
                     <Box sx={validateOtpPageStyle.boxesRowStyle}>
                         {Array.from({
-                            length: validateOtpConfig.otpLength,
+                            length: config.modules.validateOtp.otpLength,
                         }).map((_, index) => (
                             <Controller
                                 key={index}
