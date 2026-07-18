@@ -1,5 +1,10 @@
+import type { GuestConfigResponseType } from '@types';
+
 import { validateOtpFormSchema } from '../schemas';
 
-export const validateOtpRequestMapper = validateOtpFormSchema.transform((data) => ({
-    otp: data.otp.join(''),
-}));
+type ValidateOtpModuleConfigType = GuestConfigResponseType['modules']['validateOtp'];
+
+export const validateOtpRequestMapper = (config: ValidateOtpModuleConfigType) =>
+    validateOtpFormSchema(config).transform((data) => ({
+        otp: data.otp.join(''),
+    }));

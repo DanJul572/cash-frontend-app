@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
 import { useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 
+import { useGuestConfig } from '@contexts';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { getErrorMessage } from '@utils';
 
@@ -18,17 +18,18 @@ const formatPayloads = (values: LoginFormType) => {
 };
 
 export default function useLoginPageHook() {
-    const { t } = useTranslation('login');
+    const config = useGuestConfig();
+    const loginConfig = config.modules.login;
 
     const form = useForm<LoginFormType>({
-        resolver: zodResolver(loginFormSchema),
+        resolver: zodResolver(loginFormSchema(config.modules.login)),
         defaultValues: { email: '', password: '' },
         mode: 'onSubmit',
     });
 
     const [alert, setAlert] = useState<ALertType | null>(null);
 
-    const mutation = usePostLoginMutation({
+    const mutation = usePostLoginMutation(loginConfig, {
         onSuccess: (_data) => {},
         onError: (error) => {
             setAlert({
@@ -43,7 +44,6 @@ export default function useLoginPageHook() {
     };
 
     return {
-        t,
         form,
         alert,
         mutation,

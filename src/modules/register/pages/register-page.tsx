@@ -1,4 +1,5 @@
 import { Controller } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 
 import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
@@ -11,16 +12,20 @@ import Typography from '@mui/material/Typography';
 import { Link } from '@tanstack/react-router';
 
 import { PasswordFieldComponent } from '@components';
+import { useGuestConfig } from '@contexts';
 import { useTitleHook } from '@hooks';
 
-import { registerConfig } from '../configs';
 import { useRegisterPageHook } from '../hooks';
 import { registerPageStyle } from '../styles';
 
 export default function RegisterPage() {
     useTitleHook('Register');
 
-    const { t, form, alert, mutation, onSubmit } = useRegisterPageHook();
+    const { t } = useTranslation('register');
+
+    const config = useGuestConfig();
+
+    const { form, alert, mutation, onSubmit } = useRegisterPageHook();
 
     return (
         <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
@@ -72,7 +77,10 @@ export default function RegisterPage() {
                                 variant="outlined"
                                 fullWidth
                                 error={!!fieldState.error}
-                                helperText={t(fieldState.error?.message || '', registerConfig)}
+                                helperText={t(
+                                    fieldState.error?.message || '',
+                                    config.modules.register,
+                                )}
                             />
                         )}
                     />
@@ -86,7 +94,10 @@ export default function RegisterPage() {
                                 variant="outlined"
                                 fullWidth
                                 error={!!fieldState.error}
-                                helperText={t(fieldState.error?.message || '', registerConfig)}
+                                helperText={t(
+                                    fieldState.error?.message || '',
+                                    config.modules.register,
+                                )}
                             />
                         )}
                     />

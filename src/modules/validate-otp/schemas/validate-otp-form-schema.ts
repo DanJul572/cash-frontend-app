@@ -1,14 +1,17 @@
 import { z } from 'zod';
 
-import { validateOtpConfig } from '../configs';
+import type { GuestConfigResponseType } from '@types';
 
-export const validateOtpFormSchema = z.object({
-    otp: z
-        .array(
-            z
-                .string()
-                .length(1, 'otp.validation.required')
-                .regex(/^\d$/, 'otp.validation.invalidDigit'),
-        )
-        .length(validateOtpConfig.otpLength, 'otp.validation.invalidLength'),
-});
+type ValidateOtpModuleConfig = GuestConfigResponseType['modules']['validateOtp'];
+
+export const validateOtpFormSchema = (config: ValidateOtpModuleConfig) =>
+    z.object({
+        otp: z
+            .array(
+                z
+                    .string()
+                    .length(1, 'otp.validation.required')
+                    .regex(/^\d$/, 'otp.validation.invalidDigit'),
+            )
+            .length(config.otpLength, 'otp.validation.invalidLength'),
+    });

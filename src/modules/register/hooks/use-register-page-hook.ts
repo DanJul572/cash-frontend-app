@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
 import { useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 
+import { useGuestConfig } from '@contexts';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { getErrorMessage } from '@utils';
 
@@ -11,10 +11,11 @@ import { registerFormSchema } from '../schemas';
 import type { ALertType, RegisterFormType } from '../types';
 
 export default function useRegisterPageHook() {
-    const { t } = useTranslation('register');
+    const config = useGuestConfig();
+    const registerConfig = config.modules.register;
 
     const form = useForm<RegisterFormType>({
-        resolver: zodResolver(registerFormSchema),
+        resolver: zodResolver(registerFormSchema(config.modules.register)),
         defaultValues: {
             name: '',
             email: '',
@@ -26,7 +27,7 @@ export default function useRegisterPageHook() {
 
     const [alert, setAlert] = useState<ALertType | null>(null);
 
-    const mutation = usePostRegisterMutation({
+    const mutation = usePostRegisterMutation(registerConfig, {
         onSuccess: (_res) => {},
         onError: (error) => {
             setAlert({
@@ -41,7 +42,6 @@ export default function useRegisterPageHook() {
     };
 
     return {
-        t,
         form,
         alert,
         mutation,

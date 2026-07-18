@@ -6,7 +6,7 @@ import {
 } from '@mappers/config-response-mapper';
 import type { AuthenticatedConfigResponseType, GuestConfigResponseType } from '@types';
 
-export const configRequest = async () => {
+export const guestConfigRequest = async () => {
     const response = await axiosInstance.get<GuestConfigResponseType>(ConfigEndpoint.guest);
     const result = guestConfigResponseMapper.parse(response.data);
     return result;

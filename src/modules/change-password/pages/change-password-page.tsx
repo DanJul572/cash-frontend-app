@@ -8,9 +8,9 @@ import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 
 import { PasswordFieldComponent } from '@components';
+import { useGuestConfig } from '@contexts';
 import { useTitleHook } from '@hooks';
 
-import { changePasswordConfig } from '../configs';
 import { useChangePassword } from '../hooks';
 import { changePasswordStyle } from '../styles';
 
@@ -19,6 +19,7 @@ export default function ChangePasswordPage() {
 
     const { t } = useTranslation('changePassword');
 
+    const config = useGuestConfig();
     const { form, alert, mutation, onSubmit } = useChangePassword();
 
     return (
@@ -45,7 +46,7 @@ export default function ChangePasswordPage() {
                                 error={!!fieldState.error}
                                 helperText={t(
                                     fieldState.error?.message || '',
-                                    changePasswordConfig,
+                                    config.modules.changePassword,
                                 )}
                             />
                         )}
@@ -62,7 +63,7 @@ export default function ChangePasswordPage() {
                                 error={!!fieldState.error}
                                 helperText={t(
                                     fieldState.error?.message || '',
-                                    changePasswordConfig,
+                                    config.modules.changePassword,
                                 )}
                             />
                         )}
