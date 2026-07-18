@@ -12,6 +12,7 @@ const contentStyle = {
     position: 'fixed',
     right: 0,
     top: '64px',
+    transition: 'left 0.3s ease-in-out',
 } as const satisfies SxProps<Theme>;
 
 export const mainLayoutStyle = {

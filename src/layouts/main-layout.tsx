@@ -1,9 +1,14 @@
+import { useEffect } from 'react';
+
 import Box from '@mui/material/Box';
 
-import { Outlet } from '@tanstack/react-router';
+import { Outlet, useNavigate } from '@tanstack/react-router';
 
+import { PageLoaderComponent } from '@components';
 import { TopbarComponent, TreeMenuComponent } from '@components';
+import { AuthenticatedConfigProvider } from '@contexts';
 import { SidebarProvider, useSidebarContext } from '@contexts';
+import { useAuthenticatedConfigQuery } from '@queries';
 import { mainLayoutStyle } from '@styles';
 
 function MainLayoutInner() {
@@ -18,7 +23,6 @@ function MainLayoutInner() {
                     sx={{
                         ...mainLayoutStyle.contentStyle,
                         left: isCollapsed ? 72 : 350,
-                        transition: 'left 0.3s ease-in-out',
                     }}
                 >
                     <Outlet />
@@ -29,9 +33,25 @@ function MainLayoutInner() {
 }
 
 export default function MainLayout() {
+    const navigate = useNavigate();
+
+    const { data: config, error, isPending } = useAuthenticatedConfigQuery();
+
+    useEffect(() => {
+        if (!isPending && (error || !config)) {
+            navigate({ to: '/500' });
+        }
+    }, [error, config, isPending, navigate]);
+
+    if (isPending) return <PageLoaderComponent />;
+
+    if (!config) return null;
+
     return (
-        <SidebarProvider>
-            <MainLayoutInner />
-        </SidebarProvider>
+        <AuthenticatedConfigProvider config={config}>
+            <SidebarProvider>
+                <MainLayoutInner />
+            </SidebarProvider>
+        </AuthenticatedConfigProvider>
     );
 }

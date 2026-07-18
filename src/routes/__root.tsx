@@ -1,19 +1,10 @@
-import Box from '@mui/material/Box';
+import { createRootRouteWithContext } from '@tanstack/react-router';
 
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { createRootRouteWithContext, Outlet } from '@tanstack/react-router';
-import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
-
+import { RootLayout } from '@layouts';
 import { Error400Page } from '@modules/error/pages';
 import type { RouterContextType } from '@types';
 
 export const Route = createRootRouteWithContext<RouterContextType>()({
-    component: () => (
-        <Box>
-            <Outlet />
-            <TanStackRouterDevtools />
-            <ReactQueryDevtools />
-        </Box>
-    ),
+    component: RootLayout,
     notFoundComponent: Error400Page,
 });
