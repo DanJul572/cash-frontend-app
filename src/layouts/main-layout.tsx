@@ -6,11 +6,10 @@ import { Outlet, useNavigate } from '@tanstack/react-router';
 
 import { PageLoaderComponent } from '@components';
 import { TopbarComponent, TreeMenuComponent } from '@components';
-import { ConfigProvider } from '@contexts';
+import { AuthenticatedConfigProvider } from '@contexts';
 import { SidebarProvider, useSidebarContext } from '@contexts';
 import { useAuthenticatedConfigQuery } from '@queries';
 import { mainLayoutStyle } from '@styles';
-import type { AuthenticatedConfigResponseType, GuestConfigResponseType } from '@types';
 
 function MainLayoutInner() {
     const { isCollapsed } = useSidebarContext();
@@ -24,7 +23,6 @@ function MainLayoutInner() {
                     sx={{
                         ...mainLayoutStyle.contentStyle,
                         left: isCollapsed ? 72 : 350,
-                        transition: 'left 0.3s ease-in-out',
                     }}
                 >
                     <Outlet />
@@ -50,12 +48,10 @@ export default function MainLayout() {
     if (!config) return null;
 
     return (
-        <ConfigProvider
-            config={config as GuestConfigResponseType | AuthenticatedConfigResponseType}
-        >
+        <AuthenticatedConfigProvider config={config}>
             <SidebarProvider>
                 <MainLayoutInner />
             </SidebarProvider>
-        </ConfigProvider>
+        </AuthenticatedConfigProvider>
     );
 }

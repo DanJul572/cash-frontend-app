@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import { Outlet, useNavigate } from '@tanstack/react-router';
 
 import { PageLoaderComponent } from '@components';
-import { ConfigProvider } from '@contexts';
+import { GuestConfigProvider } from '@contexts';
 import { useGuestConfigQuery } from '@queries';
 
 export default function GuestLayout() {
@@ -23,10 +23,10 @@ export default function GuestLayout() {
     if (!config) return null;
 
     return (
-        <ConfigProvider config={config}>
+        <GuestConfigProvider config={config}>
             <Box>
                 <Outlet />
             </Box>
-        </ConfigProvider>
+        </GuestConfigProvider>
     );
 }
