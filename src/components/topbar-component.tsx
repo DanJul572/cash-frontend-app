@@ -32,7 +32,6 @@ export default function TopbarComponent() {
             <IconButton onClick={toggleSidebar} sx={topbarComponentStyle.hamburgerButtonStyle}>
                 <MenuIcon sx={topbarComponentStyle.hamburgerIconButtonStyle} />
             </IconButton>
-
             <Box sx={topbarComponentStyle.titleSectionStyle}>
                 <Box>
                     <Typography sx={topbarComponentStyle.titleTextStyle}>
@@ -43,12 +42,10 @@ export default function TopbarComponent() {
                     </Typography>
                 </Box>
             </Box>
-
             <Box sx={topbarComponentStyle.rightSectionStyle}>
                 <IconButton onClick={handleOpen} sx={topbarComponentStyle.iconButtonStyle}>
                     <Avatar sx={topbarComponentStyle.avatarStyle}>{getInitials(user.name)}</Avatar>
                 </IconButton>
-
                 <Popover
                     open={open}
                     anchorEl={anchorEl}
@@ -69,9 +66,7 @@ export default function TopbarComponent() {
                                 {user.email}
                             </Typography>
                         </Box>
-
                         <Divider />
-
                         <MenuList>
                             <MenuItem
                                 onClick={handleLogout}
