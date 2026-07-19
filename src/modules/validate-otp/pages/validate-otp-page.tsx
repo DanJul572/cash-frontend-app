@@ -1,4 +1,5 @@
 import { Controller } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 
 import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
@@ -20,10 +21,11 @@ import { validateOtpPageStyle } from '../styles';
 export default function ValidateOtpPage() {
     useTitleHook('Validate OTP');
 
+    const { t } = useTranslation('validateOtp');
+
     const config = useGuestConfig();
 
     const {
-        t,
         inputRefs,
         form,
         alert,

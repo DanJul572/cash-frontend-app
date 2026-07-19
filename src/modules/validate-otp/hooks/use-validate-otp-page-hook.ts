@@ -1,7 +1,8 @@
 import { useRef, useState } from 'react';
 
 import { useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
+
+import { useNavigate } from '@tanstack/react-router';
 
 import { useGuestConfig } from '@contexts';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -12,7 +13,7 @@ import { validateOtpFormSchema } from '../schemas';
 import type { ALertType, ValidateOtpFormType } from '../types';
 
 export default function useValidateOtpPageHook() {
-    const { t } = useTranslation('validateOtp');
+    const navigate = useNavigate();
 
     const config = useGuestConfig();
     const validateOtpConfig = config.modules.validateOtp;
@@ -28,11 +29,8 @@ export default function useValidateOtpPageHook() {
     const [alert, setAlert] = useState<ALertType | null>(null);
 
     const mutation = usePostValidateOtpMutation(validateOtpConfig, {
-        onSuccess: (_data) => {
-            setAlert({
-                type: 'success',
-                message: t('success.otpValidated'),
-            });
+        onSuccess: () => {
+            navigate({ to: '/login' });
         },
         onError: (error) => {
             setAlert({
@@ -43,10 +41,10 @@ export default function useValidateOtpPageHook() {
     });
 
     const resendMutation = usePostResendOtpMutation({
-        onSuccess: (_data) => {
+        onSuccess: (res) => {
             setAlert({
                 type: 'success',
-                message: t('success.otpResent'),
+                message: res.message,
             });
         },
         onError: (error) => {
@@ -80,7 +78,6 @@ export default function useValidateOtpPageHook() {
     };
 
     return {
-        t,
         inputRefs,
         form,
         alert,
