@@ -9,24 +9,21 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as GuestRouteImport } from './routes/_guest'
-import { Route as AuthenticatedRouteImport } from './routes/_authenticated'
-import { Route as R500RouteImport } from './routes/500'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as GuestValidateOtpRouteImport } from './routes/_guest/validate-otp'
-import { Route as GuestRegisterRouteImport } from './routes/_guest/register'
-import { Route as GuestLoginRouteImport } from './routes/_guest/login'
-import { Route as GuestForgotPasswordRouteImport } from './routes/_guest/forgot-password'
-import { Route as GuestChangePasswordRouteImport } from './routes/_guest/change-password'
-import { Route as GuestChangeAlternateRouteImport } from './routes/_guest/change-alternate'
+import { Route as R500RouteImport } from './routes/500'
+import { Route as AuthenticatedRouteImport } from './routes/_authenticated'
+import { Route as GuestRouteImport } from './routes/_guest'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as GuestChangeAlternateRouteImport } from './routes/_guest/change-alternate'
+import { Route as GuestChangePasswordRouteImport } from './routes/_guest/change-password'
+import { Route as GuestForgotPasswordRouteImport } from './routes/_guest/forgot-password'
+import { Route as GuestLoginRouteImport } from './routes/_guest/login'
+import { Route as GuestRegisterRouteImport } from './routes/_guest/register'
+import { Route as GuestValidateOtpRouteImport } from './routes/_guest/validate-otp'
 
-const GuestRoute = GuestRouteImport.update({
-  id: '/_guest',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AuthenticatedRoute = AuthenticatedRouteImport.update({
-  id: '/_authenticated',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const R500Route = R500RouteImport.update({
@@ -34,29 +31,22 @@ const R500Route = R500RouteImport.update({
   path: '/500',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const AuthenticatedRoute = AuthenticatedRouteImport.update({
+  id: '/_authenticated',
   getParentRoute: () => rootRouteImport,
 } as any)
-const GuestValidateOtpRoute = GuestValidateOtpRouteImport.update({
-  id: '/validate-otp',
-  path: '/validate-otp',
-  getParentRoute: () => GuestRoute,
+const GuestRoute = GuestRouteImport.update({
+  id: '/_guest',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const GuestRegisterRoute = GuestRegisterRouteImport.update({
-  id: '/register',
-  path: '/register',
-  getParentRoute: () => GuestRoute,
+const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AuthenticatedRoute,
 } as any)
-const GuestLoginRoute = GuestLoginRouteImport.update({
-  id: '/login',
-  path: '/login',
-  getParentRoute: () => GuestRoute,
-} as any)
-const GuestForgotPasswordRoute = GuestForgotPasswordRouteImport.update({
-  id: '/forgot-password',
-  path: '/forgot-password',
+const GuestChangeAlternateRoute = GuestChangeAlternateRouteImport.update({
+  id: '/change-alternate',
+  path: '/change-alternate',
   getParentRoute: () => GuestRoute,
 } as any)
 const GuestChangePasswordRoute = GuestChangePasswordRouteImport.update({
@@ -64,15 +54,25 @@ const GuestChangePasswordRoute = GuestChangePasswordRouteImport.update({
   path: '/change-password',
   getParentRoute: () => GuestRoute,
 } as any)
-const GuestChangeAlternateRoute = GuestChangeAlternateRouteImport.update({
-  id: '/change-alternate',
-  path: '/change-alternate',
+const GuestForgotPasswordRoute = GuestForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
   getParentRoute: () => GuestRoute,
 } as any)
-const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
-  getParentRoute: () => AuthenticatedRoute,
+const GuestLoginRoute = GuestLoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => GuestRoute,
+} as any)
+const GuestRegisterRoute = GuestRegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => GuestRoute,
+} as any)
+const GuestValidateOtpRoute = GuestValidateOtpRouteImport.update({
+  id: '/validate-otp',
+  path: '/validate-otp',
+  getParentRoute: () => GuestRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -158,18 +158,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/_guest': {
-      id: '/_guest'
-      path: ''
+    '/': {
+      id: '/'
+      path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof GuestRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated': {
-      id: '/_authenticated'
-      path: ''
-      fullPath: '/'
-      preLoaderRoute: typeof AuthenticatedRouteImport
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/500': {
@@ -179,39 +172,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof R500RouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+      preLoaderRoute: typeof AuthenticatedRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_guest/validate-otp': {
-      id: '/_guest/validate-otp'
-      path: '/validate-otp'
-      fullPath: '/validate-otp'
-      preLoaderRoute: typeof GuestValidateOtpRouteImport
-      parentRoute: typeof GuestRoute
+    '/_guest': {
+      id: '/_guest'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof GuestRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/_guest/register': {
-      id: '/_guest/register'
-      path: '/register'
-      fullPath: '/register'
-      preLoaderRoute: typeof GuestRegisterRouteImport
-      parentRoute: typeof GuestRoute
+    '/_authenticated/dashboard': {
+      id: '/_authenticated/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
+      parentRoute: typeof AuthenticatedRoute
     }
-    '/_guest/login': {
-      id: '/_guest/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof GuestLoginRouteImport
-      parentRoute: typeof GuestRoute
-    }
-    '/_guest/forgot-password': {
-      id: '/_guest/forgot-password'
-      path: '/forgot-password'
-      fullPath: '/forgot-password'
-      preLoaderRoute: typeof GuestForgotPasswordRouteImport
+    '/_guest/change-alternate': {
+      id: '/_guest/change-alternate'
+      path: '/change-alternate'
+      fullPath: '/change-alternate'
+      preLoaderRoute: typeof GuestChangeAlternateRouteImport
       parentRoute: typeof GuestRoute
     }
     '/_guest/change-password': {
@@ -221,19 +207,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuestChangePasswordRouteImport
       parentRoute: typeof GuestRoute
     }
-    '/_guest/change-alternate': {
-      id: '/_guest/change-alternate'
-      path: '/change-alternate'
-      fullPath: '/change-alternate'
-      preLoaderRoute: typeof GuestChangeAlternateRouteImport
+    '/_guest/forgot-password': {
+      id: '/_guest/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof GuestForgotPasswordRouteImport
       parentRoute: typeof GuestRoute
     }
-    '/_authenticated/dashboard': {
-      id: '/_authenticated/dashboard'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
-      parentRoute: typeof AuthenticatedRoute
+    '/_guest/login': {
+      id: '/_guest/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof GuestLoginRouteImport
+      parentRoute: typeof GuestRoute
+    }
+    '/_guest/register': {
+      id: '/_guest/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof GuestRegisterRouteImport
+      parentRoute: typeof GuestRoute
+    }
+    '/_guest/validate-otp': {
+      id: '/_guest/validate-otp'
+      path: '/validate-otp'
+      fullPath: '/validate-otp'
+      preLoaderRoute: typeof GuestValidateOtpRouteImport
+      parentRoute: typeof GuestRoute
     }
   }
 }
