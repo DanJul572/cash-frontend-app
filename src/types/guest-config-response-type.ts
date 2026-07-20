@@ -24,7 +24,3 @@ export type GuestConfigResponseType = {
         changePassword: ChangePasswordModuleConfigType;
     };
 };
-
-export type AuthenticatedConfigResponseType = {
-    dataPerPage: number;
-};
