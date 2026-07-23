@@ -1,3 +1,4 @@
+name: cash-app
 services:
     app:
         build:
@@ -6,6 +7,8 @@ services:
             args:
                 VITE_APP_NAME: ${VITE_APP_NAME:-}
                 VITE_API_BASE_URL: ${VITE_API_BASE_URL:-}
+        image: zcodein/cash-frontend-app:1.0
+        container_name: cash-frontend-app
         ports:
             - '3000:80'
         restart: unless-stopped
