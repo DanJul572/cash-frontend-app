@@ -2,7 +2,7 @@ import { axiosInstance } from '@instances';
 
 import { ChangeAlternateEndpoint } from '../endpoints';
 import { changeAlternateResponseMapper } from '../mappers';
-import type { ChangeAlternateResponseType } from '../types';
+import type { ChangeAlternatePostResponseType, ChangeAlternateResponseType } from '../types';
 
 export const getAlternatesRequest = async () => {
     const response = await axiosInstance.get<ChangeAlternateResponseType>(
@@ -12,8 +12,11 @@ export const getAlternatesRequest = async () => {
 };
 
 export const postChangeAlternateRequest = async (userId: string) => {
-    const response = await axiosInstance.post(ChangeAlternateEndpoint.postChangeAlternate, {
-        userId,
-    });
+    const response = await axiosInstance.post<ChangeAlternatePostResponseType>(
+        ChangeAlternateEndpoint.postChangeAlternate,
+        {
+            userId,
+        },
+    );
     return response.data;
 };
