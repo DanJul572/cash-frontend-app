@@ -30,7 +30,7 @@ const mockAlternatesData = {
 
 export const authGetAllAlternates200Mock = [
     http.get(`${getApiUrl(ChangeAlternateEndpoint.getAlternates)}`, async () => {
-        await delay(300);
+        await delay(500);
         return HttpResponse.json(mockAlternatesData);
     }),
 ];

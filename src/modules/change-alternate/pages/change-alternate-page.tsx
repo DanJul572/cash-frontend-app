@@ -1,9 +1,8 @@
 import Box from '@mui/material/Box';
 
-import { PageLoaderComponent } from '@components';
 import { useTitleHook } from '@hooks';
 
-import { UserCardComponent } from '../components';
+import { UserCardComponent, UserCardSkeletonComponent } from '../components';
 import { useChangeAlternatePageHook } from '../hooks';
 import { changeAlternateStyle } from '../styles';
 
@@ -12,21 +11,21 @@ export default function ChangeAlternatePage() {
 
     const { users, isLoading, mutation, handleUserClick } = useChangeAlternatePageHook();
 
-    if (isLoading) {
-        return <PageLoaderComponent />;
-    }
-
     return (
         <Box sx={changeAlternateStyle.containerStyle}>
             <Box sx={changeAlternateStyle.gridStyle}>
-                {users?.map((user) => (
-                    <UserCardComponent
-                        key={user.id}
-                        user={user}
-                        onClick={handleUserClick}
-                        isLoading={mutation.isPending}
-                    />
-                ))}
+                {isLoading ? (
+                    <UserCardSkeletonComponent />
+                ) : (
+                    users?.map((user) => (
+                        <UserCardComponent
+                            key={user.id}
+                            user={user}
+                            onClick={handleUserClick}
+                            isLoading={mutation.isPending}
+                        />
+                    ))
+                )}
             </Box>
         </Box>
     );
