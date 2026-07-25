@@ -18,23 +18,7 @@ const gridStyle = {
     maxWidth: 800,
 } as const satisfies SxProps<Theme>;
 
-const loadingStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100vh',
-} as const satisfies SxProps<Theme>;
-
-const errorStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    minHeight: '50vh',
-} as const satisfies SxProps<Theme>;
-
 export const changeAlternateStyle = {
     containerStyle,
     gridStyle,
-    loadingStyle,
-    errorStyle,
 } satisfies Record<string, SxProps<Theme>>;
