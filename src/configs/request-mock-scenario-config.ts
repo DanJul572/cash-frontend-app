@@ -1,6 +1,16 @@
-export const requestMockScenarioConfig = [
-    'auth-me:401',
-    'auth-get-all-alternates:200',
-    'guest-config:200',
-    'auth-validate-token-alternate:200',
-];
+import type { HttpHandler } from 'msw';
+
+import {
+    authGetAllAlternates200Mock,
+    authValidateAlternateToken200Mock,
+} from '@modules/change-alternate/mocks';
+
+import { authMeRequest401Mock } from '../mocks/auth-request-mock';
+import { guestConfigRequest200Mock } from '../mocks/guest-config-mock';
+
+export const requestMockScenarioConfig: Record<string, HttpHandler[]> = {
+    'auth-me': authMeRequest401Mock,
+    'auth-get-all-alternates': authGetAllAlternates200Mock,
+    'auth-validate-token-alternate': authValidateAlternateToken200Mock,
+    'guest-config': guestConfigRequest200Mock,
+};
