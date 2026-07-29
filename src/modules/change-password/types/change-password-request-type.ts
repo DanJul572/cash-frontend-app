@@ -8,7 +8,7 @@ import type { ChangePasswordFormType } from './change-password-form-type';
 
 export type ChangePasswordResponseType = z.input<typeof changePasswordResponseSchema>;
 export type ChangePasswordResponseMappedType = z.output<typeof changePasswordResponseMapper>;
-export type PostChangePasswordMutationOptionsType = MutateOptions<
+export type ChangePasswordMutationOptionsType = MutateOptions<
     ChangePasswordResponseMappedType,
     Error,
     ChangePasswordFormType

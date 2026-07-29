@@ -1,3 +1,4 @@
 export const ChangePasswordEndpoint = {
-    postChangePassword: `/change-password`,
+    changePassword: `/change-password`,
+    validatePasswordToken: `/change-password/validate-token`,
 };

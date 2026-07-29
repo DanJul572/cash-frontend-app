@@ -11,6 +11,7 @@ import { PasswordFieldComponent } from '@components';
 import { useGuestConfig } from '@contexts';
 import { useTitleHook } from '@hooks';
 
+import { ChangePasswordPageSkeletonComponent } from '../components';
 import { useChangePassword } from '../hooks';
 import { changePasswordStyle } from '../styles';
 
@@ -20,14 +21,21 @@ export default function ChangePasswordPage() {
     const { t } = useTranslation('changePassword');
 
     const config = useGuestConfig();
-    const { form, alert, mutation, onSubmit } = useChangePassword();
+    const { form, alert, mutation, onSubmit, validationAlert, isValidating } = useChangePassword();
+
+    if (isValidating) {
+        return <ChangePasswordPageSkeletonComponent />;
+    }
 
     return (
         <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
             <Box sx={changePasswordStyle.containerStyle}>
-                {alert && (
-                    <Alert severity={alert.type} sx={changePasswordStyle.alertStyle}>
-                        {alert.message}
+                {(alert || validationAlert) && (
+                    <Alert
+                        severity={(alert ?? validationAlert)!.type}
+                        sx={changePasswordStyle.alertStyle}
+                    >
+                        {(alert ?? validationAlert)!.message}
                     </Alert>
                 )}
                 <Typography variant="h6" color="primary">
