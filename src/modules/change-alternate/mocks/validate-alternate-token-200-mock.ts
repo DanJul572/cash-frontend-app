@@ -12,24 +12,8 @@ const mockValidTokenData = {
 };
 
 export const authValidateAlternateToken200Mock = [
-    http.get(
-        `${getApiUrl(ChangeAlternateEndpoint.validateAlternateToken)}`,
-        async ({ request }) => {
-            await delay(500);
-            const url = new URL(request.url);
-            const token = url.searchParams.get('token');
-
-            if (token === 'valid-token') {
-                return HttpResponse.json(mockValidTokenData);
-            }
-
-            return HttpResponse.json({
-                status: true,
-                message: 'Token is invalid',
-                data: {
-                    tokenIsValid: false,
-                },
-            });
-        },
-    ),
+    http.get(`${getApiUrl(ChangeAlternateEndpoint.validateAlternateToken)}`, async () => {
+        await delay(500);
+        return HttpResponse.json(mockValidTokenData);
+    }),
 ];
