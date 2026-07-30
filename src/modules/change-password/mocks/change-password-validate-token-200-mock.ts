@@ -11,7 +11,7 @@ const mockValidTokenData = {
     },
 };
 
-export const authValidatePasswordToken200Mock = [
+export const changePasswordValidateToken200Mock = [
     http.get(`${getApiUrl(ChangePasswordEndpoint.validatePasswordToken)}`, async () => {
         await delay(500);
         return HttpResponse.json(mockValidTokenData);

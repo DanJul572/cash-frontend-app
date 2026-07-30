@@ -1,3 +1,3 @@
-import useChangePassword from './change-password-hook';
+import useChangePasswordPageHook from './use-change-password-page-hook';
 
-export { useChangePassword };
+export { useChangePasswordPageHook };

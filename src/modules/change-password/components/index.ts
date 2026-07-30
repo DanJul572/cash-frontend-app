@@ -1,3 +1,2 @@
-import ChangePasswordPageSkeletonComponent from './change-password-page-skeleton-component';
-
-export { ChangePasswordPageSkeletonComponent };
+export { default as ChangePasswordFormComponent } from './change-password-form-component';
+export { default as ChangePasswordPageSkeletonComponent } from './change-password-page-skeleton-component';

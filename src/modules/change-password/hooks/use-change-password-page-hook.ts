@@ -11,11 +11,10 @@ import { getErrorMessage } from '@utils';
 import { useChangePasswordMutation } from '../mutations';
 import { useValidatePasswordTokenQuery } from '../queries';
 import { changePasswordFormSchema } from '../schemas';
-import type { ALertType, ChangePasswordFormType } from '../types';
+import type { AlertType, ChangePasswordFormType } from '../types';
 
-export default function useChangePassword() {
+export default function useChangePasswordPageHook() {
     const { token } = useSearch({ from: '/_guest/change-password' });
-
     const config = useGuestConfig();
     const changePasswordConfig = config.modules.changePassword;
 
@@ -26,16 +25,11 @@ export default function useChangePassword() {
         error: validationError,
     } = useValidatePasswordTokenQuery(token);
 
-    const validationAlert = useMemo<ALertType | null>(() => {
-        if (!token) {
-            return { type: 'error', message: 'Token is required' };
-        }
-        if (isValidationError) {
-            return { type: 'error', message: getErrorMessage(validationError) };
-        }
-        if (validationData && !validationData.tokenIsValid) {
+    const validationAlert = useMemo<AlertType | null>(() => {
+        if (!token) return { type: 'error', message: 'Token is required' };
+        if (isValidationError) return { type: 'error', message: getErrorMessage(validationError) };
+        if (validationData && !validationData.tokenIsValid)
             return { type: 'error', message: 'Token is invalid' };
-        }
         return null;
     }, [token, isValidationError, validationError, validationData]);
 
@@ -45,26 +39,18 @@ export default function useChangePassword() {
         mode: 'onSubmit',
     });
 
-    const [alert, setAlert] = useState<ALertType | null>(null);
+    const [alert, setAlert] = useState<AlertType | null>(null);
 
     const mutation = useChangePasswordMutation(
         {
-            onSuccess: (res) => {
-                setAlert({ type: 'success', message: res.message });
-            },
-            onError: (error) => {
-                setAlert({
-                    type: 'error',
-                    message: getErrorMessage(error.message),
-                });
-            },
+            onSuccess: (res) => setAlert({ type: 'success', message: res.message }),
+            onError: (error) =>
+                setAlert({ type: 'error', message: getErrorMessage(error.message) }),
         },
         changePasswordConfig,
     );
 
-    const onSubmit = (values: ChangePasswordFormType) => {
-        mutation.mutate(values);
-    };
+    const onSubmit = (values: ChangePasswordFormType) => mutation.mutate(values);
 
     return { form, alert, mutation, onSubmit, validationAlert, isValidating, validationData };
 }

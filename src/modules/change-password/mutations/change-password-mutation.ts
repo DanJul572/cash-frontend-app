@@ -10,7 +10,7 @@ export const useChangePasswordMutation = (
     config: ChangePasswordModuleConfigType,
 ) => {
     return useMutation({
-        mutationKey: ['ChangePassword'],
+        mutationKey: ['postChangePassword'],
         mutationFn: (data: ChangePasswordFormType) => changePasswordRequest(data, config),
         ...options,
     });

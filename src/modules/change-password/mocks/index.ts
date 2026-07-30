@@ -1,1 +1,1 @@
-export * from './validate-password-token-200-mock';
+export * from './change-password-validate-token-200-mock';
