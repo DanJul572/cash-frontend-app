@@ -1,8 +1,8 @@
 import type { HttpHandler } from 'msw';
 
 import {
-    authGetAllAlternates200Mock,
-    authValidateAlternateToken200Mock,
+    changeAlternateGetUser200Mock,
+    changeAlternateValidateToken,
 } from '@modules/change-alternate/mocks';
 import { authValidatePasswordToken200Mock } from '@modules/change-password/mocks';
 
@@ -13,8 +13,8 @@ const requestMockScenarioConfig: Record<string, HttpHandler[]> = {
     '/auth/me': authMeRequest401Mock,
     '/change-password/validate-token': authValidatePasswordToken200Mock,
     '/config/guest': guestConfigRequest200Mock,
-    '/user-alternate/get-users': authGetAllAlternates200Mock,
-    '/user-alternate/validate-token': authValidateAlternateToken200Mock,
+    '/user-alternate/get-users': changeAlternateGetUser200Mock,
+    '/user-alternate/validate-token': changeAlternateValidateToken,
 };
 
 export const requestMockHandler = Object.values(requestMockScenarioConfig).flatMap((mock) => mock);

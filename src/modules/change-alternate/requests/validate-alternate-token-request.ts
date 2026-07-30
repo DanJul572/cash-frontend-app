@@ -6,7 +6,7 @@ import type { ValidateAlternateTokenResponseType } from '../types';
 
 export const validateAlternateTokenRequest = async (token: string) => {
     const response = await axiosInstance.get<ValidateAlternateTokenResponseType>(
-        ChangeAlternateEndpoint.validateAlternateToken,
+        ChangeAlternateEndpoint.validateToken,
         {
             params: { token },
             _skipAuthRedirect: true,

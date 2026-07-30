@@ -1,13 +1,13 @@
 import { z } from 'zod';
 
-const changeAlternateUserSchema = z.object({
+const userSchema = z.object({
     id: z.string(),
     name: z.string(),
     email: z.string(),
     photoUrl: z.string().nullable(),
 });
 
-export const changeAlternateResponseSchema = z.object({
+export const getUserResponseSchema = z.object({
     status: z.number(),
-    data: z.array(changeAlternateUserSchema),
+    data: z.array(userSchema),
 });

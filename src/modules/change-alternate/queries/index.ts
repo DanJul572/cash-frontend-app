@@ -1,1 +1,1 @@
-export * from './change-alternate-query';
+export * from './get-user-query';

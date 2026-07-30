@@ -1,5 +1,5 @@
 import { z } from 'zod';
 
-export const changeAlternateSearchParamSchema = z.object({
+export const searchParamSchema = z.object({
     token: z.string().optional(),
 });

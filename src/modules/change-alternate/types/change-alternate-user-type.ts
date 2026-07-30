@@ -1,4 +1,4 @@
-export type ChangeAlternateUserType = {
+export type UserType = {
     id: string;
     name: string;
     email: string;

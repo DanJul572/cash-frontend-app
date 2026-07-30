@@ -1,16 +1,16 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from '@tanstack/react-router';
 
-import { useChangeAlternateMutation } from '../mutations';
-import { useChangeAlternateQuery } from '../queries';
+import { useSetUserMutation } from '../mutations';
+import { useGetUserQuery } from '../queries';
 
 export default function useChangeAlternatePageHook() {
     const navigate = useNavigate();
     const queryClient = useQueryClient();
 
-    const { data: users, isLoading, error } = useChangeAlternateQuery();
+    const { data: users, isLoading, error } = useGetUserQuery();
 
-    const mutation = useChangeAlternateMutation({
+    const mutation = useSetUserMutation({
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['auth', 'me'] });
             navigate({ to: '/dashboard' });

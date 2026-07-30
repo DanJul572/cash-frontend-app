@@ -11,8 +11,8 @@ const mockValidTokenData = {
     },
 };
 
-export const authValidateAlternateToken200Mock = [
-    http.get(`${getApiUrl(ChangeAlternateEndpoint.validateAlternateToken)}`, async () => {
+export const changeAlternateValidateToken = [
+    http.get(`${getApiUrl(ChangeAlternateEndpoint.validateToken)}`, async () => {
         await delay(500);
         return HttpResponse.json(mockValidTokenData);
     }),

@@ -2,10 +2,10 @@ import { createFileRoute, redirect } from '@tanstack/react-router';
 
 import { ChangeAlternatePage } from '@modules/change-alternate/pages';
 import { validateAlternateTokenRequest } from '@modules/change-alternate/requests';
-import { changeAlternateSearchParamSchema } from '@modules/change-alternate/schemas';
+import { searchParamSchema } from '@modules/change-alternate/schemas';
 
 export const Route = createFileRoute('/_guest/change-alternate')({
-    validateSearch: changeAlternateSearchParamSchema,
+    validateSearch: searchParamSchema,
     beforeLoad: async ({ search }) => {
         if (!search.token) {
             return redirect({

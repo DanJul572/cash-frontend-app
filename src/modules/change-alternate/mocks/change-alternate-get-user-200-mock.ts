@@ -28,8 +28,8 @@ const mockAlternatesData = {
     ],
 };
 
-export const authGetAllAlternates200Mock = [
-    http.get(`${getApiUrl(ChangeAlternateEndpoint.getAlternates)}`, async () => {
+export const changeAlternateGetUser200Mock = [
+    http.get(`${getApiUrl(ChangeAlternateEndpoint.getUser)}`, async () => {
         await delay(500);
         return HttpResponse.json(mockAlternatesData);
     }),

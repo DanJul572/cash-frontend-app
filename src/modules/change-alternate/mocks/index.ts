@@ -1,2 +1,2 @@
-export * from './auth-get-all-alternates-200-mock';
-export * from './validate-alternate-token-200-mock';
+export * from './change-alternate-get-user-200-mock';
+export * from './change-alternate-validate-token-200-mock';

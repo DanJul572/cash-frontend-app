@@ -1,7 +1,7 @@
-import type { ChangeAlternateUserType } from './change-alternate-user-type';
+import type { UserType } from './change-alternate-user-type';
 
 export interface UserCardComponentPropsType {
-    user: ChangeAlternateUserType;
+    user: UserType;
     onClick: (userId: string) => void;
     isLoading: boolean;
 }

@@ -1,13 +1,9 @@
 import type { MutateOptions } from '@tanstack/react-query';
 
-export type ChangeAlternatePostResponseType = {
+export type SetUserResponseType = {
     status: boolean;
     message: string;
     data: null;
 };
 
-export type PostChangeAlternateMutationOptionsType = MutateOptions<
-    ChangeAlternatePostResponseType,
-    Error,
-    string
->;
+export type SetUserMutationOptionsType = MutateOptions<SetUserResponseType, Error, string>;

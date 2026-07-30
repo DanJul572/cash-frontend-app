@@ -1,1 +1,1 @@
-export * from './change-alternate-mutation';
+export * from './set-user-mutation';
