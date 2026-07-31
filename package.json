@@ -48,10 +48,10 @@
         "@tanstack/react-query-devtools": "^5.101.4",
         "@tanstack/react-router": "^1.170.18",
         "@tanstack/react-router-devtools": "^1.167.0",
-        "axios": "^1.18.1",
+        "axios": "^1.19.0",
         "dayjs": "^1.11.21",
         "i18next": "^26.3.6",
-        "pnpm": "11.9.0",
+        "pnpm": "11.18.0",
         "react": "^19.2.8",
         "react-dom": "^19.2.8",
         "react-hook-form": "^7.83.0",
@@ -69,7 +69,7 @@
         "@testing-library/react": "^16.3.2",
         "@trivago/prettier-plugin-sort-imports": "^6.0.2",
         "@types/babel__core": "^7.20.5",
-        "@types/node": "^26.1.1",
+        "@types/node": "^26.1.2",
         "@types/react": "^19.2.17",
         "@types/react-dom": "^19.2.3",
         "@vitejs/plugin-react": "^6.0.4",
@@ -80,7 +80,7 @@
         "eslint-plugin-react-refresh": "^0.5.3",
         "globals": "^17.8.0",
         "husky": "^9.1.7",
-        "jsdom": "^29.1.1",
+        "jsdom": "^30.0.1",
         "msw": "^2.15.0",
         "npm-check-updates": "^23.0.0",
         "prettier": "3.9.6",
@@ -90,7 +90,7 @@
         "vite-plugin-dts": "^5.0.3",
         "vitest": "^4.1.10"
     },
-    "packageManager": "pnpm@11.17.0",
+    "packageManager": "pnpm@11.18.0",
     "msw": {
         "workerDirectory": [
             "public"
