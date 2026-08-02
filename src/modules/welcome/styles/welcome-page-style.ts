@@ -10,9 +10,10 @@ const containerStyle = {
 } as const satisfies SxProps<Theme>;
 
 const dividerStyle = {
-    width: 50,
-    height: 5,
-    borderRadius: 5,
+    width: 48,
+    borderBottomWidth: 2,
+    borderColor: 'primary.main',
+    mb: 2.5,
 } as const satisfies SxProps<Theme>;
 
 export const welcomePageStyle = {

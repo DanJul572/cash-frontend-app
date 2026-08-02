@@ -8,10 +8,11 @@ import { welcomePageStyle } from '../styles';
 
 export default function WelcomePage() {
     const theme = useTheme();
+    console.log(theme.palette.primary.main);
     return (
         <Box sx={welcomePageStyle.containerStyle}>
             <Typography variant="h3">{appNameAsTitle}</Typography>
-            <Divider color={theme.palette.primary.main} sx={welcomePageStyle.dividerStyle} />
+            <Divider sx={welcomePageStyle.dividerStyle} />
         </Box>
     );
 }

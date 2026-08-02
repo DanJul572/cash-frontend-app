@@ -6,29 +6,31 @@ import { tanstackRouter } from '@tanstack/router-plugin/vite';
 
 import react from '@vitejs/plugin-react';
 
+const dirname = import.meta.dirname;
+
 export default defineConfig({
     resolve: {
         alias: {
-            '@': path.resolve(__dirname, './src'),
-            '@assets': path.resolve(__dirname, './src/assets'),
-            '@components': path.resolve(__dirname, './src/components'),
-            '@configs': path.resolve(__dirname, './src/configs'),
-            '@constants': path.resolve(__dirname, './src/constants'),
-            '@endpoints': path.resolve(__dirname, './src/endpoints'),
-            '@modules': path.resolve(__dirname, './src/modules'),
-            '@instances': path.resolve(__dirname, './src/instances'),
-            '@hooks': path.resolve(__dirname, './src/hooks'),
-            '@layouts': path.resolve(__dirname, './src/layouts'),
-            '@locales': path.resolve(__dirname, './src/locales'),
-            '@mappers': path.resolve(__dirname, './src/mappers'),
-            '@mocks': path.resolve(__dirname, './src/mocks'),
-            '@queries': path.resolve(__dirname, './src/queries'),
-            '@requests': path.resolve(__dirname, './src/requests'),
-            '@schemas': path.resolve(__dirname, './src/schemas'),
-            '@styles': path.resolve(__dirname, './src/styles'),
-            '@themes': path.resolve(__dirname, './src/themes'),
-            '@types': path.resolve(__dirname, './src/types'),
-            '@utils': path.resolve(__dirname, './src/utils'),
+            '@': path.resolve(dirname, './src'),
+            '@assets': path.resolve(dirname, './src/assets'),
+            '@components': path.resolve(dirname, './src/components'),
+            '@configs': path.resolve(dirname, './src/configs'),
+            '@constants': path.resolve(dirname, './src/constants'),
+            '@endpoints': path.resolve(dirname, './src/endpoints'),
+            '@modules': path.resolve(dirname, './src/modules'),
+            '@instances': path.resolve(dirname, './src/instances'),
+            '@hooks': path.resolve(dirname, './src/hooks'),
+            '@layouts': path.resolve(dirname, './src/layouts'),
+            '@locales': path.resolve(dirname, './src/locales'),
+            '@mappers': path.resolve(dirname, './src/mappers'),
+            '@mocks': path.resolve(dirname, './src/mocks'),
+            '@queries': path.resolve(dirname, './src/queries'),
+            '@requests': path.resolve(dirname, './src/requests'),
+            '@schemas': path.resolve(dirname, './src/schemas'),
+            '@styles': path.resolve(dirname, './src/styles'),
+            '@themes': path.resolve(dirname, './src/themes'),
+            '@types': path.resolve(dirname, './src/types'),
+            '@utils': path.resolve(dirname, './src/utils'),
         },
     },
     plugins: [
@@ -48,7 +50,7 @@ export default defineConfig({
         // Prevent Vite from transpiling ESM syntax into CJS-compatible output
         target: 'esnext',
         lib: {
-            entry: resolve(__dirname, 'src/index.ts'),
+            entry: resolve(dirname, 'src/index.ts'),
             name: 'cashapp',
             formats: ['es'],
             fileName: (format) => `index.${format}.js`,
