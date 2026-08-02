@@ -2,6 +2,9 @@ import { useState } from 'react';
 
 import { useForm } from 'react-hook-form';
 
+import { useQueryClient } from '@tanstack/react-query';
+import { useNavigate } from '@tanstack/react-router';
+
 import { useGuestConfig } from '@contexts';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { getErrorMessage } from '@utils';
@@ -21,6 +24,10 @@ export default function useLoginPageHook() {
     const config = useGuestConfig();
     const loginConfig = config.modules.login;
 
+    const navigate = useNavigate();
+
+    const queryClient = useQueryClient();
+
     const form = useForm<LoginFormType>({
         resolver: zodResolver(loginFormSchema(config.modules.login)),
         defaultValues: { email: '', password: '' },
@@ -30,7 +37,10 @@ export default function useLoginPageHook() {
     const [alert, setAlert] = useState<ALertType | null>(null);
 
     const mutation = usePostLoginMutation(loginConfig, {
-        onSuccess: (_data) => {},
+        onSuccess: (_data) => {
+            queryClient.invalidateQueries({ queryKey: ['auth', 'me'] });
+            navigate({ to: '/dashboard' });
+        },
         onError: (error) => {
             setAlert({
                 type: 'error',
