@@ -78,5 +78,5 @@ run_step "🧠" "Type checking" "pnpm typecheck"
 run_step "🧪" "Running tests" "pnpm test:silent"
 
 echo
-printf "${GREEN}${BOLD}✨ All checks passed! Ready to commit.${RESET}\n"
+printf "${GREEN}${BOLD}✨ All checks passed! Ready to push.${RESET}\n"
 echo
