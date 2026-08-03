@@ -17,8 +17,8 @@ importers:
                 specifier: ^5.3.0
                 version: 5.3.0
             '@hookform/resolvers':
-                specifier: ^5.6.0
-                version: 5.6.0(@standard-schema/spec@1.1.0)(ajv-formats@2.1.1(ajv@8.20.0))(ajv@8.20.0)(react-hook-form@7.84.0(react@19.2.8))(zod@4.4.3)
+                specifier: ^5.7.1
+                version: 5.7.1(@standard-schema/spec@1.1.0)(ajv-formats@2.1.1(ajv@8.20.0))(ajv@8.20.0)(react-hook-form@7.84.0(react@19.2.8))(zod@4.4.3)
             '@mui/icons-material':
                 specifier: ^9.2.0
                 version: 9.2.0(@mui/material@9.2.0(@emotion/react@11.14.0(@types/react@19.2.18)(react@19.2.8)(supports-color@8.1.1))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.18)(react@19.2.8)(supports-color@8.1.1))(@types/react@19.2.18)(react@19.2.8)(supports-color@8.1.1))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(@types/react@19.2.18)(react@19.2.8)
@@ -59,8 +59,8 @@ importers:
                 specifier: ^26.3.6
                 version: 26.3.6(typescript@6.0.3)
             pnpm:
-                specifier: 11.18.0
-                version: 11.18.0
+                specifier: 11.19.0
+                version: 11.19.0
             react:
                 specifier: ^19.2.8
                 version: 19.2.8
@@ -135,8 +135,8 @@ importers:
                 specifier: ^0.5.3
                 version: 0.5.3(eslint@10.8.0(jiti@2.7.0)(supports-color@8.1.1))
             globals:
-                specifier: ^17.8.0
-                version: 17.8.0
+                specifier: ^17.9.0
+                version: 17.9.0
             husky:
                 specifier: ^9.1.7
                 version: 9.1.7
@@ -699,21 +699,21 @@ packages:
                 integrity: sha512-BapRJOWYP+LZ21zp+wBQjfpPYKRoxc4LspJ/RLuI+HSMBD5u/X4O+ESDrSvEqDSy0rAl7GwBJ+09mdc16cVQ1Q==,
             }
 
-    '@hookform/resolvers@5.6.0':
+    '@hookform/resolvers@5.7.1':
         resolution:
             {
-                integrity: sha512-qtgE4NUK/WQFPq8aDe+GOhr0/UiUSKT0m9ta9SMnDS5ZE63yC850ShAGz1lxtwO+dBjhUKvUxmHwkp4eN7/kBQ==,
+                integrity: sha512-8wS/P4UDr5sQDe4nFaV51TVyfDPrWgNIXweqG0Bs9Z5LSuzKLb+RQNPvkN2oHM5SRrJyWrVH/F+LOUcFjUyvwQ==,
             }
         peerDependencies:
             '@sinclair/typebox': '>=0.25.24'
             '@standard-schema/spec': ^1.0.0
             '@typeschema/main': '>=0.13.7'
-            '@vinejs/vine': ^2.0.0 || ^3.0.0
+            '@vinejs/vine': ^2.0.0 || ^3.0.0 || ^4.0.0
             ajv: ^8.12.0
             ajv-errors: ^3.0.0
             ajv-formats: ^2.1.1
             arktype: ^2.0.0
-            ata-validator: ^0.7.0
+            ata-validator: ^1.2.0
             class-transformer: '>=0.4.0'
             class-validator: '>=0.12.0'
             computed-types: ^1.0.0
@@ -1978,6 +1978,11 @@ packages:
             {
                 integrity: sha512-Ja6yvWrbis2QtN4ClAKreeUZPVYMARDYZl9LMEv1iQ1QdepB6wn0jTRxA9MftYmYa4DQ4k/DaSZpFPUfxl8giw==,
             }
+        peerDependencies:
+            typescript: '*'
+        peerDependenciesMeta:
+            typescript:
+                optional: true
 
     '@webassemblyjs/ast@1.14.1':
         resolution:
@@ -3006,10 +3011,10 @@ packages:
                 integrity: sha512-lkX1HJXwyMcprw/5YUZc2s7DrpAiHB21/V+E1rHUrVNokkvB6bqMzT0VfV6/86ZNabt1k14YOIaT7nDvOX3Iiw==,
             }
 
-    globals@17.8.0:
+    globals@17.9.0:
         resolution:
             {
-                integrity: sha512-Zz/LMDZScFmkakeL2cTHzf+PbWKdpU3uclqkZT7TjDG58j5WPt0PpA+n9uPI24fZtlw07q0OtEi84K+umsRzqQ==,
+                integrity: sha512-m/MvAW61QVU5VDNF1Vj8axt016h8w7L5TU1e9zlab7XIttAT2YAlCwl75K1fOqvMM9apmD7lbCIRhpfkhmxhCg==,
             }
         engines: { node: '>=18' }
 
@@ -3849,10 +3854,10 @@ packages:
                 integrity: sha512-y+ichcgc2LrADuhLNAx8DFjVfgz91pRxfZdI3UDhxHvcVEZsenLO+7XaU5vOp0u/7V/wZ+plyuQxtrDlZJ+yeg==,
             }
 
-    pnpm@11.18.0:
+    pnpm@11.19.0:
         resolution:
             {
-                integrity: sha512-M9g8d9qC9J+6g2klxvG4QRgewxMrZwY5vQEvcHX1x89jTF+HAUfBmq50ePrAHfCdiJLogEVIlu3SPumzN1dWPA==,
+                integrity: sha512-eIHz7VkNRyxKlV4riLISF5ERYGbcyIy8o4SeybYPG7qm0syyIfqR2k4cZb7yvL43k2Wup6xTnHv4be3DobItzg==,
             }
         engines: { node: '>=22.13' }
         hasBin: true
@@ -5193,7 +5198,7 @@ snapshots:
 
     '@fontsource/roboto@5.3.0': {}
 
-    '@hookform/resolvers@5.6.0(@standard-schema/spec@1.1.0)(ajv-formats@2.1.1(ajv@8.20.0))(ajv@8.20.0)(react-hook-form@7.84.0(react@19.2.8))(zod@4.4.3)':
+    '@hookform/resolvers@5.7.1(@standard-schema/spec@1.1.0)(ajv-formats@2.1.1(ajv@8.20.0))(ajv@8.20.0)(react-hook-form@7.84.0(react@19.2.8))(zod@4.4.3)':
         dependencies:
             '@standard-schema/utils': 0.3.0
             react-hook-form: 7.84.0(react@19.2.8)
@@ -6025,11 +6030,13 @@ snapshots:
 
     '@volar/source-map@2.4.28': {}
 
-    '@volar/typescript@2.4.28':
+    '@volar/typescript@2.4.28(typescript@6.0.3)':
         dependencies:
             '@volar/language-core': 2.4.28
             path-browserify: 1.0.1
             vscode-uri: 3.1.0
+        optionalDependencies:
+            typescript: 6.0.3
 
     '@webassemblyjs/ast@1.14.1':
         dependencies:
@@ -6648,7 +6655,7 @@ snapshots:
     glob-to-regexp@0.4.1:
         optional: true
 
-    globals@17.8.0: {}
+    globals@17.9.0: {}
 
     goober@2.1.19(csstype@3.2.3):
         dependencies:
@@ -7073,7 +7080,7 @@ snapshots:
             exsolve: 1.0.8
             pathe: 2.0.3
 
-    pnpm@11.18.0: {}
+    pnpm@11.19.0: {}
 
     postcss@8.5.25:
         dependencies:
@@ -7362,7 +7369,7 @@ snapshots:
     unplugin-dts@1.0.3(rolldown@1.2.1)(supports-color@8.1.1)(typescript@6.0.3)(vite@8.2.0(@types/node@26.1.2)(jiti@2.7.0)(terser@5.48.0))(webpack@5.107.2(lightningcss@1.33.0)(postcss@8.5.25)):
         dependencies:
             '@rollup/pluginutils': 5.4.0
-            '@volar/typescript': 2.4.28
+            '@volar/typescript': 2.4.28(typescript@6.0.3)
             compare-versions: 6.1.1
             debug: 4.4.3(supports-color@8.1.1)
             kolorist: 1.8.0
