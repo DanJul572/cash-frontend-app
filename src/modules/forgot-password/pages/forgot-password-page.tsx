@@ -16,53 +16,53 @@ import { useForgotPasswordPageHook } from '../hooks';
 import { forgotPasswordStyle } from '../styles';
 
 export default function ForgotPasswordPage() {
-    useTitleHook('Forgot Password');
+  useTitleHook('Forgot Password');
 
-    const { t, form, alert, mutation, onSubmit } = useForgotPasswordPageHook();
+  const { t, form, alert, mutation, onSubmit } = useForgotPasswordPageHook();
 
-    return (
-        <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
-            <Box sx={forgotPasswordStyle.containerStyle}>
-                {alert && (
-                    <Alert severity={alert.type} sx={forgotPasswordStyle.alertStyle}>
-                        {alert.message}
-                    </Alert>
-                )}
-                <Typography variant="h6" color="primary">
-                    {t('forgotPassword')}
-                </Typography>
-                <Card sx={forgotPasswordStyle.cardStyle}>
-                    <Controller
-                        name="email"
-                        control={form.control}
-                        render={({ field, fieldState }) => (
-                            <TextField
-                                {...field}
-                                label={t('email.label')}
-                                variant="outlined"
-                                fullWidth
-                                error={!!fieldState.error}
-                                helperText={t(fieldState.error?.message || '')}
-                            />
-                        )}
-                    />
-                    <Button
-                        variant="contained"
-                        fullWidth
-                        type="submit"
-                        disabled={mutation.isPending}
-                        loading={mutation.isPending}
-                        color="primary"
-                    >
-                        {t('submit')}
-                    </Button>
-                    <Typography>
-                        <MuiLink component={Link} to="/login">
-                            {t('backToLogin')}
-                        </MuiLink>
-                    </Typography>
-                </Card>
-            </Box>
-        </form>
-    );
+  return (
+    <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
+      <Box sx={forgotPasswordStyle.containerStyle}>
+        {alert && (
+          <Alert severity={alert.type} sx={forgotPasswordStyle.alertStyle}>
+            {alert.message}
+          </Alert>
+        )}
+        <Typography variant="h6" color="primary">
+          {t('forgotPassword')}
+        </Typography>
+        <Card sx={forgotPasswordStyle.cardStyle}>
+          <Controller
+            name="email"
+            control={form.control}
+            render={({ field, fieldState }) => (
+              <TextField
+                {...field}
+                label={t('email.label')}
+                variant="outlined"
+                fullWidth
+                error={!!fieldState.error}
+                helperText={t(fieldState.error?.message || '')}
+              />
+            )}
+          />
+          <Button
+            variant="contained"
+            fullWidth
+            type="submit"
+            disabled={mutation.isPending}
+            loading={mutation.isPending}
+            color="primary"
+          >
+            {t('submit')}
+          </Button>
+          <Typography>
+            <MuiLink component={Link} to="/login">
+              {t('backToLogin')}
+            </MuiLink>
+          </Typography>
+        </Card>
+      </Box>
+    </form>
+  );
 }

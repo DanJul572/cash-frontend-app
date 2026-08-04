@@ -10,7 +10,7 @@ export type RegisterResponseType = z.input<typeof registerResponseSchema>;
 export type RegisterResponseMappedType = z.output<typeof registerResponseMapper>;
 
 export type PostRegisterMutationOptionsType = MutateOptions<
-    RegisterResponseMappedType,
-    Error,
-    RegisterFormType
+  RegisterResponseMappedType,
+  Error,
+  RegisterFormType
 >;

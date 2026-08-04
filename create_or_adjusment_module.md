@@ -142,9 +142,9 @@ export default function ChangeAlternatePage() { ... }
 
 ```ts
 export const ChangeAlternateEndpoint = {
-    getUser: `/user-alternate/get-user`,
-    setUser: `/user-alternate/set-user`,
-    validateToken: `/user-alternate/validate-token`,
+  getUser: `/user-alternate/get-user`,
+  setUser: `/user-alternate/set-user`,
+  validateToken: `/user-alternate/validate-token`,
 };
 ```
 
@@ -158,8 +158,8 @@ export const ChangeAlternateEndpoint = {
 import { z } from 'zod';
 
 export const getUserResponseSchema = z.object({
-    status: z.number(),
-    data: z.array(userSchema),
+  status: z.number(),
+  data: z.array(userSchema),
 });
 ```
 
@@ -182,9 +182,9 @@ export type GetUserResponseType = z.input<typeof getUserResponseSchema>;
 import type { MutateOptions } from '@tanstack/react-query';
 
 export type SetUserResponseType = {
-    status: boolean;
-    message: string;
-    data: null;
+  status: boolean;
+  message: string;
+  data: null;
 };
 
 export type SetUserMutationOptionsType = MutateOptions<SetUserResponseType, Error, string>;
@@ -194,9 +194,9 @@ export type SetUserMutationOptionsType = MutateOptions<SetUserResponseType, Erro
 
 ```ts
 export interface UserCardComponentPropsType {
-    user: UserType;
-    onClick: (userId: string) => void;
-    isLoading: boolean;
+  user: UserType;
+  onClick: (userId: string) => void;
+  isLoading: boolean;
 }
 ```
 
@@ -209,12 +209,12 @@ export interface UserCardComponentPropsType {
 import { getUserResponseSchema } from '../schemas';
 
 export const getUserResponseMapper = getUserResponseSchema.transform((res) =>
-    res.data.map((user) => ({
-        id: user.id,
-        name: user.name,
-        email: user.email,
-        photoUrl: user.photoUrl,
-    })),
+  res.data.map((user) => ({
+    id: user.id,
+    name: user.name,
+    email: user.email,
+    photoUrl: user.photoUrl,
+  })),
 );
 ```
 
@@ -231,8 +231,8 @@ import { getUserResponseMapper } from '../mappers';
 import type { GetUserResponseType } from '../types';
 
 export const getUserRequest = async () => {
-    const response = await axiosInstance.get<GetUserResponseType>(ChangeAlternateEndpoint.getUser);
-    return getUserResponseMapper.parse(response.data);
+  const response = await axiosInstance.get<GetUserResponseType>(ChangeAlternateEndpoint.getUser);
+  return getUserResponseMapper.parse(response.data);
 };
 ```
 
@@ -248,10 +248,10 @@ import { useQuery } from '@tanstack/react-query';
 import { getUserRequest } from '../requests';
 
 export const useGetUserQuery = () => {
-    return useQuery({
-        queryKey: ['auth', 'alternates'],
-        queryFn: getUserRequest,
-    });
+  return useQuery({
+    queryKey: ['auth', 'alternates'],
+    queryFn: getUserRequest,
+  });
 };
 ```
 
@@ -268,11 +268,11 @@ import { setUserRequest } from '../requests';
 import type { SetUserMutationOptionsType } from '../types';
 
 export const useSetUserMutation = (options: SetUserMutationOptionsType) => {
-    return useMutation({
-        mutationKey: ['postSetUser'],
-        mutationFn: (userId: string) => setUserRequest(userId),
-        ...options,
-    });
+  return useMutation({
+    mutationKey: ['postSetUser'],
+    mutationFn: (userId: string) => setUserRequest(userId),
+    ...options,
+  });
 };
 ```
 
@@ -290,20 +290,20 @@ import { useSetUserMutation } from '../mutations';
 import { useGetUserQuery } from '../queries';
 
 export default function useChangeAlternatePageHook() {
-    const navigate = useNavigate();
-    const queryClient = useQueryClient();
-    const { data: users, isLoading, error } = useGetUserQuery();
-    const mutation = useSetUserMutation({
-        onSuccess: () => {
-            queryClient.invalidateQueries({ queryKey: ['auth', 'me'] });
-            navigate({ to: '/dashboard' });
-        },
-        onError: () => {},
-    });
-    const handleUserClick = (userId: string) => {
-        mutation.mutate(userId);
-    };
-    return { users, isLoading, error, mutation, handleUserClick };
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
+  const { data: users, isLoading, error } = useGetUserQuery();
+  const mutation = useSetUserMutation({
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['auth', 'me'] });
+      navigate({ to: '/dashboard' });
+    },
+    onError: () => {},
+  });
+  const handleUserClick = (userId: string) => {
+    mutation.mutate(userId);
+  };
+  return { users, isLoading, error, mutation, handleUserClick };
 }
 ```
 
@@ -323,15 +323,15 @@ import type { UserCardComponentPropsType } from '../types';
 import { getInitialName } from '../utils';
 
 export default function UserCardComponent({
-    user,
-    onClick,
-    isLoading,
+  user,
+  onClick,
+  isLoading,
 }: UserCardComponentPropsType) {
-    return (
-        <Card sx={userCardComponentStyle.cardStyle} onClick={() => onClick(user.id)}>
-            ...
-        </Card>
-    );
+  return (
+    <Card sx={userCardComponentStyle.cardStyle} onClick={() => onClick(user.id)}>
+      ...
+    </Card>
+  );
 }
 ```
 
@@ -351,9 +351,9 @@ import { useChangeAlternatePageHook } from '../hooks';
 import { changeAlternateStyle } from '../styles';
 
 export default function ChangeAlternatePage() {
-    useTitleHook('Change Alternate');
-    const { users, isLoading, mutation, handleUserClick } = useChangeAlternatePageHook();
-    return <Box sx={changeAlternateStyle.containerStyle}>...</Box>;
+  useTitleHook('Change Alternate');
+  const { users, isLoading, mutation, handleUserClick } = useChangeAlternatePageHook();
+  return <Box sx={changeAlternateStyle.containerStyle}>...</Box>;
 }
 ```
 
@@ -367,17 +367,17 @@ export default function ChangeAlternatePage() {
 import type { SxProps, Theme } from '@mui/material';
 
 const containerStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    padding: 4,
-    gap: 3,
-    height: '100vh',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  padding: 4,
+  gap: 3,
+  height: '100vh',
 } as const satisfies SxProps<Theme>;
 
 export const changeAlternateStyle = {
-    containerStyle,
-    gridStyle,
+  containerStyle,
+  gridStyle,
 } satisfies Record<string, SxProps<Theme>>;
 ```
 
@@ -400,10 +400,10 @@ import { ChangeAlternateEndpoint } from '@modules/change-alternate/endpoints';
 import { getApiUrl } from '@utils';
 
 export const changeAlternateGetUser200Mock = [
-    http.get(`${getApiUrl(ChangeAlternateEndpoint.getUser)}`, async () => {
-        await delay(500);
-        return HttpResponse.json(mockData);
-    }),
+  http.get(`${getApiUrl(ChangeAlternateEndpoint.getUser)}`, async () => {
+    await delay(500);
+    return HttpResponse.json(mockData);
+  }),
 ];
 ```
 
@@ -414,12 +414,12 @@ export const changeAlternateGetUser200Mock = [
 
 ```ts
 export const getInitialName = (name: string) => {
-    return name
-        .split(' ')
-        .map((n) => n[0])
-        .join('')
-        .toUpperCase()
-        .slice(0, 2);
+  return name
+    .split(' ')
+    .map((n) => n[0])
+    .join('')
+    .toUpperCase()
+    .slice(0, 2);
 };
 ```
 

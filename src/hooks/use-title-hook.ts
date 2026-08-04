@@ -3,11 +3,11 @@ import { useEffect } from 'react';
 import { appNameAsTitle, appVersion } from '@utils';
 
 export default function useTitleHook(title: string) {
-    useEffect(() => {
-        if (!title) {
-            document.title = `${appNameAsTitle} v${appVersion}`;
-        } else {
-            document.title = title;
-        }
-    }, [title]);
+  useEffect(() => {
+    if (!title) {
+      document.title = `${appNameAsTitle} v${appVersion}`;
+    } else {
+      document.title = title;
+    }
+  }, [title]);
 }

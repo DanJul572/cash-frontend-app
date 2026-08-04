@@ -6,18 +6,14 @@ import Typography from '@mui/material/Typography';
 import { pageLoaderComponentStyle } from '@styles';
 
 export default function PageLoaderComponent() {
-    return (
-        <Fade in timeout={400}>
-            <Box sx={pageLoaderComponentStyle.containerStyle}>
-                <Box sx={pageLoaderComponentStyle.spinnerWrapperStyle}>
-                    <CircularProgress
-                        size={56}
-                        thickness={4}
-                        sx={pageLoaderComponentStyle.spinnerStyle}
-                    />
-                </Box>
-                <Typography sx={pageLoaderComponentStyle.labelStyle}>Loading...</Typography>
-            </Box>
-        </Fade>
-    );
+  return (
+    <Fade in timeout={400}>
+      <Box sx={pageLoaderComponentStyle.containerStyle}>
+        <Box sx={pageLoaderComponentStyle.spinnerWrapperStyle}>
+          <CircularProgress size={56} thickness={4} sx={pageLoaderComponentStyle.spinnerStyle} />
+        </Box>
+        <Typography sx={pageLoaderComponentStyle.labelStyle}>Loading...</Typography>
+      </Box>
+    </Fade>
+  );
 }

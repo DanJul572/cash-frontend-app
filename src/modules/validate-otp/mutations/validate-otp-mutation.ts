@@ -6,12 +6,12 @@ import { postValidateOtpRequest } from '../requests';
 import type { PostValidateOtpMutationOptionsType, ValidateOtpFormType } from '../types';
 
 export const usePostValidateOtpMutation = (
-    config: ValidateOtpModuleConfigType,
-    options: PostValidateOtpMutationOptionsType,
+  config: ValidateOtpModuleConfigType,
+  options: PostValidateOtpMutationOptionsType,
 ) => {
-    return useMutation({
-        mutationKey: ['postValidateOtp'],
-        mutationFn: (data: ValidateOtpFormType) => postValidateOtpRequest(data, config),
-        ...options,
-    });
+  return useMutation({
+    mutationKey: ['postValidateOtp'],
+    mutationFn: (data: ValidateOtpFormType) => postValidateOtpRequest(data, config),
+    ...options,
+  });
 };

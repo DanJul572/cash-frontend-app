@@ -1,3 +1,3 @@
 export const AuthEndpoint = {
-    me: `/me`,
+  me: `/me`,
 };

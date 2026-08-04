@@ -6,12 +6,12 @@ import { postLoginRequest } from '../requests';
 import type { LoginFormType, PostLoginMutationOptionsType } from '../types';
 
 export const usePostLoginMutation = (
-    config: LoginModuleConfigType,
-    options: PostLoginMutationOptionsType,
+  config: LoginModuleConfigType,
+  options: PostLoginMutationOptionsType,
 ) => {
-    return useMutation({
-        mutationKey: ['postLogin'],
-        mutationFn: (data: LoginFormType) => postLoginRequest(data, config),
-        ...options,
-    });
+  return useMutation({
+    mutationKey: ['postLogin'],
+    mutationFn: (data: LoginFormType) => postLoginRequest(data, config),
+    ...options,
+  });
 };

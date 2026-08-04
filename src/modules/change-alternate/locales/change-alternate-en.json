@@ -1,5 +1,5 @@
 {
-    "title": "Select User",
-    "error": "Failed to load users. Please try again.",
-    "loading": "Loading users..."
+  "title": "Select User",
+  "error": "Failed to load users. Please try again.",
+  "loading": "Loading users..."
 }

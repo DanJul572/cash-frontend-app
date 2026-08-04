@@ -5,10 +5,10 @@ import { forgotPasswordRequestMapper, forgotPasswordResponseMapper } from '../ma
 import type { ForgotPasswordFormType, ForgotPasswordResponseType } from '../types';
 
 export const postForgotPasswordRequest = async (data: ForgotPasswordFormType) => {
-    const payloads = forgotPasswordRequestMapper.parse(data);
-    const response = await axiosInstance.post<ForgotPasswordResponseType>(
-        ForgotPasswordEndpoint.postForgotPassword,
-        payloads,
-    );
-    return forgotPasswordResponseMapper.parse(response.data);
+  const payloads = forgotPasswordRequestMapper.parse(data);
+  const response = await axiosInstance.post<ForgotPasswordResponseType>(
+    ForgotPasswordEndpoint.postForgotPassword,
+    payloads,
+  );
+  return forgotPasswordResponseMapper.parse(response.data);
 };

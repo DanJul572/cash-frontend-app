@@ -10,7 +10,7 @@ export type ForgotPasswordResponseType = z.input<typeof forgotPasswordResponseSc
 export type ForgotPasswordResponseMappedType = z.output<typeof forgotPasswordResponseMapper>;
 
 export type PostForgotPasswordMutationOptionsType = MutateOptions<
-    ForgotPasswordResponseMappedType,
-    Error,
-    ForgotPasswordFormType
+  ForgotPasswordResponseMappedType,
+  Error,
+  ForgotPasswordFormType
 >;

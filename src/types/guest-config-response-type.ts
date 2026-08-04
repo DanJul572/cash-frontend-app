@@ -1,26 +1,26 @@
 export type LoginModuleConfigType = {
-    minLengthPassword: number;
+  minLengthPassword: number;
 };
 
 export type RegisterModuleConfigType = {
-    minLengthPassword: number;
-    minLengthName: number;
+  minLengthPassword: number;
+  minLengthName: number;
 };
 
 export type ValidateOtpModuleConfigType = {
-    otpLength: number;
-    resendCooldown: number;
+  otpLength: number;
+  resendCooldown: number;
 };
 
 export type ChangePasswordModuleConfigType = {
-    minLengthPassword: number;
+  minLengthPassword: number;
 };
 
 export type GuestConfigResponseType = {
-    modules: {
-        login: LoginModuleConfigType;
-        register: RegisterModuleConfigType;
-        validateOtp: ValidateOtpModuleConfigType;
-        changePassword: ChangePasswordModuleConfigType;
-    };
+  modules: {
+    login: LoginModuleConfigType;
+    register: RegisterModuleConfigType;
+    validateOtp: ValidateOtpModuleConfigType;
+    changePassword: ChangePasswordModuleConfigType;
+  };
 };

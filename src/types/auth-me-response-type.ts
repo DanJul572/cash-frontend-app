@@ -1,5 +1,5 @@
 export type AuthMeResponseType = {
-    id: string;
-    name: string;
-    email: string;
+  id: string;
+  name: string;
+  email: string;
 };

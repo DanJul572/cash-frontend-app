@@ -8,23 +8,23 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { usePasswordFieldComponentHook } from '../hooks';
 
 export default function PasswordFieldComponent(props: TextFieldProps) {
-    const { showPassword, setShowPassword } = usePasswordFieldComponentHook();
+  const { showPassword, setShowPassword } = usePasswordFieldComponentHook();
 
-    return (
-        <TextField
-            {...props}
-            type={showPassword ? 'text' : 'password'}
-            slotProps={{
-                input: {
-                    endAdornment: (
-                        <InputAdornment position="end">
-                            <IconButton onClick={() => setShowPassword((prev) => !prev)} edge="end">
-                                {showPassword ? <VisibilityOff /> : <Visibility />}
-                            </IconButton>
-                        </InputAdornment>
-                    ),
-                },
-            }}
-        />
-    );
+  return (
+    <TextField
+      {...props}
+      type={showPassword ? 'text' : 'password'}
+      slotProps={{
+        input: {
+          endAdornment: (
+            <InputAdornment position="end">
+              <IconButton onClick={() => setShowPassword((prev) => !prev)} edge="end">
+                {showPassword ? <VisibilityOff /> : <Visibility />}
+              </IconButton>
+            </InputAdornment>
+          ),
+        },
+      }}
+    />
+  );
 }

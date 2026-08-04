@@ -9,34 +9,34 @@ import { countdownResendComponentStyle } from '../styles';
 import type { CountdownResendComponentPropsType } from '../types';
 
 export default function CountdownResendComponent({
-    onResend,
-    isPending,
+  onResend,
+  isPending,
 }: CountdownResendComponentPropsType) {
-    const { t } = useTranslation('validateOtp');
-    const { secondsRemaining, isDisabled, resetCountdown } = useCountdownResendComponentHook();
+  const { t } = useTranslation('validateOtp');
+  const { secondsRemaining, isDisabled, resetCountdown } = useCountdownResendComponentHook();
 
-    const handleResend = () => {
-        onResend();
-        resetCountdown();
-    };
+  const handleResend = () => {
+    onResend();
+    resetCountdown();
+  };
 
-    return (
-        <Box sx={countdownResendComponentStyle.containerStyle}>
-            {isDisabled ? (
-                <Typography variant="body2" color="text.secondary">
-                    {t('resendIn', { seconds: secondsRemaining })}
-                </Typography>
-            ) : (
-                <Button
-                    variant="text"
-                    size="small"
-                    onClick={handleResend}
-                    disabled={isPending}
-                    loading={isPending}
-                >
-                    {t('resendOtp')}
-                </Button>
-            )}
-        </Box>
-    );
+  return (
+    <Box sx={countdownResendComponentStyle.containerStyle}>
+      {isDisabled ? (
+        <Typography variant="body2" color="text.secondary">
+          {t('resendIn', { seconds: secondsRemaining })}
+        </Typography>
+      ) : (
+        <Button
+          variant="text"
+          size="small"
+          onClick={handleResend}
+          disabled={isPending}
+          loading={isPending}
+        >
+          {t('resendOtp')}
+        </Button>
+      )}
+    </Box>
+  );
 }

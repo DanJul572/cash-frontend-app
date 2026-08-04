@@ -11,60 +11,48 @@ import { changePasswordFormComponentStyle } from '../styles';
 import type { ChangePasswordFormType } from '../types';
 
 export default function ChangePasswordFormComponent({
-    control,
-    isPending,
+  control,
+  isPending,
 }: {
-    control: Control<ChangePasswordFormType>;
-    isPending: boolean;
+  control: Control<ChangePasswordFormType>;
+  isPending: boolean;
 }) {
-    const { t } = useTranslation('changePassword');
-    const config = useGuestConfig();
+  const { t } = useTranslation('changePassword');
+  const config = useGuestConfig();
 
-    return (
-        <Card sx={changePasswordFormComponentStyle.cardStyle}>
-            <Controller
-                name="newPassword"
-                control={control}
-                render={({ field, fieldState }) => (
-                    <PasswordFieldComponent
-                        {...field}
-                        label={t('form.newPasswordField.label')}
-                        variant="outlined"
-                        fullWidth
-                        error={!!fieldState.error}
-                        helperText={t(
-                            fieldState.error?.message || '',
-                            config.modules.changePassword,
-                        )}
-                    />
-                )}
-            />
-            <Controller
-                name="confirmNewPassword"
-                control={control}
-                render={({ field, fieldState }) => (
-                    <PasswordFieldComponent
-                        {...field}
-                        label={t('form.confirmNewPasswordField.label')}
-                        variant="outlined"
-                        fullWidth
-                        error={!!fieldState.error}
-                        helperText={t(
-                            fieldState.error?.message || '',
-                            config.modules.changePassword,
-                        )}
-                    />
-                )}
-            />
-            <Button
-                variant="contained"
-                fullWidth
-                type="submit"
-                disabled={isPending}
-                loading={isPending}
-            >
-                {t('form.submitButton.label')}
-            </Button>
-        </Card>
-    );
+  return (
+    <Card sx={changePasswordFormComponentStyle.cardStyle}>
+      <Controller
+        name="newPassword"
+        control={control}
+        render={({ field, fieldState }) => (
+          <PasswordFieldComponent
+            {...field}
+            label={t('form.newPasswordField.label')}
+            variant="outlined"
+            fullWidth
+            error={!!fieldState.error}
+            helperText={t(fieldState.error?.message || '', config.modules.changePassword)}
+          />
+        )}
+      />
+      <Controller
+        name="confirmNewPassword"
+        control={control}
+        render={({ field, fieldState }) => (
+          <PasswordFieldComponent
+            {...field}
+            label={t('form.confirmNewPasswordField.label')}
+            variant="outlined"
+            fullWidth
+            error={!!fieldState.error}
+            helperText={t(fieldState.error?.message || '', config.modules.changePassword)}
+          />
+        )}
+      />
+      <Button variant="contained" fullWidth type="submit" disabled={isPending} loading={isPending}>
+        {t('form.submitButton.label')}
+      </Button>
+    </Card>
+  );
 }

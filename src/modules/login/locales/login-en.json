@@ -1,23 +1,23 @@
 {
-    "email": {
-        "label": "Email",
-        "validation": {
-            "required": "Email is required",
-            "invalidFormat": "Please enter a valid email address"
-        }
-    },
-    "password": {
-        "label": "Password",
-        "validation": {
-            "required": "Password is required",
-            "minLength": "Password must be at least {{minLengthPassword}} characters"
-        }
-    },
-    "error": {
-        "loginFailed": "Login failed. Please check your credentials and try again."
-    },
-    "login": "Login",
-    "register": "Register",
-    "forgotPassword": "Forgot Password?",
-    "dontHaveAccount": "Don't have an account?"
+  "email": {
+    "label": "Email",
+    "validation": {
+      "required": "Email is required",
+      "invalidFormat": "Please enter a valid email address"
+    }
+  },
+  "password": {
+    "label": "Password",
+    "validation": {
+      "required": "Password is required",
+      "minLength": "Password must be at least {{minLengthPassword}} characters"
+    }
+  },
+  "error": {
+    "loginFailed": "Login failed. Please check your credentials and try again."
+  },
+  "login": "Login",
+  "register": "Register",
+  "forgotPassword": "Forgot Password?",
+  "dontHaveAccount": "Don't have an account?"
 }

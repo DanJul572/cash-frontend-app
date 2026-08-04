@@ -6,14 +6,14 @@ import { changePasswordRequestMapper, changePasswordResponseMapper } from '../ma
 import type { ChangePasswordFormType, ChangePasswordResponseType } from '../types';
 
 export const changePasswordRequest = async (
-    data: ChangePasswordFormType,
-    config: ChangePasswordModuleConfigType,
+  data: ChangePasswordFormType,
+  config: ChangePasswordModuleConfigType,
 ) => {
-    const requestSchema = changePasswordRequestMapper(config);
-    const payloads = requestSchema.parse(data);
-    const response = await axiosInstance.post<ChangePasswordResponseType>(
-        ChangePasswordEndpoint.changePassword,
-        payloads,
-    );
-    return changePasswordResponseMapper.parse(response.data);
+  const requestSchema = changePasswordRequestMapper(config);
+  const payloads = requestSchema.parse(data);
+  const response = await axiosInstance.post<ChangePasswordResponseType>(
+    ChangePasswordEndpoint.changePassword,
+    payloads,
+  );
+  return changePasswordResponseMapper.parse(response.data);
 };

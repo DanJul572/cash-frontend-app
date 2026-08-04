@@ -12,32 +12,28 @@ import type { CollapsibleMenuIconComponentPropsType } from '@types';
 import CollapsedMenuPopoverComponent from './collapsible-menu-popover-component';
 
 export default function CollapsedMenuIconComponent({
-    item,
+  item,
 }: CollapsibleMenuIconComponentPropsType) {
-    const { handleClick, hasChildren, anchorEl, setAnchorEl } = useCollapsibleMenuIconComponentHook(
-        { item },
-    );
+  const { handleClick, hasChildren, anchorEl, setAnchorEl } = useCollapsibleMenuIconComponentHook({
+    item,
+  });
 
-    const Icon = hasChildren ? Folder : InsertDriveFile;
+  const Icon = hasChildren ? Folder : InsertDriveFile;
 
-    return (
-        <Box>
-            <Tooltip title={item.label} placement="right" arrow>
-                <IconButton
-                    size="small"
-                    onClick={handleClick}
-                    sx={collapsibleMenuIconStyle.buttonStyle}
-                >
-                    <Icon fontSize="small" />
-                </IconButton>
-            </Tooltip>
-            {hasChildren && (
-                <CollapsedMenuPopoverComponent
-                    items={item.children!}
-                    anchorEl={anchorEl}
-                    onClose={() => setAnchorEl(null)}
-                />
-            )}
-        </Box>
-    );
+  return (
+    <Box>
+      <Tooltip title={item.label} placement="right" arrow>
+        <IconButton size="small" onClick={handleClick} sx={collapsibleMenuIconStyle.buttonStyle}>
+          <Icon fontSize="small" />
+        </IconButton>
+      </Tooltip>
+      {hasChildren && (
+        <CollapsedMenuPopoverComponent
+          items={item.children!}
+          anchorEl={anchorEl}
+          onClose={() => setAnchorEl(null)}
+        />
+      )}
+    </Box>
+  );
 }

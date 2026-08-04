@@ -1,38 +1,38 @@
 import type { PaletteOptions } from '@mui/material';
 
 export const deepOceanTheme: PaletteOptions = {
-    mode: 'dark',
-    primary: {
-        main: '#26A69A',
-        dark: '#00796B',
-        light: '#80CBC4',
-    },
-    secondary: {
-        main: '#FF5722',
-        dark: '#E64A19',
-        light: '#FF8A65',
-    },
-    info: {
-        main: '#2A6F97',
-        dark: '#1E4D6B',
-        light: '#7EC8E3',
-    },
-    warning: {
-        main: '#A67C3A',
-        dark: '#7A5C1E',
-        light: '#E6B566',
-    },
-    error: {
-        main: '#A83D46',
-        dark: '#7A2E35',
-        light: '#E89099',
-    },
-    background: {
-        default: '#0A1628',
-        paper: '#102035',
-    },
-    text: {
-        primary: '#ECEFF1',
-        secondary: '#90A4AE',
-    },
+  mode: 'dark',
+  primary: {
+    main: '#26A69A',
+    dark: '#00796B',
+    light: '#80CBC4',
+  },
+  secondary: {
+    main: '#FF5722',
+    dark: '#E64A19',
+    light: '#FF8A65',
+  },
+  info: {
+    main: '#2A6F97',
+    dark: '#1E4D6B',
+    light: '#7EC8E3',
+  },
+  warning: {
+    main: '#A67C3A',
+    dark: '#7A5C1E',
+    light: '#E6B566',
+  },
+  error: {
+    main: '#A83D46',
+    dark: '#7A2E35',
+    light: '#E89099',
+  },
+  background: {
+    default: '#0A1628',
+    paper: '#102035',
+  },
+  text: {
+    primary: '#ECEFF1',
+    secondary: '#90A4AE',
+  },
 };

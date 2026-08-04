@@ -10,28 +10,28 @@ import { collapsibleMenuItemButtonComponentStyle } from '@styles';
 import type { CollapsibleMenuItemButtonComponentPropsType } from '@types';
 
 export default function CollapsibleMenuItemButtonComponent({
-    handleClick,
-    hasChildren,
-    item,
+  handleClick,
+  hasChildren,
+  item,
 }: CollapsibleMenuItemButtonComponentPropsType) {
-    const Icon = hasChildren ? Folder : InsertDriveFile;
+  const Icon = hasChildren ? Folder : InsertDriveFile;
 
-    return (
-        <ListItemButton
-            onClick={handleClick}
-            dense
-            sx={collapsibleMenuItemButtonComponentStyle.listItemButtonStyle}
-        >
-            <ListItemIcon sx={collapsibleMenuItemButtonComponentStyle.listItemButtonStyle}>
-                <Icon fontSize="small" sx={collapsibleMenuItemButtonComponentStyle.iconStyle} />
-            </ListItemIcon>
-            <ListItemText primary={item.label} />
-            {hasChildren && (
-                <ChevronRight
-                    fontSize="small"
-                    sx={collapsibleMenuItemButtonComponentStyle.chevronRightStyle}
-                />
-            )}
-        </ListItemButton>
-    );
+  return (
+    <ListItemButton
+      onClick={handleClick}
+      dense
+      sx={collapsibleMenuItemButtonComponentStyle.listItemButtonStyle}
+    >
+      <ListItemIcon sx={collapsibleMenuItemButtonComponentStyle.listItemButtonStyle}>
+        <Icon fontSize="small" sx={collapsibleMenuItemButtonComponentStyle.iconStyle} />
+      </ListItemIcon>
+      <ListItemText primary={item.label} />
+      {hasChildren && (
+        <ChevronRight
+          fontSize="small"
+          sx={collapsibleMenuItemButtonComponentStyle.chevronRightStyle}
+        />
+      )}
+    </ListItemButton>
+  );
 }

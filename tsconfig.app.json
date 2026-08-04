@@ -1,62 +1,62 @@
 {
-    "compilerOptions": {
-        "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-        "target": "es2023",
-        "lib": ["ES2023", "DOM"],
-        "module": "esnext",
-        "types": ["vite/client", "vitest/globals"],
-        "skipLibCheck": true,
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "target": "es2023",
+    "lib": ["ES2023", "DOM"],
+    "module": "esnext",
+    "types": ["vite/client", "vitest/globals"],
+    "skipLibCheck": true,
 
-        /* Bundler mode */
-        "moduleResolution": "bundler",
-        "allowImportingTsExtensions": true,
-        "verbatimModuleSyntax": true,
-        "moduleDetection": "force",
-        "noEmit": true,
-        "jsx": "react-jsx",
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
 
-        /* Linting */
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "erasableSyntaxOnly": true,
-        "noFallthroughCasesInSwitch": true,
+    /* Linting */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true,
 
-        "declaration": true,
-        "declarationDir": "dist/types",
-        "emitDeclarationOnly": false,
-        "outDir": "dist",
+    "declaration": true,
+    "declarationDir": "dist/types",
+    "emitDeclarationOnly": false,
+    "outDir": "dist",
 
-        "paths": {
-            "@*": ["./src/*"],
-            "@assets/*": ["./src/assets/*"],
-            "@components/*": ["./src/components/*"],
-            "@configs/*": ["./src/configs/*"],
-            "@constants/*": ["./src/constants/*"],
-            "@contexts/*": ["./src/contexts/*"],
-            "@endpoints/*": ["./src/endpoints/*"],
-            "@hooks/*": ["./src/hooks/*"],
-            "@instances/*": ["./src/instances/*"],
-            "@layouts/*": ["./src/layouts/*"],
-            "@locales/*": ["./src/locales/*"],
-            "@mappers/*": ["./src/mappers/*"],
-            "@mocks/*": ["./src/mocks/*"],
-            "@modules/*": ["./src/modules/*"],
-            "@queries/*": ["./src/queries/*"],
-            "@requests/*": ["./src/requests/*"],
-            "@schemas/*": ["./src/schemas/*"],
-            "@styles/*": ["./src/styles/*"],
-            "@themes/*": ["./src/themes/*"],
-            "@types/*": ["./src/types/*"],
-            "@utils/*": ["./src/utils/*"]
-        }
-    },
-    "include": ["src"],
-    "exclude": [
-        "**/*.test.ts",
-        "**/*.test.tsx",
-        "src/__mocks__/*",
-        "src/__tests__/*",
-        "src/router.tsx",
-        "src/routeTree.gen.ts"
-    ]
+    "paths": {
+      "@*": ["./src/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@components/*": ["./src/components/*"],
+      "@configs/*": ["./src/configs/*"],
+      "@constants/*": ["./src/constants/*"],
+      "@contexts/*": ["./src/contexts/*"],
+      "@endpoints/*": ["./src/endpoints/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@instances/*": ["./src/instances/*"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@locales/*": ["./src/locales/*"],
+      "@mappers/*": ["./src/mappers/*"],
+      "@mocks/*": ["./src/mocks/*"],
+      "@modules/*": ["./src/modules/*"],
+      "@queries/*": ["./src/queries/*"],
+      "@requests/*": ["./src/requests/*"],
+      "@schemas/*": ["./src/schemas/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@themes/*": ["./src/themes/*"],
+      "@types/*": ["./src/types/*"],
+      "@utils/*": ["./src/utils/*"]
+    }
+  },
+  "include": ["src"],
+  "exclude": [
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "src/__mocks__/*",
+    "src/__tests__/*",
+    "src/router.tsx",
+    "src/routeTree.gen.ts"
+  ]
 }

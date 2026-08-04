@@ -5,17 +5,17 @@ import type { AuthenticatedConfigResponseType } from '@types';
 import { AuthenticatedConfigContext } from './autenticated-config-context';
 
 type AuthenticatedConfigProviderPropsType = {
-    config: AuthenticatedConfigResponseType;
-    children: ReactNode;
+  config: AuthenticatedConfigResponseType;
+  children: ReactNode;
 };
 
 export function AuthenticatedConfigProvider({
-    config,
-    children,
+  config,
+  children,
 }: AuthenticatedConfigProviderPropsType) {
-    return (
-        <AuthenticatedConfigContext.Provider value={config}>
-            {children}
-        </AuthenticatedConfigContext.Provider>
-    );
+  return (
+    <AuthenticatedConfigContext.Provider value={config}>
+      {children}
+    </AuthenticatedConfigContext.Provider>
+  );
 }

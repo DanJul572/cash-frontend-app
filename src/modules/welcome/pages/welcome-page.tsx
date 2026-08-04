@@ -7,12 +7,12 @@ import { appNameAsTitle } from '@utils';
 import { welcomePageStyle } from '../styles';
 
 export default function WelcomePage() {
-    const theme = useTheme();
-    console.log(theme.palette.primary.main);
-    return (
-        <Box sx={welcomePageStyle.containerStyle}>
-            <Typography variant="h3">{appNameAsTitle}</Typography>
-            <Divider sx={welcomePageStyle.dividerStyle} />
-        </Box>
-    );
+  const theme = useTheme();
+  console.log(theme.palette.primary.main);
+  return (
+    <Box sx={welcomePageStyle.containerStyle}>
+      <Typography variant="h3">{appNameAsTitle}</Typography>
+      <Divider sx={welcomePageStyle.dividerStyle} />
+    </Box>
+  );
 }

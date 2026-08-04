@@ -6,12 +6,12 @@ import { changePasswordRequest } from '../requests';
 import type { ChangePasswordFormType, ChangePasswordMutationOptionsType } from '../types';
 
 export const useChangePasswordMutation = (
-    options: ChangePasswordMutationOptionsType,
-    config: ChangePasswordModuleConfigType,
+  options: ChangePasswordMutationOptionsType,
+  config: ChangePasswordModuleConfigType,
 ) => {
-    return useMutation({
-        mutationKey: ['postChangePassword'],
-        mutationFn: (data: ChangePasswordFormType) => changePasswordRequest(data, config),
-        ...options,
-    });
+  return useMutation({
+    mutationKey: ['postChangePassword'],
+    mutationFn: (data: ChangePasswordFormType) => changePasswordRequest(data, config),
+    ...options,
+  });
 };

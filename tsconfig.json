@@ -1,31 +1,31 @@
 {
-    "files": [],
-    "compilerOptions": {
-        "ignoreDeprecations": "6.0",
-        "baseUrl": ".",
-        "paths": {
-            "@*": ["./src/*"],
-            "@assets/*": ["./src/assets/*"],
-            "@components/*": ["./src/components/*"],
-            "@configs/*": ["./src/configs/*"],
-            "@constants/*": ["./src/constants/*"],
-            "@contexts/*": ["./src/contexts/*"],
-            "@endpoints/*": ["./src/endpoints/*"],
-            "@hooks/*": ["./src/hooks/*"],
-            "@instances/*": ["./src/instances/*"],
-            "@layouts/*": ["./src/layouts/*"],
-            "@locales/*": ["./src/locales/*"],
-            "@mappers/*": ["./src/mappers/*"],
-            "@mocks/*": ["./src/mocks/*"],
-            "@modules/*": ["./src/modules/*"],
-            "@queries/*": ["./src/queries/*"],
-            "@requests/*": ["./src/requests/*"],
-            "@schemas/*": ["./src/schemas/*"],
-            "@styles/*": ["./src/styles/*"],
-            "@themes/*": ["./src/themes/*"],
-            "@types/*": ["./src/types/*"],
-            "@utils/*": ["./src/utils/*"]
-        }
-    },
-    "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }]
+  "files": [],
+  "compilerOptions": {
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
+    "paths": {
+      "@*": ["./src/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@components/*": ["./src/components/*"],
+      "@configs/*": ["./src/configs/*"],
+      "@constants/*": ["./src/constants/*"],
+      "@contexts/*": ["./src/contexts/*"],
+      "@endpoints/*": ["./src/endpoints/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@instances/*": ["./src/instances/*"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@locales/*": ["./src/locales/*"],
+      "@mappers/*": ["./src/mappers/*"],
+      "@mocks/*": ["./src/mocks/*"],
+      "@modules/*": ["./src/modules/*"],
+      "@queries/*": ["./src/queries/*"],
+      "@requests/*": ["./src/requests/*"],
+      "@schemas/*": ["./src/schemas/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@themes/*": ["./src/themes/*"],
+      "@types/*": ["./src/types/*"],
+      "@utils/*": ["./src/utils/*"]
+    }
+  },
+  "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }]
 }

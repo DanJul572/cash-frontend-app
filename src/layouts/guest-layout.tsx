@@ -9,24 +9,24 @@ import { GuestConfigProvider } from '@contexts';
 import { useGuestConfigQuery } from '@queries';
 
 export default function GuestLayout() {
-    const navigate = useNavigate();
-    const { data: config, error, isPending } = useGuestConfigQuery();
+  const navigate = useNavigate();
+  const { data: config, error, isPending } = useGuestConfigQuery();
 
-    useEffect(() => {
-        if (!isPending && (error || !config)) {
-            navigate({ to: '/500' });
-        }
-    }, [error, config, isPending, navigate]);
+  useEffect(() => {
+    if (!isPending && (error || !config)) {
+      navigate({ to: '/500' });
+    }
+  }, [error, config, isPending, navigate]);
 
-    if (isPending) return <PageLoaderComponent />;
+  if (isPending) return <PageLoaderComponent />;
 
-    if (!config) return null;
+  if (!config) return null;
 
-    return (
-        <GuestConfigProvider config={config}>
-            <Box>
-                <Outlet />
-            </Box>
-        </GuestConfigProvider>
-    );
+  return (
+    <GuestConfigProvider config={config}>
+      <Box>
+        <Outlet />
+      </Box>
+    </GuestConfigProvider>
+  );
 }

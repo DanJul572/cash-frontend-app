@@ -1,4 +1,4 @@
 export type CountdownResendComponentPropsType = {
-    onResend: () => void;
-    isPending: boolean;
+  onResend: () => void;
+  isPending: boolean;
 };

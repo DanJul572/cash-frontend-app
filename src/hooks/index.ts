@@ -5,9 +5,9 @@ import useTitleHook from './use-title-hook';
 import useTopbarComponentHook from './use-topbar-component-hook';
 
 export {
-    useCollapsibleMenuIconComponentHook,
-    usePasswordFieldComponentHook,
-    useCollapsibleMenuItemComponentHook,
-    useTitleHook,
-    useTopbarComponentHook,
+  useCollapsibleMenuIconComponentHook,
+  usePasswordFieldComponentHook,
+  useCollapsibleMenuItemComponentHook,
+  useTitleHook,
+  useTopbarComponentHook,
 };

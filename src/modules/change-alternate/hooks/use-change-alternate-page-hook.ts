@@ -5,28 +5,28 @@ import { useSetUserMutation } from '../mutations';
 import { useGetUserQuery } from '../queries';
 
 export default function useChangeAlternatePageHook() {
-    const navigate = useNavigate();
-    const queryClient = useQueryClient();
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
 
-    const { data: users, isLoading, error } = useGetUserQuery();
+  const { data: users, isLoading, error } = useGetUserQuery();
 
-    const mutation = useSetUserMutation({
-        onSuccess: () => {
-            queryClient.invalidateQueries({ queryKey: ['auth', 'me'] });
-            navigate({ to: '/dashboard' });
-        },
-        onError: () => {},
-    });
+  const mutation = useSetUserMutation({
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['auth', 'me'] });
+      navigate({ to: '/dashboard' });
+    },
+    onError: () => {},
+  });
 
-    const handleUserClick = (userId: string) => {
-        mutation.mutate(userId);
-    };
+  const handleUserClick = (userId: string) => {
+    mutation.mutate(userId);
+  };
 
-    return {
-        users,
-        isLoading,
-        error,
-        mutation,
-        handleUserClick,
-    };
+  return {
+    users,
+    isLoading,
+    error,
+    mutation,
+    handleUserClick,
+  };
 }

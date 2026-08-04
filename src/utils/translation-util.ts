@@ -19,36 +19,36 @@ import validateOtpEN from '@modules/validate-otp/locales/validate-otp-en.json';
 import validateOtpID from '@modules/validate-otp/locales/validate-otp-id.json';
 
 export const initTranslation = () => {
-    if (!i18n.isInitialized) {
-        i18n.use(initReactI18next).init({
-            resources: {
-                en: {
-                    changeAlternate: changeAlternateEN,
-                    changePassword: changePasswordEN,
-                    common: commonEN,
-                    forgotPassword: forgotPasswordEN,
-                    login: loginEN,
-                    register: registerEN,
-                    validateOtp: validateOtpEN,
-                },
-                id: {
-                    changeAlternate: changeAlternateID,
-                    changePassword: changePasswordID,
-                    common: commonID,
-                    forgotPassword: forgotPasswordID,
-                    login: loginID,
-                    register: registerID,
-                    validateOtp: validateOtpID,
-                },
-            },
-            lng: languageConfig.lng,
-            fallbackLng: languageConfig.fallbackLng,
-            ns: ['login', 'register', 'validateOtp', 'common'],
-            defaultNS: 'common',
-            interpolation: {
-                escapeValue: false,
-            },
-        });
-    }
-    return i18n;
+  if (!i18n.isInitialized) {
+    i18n.use(initReactI18next).init({
+      resources: {
+        en: {
+          changeAlternate: changeAlternateEN,
+          changePassword: changePasswordEN,
+          common: commonEN,
+          forgotPassword: forgotPasswordEN,
+          login: loginEN,
+          register: registerEN,
+          validateOtp: validateOtpEN,
+        },
+        id: {
+          changeAlternate: changeAlternateID,
+          changePassword: changePasswordID,
+          common: commonID,
+          forgotPassword: forgotPasswordID,
+          login: loginID,
+          register: registerID,
+          validateOtp: validateOtpID,
+        },
+      },
+      lng: languageConfig.lng,
+      fallbackLng: languageConfig.fallbackLng,
+      ns: ['login', 'register', 'validateOtp', 'common'],
+      defaultNS: 'common',
+      interpolation: {
+        escapeValue: false,
+      },
+    });
+  }
+  return i18n;
 };

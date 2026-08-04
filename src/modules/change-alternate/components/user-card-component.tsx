@@ -8,25 +8,25 @@ import type { UserCardComponentPropsType } from '../types';
 import { getInitialName } from '../utils';
 
 export default function UserCardComponent({
-    user,
-    onClick,
-    isLoading,
+  user,
+  onClick,
+  isLoading,
 }: UserCardComponentPropsType) {
-    return (
-        <Card sx={userCardComponentStyle.cardStyle} onClick={() => onClick(user.id)}>
-            <CardContent sx={userCardComponentStyle.cardContentStyle}>
-                <Avatar src={user.photoUrl || undefined} sx={userCardComponentStyle.avatarStyle}>
-                    {!user.photoUrl && getInitialName(user.name)}
-                </Avatar>
-                <Button
-                    variant="outlined"
-                    fullWidth
-                    disabled={isLoading}
-                    sx={userCardComponentStyle.buttonStyle}
-                >
-                    {user.name}
-                </Button>
-            </CardContent>
-        </Card>
-    );
+  return (
+    <Card sx={userCardComponentStyle.cardStyle} onClick={() => onClick(user.id)}>
+      <CardContent sx={userCardComponentStyle.cardContentStyle}>
+        <Avatar src={user.photoUrl || undefined} sx={userCardComponentStyle.avatarStyle}>
+          {!user.photoUrl && getInitialName(user.name)}
+        </Avatar>
+        <Button
+          variant="outlined"
+          fullWidth
+          disabled={isLoading}
+          sx={userCardComponentStyle.buttonStyle}
+        >
+          {user.name}
+        </Button>
+      </CardContent>
+    </Card>
+  );
 }

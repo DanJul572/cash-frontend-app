@@ -24,18 +24,18 @@ setRouter(router);
 showAppVersionInConsole();
 
 enableMocking().then(() => {
-    createRoot(document.getElementById('root')!).render(
-        <StrictMode>
-            <QueryClientProvider client={queryClientInstance}>
-                <ThemeProvider theme={themeConfig}>
-                    <CssBaseline />
-                    <RouterProvider
-                        router={router}
-                        context={{ queryClient: queryClientInstance }}
-                        defaultPendingComponent={PageLoaderComponent}
-                    />
-                </ThemeProvider>
-            </QueryClientProvider>
-        </StrictMode>,
-    );
+  createRoot(document.getElementById('root')!).render(
+    <StrictMode>
+      <QueryClientProvider client={queryClientInstance}>
+        <ThemeProvider theme={themeConfig}>
+          <CssBaseline />
+          <RouterProvider
+            router={router}
+            context={{ queryClient: queryClientInstance }}
+            defaultPendingComponent={PageLoaderComponent}
+          />
+        </ThemeProvider>
+      </QueryClientProvider>
+    </StrictMode>,
+  );
 });

@@ -12,46 +12,46 @@ import { useAuthenticatedConfigQuery } from '@queries';
 import { mainLayoutStyle } from '@styles';
 
 function MainLayoutInner() {
-    const { isCollapsed } = useSidebarContext();
+  const { isCollapsed } = useSidebarContext();
 
-    return (
-        <Box>
-            <TopbarComponent />
-            <Box sx={mainLayoutStyle.containerStyle}>
-                <TreeMenuComponent />
-                <Box
-                    sx={{
-                        ...mainLayoutStyle.contentStyle,
-                        left: isCollapsed ? 72 : 350,
-                    }}
-                >
-                    <Outlet />
-                </Box>
-            </Box>
+  return (
+    <Box>
+      <TopbarComponent />
+      <Box sx={mainLayoutStyle.containerStyle}>
+        <TreeMenuComponent />
+        <Box
+          sx={{
+            ...mainLayoutStyle.contentStyle,
+            left: isCollapsed ? 72 : 350,
+          }}
+        >
+          <Outlet />
         </Box>
-    );
+      </Box>
+    </Box>
+  );
 }
 
 export default function MainLayout() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const { data: config, error, isPending } = useAuthenticatedConfigQuery();
+  const { data: config, error, isPending } = useAuthenticatedConfigQuery();
 
-    useEffect(() => {
-        if (!isPending && (error || !config)) {
-            navigate({ to: '/500' });
-        }
-    }, [error, config, isPending, navigate]);
+  useEffect(() => {
+    if (!isPending && (error || !config)) {
+      navigate({ to: '/500' });
+    }
+  }, [error, config, isPending, navigate]);
 
-    if (isPending) return <PageLoaderComponent />;
+  if (isPending) return <PageLoaderComponent />;
 
-    if (!config) return null;
+  if (!config) return null;
 
-    return (
-        <AuthenticatedConfigProvider config={config}>
-            <SidebarProvider>
-                <MainLayoutInner />
-            </SidebarProvider>
-        </AuthenticatedConfigProvider>
-    );
+  return (
+    <AuthenticatedConfigProvider config={config}>
+      <SidebarProvider>
+        <MainLayoutInner />
+      </SidebarProvider>
+    </AuthenticatedConfigProvider>
+  );
 }
