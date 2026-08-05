@@ -15,6 +15,7 @@ import type { AlertType, ChangePasswordFormType } from '../types';
 
 export default function useChangePasswordPageHook() {
   const { token } = useSearch({ from: '/_guest/change-password' });
+
   const config = useGuestConfig();
   const changePasswordConfig = config.modules.changePassword;
 
@@ -26,10 +27,18 @@ export default function useChangePasswordPageHook() {
   } = useValidatePasswordTokenQuery(token);
 
   const validationAlert = useMemo<AlertType | null>(() => {
-    if (!token) return { type: 'error', message: 'Token is required' };
-    if (isValidationError) return { type: 'error', message: getErrorMessage(validationError) };
-    if (validationData && !validationData.tokenIsValid)
+    if (!token) {
+      return { type: 'error', message: 'Token is required' };
+    }
+
+    if (isValidationError) {
+      return { type: 'error', message: getErrorMessage(validationError) };
+    }
+
+    if (validationData && !validationData.tokenIsValid) {
       return { type: 'error', message: 'Token is invalid' };
+    }
+
     return null;
   }, [token, isValidationError, validationError, validationData]);
 
