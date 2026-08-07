@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 
 import { Outlet, useNavigate } from '@tanstack/react-router';
 
-import { PageLoaderComponent } from '@components';
+import { ConfigNotFoundComponent, PageLoaderComponent } from '@components';
 import { GuestConfigProvider } from '@contexts';
 import { useGuestConfigQuery } from '@queries';
 
@@ -13,14 +13,14 @@ export default function GuestLayout() {
   const { data: config, error, isPending } = useGuestConfigQuery();
 
   useEffect(() => {
-    if (!isPending && (error || !config)) {
+    if (!isPending && error) {
       navigate({ to: '/500' });
     }
-  }, [error, config, isPending, navigate]);
+  }, [error, isPending, navigate]);
 
   if (isPending) return <PageLoaderComponent />;
 
-  if (!config) return null;
+  if (!config) return <ConfigNotFoundComponent />;
 
   return (
     <GuestConfigProvider config={config}>

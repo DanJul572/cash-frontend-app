@@ -2,6 +2,7 @@ import CollapsibleMenuIconComponent from './collapsible-menu-icon-component';
 import CollapsibleMenuItemButtonComponent from './collapsible-menu-item-button-component';
 import CollapsibleMenuItemComponent from './collapsible-menu-item-component';
 import CollapsibleMenuPopoverComponent from './collapsible-menu-popover-component';
+import ConfigNotFoundComponent from './config-not-found-component';
 import PageLoaderComponent from './page-loader-component';
 import PasswordFieldComponent from './password-field-component';
 import TopbarComponent from './topbar-component';
@@ -13,6 +14,7 @@ export {
   CollapsibleMenuItemButtonComponent,
   CollapsibleMenuItemComponent,
   CollapsibleMenuPopoverComponent,
+  ConfigNotFoundComponent,
   PageLoaderComponent,
   PasswordFieldComponent,
   TopbarComponent,

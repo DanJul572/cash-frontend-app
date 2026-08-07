@@ -2,6 +2,7 @@ export * from './collapsible-menu-icon-component-style';
 export * from './collapsible-menu-item-button-component-style';
 export * from './collapsible-menu-item-component-style';
 export * from './collapsible-menu-popover-component-style';
+export * from './config-not-found-component-style';
 export * from './main-layout-style';
 export * from './page-loader-component-style';
 export * from './topbar-component-style';
