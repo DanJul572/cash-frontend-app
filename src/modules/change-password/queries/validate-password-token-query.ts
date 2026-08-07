@@ -4,7 +4,7 @@ import { validatePasswordTokenRequest } from '../requests';
 
 export const useValidatePasswordTokenQuery = (token?: string) => {
   return useQuery({
-    queryKey: ['changePassword', 'validateToken', token],
+    queryKey: ['change-password', 'validate-token', token],
     queryFn: () => validatePasswordTokenRequest(token!),
     enabled: !!token,
   });

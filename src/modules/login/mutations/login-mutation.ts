@@ -10,7 +10,7 @@ export const usePostLoginMutation = (
   options: PostLoginMutationOptionsType,
 ) => {
   return useMutation({
-    mutationKey: ['postLogin'],
+    mutationKey: ['login'],
     mutationFn: (data: LoginFormType) => postLoginRequest(data, config),
     ...options,
   });

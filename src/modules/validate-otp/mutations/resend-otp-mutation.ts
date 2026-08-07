@@ -5,7 +5,7 @@ import type { PostResendOtpMutationOptionsType } from '../types';
 
 export const usePostResendOtpMutation = (options: PostResendOtpMutationOptionsType) => {
   return useMutation({
-    mutationKey: ['postResendOtp'],
+    mutationKey: ['validate-otp', 'resend-otp'],
     mutationFn: () => postResendOtpRequest(),
     ...options,
   });

@@ -10,7 +10,7 @@ export const usePostRegisterMutation = (
   options: PostRegisterMutationOptionsType,
 ) => {
   return useMutation({
-    mutationKey: ['postRegister'],
+    mutationKey: ['register'],
     mutationFn: (data: RegisterFormType) => postRegisterRequest(data, config),
     ...options,
   });

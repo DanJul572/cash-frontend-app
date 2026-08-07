@@ -4,7 +4,7 @@ import { getUserRequest } from '../requests';
 
 export const useGetUserQuery = () => {
   return useQuery({
-    queryKey: ['auth', 'alternates'],
+    queryKey: ['change-alternate', 'get-user'],
     queryFn: getUserRequest,
   });
 };

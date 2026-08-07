@@ -5,7 +5,7 @@ import type { ForgotPasswordFormType, PostForgotPasswordMutationOptionsType } fr
 
 export const usePostForgotPasswordMutation = (options: PostForgotPasswordMutationOptionsType) => {
   return useMutation({
-    mutationKey: ['postForgotPassword'],
+    mutationKey: ['forgot-password', 'post-forgot-password'],
     mutationFn: (data: ForgotPasswordFormType) => postForgotPasswordRequest(data),
     ...options,
   });

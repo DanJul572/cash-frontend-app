@@ -10,7 +10,7 @@ export const usePostValidateOtpMutation = (
   options: PostValidateOtpMutationOptionsType,
 ) => {
   return useMutation({
-    mutationKey: ['postValidateOtp'],
+    mutationKey: ['validate-otp'],
     mutationFn: (data: ValidateOtpFormType) => postValidateOtpRequest(data, config),
     ...options,
   });
