@@ -9,7 +9,7 @@ import { useGuestConfig } from '@contexts';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { getErrorMessage } from '@utils';
 
-import { usePostLoginMutation } from '../mutations';
+import { useLoginMutation } from '../mutations';
 import { loginFormSchema } from '../schemas';
 import type { ALertType, LoginFormType } from '../types';
 
@@ -36,7 +36,7 @@ export default function useLoginPageHook() {
 
   const [alert, setAlert] = useState<ALertType | null>(null);
 
-  const mutation = usePostLoginMutation(loginConfig, {
+  const mutation = useLoginMutation(loginConfig, {
     onSuccess: (_data) => {
       queryClient.invalidateQueries({ queryKey: ['auth', 'me'] });
       navigate({ to: '/dashboard' });

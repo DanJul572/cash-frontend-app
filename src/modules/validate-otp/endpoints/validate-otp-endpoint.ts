@@ -1,4 +1,4 @@
 export const ValidateOtpEndpoint = {
-  postValidateOtp: `/validate-otp`,
-  postResendOtp: `/resend-otp`,
+  validateOtp: `/validate-otp`,
+  resendOtp: `/resend-otp`,
 };

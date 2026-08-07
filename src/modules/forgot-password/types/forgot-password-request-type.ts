@@ -9,7 +9,7 @@ import type { ForgotPasswordFormType } from './forgot-password-form-type';
 export type ForgotPasswordResponseType = z.input<typeof forgotPasswordResponseSchema>;
 export type ForgotPasswordResponseMappedType = z.output<typeof forgotPasswordResponseMapper>;
 
-export type PostForgotPasswordMutationOptionsType = MutateOptions<
+export type ForgotPasswordMutationOptionsType = MutateOptions<
   ForgotPasswordResponseMappedType,
   Error,
   ForgotPasswordFormType

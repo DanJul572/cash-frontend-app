@@ -9,8 +9,4 @@ import type { LoginFormType } from './login-form-type';
 export type LoginResponseType = z.input<typeof loginResponseSchema>;
 export type LoginResponseMappedType = z.output<typeof loginResponseMapper>;
 
-export type PostLoginMutationOptionsType = MutateOptions<
-  LoginResponseMappedType,
-  Error,
-  LoginFormType
->;
+export type LoginMutationOptionsType = MutateOptions<LoginResponseMappedType, Error, LoginFormType>;

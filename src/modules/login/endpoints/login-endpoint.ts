@@ -1,3 +1,3 @@
 export const LoginEndpoint = {
-  postLogin: `/login`,
+  login: `/login`,
 };

@@ -1,12 +1,12 @@
 import { useMutation } from '@tanstack/react-query';
 
-import { postResendOtpRequest } from '../requests';
-import type { PostResendOtpMutationOptionsType } from '../types';
+import { resendOtpRequest } from '../requests';
+import type { ResendOtpMutationOptionsType } from '../types';
 
-export const usePostResendOtpMutation = (options: PostResendOtpMutationOptionsType) => {
+export const useResendOtpMutation = (options: ResendOtpMutationOptionsType) => {
   return useMutation({
     mutationKey: ['validate-otp', 'resend-otp'],
-    mutationFn: () => postResendOtpRequest(),
+    mutationFn: () => resendOtpRequest(),
     ...options,
   });
 };

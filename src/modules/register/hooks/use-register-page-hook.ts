@@ -6,7 +6,7 @@ import { useGuestConfig } from '@contexts';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { getErrorMessage } from '@utils';
 
-import { usePostRegisterMutation } from '../mutations';
+import { useRegisterMutation } from '../mutations';
 import { registerFormSchema } from '../schemas';
 import type { ALertType, RegisterFormType } from '../types';
 
@@ -27,7 +27,7 @@ export default function useRegisterPageHook() {
 
   const [alert, setAlert] = useState<ALertType | null>(null);
 
-  const mutation = usePostRegisterMutation(registerConfig, {
+  const mutation = useRegisterMutation(registerConfig, {
     onSuccess: (_res) => {},
     onError: (error) => {
       setAlert({

@@ -2,16 +2,16 @@ import { useMutation } from '@tanstack/react-query';
 
 import type { ValidateOtpModuleConfigType } from '@types';
 
-import { postValidateOtpRequest } from '../requests';
-import type { PostValidateOtpMutationOptionsType, ValidateOtpFormType } from '../types';
+import { validateOtpRequest } from '../requests';
+import type { ValidateOtpMutationOptionsType, ValidateOtpFormType } from '../types';
 
-export const usePostValidateOtpMutation = (
+export const useValidateOtpMutation = (
   config: ValidateOtpModuleConfigType,
-  options: PostValidateOtpMutationOptionsType,
+  options: ValidateOtpMutationOptionsType,
 ) => {
   return useMutation({
     mutationKey: ['validate-otp'],
-    mutationFn: (data: ValidateOtpFormType) => postValidateOtpRequest(data, config),
+    mutationFn: (data: ValidateOtpFormType) => validateOtpRequest(data, config),
     ...options,
   });
 };

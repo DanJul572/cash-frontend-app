@@ -1,3 +1,3 @@
 export const ForgotPasswordEndpoint = {
-  postForgotPassword: `/forgot-password`,
+  forgotPassword: `/forgot-password`,
 };

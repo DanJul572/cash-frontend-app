@@ -2,16 +2,16 @@ import { useMutation } from '@tanstack/react-query';
 
 import type { RegisterModuleConfigType } from '@types';
 
-import { postRegisterRequest } from '../requests';
-import type { PostRegisterMutationOptionsType, RegisterFormType } from '../types';
+import { registerRequest } from '../requests';
+import type { RegisterMutationOptionsType, RegisterFormType } from '../types';
 
-export const usePostRegisterMutation = (
+export const useRegisterMutation = (
   config: RegisterModuleConfigType,
-  options: PostRegisterMutationOptionsType,
+  options: RegisterMutationOptionsType,
 ) => {
   return useMutation({
     mutationKey: ['register'],
-    mutationFn: (data: RegisterFormType) => postRegisterRequest(data, config),
+    mutationFn: (data: RegisterFormType) => registerRequest(data, config),
     ...options,
   });
 };

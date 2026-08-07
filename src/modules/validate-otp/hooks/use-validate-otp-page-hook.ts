@@ -8,7 +8,7 @@ import { useGuestConfig } from '@contexts';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { getErrorMessage } from '@utils';
 
-import { usePostResendOtpMutation, usePostValidateOtpMutation } from '../mutations';
+import { useResendOtpMutation, useValidateOtpMutation } from '../mutations';
 import { validateOtpFormSchema } from '../schemas';
 import type { ALertType, ValidateOtpFormType } from '../types';
 
@@ -28,7 +28,7 @@ export default function useValidateOtpPageHook() {
 
   const [alert, setAlert] = useState<ALertType | null>(null);
 
-  const mutation = usePostValidateOtpMutation(validateOtpConfig, {
+  const mutation = useValidateOtpMutation(validateOtpConfig, {
     onSuccess: () => {
       navigate({ to: '/login' });
     },
@@ -40,7 +40,7 @@ export default function useValidateOtpPageHook() {
     },
   });
 
-  const resendMutation = usePostResendOtpMutation({
+  const resendMutation = useResendOtpMutation({
     onSuccess: (res) => {
       setAlert({
         type: 'success',

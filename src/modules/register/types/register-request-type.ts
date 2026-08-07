@@ -9,7 +9,7 @@ import type { RegisterFormType } from './register-form-type';
 export type RegisterResponseType = z.input<typeof registerResponseSchema>;
 export type RegisterResponseMappedType = z.output<typeof registerResponseMapper>;
 
-export type PostRegisterMutationOptionsType = MutateOptions<
+export type RegisterMutationOptionsType = MutateOptions<
   RegisterResponseMappedType,
   Error,
   RegisterFormType

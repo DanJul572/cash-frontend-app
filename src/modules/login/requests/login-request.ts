@@ -5,8 +5,8 @@ import { LoginEndpoint } from '../endpoints';
 import { loginRequestMapper, loginResponseMapper } from '../mappers';
 import type { LoginFormType, LoginResponseType } from '../types';
 
-export const postLoginRequest = async (data: LoginFormType, config: LoginModuleConfigType) => {
+export const loginRequest = async (data: LoginFormType, config: LoginModuleConfigType) => {
   const payloads = loginRequestMapper(config).parse(data);
-  const response = await axiosInstance.post<LoginResponseType>(LoginEndpoint.postLogin, payloads);
+  const response = await axiosInstance.post<LoginResponseType>(LoginEndpoint.login, payloads);
   return loginResponseMapper.parse(response.data);
 };

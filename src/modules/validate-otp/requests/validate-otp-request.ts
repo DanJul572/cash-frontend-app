@@ -5,21 +5,19 @@ import { ValidateOtpEndpoint } from '../endpoints';
 import { validateOtpRequestMapper, validateOtpResponseMapper } from '../mappers';
 import type { ResendOtpResponseType, ValidateOtpFormType, ValidateOtpResponseType } from '../types';
 
-export const postValidateOtpRequest = async (
+export const validateOtpRequest = async (
   data: ValidateOtpFormType,
   config: ValidateOtpModuleConfigType,
 ) => {
   const payloads = validateOtpRequestMapper(config).parse(data);
   const response = await axiosInstance.post<ValidateOtpResponseType>(
-    ValidateOtpEndpoint.postValidateOtp,
+    ValidateOtpEndpoint.validateOtp,
     payloads,
   );
   return validateOtpResponseMapper.parse(response.data);
 };
 
-export const postResendOtpRequest = async () => {
-  const response = await axiosInstance.post<ResendOtpResponseType>(
-    ValidateOtpEndpoint.postResendOtp,
-  );
+export const resendOtpRequest = async () => {
+  const response = await axiosInstance.post<ResendOtpResponseType>(ValidateOtpEndpoint.resendOtp);
   return response.data;
 };

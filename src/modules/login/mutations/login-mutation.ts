@@ -2,16 +2,16 @@ import { useMutation } from '@tanstack/react-query';
 
 import type { LoginModuleConfigType } from '@types';
 
-import { postLoginRequest } from '../requests';
-import type { LoginFormType, PostLoginMutationOptionsType } from '../types';
+import { loginRequest } from '../requests';
+import type { LoginFormType, LoginMutationOptionsType } from '../types';
 
-export const usePostLoginMutation = (
+export const useLoginMutation = (
   config: LoginModuleConfigType,
-  options: PostLoginMutationOptionsType,
+  options: LoginMutationOptionsType,
 ) => {
   return useMutation({
     mutationKey: ['login'],
-    mutationFn: (data: LoginFormType) => postLoginRequest(data, config),
+    mutationFn: (data: LoginFormType) => loginRequest(data, config),
     ...options,
   });
 };

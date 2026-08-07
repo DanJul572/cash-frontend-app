@@ -9,7 +9,7 @@ import type { ValidateOtpFormType } from './validate-otp-form-type';
 export type ValidateOtpResponseType = z.input<typeof validateOtpResponseSchema>;
 export type ValidateOtpResponseMappedType = z.output<typeof validateOtpResponseMapper>;
 
-export type PostValidateOtpMutationOptionsType = MutateOptions<
+export type ValidateOtpMutationOptionsType = MutateOptions<
   ValidateOtpResponseMappedType,
   Error,
   ValidateOtpFormType
@@ -20,4 +20,4 @@ export type ResendOtpResponseType = {
   message: string;
 };
 
-export type PostResendOtpMutationOptionsType = MutateOptions<ResendOtpResponseType, Error, void>;
+export type ResendOtpMutationOptionsType = MutateOptions<ResendOtpResponseType, Error, void>;

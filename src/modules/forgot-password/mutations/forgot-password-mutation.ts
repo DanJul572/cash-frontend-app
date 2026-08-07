@@ -1,12 +1,12 @@
 import { useMutation } from '@tanstack/react-query';
 
-import { postForgotPasswordRequest } from '../requests';
-import type { ForgotPasswordFormType, PostForgotPasswordMutationOptionsType } from '../types';
+import { forgotPasswordRequest } from '../requests';
+import type { ForgotPasswordFormType, ForgotPasswordMutationOptionsType } from '../types';
 
-export const usePostForgotPasswordMutation = (options: PostForgotPasswordMutationOptionsType) => {
+export const useForgotPasswordMutation = (options: ForgotPasswordMutationOptionsType) => {
   return useMutation({
-    mutationKey: ['forgot-password', 'post-forgot-password'],
-    mutationFn: (data: ForgotPasswordFormType) => postForgotPasswordRequest(data),
+    mutationKey: ['forgot-password'],
+    mutationFn: (data: ForgotPasswordFormType) => forgotPasswordRequest(data),
     ...options,
   });
 };

@@ -1,3 +1,3 @@
 export const RegisterEndpoint = {
-  postRegister: `/register`,
+  register: `/register`,
 };
