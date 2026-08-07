@@ -8,3 +8,4 @@ export * from './collapsible-menu-popover-component-props-type';
 export * from './guest-config-response-type';
 export * from './router-context-type';
 export * from './tree-menu-item-type';
+export * from './tree-menu-response-type';

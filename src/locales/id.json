@@ -1,4 +1,7 @@
 {
   "hello": "Hello",
-  "logout": "Kaluar"
+  "logout": "Kaluar",
+  "sidebar": {
+    "treeMenuNotAvailable": "Menu tidak tersedia"
+  }
 }

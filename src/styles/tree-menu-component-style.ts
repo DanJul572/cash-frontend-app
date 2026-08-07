@@ -1,4 +1,4 @@
-import type { SxProps, Theme } from '@mui/material';
+import type { CSSProperties } from 'react';
 
 const containerStyle = {
   borderRadius: 0,
@@ -11,16 +11,16 @@ const containerStyle = {
   zIndex: 999,
   transition: 'width 0.3s ease-in-out',
   overflowX: 'hidden',
-} as const satisfies SxProps<Theme>;
+} as const satisfies CSSProperties;
 
 const collapsedContainerStyle = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  pt: 1,
-} as const satisfies SxProps<Theme>;
+  paddingTop: 8,
+} as const satisfies CSSProperties;
 
 export const treeMenuComponentStyle = {
   containerStyle,
   collapsedContainerStyle,
-} satisfies Record<string, SxProps<Theme>>;
+} satisfies Record<string, CSSProperties>;
