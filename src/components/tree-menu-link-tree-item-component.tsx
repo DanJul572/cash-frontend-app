@@ -27,13 +27,22 @@ const CustomTreeItem = styled(TreeItem)(({ theme }) => ({
 export default function TreeMenuLinkTreeItemComponent(props: TreeItemProps) {
   const item = useTreeItemModel<TreeMenuItem>(props.itemId);
 
-  const label = item?.href ? (
-    <Link to={item.href} onClick={(e) => e.stopPropagation()}>
-      {item.label}
-    </Link>
-  ) : (
-    item?.label
-  );
+  if (!item) {
+    return null;
+  }
 
-  return <CustomTreeItem {...props} label={label} />;
+  if (item.href) {
+    return (
+      <CustomTreeItem
+        {...props}
+        label={
+          <Link to={item.href} onClick={(e) => e.stopPropagation()}>
+            {item.label}
+          </Link>
+        }
+      />
+    );
+  }
+
+  return <CustomTreeItem {...props} label={item.label} />;
 }

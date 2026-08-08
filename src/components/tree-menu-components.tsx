@@ -21,18 +21,18 @@ import TreeMenuLinkTreeItemComponent from './tree-menu-link-tree-item-component'
 export default function TreeMenuComponent() {
   const { t } = useTranslation('common');
   const { isCollapsed } = useSidebarContext();
-  const { data, isPending } = useTreeMenuQuery();
+  const { data, isPending, isError } = useTreeMenuQuery();
 
-  if (isPending) return <TreeMenuSkeletonComponent />;
+  if (isPending) {
+    return <TreeMenuSkeletonComponent />;
+  }
 
-  if (!data?.items?.length) {
-    if (isCollapsed) return null;
-
+  if ((isError || !data) && !isPending) {
     return (
       <Card style={{ ...treeMenuComponentStyle.containerStyle, width: 350 }}>
-        <Box style={{ padding: 16, display: 'flex', justifyContent: 'center' }}>
-          <Typography variant="body2" color="text.secondary">
-            {t('sidebar.treeMenuNotAvailable')}
+        <Box style={treeMenuComponentStyle.subContainerStyle}>
+          <Typography variant="body2" color="error">
+            {t('sidebar.treeMenuError')}
           </Typography>
         </Box>
       </Card>
