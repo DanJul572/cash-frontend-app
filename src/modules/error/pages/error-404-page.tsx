@@ -6,25 +6,25 @@ import { useLocation } from '@tanstack/react-router';
 
 import { useTitleHook } from '@hooks';
 
-import { error500Style } from '../styles';
+import { error404Style } from '../styles';
 
-export default function Error500Page() {
+export default function Error404Page() {
   const location = useLocation();
 
-  useTitleHook('500 Internal Server Error');
+  useTitleHook('404 Page Not Found');
 
-  let message = 'Internal Server Error';
+  let message = 'Page Not Found';
   if (location.state && location.state.message) {
     message = location.state.message;
   }
 
   return (
-    <Box sx={error500Style.containerStyle}>
-      <Typography variant="h1" sx={error500Style.codeStyle}>
-        500
+    <Box sx={error404Style.containerStyle}>
+      <Typography variant="h1" sx={error404Style.codeStyle}>
+        404
       </Typography>
-      <Divider sx={error500Style.dividerStyle} />
-      <Typography variant="h6" sx={error500Style.textStyle}>
+      <Divider sx={error404Style.dividerStyle} />
+      <Typography variant="h6" sx={error404Style.textStyle}>
         {message}
       </Typography>
     </Box>

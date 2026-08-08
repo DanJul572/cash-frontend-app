@@ -10,6 +10,8 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as R400RouteImport } from './routes/400'
+import { Route as R404RouteImport } from './routes/404'
 import { Route as R500RouteImport } from './routes/500'
 import { Route as AuthenticatedRouteImport } from './routes/_authenticated'
 import { Route as GuestRouteImport } from './routes/_guest'
@@ -24,6 +26,16 @@ import { Route as GuestValidateOtpRouteImport } from './routes/_guest/validate-o
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const R400Route = R400RouteImport.update({
+  id: '/400',
+  path: '/400',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const R404Route = R404RouteImport.update({
+  id: '/404',
+  path: '/404',
   getParentRoute: () => rootRouteImport,
 } as any)
 const R500Route = R500RouteImport.update({
@@ -77,6 +89,8 @@ const GuestValidateOtpRoute = GuestValidateOtpRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/400': typeof R400Route
+  '/404': typeof R404Route
   '/500': typeof R500Route
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/change-alternate': typeof GuestChangeAlternateRoute
@@ -88,6 +102,8 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/400': typeof R400Route
+  '/404': typeof R404Route
   '/500': typeof R500Route
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/change-alternate': typeof GuestChangeAlternateRoute
@@ -100,6 +116,8 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/400': typeof R400Route
+  '/404': typeof R404Route
   '/500': typeof R500Route
   '/_authenticated': typeof AuthenticatedRouteWithChildren
   '/_guest': typeof GuestRouteWithChildren
@@ -115,6 +133,8 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/400'
+    | '/404'
     | '/500'
     | '/dashboard'
     | '/change-alternate'
@@ -126,6 +146,8 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/400'
+    | '/404'
     | '/500'
     | '/dashboard'
     | '/change-alternate'
@@ -137,6 +159,8 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/400'
+    | '/404'
     | '/500'
     | '/_authenticated'
     | '/_guest'
@@ -151,6 +175,8 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  R400Route: typeof R400Route
+  R404Route: typeof R404Route
   R500Route: typeof R500Route
   AuthenticatedRoute: typeof AuthenticatedRouteWithChildren
   GuestRoute: typeof GuestRouteWithChildren
@@ -163,6 +189,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/400': {
+      id: '/400'
+      path: '/400'
+      fullPath: '/400'
+      preLoaderRoute: typeof R400RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/404': {
+      id: '/404'
+      path: '/404'
+      fullPath: '/404'
+      preLoaderRoute: typeof R404RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/500': {
@@ -272,6 +312,8 @@ const GuestRouteWithChildren = GuestRoute._addFileChildren(GuestRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  R400Route: R400Route,
+  R404Route: R404Route,
   R500Route: R500Route,
   AuthenticatedRoute: AuthenticatedRouteWithChildren,
   GuestRoute: GuestRouteWithChildren,

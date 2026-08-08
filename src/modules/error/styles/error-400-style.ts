@@ -30,7 +30,7 @@ const textStyle = {
   letterSpacing: '0.5px',
 } as const satisfies SxProps<Theme>;
 
-export const configNotFoundComponentStyle = {
+export const error400Style = {
   codeStyle,
   containerStyle,
   dividerStyle,

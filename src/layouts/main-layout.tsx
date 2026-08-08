@@ -38,14 +38,16 @@ export default function MainLayout() {
   const { data: config, error, isPending } = useAuthenticatedConfigQuery();
 
   useEffect(() => {
-    if (!isPending && (error || !config)) {
+    if (!isPending && error) {
       navigate({ to: '/500' });
+    } else if (!isPending && !error && !config) {
+      navigate({ to: '/404', state: { message: 'Configuration Not Found' } });
     }
-  }, [error, config, isPending, navigate]);
+  }, [isPending, error, config, navigate]);
 
-  if (isPending) return <PageLoaderComponent />;
-
-  if (!config) return null;
+  if (isPending || error || !config) {
+    return <PageLoaderComponent />;
+  }
 
   return (
     <AuthenticatedConfigProvider config={config}>
