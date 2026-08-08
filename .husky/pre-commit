@@ -10,7 +10,7 @@ RESET="$(printf '\033[0m')"
 
 LOG_FILE="/tmp/husky-step-output.log"
 
-# Spinner characters (dipisah spasi, bukan array Bash)
+# Spinner characters (braille, dipisah spasi)
 SPIN_CHARS="⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏"
 
 run_step() {
@@ -38,7 +38,7 @@ run_step() {
       n=$((n + 1))
     done
 
-    printf "\r${CYAN}%s${RESET}  %s  %s" "$char" "$icon" "$label"
+    printf "\r${CYAN}%s ${RESET}  %s  %s" "$char" "$icon" "$label"
 
     i=$((i + 1))
     sleep 0.1
