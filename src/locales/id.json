@@ -1,6 +1,7 @@
 {
   "hello": "Hello",
   "logout": "Kaluar",
+  "loading": "Memuat",
   "sidebar": {
     "treeMenuNotAvailable": "Menu tidak tersedia"
   }

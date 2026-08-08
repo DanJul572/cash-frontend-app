@@ -1,6 +1,7 @@
 {
   "hello": "Hello",
   "logout": "Logout",
+  "loading": "Loading",
   "sidebar": {
     "treeMenuNotAvailable": "Menu is not available"
   }

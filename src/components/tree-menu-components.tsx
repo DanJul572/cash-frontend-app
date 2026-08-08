@@ -29,11 +29,28 @@ export default function TreeMenuComponent() {
 
   if ((isError || !data) && !isPending) {
     return (
-      <Card style={{ ...treeMenuComponentStyle.containerStyle, width: 350 }}>
+      <Card style={treeMenuComponentStyle.containerStyle}>
         <Box style={treeMenuComponentStyle.subContainerStyle}>
           <Typography variant="body2" color="error">
             {t('sidebar.treeMenuError')}
           </Typography>
+        </Box>
+      </Card>
+    );
+  }
+
+  if (isCollapsed) {
+    return (
+      <Card
+        style={{
+          ...treeMenuComponentStyle.containerStyle,
+          width: isCollapsed ? 72 : 350,
+        }}
+      >
+        <Box style={treeMenuComponentStyle.collapsedContainerStyle}>
+          {data.items.map((item) => (
+            <CollapsedMenuIconComponent key={item.id} item={item} />
+          ))}
         </Box>
       </Card>
     );
@@ -46,23 +63,15 @@ export default function TreeMenuComponent() {
         width: isCollapsed ? 72 : 350,
       }}
     >
-      {isCollapsed ? (
-        <Box style={treeMenuComponentStyle.collapsedContainerStyle}>
-          {data.items.map((item) => (
-            <CollapsedMenuIconComponent key={item.id} item={item} />
-          ))}
-        </Box>
-      ) : (
-        <RichTreeView
-          slots={{
-            expandIcon: Folder,
-            collapseIcon: FolderOpen,
-            endIcon: InsertDriveFile,
-            item: TreeMenuLinkTreeItemComponent,
-          }}
-          items={data.items}
-        />
-      )}
+      <RichTreeView
+        slots={{
+          expandIcon: Folder,
+          collapseIcon: FolderOpen,
+          endIcon: InsertDriveFile,
+          item: TreeMenuLinkTreeItemComponent,
+        }}
+        items={data.items}
+      />
     </Card>
   );
 }
