@@ -18,7 +18,7 @@ import { GridDownloadIcon, ToolbarButton } from '@mui/x-data-grid';
 import { ztableDownloadTollbarComponentStyle } from '@styles/ztable-download-tollbar-component-style';
 import type { DataType, FileType } from '@type-defs/ztable-download-tollbar-component-type';
 
-export default function ZTableDownloadButtonComponent() {
+export default function ZTableDownloadToolbarComponent() {
   const { t } = useTranslation('common');
 
   const {
