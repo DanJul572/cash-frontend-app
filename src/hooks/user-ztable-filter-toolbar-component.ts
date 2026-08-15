@@ -14,7 +14,8 @@ const generateId = () => `filter-${++counter}-${Date.now()}`;
 
 export default function useZTableFilterToolbarComponent() {
   const apiRef = useGridApiContext();
-  const columns = useGridSelector(apiRef, gridVisibleColumnDefinitionsSelector);
+  const allColumns = useGridSelector(apiRef, gridVisibleColumnDefinitionsSelector);
+  const columns = allColumns.filter((col) => col.field !== '__check__');
   const currentFilterModel = useGridSelector(apiRef, gridFilterModelSelector);
 
   const [open, setOpen] = useState(false);
