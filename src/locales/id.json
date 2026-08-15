@@ -1,9 +1,10 @@
 {
   "allData": "Semua Data",
   "cancel": "Batal",
-  "currentData": "Data Halaman Ini",
+  "currentData": "Data Sekarang",
   "dataType": "Tipe Data",
   "download": "Unduh",
+  "filter": "Filter",
   "fileType": "Tipe File",
   "selectedData": "Data Terpilih",
   "hello": "Hello",
