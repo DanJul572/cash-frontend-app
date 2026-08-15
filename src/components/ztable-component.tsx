@@ -10,20 +10,20 @@ const columns: GridColDef<(typeof rows)[number]>[] = [
   {
     field: 'firstName',
     headerName: 'First name',
-    width: 150,
+    flex: 1,
     editable: true,
   },
   {
     field: 'lastName',
     headerName: 'Last name',
-    width: 150,
+    flex: 1,
     editable: true,
   },
   {
     field: 'age',
     headerName: 'Age',
     type: 'number',
-    width: 110,
+    flex: 1,
     editable: true,
   },
   {
@@ -31,7 +31,7 @@ const columns: GridColDef<(typeof rows)[number]>[] = [
     headerName: 'Full name',
     description: 'This column has a value getter and is not sortable.',
     sortable: false,
-    width: 160,
+    flex: 1,
     valueGetter: (_value, row) => `${row.firstName || ''} ${row.lastName || ''}`,
   },
 ];
@@ -52,7 +52,7 @@ export default function ZTableComponent() {
   const { dataPerPage } = useAuthenticatedConfig();
 
   return (
-    <Box>
+    <Box sx={{ width: '100%' }}>
       <DataGrid
         rows={rows}
         columns={columns}
@@ -68,6 +68,8 @@ export default function ZTableComponent() {
         slots={{
           toolbar: ZTableToolbarComponent,
         }}
+        checkboxSelection
+        disableRowSelectionOnClick
       />
     </Box>
   );
