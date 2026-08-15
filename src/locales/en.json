@@ -1,14 +1,22 @@
 {
+  "addFilter": "Add Filter",
   "allData": "All Data",
+  "and": "AND",
+  "apply": "Apply",
   "cancel": "Cancel",
+  "clearFilters": "Clear Filters",
+  "column": "Column",
   "currentData": "Current Data",
   "dataType": "Data Type",
   "download": "Download",
   "filter": "Filter",
+  "operator": "Operator",
+  "or": "OR",
   "selectedData": "Selected Data",
   "fileType": "File Type",
   "hello": "Hello",
   "loading": "Loading",
   "logout": "Logout",
-  "treeMenuNotAvailable": "Menu is not available"
+  "treeMenuNotAvailable": "Menu is not available",
+  "value": "Value"
 }

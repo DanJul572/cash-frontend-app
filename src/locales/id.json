@@ -1,14 +1,22 @@
 {
+  "addFilter": "Tambah Filter",
   "allData": "Semua Data",
+  "and": "DAN",
+  "apply": "Terapkan",
   "cancel": "Batal",
+  "clearFilters": "Hapus Filter",
+  "column": "Kolom",
   "currentData": "Data Sekarang",
   "dataType": "Tipe Data",
   "download": "Unduh",
   "filter": "Filter",
-  "fileType": "Tipe File",
+  "operator": "Operator",
+  "or": "ATAU",
   "selectedData": "Data Terpilih",
+  "fileType": "Tipe File",
   "hello": "Hello",
   "loading": "Memuat",
   "logout": "Kaluar",
-  "treeMenuNotAvailable": "Menu tidak tersedia"
+  "treeMenuNotAvailable": "Menu tidak tersedia",
+  "value": "Nilai"
 }
