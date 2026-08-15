@@ -41,11 +41,11 @@ export default function ZTableDownloadToolbarComponent() {
       </Tooltip>
 
       <Dialog open={open} onClose={handleClose} maxWidth="xs" fullWidth>
-        <DialogTitle>{t('downloadData')}</DialogTitle>
+        <DialogTitle>{t('download')}</DialogTitle>
         <DialogContent>
           <Box sx={ztableDownloadTollbarComponentStyle.modalRootStyle}>
             <FormControl>
-              <FormLabel>{t('fileData')}</FormLabel>
+              <FormLabel>{t('fileType')}</FormLabel>
               <RadioGroup
                 row
                 value={fileType}
@@ -54,6 +54,7 @@ export default function ZTableDownloadToolbarComponent() {
                 <FormControlLabel value="xlsx" control={<Radio size="small" />} label="XLSX" />
                 <FormControlLabel value="csv" control={<Radio size="small" />} label="CSV" />
                 <FormControlLabel value="pdf" control={<Radio size="small" />} label="PDF" />
+                <FormControlLabel value="txt" control={<Radio size="small" />} label="TXT" />
               </RadioGroup>
             </FormControl>
 
