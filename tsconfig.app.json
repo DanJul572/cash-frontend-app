@@ -46,7 +46,7 @@
       "@schemas/*": ["./src/schemas/*"],
       "@styles/*": ["./src/styles/*"],
       "@themes/*": ["./src/themes/*"],
-      "@types/*": ["./src/types/*"],
+      "@type-defs/*": ["./src/types/*"],
       "@utils/*": ["./src/utils/*"]
     }
   },

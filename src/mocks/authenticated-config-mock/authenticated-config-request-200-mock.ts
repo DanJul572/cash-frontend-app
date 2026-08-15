@@ -7,7 +7,7 @@ const mockAuthenticatedConfigData = {
   status: true,
   message: 'request success',
   data: {
-    dataPerPage: 1,
+    dataPerPage: 10,
   },
 };
 

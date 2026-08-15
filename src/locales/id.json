@@ -1,8 +1,13 @@
 {
+  "allData": "Semua Data",
+  "cancel": "Batal",
+  "currentData": "Data Halaman Ini",
+  "dataType": "Tipe Data",
+  "download": "Unduh",
+  "fileType": "Tipe File",
+  "selectedData": "Data Terpilih",
   "hello": "Hello",
-  "logout": "Kaluar",
   "loading": "Memuat",
-  "sidebar": {
-    "treeMenuNotAvailable": "Menu tidak tersedia"
-  }
+  "logout": "Kaluar",
+  "treeMenuNotAvailable": "Menu tidak tersedia"
 }

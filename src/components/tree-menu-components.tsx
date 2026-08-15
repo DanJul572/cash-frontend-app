@@ -32,7 +32,7 @@ export default function TreeMenuComponent() {
       <Card style={treeMenuComponentStyle.containerStyle}>
         <Box style={treeMenuComponentStyle.subContainerStyle}>
           <Typography variant="body2" color="error">
-            {t('sidebar.treeMenuError')}
+            {t('treeMenuNotAvailable')}
           </Typography>
         </Box>
       </Card>
