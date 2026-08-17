@@ -49,9 +49,9 @@
     "@tanstack/react-router": "^1.170.29",
     "@tanstack/react-router-devtools": "^1.167.1",
     "axios": "^1.19.0",
-    "dayjs": "^1.11.21",
+    "dayjs": "^1.11.22",
     "i18next": "^26.3.6",
-    "pnpm": "11.21.0",
+    "pnpm": "11.22.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-hook-form": "^7.85.0",
@@ -90,7 +90,7 @@
     "vite-plugin-dts": "^5.0.3",
     "vitest": "^4.1.10"
   },
-  "packageManager": "pnpm@11.21.0",
+  "packageManager": "pnpm@11.22.0",
   "msw": {
     "workerDirectory": [
       "public"
