@@ -5,9 +5,11 @@ const userSchema = z.object({
   name: z.string(),
   email: z.string(),
   photoUrl: z.string().nullable(),
+  isCurrentUser: z.boolean(),
 });
 
 export const getUserResponseSchema = z.object({
   status: z.number(),
+  message: z.string(),
   data: z.array(userSchema),
 });

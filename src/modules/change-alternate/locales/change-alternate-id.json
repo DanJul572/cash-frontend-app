@@ -1,5 +1,7 @@
 {
   "title": "Pilih Pengguna",
   "error": "Gagal memuat pengguna. Silakan coba lagi.",
-  "loading": "Memuat pengguna..."
+  "loading": "Memuat pengguna...",
+  "badgeCurrentUser": "Ini Anda",
+  "badgeAlternate": "Alternat"
 }

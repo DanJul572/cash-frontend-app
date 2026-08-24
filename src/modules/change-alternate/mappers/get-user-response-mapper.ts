@@ -6,5 +6,6 @@ export const getUserResponseMapper = getUserResponseSchema.transform((res) =>
     name: user.name,
     email: user.email,
     photoUrl: user.photoUrl,
+    isCurrentUser: user.isCurrentUser,
   })),
 );

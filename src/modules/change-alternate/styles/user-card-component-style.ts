@@ -14,6 +14,11 @@ const cardStyle = {
   },
 } as const satisfies SxProps<Theme>;
 
+const cardCurrentUserStyle = {
+  border: 2,
+  borderColor: 'primary.main',
+} as const satisfies SxProps<Theme>;
+
 const cardContentStyle = {
   display: 'flex',
   flexDirection: 'column',
@@ -34,6 +39,7 @@ const buttonStyle = {
 
 export const userCardComponentStyle = {
   cardStyle,
+  cardCurrentUserStyle,
   cardContentStyle,
   avatarStyle,
   buttonStyle,

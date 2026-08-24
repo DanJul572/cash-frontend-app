@@ -1,5 +1,7 @@
 {
   "title": "Select User",
   "error": "Failed to load users. Please try again.",
-  "loading": "Loading users..."
+  "loading": "Loading users...",
+  "badgeCurrentUser": "This is you",
+  "badgeAlternate": "Alternate"
 }
