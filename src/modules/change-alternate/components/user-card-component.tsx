@@ -26,7 +26,7 @@ export default function UserCardComponent({
       <CardContent sx={userCardComponentStyle.cardContentStyle}>
         <Badge
           badgeContent={user.isCurrentUser ? t('badgeCurrentUser') : t('badgeAlternate')}
-          color={user.isCurrentUser ? 'primary' : 'secondary'}
+          color={user.isCurrentUser ? 'success' : 'warning'}
         >
           <Avatar src={user.photoUrl || undefined} sx={userCardComponentStyle.avatarStyle}>
             {!user.photoUrl && getInitialName(user.name)}
