@@ -18,7 +18,7 @@ importers:
         version: 5.3.0
       '@hookform/resolvers':
         specifier: ^5.9.1
-        version: 5.9.1(@standard-schema/spec@1.1.0)(ajv-formats@2.1.1(ajv@8.20.0))(ajv@8.20.0)(react-hook-form@7.86.0(react@19.2.8))(zod@4.4.3)
+        version: 5.9.1(@standard-schema/spec@1.1.0)(ajv-formats@2.1.1(ajv@8.20.0))(ajv@8.20.0)(react-hook-form@7.86.0(react@19.2.8))(zod@4.5.2)
       '@mui/icons-material':
         specifier: ^9.4.0
         version: 9.4.0(@mui/material@9.4.0(@emotion/react@11.14.0(@types/react@19.2.18)(react@19.2.8)(supports-color@8.1.1))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.18)(react@19.2.8)(supports-color@8.1.1))(@types/react@19.2.18)(react@19.2.8)(supports-color@8.1.1))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(@types/react@19.2.18)(react@19.2.8)
@@ -74,8 +74,8 @@ importers:
         specifier: ^17.0.12
         version: 17.0.12(i18next@26.4.0(typescript@6.0.3))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(typescript@6.0.3)
       zod:
-        specifier: ^4.4.3
-        version: 4.4.3
+        specifier: ^4.5.2
+        version: 4.5.2
       zustand:
         specifier: ^5.0.15
         version: 5.0.15(@types/react@19.2.18)(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8))
@@ -1721,12 +1721,6 @@ packages:
     resolution:
       {
         integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==,
-      }
-
-  '@types/node@26.3.0':
-    resolution:
-      {
-        integrity: sha512-L3fgrnchriRC2ExBflb8j4uZZURHZfQsmQeyVzhjcHW4kkwVyo8/0h1B2MVzMTrYUJYu6G7EWs14hW/L9putqw==,
       }
 
   '@types/node@26.4.0':
@@ -4777,10 +4771,10 @@ packages:
     peerDependencies:
       zod: ^3.25.0 || ^4.0.0
 
-  zod@4.4.3:
+  zod@4.5.2:
     resolution:
       {
-        integrity: sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ==,
+        integrity: sha512-XkYXCol10+ba/6F/cueWV+TezUeOqXW0hdeJt5CdXjTYeAgAQg5N03RQdJ80mhfFE72+pblvYMW4wy2Qp4Qbrg==,
       }
 
   zustand@5.0.15:
@@ -5169,7 +5163,7 @@ snapshots:
 
   '@fontsource/roboto@5.3.0': {}
 
-  '@hookform/resolvers@5.9.1(@standard-schema/spec@1.1.0)(ajv-formats@2.1.1(ajv@8.20.0))(ajv@8.20.0)(react-hook-form@7.86.0(react@19.2.8))(zod@4.4.3)':
+  '@hookform/resolvers@5.9.1(@standard-schema/spec@1.1.0)(ajv-formats@2.1.1(ajv@8.20.0))(ajv@8.20.0)(react-hook-form@7.86.0(react@19.2.8))(zod@4.5.2)':
     dependencies:
       '@standard-schema/utils': 0.3.0
       react-hook-form: 7.86.0(react@19.2.8)
@@ -5177,7 +5171,7 @@ snapshots:
       '@standard-schema/spec': 1.1.0
       ajv: 8.20.0
       ajv-formats: 2.1.1(ajv@8.20.0)
-      zod: 4.4.3
+      zod: 4.5.2
 
   '@humanfs/core@0.19.2':
     dependencies:
@@ -5657,7 +5651,7 @@ snapshots:
       jiti: 2.7.0
       magic-string: 0.30.21
       prettier: 3.9.6
-      zod: 4.4.3
+      zod: 4.5.2
     transitivePeerDependencies:
       - supports-color
 
@@ -5671,7 +5665,7 @@ snapshots:
       '@tanstack/router-utils': 1.162.2(supports-color@8.1.1)
       chokidar: 5.0.0
       unplugin: 3.3.0(rolldown@1.2.4)(vite@8.2.2(@types/node@26.4.0)(jiti@2.7.0)(terser@5.48.0))(webpack@5.107.2(lightningcss@1.33.0)(postcss@8.5.26))
-      zod: 4.4.3
+      zod: 4.5.2
     optionalDependencies:
       '@tanstack/react-router': 1.170.32(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       vite: 8.2.2(@types/node@26.4.0)(jiti@2.7.0)(terser@5.48.0)
@@ -5821,11 +5815,6 @@ snapshots:
   '@types/jsesc@2.5.1': {}
 
   '@types/json-schema@7.0.15': {}
-
-  '@types/node@26.3.0':
-    dependencies:
-      undici-types: 8.3.0
-    optional: true
 
   '@types/node@26.4.0':
     dependencies:
@@ -6453,8 +6442,8 @@ snapshots:
       '@babel/parser': 7.29.8
       eslint: 10.9.1(jiti@2.7.0)(supports-color@8.1.1)
       hermes-parser: 0.25.1
-      zod: 4.4.3
-      zod-validation-error: 4.0.2(zod@4.4.3)
+      zod: 4.5.2
+      zod-validation-error: 4.0.2(zod@4.5.2)
     transitivePeerDependencies:
       - supports-color
 
@@ -6758,7 +6747,7 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 26.3.0
+      '@types/node': 26.4.0
       merge-stream: 2.0.0
       supports-color: 8.1.1
     optional: true
@@ -7563,11 +7552,11 @@ snapshots:
 
   yocto-queue@0.1.0: {}
 
-  zod-validation-error@4.0.2(zod@4.4.3):
+  zod-validation-error@4.0.2(zod@4.5.2):
     dependencies:
-      zod: 4.4.3
+      zod: 4.5.2
 
-  zod@4.4.3: {}
+  zod@4.5.2: {}
 
   zustand@5.0.15(@types/react@19.2.18)(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8)):
     optionalDependencies:
