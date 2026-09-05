@@ -16,7 +16,6 @@ import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import Tooltip from '@mui/material/Tooltip';
 
-import { OPERATOR_LABELS, NUMBER_OPERATORS } from '@/types/ztable-filter-toolbar-component-type';
 import useZTableFilterToolbarComponent from '@hooks/user-ztable-filter-toolbar-component';
 import { GridFilterListIcon, GridAddIcon, GridDeleteIcon, ToolbarButton } from '@mui/x-data-grid';
 import { ztableFilterToolbarComponentStyle } from '@styles/ztable-filter-toolbar-component-style';
@@ -39,18 +38,6 @@ export default function ZTableFilterToolbarComponent() {
     clearFilters,
   } = useZTableFilterToolbarComponent();
 
-  const isNumberColumn = (field: string) => {
-    const col = columns.find((c) => c.field === field);
-    return col?.type === 'number';
-  };
-
-  const getOperators = (field: string) => {
-    if (isNumberColumn(field)) {
-      return NUMBER_OPERATORS;
-    }
-    return ['contains', 'doesNotContain', 'equals', 'doesNotEqual', 'startsWith', 'endsWith'];
-  };
-
   return (
     <Box>
       <Tooltip title={t('filter')}>
@@ -62,7 +49,7 @@ export default function ZTableFilterToolbarComponent() {
       <Dialog open={open} onClose={handleClose} maxWidth="sm" fullWidth>
         <DialogTitle>{t('filter')}</DialogTitle>
         <DialogContent>
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, pt: 1 }}>
+          <Box sx={ztableFilterToolbarComponentStyle.dialogContentStyle}>
             {filterConditions.length > 1 && (
               <ToggleButtonGroup
                 value={logicOperator}
@@ -81,18 +68,11 @@ export default function ZTableFilterToolbarComponent() {
             {filterConditions.map((condition, index) => (
               <Box key={condition.id} sx={ztableFilterToolbarComponentStyle.filterRowStyle}>
                 {index > 0 && filterConditions.length > 1 && (
-                  <Box
-                    sx={{
-                      width: '100%',
-                      textAlign: 'center',
-                      color: 'text.secondary',
-                      typography: 'caption',
-                    }}
-                  >
+                  <Box sx={ztableFilterToolbarComponentStyle.logicOperatorLabelStyle}>
                     {logicOperator === 'and' ? t('and') : t('or')}
                   </Box>
                 )}
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, width: '100%' }}>
+                <Box sx={ztableFilterToolbarComponentStyle.filterRowContentStyle}>
                   <FormControl
                     size="small"
                     sx={ztableFilterToolbarComponentStyle.filterSelectStyle}
@@ -111,33 +91,12 @@ export default function ZTableFilterToolbarComponent() {
                     </Select>
                   </FormControl>
 
-                  <FormControl
-                    size="small"
-                    sx={ztableFilterToolbarComponentStyle.filterSelectStyle}
-                  >
-                    <InputLabel>{t('operator')}</InputLabel>
-                    <Select
-                      value={condition.operator}
-                      label={t('operator')}
-                      onChange={(e) => updateFilter(condition.id, { operator: e.target.value })}
-                    >
-                      {getOperators(condition.field).map((op) => (
-                        <MenuItem key={op} value={op}>
-                          {OPERATOR_LABELS[op] ?? op}
-                        </MenuItem>
-                      ))}
-                    </Select>
-                  </FormControl>
-
                   <TextField
                     size="small"
                     label={t('value')}
                     value={condition.value ?? ''}
                     onChange={(e) => {
-                      const val =
-                        isNumberColumn(condition.field) && e.target.value !== ''
-                          ? Number(e.target.value)
-                          : e.target.value || null;
+                      const val = e.target.value || null;
                       updateFilter(condition.id, { value: val });
                     }}
                     sx={ztableFilterToolbarComponentStyle.filterValueStyle}

@@ -29,7 +29,6 @@ export default function useZTableFilterToolbarComponent() {
         existingItems.map((item) => ({
           id: String(item.id ?? generateId()),
           field: item.field,
-          operator: item.operator,
           value: item.value ?? null,
         })),
       );
@@ -39,7 +38,6 @@ export default function useZTableFilterToolbarComponent() {
         {
           id: generateId(),
           field: columns[0]?.field ?? '',
-          operator: 'contains',
           value: null,
         },
       ]);
@@ -58,7 +56,6 @@ export default function useZTableFilterToolbarComponent() {
       {
         id: generateId(),
         field: columns[0]?.field ?? '',
-        operator: 'contains',
         value: null,
       },
     ]);
@@ -74,14 +71,14 @@ export default function useZTableFilterToolbarComponent() {
 
   const applyFilters = useCallback(() => {
     const validConditions = filterConditions.filter(
-      (c) => c.field && c.operator && c.value !== null && c.value !== '',
+      (c) => c.field && c.value !== null && c.value !== '',
     );
 
     apiRef.current.setFilterModel({
       items: validConditions.map((c) => ({
         id: c.id,
         field: c.field,
-        operator: c.operator,
+        operator: 'equals',
         value: c.value,
       })),
       logicOperator: logicOperator === 'or' ? GridLogicOperator.Or : GridLogicOperator.And,
@@ -98,7 +95,6 @@ export default function useZTableFilterToolbarComponent() {
       {
         id: generateId(),
         field: columns[0]?.field ?? '',
-        operator: 'contains',
         value: null,
       },
     ]);
