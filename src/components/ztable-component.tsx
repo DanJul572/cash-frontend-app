@@ -70,6 +70,7 @@ export default function ZTableComponent() {
         }}
         checkboxSelection
         disableRowSelectionOnClick
+        disableColumnFilter
       />
     </Box>
   );
