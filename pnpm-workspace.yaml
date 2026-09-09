@@ -1,6 +1,7 @@
 allowBuilds:
   core-js-pure: true
   msw: true
+  pnpm: true
 minimumReleaseAgeExclude:
   - '@tanstack/query-core@5.100.11'
   - '@tanstack/query-devtools@5.100.11'
