@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 
-import type { FilterCondition } from '@/types/ztable-filter-toolbar-component-type';
+import type { FilterValues } from '@/types/ztable-filter-toolbar-component-type';
 import {
   GridLogicOperator,
   useGridApiContext,
@@ -9,9 +9,6 @@ import {
   gridVisibleColumnDefinitionsSelector,
 } from '@mui/x-data-grid';
 
-let counter = 0;
-const generateId = () => `filter-${++counter}-${Date.now()}`;
-
 export default function useZTableFilterToolbarComponent() {
   const apiRef = useGridApiContext();
   const allColumns = useGridSelector(apiRef, gridVisibleColumnDefinitionsSelector);
@@ -19,98 +16,56 @@ export default function useZTableFilterToolbarComponent() {
   const currentFilterModel = useGridSelector(apiRef, gridFilterModelSelector);
 
   const [open, setOpen] = useState(false);
-  const [logicOperator, setLogicOperator] = useState<'and' | 'or'>('and');
-  const [filterConditions, setFilterConditions] = useState<FilterCondition[]>([]);
+  const [filterValues, setFilterValues] = useState<FilterValues>({});
 
   const handleOpen = useCallback(() => {
-    const existingItems = currentFilterModel.items;
-    if (existingItems.length > 0) {
-      setFilterConditions(
-        existingItems.map((item) => ({
-          id: String(item.id ?? generateId()),
-          field: item.field,
-          value: item.value ?? null,
-        })),
-      );
-      setLogicOperator(currentFilterModel.logicOperator === 'or' ? 'or' : 'and');
-    } else {
-      setFilterConditions([
-        {
-          id: generateId(),
-          field: columns[0]?.field ?? '',
-          value: null,
-        },
-      ]);
-      setLogicOperator('and');
-    }
+    const values: FilterValues = {};
+    currentFilterModel.items.forEach((item) => {
+      values[item.field] = item.value == null ? '' : String(item.value);
+    });
+    setFilterValues(values);
     setOpen(true);
-  }, [columns, currentFilterModel]);
+  }, [currentFilterModel]);
 
   const handleClose = useCallback(() => {
     setOpen(false);
   }, []);
 
-  const addFilter = useCallback(() => {
-    setFilterConditions((prev) => [
-      ...prev,
-      {
-        id: generateId(),
-        field: columns[0]?.field ?? '',
-        value: null,
-      },
-    ]);
-  }, [columns]);
-
-  const removeFilter = useCallback((id: string) => {
-    setFilterConditions((prev) => prev.filter((c) => c.id !== id));
-  }, []);
-
-  const updateFilter = useCallback((id: string, updates: Partial<Omit<FilterCondition, 'id'>>) => {
-    setFilterConditions((prev) => prev.map((c) => (c.id === id ? { ...c, ...updates } : c)));
+  const updateFilter = useCallback((field: string, value: string) => {
+    setFilterValues((prev) => ({ ...prev, [field]: value }));
   }, []);
 
   const applyFilters = useCallback(() => {
-    const validConditions = filterConditions.filter(
-      (c) => c.field && c.value !== null && c.value !== '',
-    );
+    const items = columns
+      .filter((col) => (filterValues[col.field] ?? '') !== '')
+      .map((col) => ({
+        id: col.field,
+        field: col.field,
+        operator: 'equals',
+        value: filterValues[col.field],
+      }));
 
     apiRef.current.setFilterModel({
-      items: validConditions.map((c) => ({
-        id: c.id,
-        field: c.field,
-        operator: 'equals',
-        value: c.value,
-      })),
-      logicOperator: logicOperator === 'or' ? GridLogicOperator.Or : GridLogicOperator.And,
+      items,
+      logicOperator: GridLogicOperator.And,
     });
     setOpen(false);
-  }, [filterConditions, logicOperator, apiRef]);
+  }, [columns, filterValues, apiRef]);
 
   const clearFilters = useCallback(() => {
     apiRef.current.setFilterModel({
       items: [],
       logicOperator: GridLogicOperator.And,
     });
-    setFilterConditions([
-      {
-        id: generateId(),
-        field: columns[0]?.field ?? '',
-        value: null,
-      },
-    ]);
-    setLogicOperator('and');
-  }, [apiRef, columns]);
+    setFilterValues({});
+  }, [apiRef]);
 
   return {
     open,
     columns,
-    logicOperator,
-    filterConditions,
-    setLogicOperator,
+    filterValues,
     handleOpen,
     handleClose,
-    addFilter,
-    removeFilter,
     updateFilter,
     applyFilters,
     clearFilters,
