@@ -13,7 +13,6 @@
   "fileType": "Tipe File",
   "filter": "Filter",
   "filterDescription": "Baris harus cocok dengan semua kolom yang diisi",
-  "filterPlaceholder": "Ketik untuk memfilter...",
   "hello": "Hello",
   "loading": "Memuat",
   "logout": "Kaluar",

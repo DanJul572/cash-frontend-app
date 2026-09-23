@@ -13,7 +13,6 @@
   "fileType": "File Type",
   "filter": "Filter",
   "filterDescription": "Rows must match every filled column",
-  "filterPlaceholder": "Type to filter...",
   "hello": "Hello",
   "loading": "Loading",
   "logout": "Logout",

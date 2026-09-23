@@ -16,12 +16,7 @@ import Typography from '@mui/material/Typography';
 
 import CloseIcon from '@mui/icons-material/Close';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
-import SearchIcon from '@mui/icons-material/Search';
 
-import {
-  FILTER_COLUMN_DEFAULT_ICON_CONSTANT,
-  FILTER_COLUMN_ICON_CONSTANT,
-} from '@constants/ztable-filter-toolbar-component-constant';
 import useZTableFilterToolbarComponent from '@hooks/user-ztable-filter-toolbar-component';
 import { GridFilterListIcon, ToolbarButton } from '@mui/x-data-grid';
 import { ztableFilterToolbarComponentStyle } from '@styles/ztable-filter-toolbar-component-style';
@@ -85,65 +80,35 @@ export default function ZTableFilterToolbarComponent({
               )}
             </Box>
 
-            <Box sx={ztableFilterToolbarComponentStyle.filterGridStyle}>
+            <Box sx={ztableFilterToolbarComponentStyle.filterListStyle}>
               {columns.map((col) => {
                 const value = filterValues[col.field] ?? '';
-                const active = value.trim() !== '';
-                const Icon =
-                  (col.type && FILTER_COLUMN_ICON_CONSTANT[col.type]) ??
-                  FILTER_COLUMN_DEFAULT_ICON_CONSTANT;
 
                 return (
-                  <Box
+                  <TextField
                     key={col.field}
-                    sx={[
-                      ztableFilterToolbarComponentStyle.filterCardStyle,
-                      active && ztableFilterToolbarComponentStyle.activeCardStyle,
-                    ]}
-                  >
-                    <Box sx={ztableFilterToolbarComponentStyle.filterIconStyle}>
-                      <Icon fontSize="small" />
-                    </Box>
-                    <Box sx={ztableFilterToolbarComponentStyle.filterFieldStyle}>
-                      <Typography
-                        variant="caption"
-                        component="label"
-                        htmlFor={`ztable-filter-${col.field}`}
-                        sx={ztableFilterToolbarComponentStyle.filterLabelStyle}
-                      >
-                        {col.headerName ?? col.field}
-                      </Typography>
-                      <TextField
-                        id={`ztable-filter-${col.field}`}
-                        size="small"
-                        fullWidth
-                        placeholder={t('filterPlaceholder')}
-                        value={value}
-                        onChange={(e) => updateFilter(col.field, e.target.value)}
-                        slotProps={{
-                          input: {
-                            startAdornment: (
-                              <InputAdornment position="start">
-                                <SearchIcon fontSize="small" />
-                              </InputAdornment>
-                            ),
-                            endAdornment: active && (
-                              <InputAdornment position="end">
-                                <IconButton
-                                  size="small"
-                                  edge="end"
-                                  aria-label={t('clearFilters')}
-                                  onClick={() => clearFilter(col.field)}
-                                >
-                                  <CloseIcon fontSize="small" />
-                                </IconButton>
-                              </InputAdornment>
-                            ),
-                          },
-                        }}
-                      />
-                    </Box>
-                  </Box>
+                    size="small"
+                    fullWidth
+                    label={col.headerName ?? col.field}
+                    value={value}
+                    onChange={(e) => updateFilter(col.field, e.target.value)}
+                    slotProps={{
+                      input: {
+                        endAdornment: value.trim() !== '' && (
+                          <InputAdornment position="end">
+                            <IconButton
+                              size="small"
+                              edge="end"
+                              aria-label={t('clearFilters')}
+                              onClick={() => clearFilter(col.field)}
+                            >
+                              <CloseIcon fontSize="small" />
+                            </IconButton>
+                          </InputAdornment>
+                        ),
+                      },
+                    }}
+                  />
                 );
               })}
             </Box>
