@@ -22,6 +22,7 @@ import { ztableDownloadTollbarComponentStyle } from '@styles/ztable-download-tol
 import type { ZTableDownloadToolbarComponentPropsType } from '@type-defs/ztable-component-type';
 
 export default function ZTableDownloadToolbarComponent({
+  filter,
   onDownload,
 }: ZTableDownloadToolbarComponentPropsType) {
   const { t } = useTranslation('common');
@@ -35,7 +36,7 @@ export default function ZTableDownloadToolbarComponent({
     handleOpen,
     handleClose,
     handleDownload,
-  } = useZTableDownloadButtonComponent({ onDownload });
+  } = useZTableDownloadButtonComponent({ filter, onDownload });
 
   return (
     <Box>

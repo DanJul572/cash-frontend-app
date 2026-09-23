@@ -11,6 +11,7 @@ import type {
 } from '@type-defs/ztable-component-type';
 
 export default function useZTableFilterToolbarComponent({
+  filter = {},
   onFilterChange,
 }: ZTableFilterToolbarComponentPropsType) {
   const apiRef = useGridApiContext();
@@ -18,14 +19,13 @@ export default function useZTableFilterToolbarComponent({
   const columns = allColumns.filter((col) => col.field !== '__check__');
 
   const [open, setOpen] = useState(false);
-  const [appliedValues, setAppliedValues] = useState<ZTableFilterValueType>({});
   const [filterValues, setFilterValues] = useState<ZTableFilterValueType>({});
 
-  const appliedCount = Object.keys(appliedValues).length;
+  const appliedCount = Object.keys(filter).length;
   const activeCount = columns.filter((col) => (filterValues[col.field] ?? '').trim() !== '').length;
 
   const handleOpen = () => {
-    setFilterValues(appliedValues);
+    setFilterValues(filter);
     setOpen(true);
   };
 
@@ -46,13 +46,11 @@ export default function useZTableFilterToolbarComponent({
       if (value !== '') values[col.field] = value;
     });
 
-    setAppliedValues(values);
     onFilterChange?.(values);
     setOpen(false);
   };
 
   const clearFilters = () => {
-    setAppliedValues({});
     setFilterValues({});
     onFilterChange?.({});
   };

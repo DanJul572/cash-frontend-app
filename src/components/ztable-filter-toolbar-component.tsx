@@ -23,6 +23,7 @@ import { ztableFilterToolbarComponentStyle } from '@styles/ztable-filter-toolbar
 import type { ZTableFilterToolbarComponentPropsType } from '@type-defs/ztable-component-type';
 
 export default function ZTableFilterToolbarComponent({
+  filter,
   onFilterChange,
 }: ZTableFilterToolbarComponentPropsType) {
   const { t } = useTranslation('common');
@@ -39,7 +40,7 @@ export default function ZTableFilterToolbarComponent({
     clearFilter,
     applyFilters,
     clearFilters,
-  } = useZTableFilterToolbarComponent({ onFilterChange });
+  } = useZTableFilterToolbarComponent({ filter, onFilterChange });
 
   return (
     <Box>

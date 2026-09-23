@@ -15,6 +15,7 @@ export default function DashboardPage() {
 
   return (
     <ZTableComponent
+      title="Dashboard"
       rows={rows}
       columns={columns}
       rowCount={rowCount}

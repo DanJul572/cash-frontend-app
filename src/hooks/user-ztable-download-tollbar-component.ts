@@ -3,13 +3,19 @@ import { useState } from 'react';
 import {
   gridPaginatedVisibleSortedGridRowIdsSelector,
   gridRowSelectionIdsSelector,
+  gridVisibleColumnDefinitionsSelector,
+  GRID_CHECKBOX_SELECTION_COL_DEF,
   useGridApiContext,
   type GridRowId,
 } from '@mui/x-data-grid';
-import type { ZTableDownloadToolbarComponentPropsType } from '@type-defs/ztable-component-type';
+import type {
+  ZTableDownloadColumnType,
+  ZTableDownloadToolbarComponentPropsType,
+} from '@type-defs/ztable-component-type';
 import type { DataType, FileType } from '@type-defs/ztable-download-tollbar-component-type';
 
 export default function useZTableDownloadButtonComponent({
+  filter = {},
   onDownload,
 }: ZTableDownloadToolbarComponentPropsType) {
   const apiRef = useGridApiContext();
@@ -27,8 +33,13 @@ export default function useZTableDownloadButtonComponent({
     return [];
   };
 
+  const getColumns = (): ZTableDownloadColumnType[] =>
+    gridVisibleColumnDefinitionsSelector(apiRef)
+      .filter((col) => col.field !== GRID_CHECKBOX_SELECTION_COL_DEF.field)
+      .map((col) => ({ field: col.field, headerName: col.headerName ?? col.field }));
+
   const handleDownload = () => {
-    onDownload?.({ fileType, dataType, rowIds: getRowIds() });
+    onDownload?.({ fileType, dataType, columns: getColumns(), filter, rowIds: getRowIds() });
     setOpen(false);
   };
 

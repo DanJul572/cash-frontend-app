@@ -1,11 +1,13 @@
 import Box from '@mui/material/Box';
 
+import useZTableComponentHook from '@hooks/use-ztable-component-hook';
 import { DataGrid, type GridValidRowModel } from '@mui/x-data-grid';
 import type { ZTableComponentPropsType } from '@type-defs/ztable-component-type';
 
 import ZTableToolbarComponent from './ztable-toolbar-component';
 
 export default function ZTableComponent<R extends GridValidRowModel>({
+  title,
   rows,
   columns,
   rowCount,
@@ -16,6 +18,8 @@ export default function ZTableComponent<R extends GridValidRowModel>({
   onFilterChange,
   onDownload,
 }: ZTableComponentPropsType<R>) {
+  const { filter, handleFilterChange } = useZTableComponentHook({ onFilterChange });
+
   return (
     <Box sx={{ width: '100%' }}>
       <DataGrid
@@ -32,7 +36,7 @@ export default function ZTableComponent<R extends GridValidRowModel>({
           toolbar: ZTableToolbarComponent,
         }}
         slotProps={{
-          toolbar: { onFilterChange, onDownload },
+          toolbar: { title, filter, onFilterChange: handleFilterChange, onDownload },
         }}
         checkboxSelection
         disableRowSelectionOnClick

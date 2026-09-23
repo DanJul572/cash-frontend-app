@@ -12,25 +12,42 @@ export type ZTablePaginationValueType = GridPaginationModel;
 
 export type ZTableFilterValueType = FilterValues;
 
+export type ZTableDownloadColumnType = {
+  field: string;
+  headerName: string;
+};
+
 export type ZTableDownloadValueType = {
   fileType: FileType;
   dataType: DataType;
+  /** Visible columns in the same order as the table view. */
+  columns: ZTableDownloadColumnType[];
+  /** Filter currently applied to the table. */
+  filter: ZTableFilterValueType;
   /** Row ids on the current page (`current`) or checked rows (`selected`); empty for `all`. */
   rowIds: GridRowId[];
 };
 
 export type ZTableFilterToolbarComponentPropsType = {
+  filter?: ZTableFilterValueType;
   onFilterChange?: (value: ZTableFilterValueType) => void;
 };
 
 export type ZTableDownloadToolbarComponentPropsType = {
+  filter?: ZTableFilterValueType;
   onDownload?: (value: ZTableDownloadValueType) => void;
 };
 
-export type ZTableToolbarComponentPropsType = ZTableFilterToolbarComponentPropsType &
+export type ZTableTitleToolbarComponentPropsType = {
+  title?: string;
+};
+
+export type ZTableToolbarComponentPropsType = ZTableTitleToolbarComponentPropsType &
+  ZTableFilterToolbarComponentPropsType &
   ZTableDownloadToolbarComponentPropsType;
 
 export type ZTableComponentPropsType<R extends GridValidRowModel> = {
+  title?: string;
   rows: R[];
   columns: GridColDef<R>[];
   rowCount: number;
@@ -44,6 +61,8 @@ export type ZTableComponentPropsType<R extends GridValidRowModel> = {
 
 declare module '@mui/x-data-grid' {
   interface ToolbarPropsOverrides {
+    title?: string;
+    filter?: ZTableFilterValueType;
     onFilterChange?: (value: ZTableFilterValueType) => void;
     onDownload?: (value: ZTableDownloadValueType) => void;
   }
