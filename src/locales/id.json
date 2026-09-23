@@ -1,4 +1,5 @@
 {
+  "activeFilters": "{{count}} aktif",
   "allData": "Semua Data",
   "allDataDescription": "Ekspor seluruh baris pada tabel",
   "apply": "Terapkan",
@@ -11,6 +12,8 @@
   "download": "Unduh",
   "fileType": "Tipe File",
   "filter": "Filter",
+  "filterDescription": "Baris harus cocok dengan semua kolom yang diisi",
+  "filterPlaceholder": "Ketik untuk memfilter...",
   "hello": "Hello",
   "loading": "Memuat",
   "logout": "Kaluar",

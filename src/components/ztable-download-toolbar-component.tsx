@@ -19,8 +19,11 @@ import {
 import useZTableDownloadButtonComponent from '@hooks/user-ztable-download-tollbar-component';
 import { GridDownloadIcon, ToolbarButton } from '@mui/x-data-grid';
 import { ztableDownloadTollbarComponentStyle } from '@styles/ztable-download-tollbar-component-style';
+import type { ZTableDownloadToolbarComponentPropsType } from '@type-defs/ztable-component-type';
 
-export default function ZTableDownloadToolbarComponent() {
+export default function ZTableDownloadToolbarComponent({
+  onDownload,
+}: ZTableDownloadToolbarComponentPropsType) {
   const { t } = useTranslation('common');
 
   const {
@@ -32,7 +35,7 @@ export default function ZTableDownloadToolbarComponent() {
     handleOpen,
     handleClose,
     handleDownload,
-  } = useZTableDownloadButtonComponent();
+  } = useZTableDownloadButtonComponent({ onDownload });
 
   return (
     <Box>

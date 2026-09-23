@@ -1,72 +1,72 @@
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 
-import type { FilterValues } from '@/types/ztable-filter-toolbar-component-type';
 import {
-  GridLogicOperator,
+  gridVisibleColumnDefinitionsSelector,
   useGridApiContext,
   useGridSelector,
-  gridFilterModelSelector,
-  gridVisibleColumnDefinitionsSelector,
 } from '@mui/x-data-grid';
+import type {
+  ZTableFilterToolbarComponentPropsType,
+  ZTableFilterValueType,
+} from '@type-defs/ztable-component-type';
 
-export default function useZTableFilterToolbarComponent() {
+export default function useZTableFilterToolbarComponent({
+  onFilterChange,
+}: ZTableFilterToolbarComponentPropsType) {
   const apiRef = useGridApiContext();
   const allColumns = useGridSelector(apiRef, gridVisibleColumnDefinitionsSelector);
   const columns = allColumns.filter((col) => col.field !== '__check__');
-  const currentFilterModel = useGridSelector(apiRef, gridFilterModelSelector);
 
   const [open, setOpen] = useState(false);
-  const [filterValues, setFilterValues] = useState<FilterValues>({});
+  const [appliedValues, setAppliedValues] = useState<ZTableFilterValueType>({});
+  const [filterValues, setFilterValues] = useState<ZTableFilterValueType>({});
 
-  const handleOpen = useCallback(() => {
-    const values: FilterValues = {};
-    currentFilterModel.items.forEach((item) => {
-      values[item.field] = item.value == null ? '' : String(item.value);
-    });
-    setFilterValues(values);
+  const appliedCount = Object.keys(appliedValues).length;
+  const activeCount = columns.filter((col) => (filterValues[col.field] ?? '').trim() !== '').length;
+
+  const handleOpen = () => {
+    setFilterValues(appliedValues);
     setOpen(true);
-  }, [currentFilterModel]);
+  };
 
-  const handleClose = useCallback(() => {
-    setOpen(false);
-  }, []);
+  const handleClose = () => setOpen(false);
 
-  const updateFilter = useCallback((field: string, value: string) => {
+  const updateFilter = (field: string, value: string) => {
     setFilterValues((prev) => ({ ...prev, [field]: value }));
-  }, []);
+  };
 
-  const applyFilters = useCallback(() => {
-    const items = columns
-      .filter((col) => (filterValues[col.field] ?? '') !== '')
-      .map((col) => ({
-        id: col.field,
-        field: col.field,
-        operator: 'equals',
-        value: filterValues[col.field],
-      }));
+  const clearFilter = (field: string) => {
+    setFilterValues((prev) => ({ ...prev, [field]: '' }));
+  };
 
-    apiRef.current.setFilterModel({
-      items,
-      logicOperator: GridLogicOperator.And,
+  const applyFilters = () => {
+    const values: ZTableFilterValueType = {};
+    columns.forEach((col) => {
+      const value = (filterValues[col.field] ?? '').trim();
+      if (value !== '') values[col.field] = value;
     });
+
+    setAppliedValues(values);
+    onFilterChange?.(values);
     setOpen(false);
-  }, [columns, filterValues, apiRef]);
+  };
 
-  const clearFilters = useCallback(() => {
-    apiRef.current.setFilterModel({
-      items: [],
-      logicOperator: GridLogicOperator.And,
-    });
+  const clearFilters = () => {
+    setAppliedValues({});
     setFilterValues({});
-  }, [apiRef]);
+    onFilterChange?.({});
+  };
 
   return {
     open,
     columns,
     filterValues,
+    appliedCount,
+    activeCount,
     handleOpen,
     handleClose,
     updateFilter,
+    clearFilter,
     applyFilters,
     clearFilters,
   };
