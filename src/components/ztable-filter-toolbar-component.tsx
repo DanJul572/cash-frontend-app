@@ -8,19 +8,17 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import IconButton from '@mui/material/IconButton';
-import InputAdornment from '@mui/material/InputAdornment';
-import TextField from '@mui/material/TextField';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 
-import CloseIcon from '@mui/icons-material/Close';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 
 import useZTableFilterToolbarComponent from '@hooks/user-ztable-filter-toolbar-component';
 import { GridFilterListIcon, ToolbarButton } from '@mui/x-data-grid';
 import { ztableFilterToolbarComponentStyle } from '@styles/ztable-filter-toolbar-component-style';
 import type { ZTableFilterToolbarComponentPropsType } from '@type-defs/ztable-component-type';
+
+import ZTableFilterFieldComponent from './ztable-filter-field-component';
 
 export default function ZTableFilterToolbarComponent({
   filter,
@@ -60,12 +58,6 @@ export default function ZTableFilterToolbarComponent({
               <Box>
                 <Typography
                   variant="caption"
-                  sx={ztableFilterToolbarComponentStyle.sectionLabelStyle}
-                >
-                  {t('columns')}
-                </Typography>
-                <Typography
-                  variant="caption"
                   sx={ztableFilterToolbarComponentStyle.sectionDescriptionStyle}
                 >
                   {t('filterDescription')}
@@ -83,32 +75,14 @@ export default function ZTableFilterToolbarComponent({
 
             <Box sx={ztableFilterToolbarComponentStyle.filterListStyle}>
               {columns.map((col) => {
-                const value = filterValues[col.field] ?? '';
-
                 return (
-                  <TextField
+                  <ZTableFilterFieldComponent
                     key={col.field}
-                    size="small"
-                    fullWidth
                     label={col.headerName ?? col.field}
-                    value={value}
-                    onChange={(e) => updateFilter(col.field, e.target.value)}
-                    slotProps={{
-                      input: {
-                        endAdornment: value.trim() !== '' && (
-                          <InputAdornment position="end">
-                            <IconButton
-                              size="small"
-                              edge="end"
-                              aria-label={t('clearFilters')}
-                              onClick={() => clearFilter(col.field)}
-                            >
-                              <CloseIcon fontSize="small" />
-                            </IconButton>
-                          </InputAdornment>
-                        ),
-                      },
-                    }}
+                    filterType={col.filterType}
+                    value={filterValues[col.field] ?? ''}
+                    onChange={(value) => updateFilter(col.field, value)}
+                    onClear={() => clearFilter(col.field)}
                   />
                 );
               })}

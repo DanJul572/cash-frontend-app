@@ -14,12 +14,6 @@ const sectionHeaderStyle = {
   gap: 1,
 } as const satisfies CSSProperties;
 
-const sectionLabelStyle = {
-  display: 'block',
-  fontWeight: 600,
-  color: 'text.secondary',
-} as const satisfies CSSProperties;
-
 const sectionDescriptionStyle = {
   display: 'block',
   color: 'text.secondary',
@@ -35,7 +29,6 @@ const filterListStyle = {
 export const ztableFilterToolbarComponentStyle = {
   modalRootStyle,
   sectionHeaderStyle,
-  sectionLabelStyle,
   sectionDescriptionStyle,
   filterListStyle,
 } satisfies Record<string, CSSProperties>;

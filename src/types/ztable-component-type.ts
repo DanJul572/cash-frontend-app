@@ -6,11 +6,18 @@ import type {
 } from '@mui/x-data-grid';
 
 import type { DataType, FileType } from './ztable-download-tollbar-component-type';
-import type { FilterValues } from './ztable-filter-toolbar-component-type';
+import type { FilterFieldType, FilterValues } from './ztable-filter-toolbar-component-type';
 
 export type ZTablePaginationValueType = GridPaginationModel;
 
 export type ZTableFilterValueType = FilterValues;
+
+export type ZTableFilterFieldType = FilterFieldType;
+
+export type ZTableColumnType<R extends GridValidRowModel = GridValidRowModel> = GridColDef<R> & {
+  /** Filter input type. Defaults to `number` for `type: 'number'` columns, otherwise `text`. */
+  filterType?: ZTableFilterFieldType;
+};
 
 export type ZTableDownloadColumnType = {
   field: string;
@@ -49,7 +56,7 @@ export type ZTableToolbarComponentPropsType = ZTableTitleToolbarComponentPropsTy
 export type ZTableComponentPropsType<R extends GridValidRowModel> = {
   title?: string;
   rows: R[];
-  columns: GridColDef<R>[];
+  columns: ZTableColumnType<R>[];
   rowCount: number;
   paginationModel: ZTablePaginationValueType;
   pageSizeOptions?: number[];

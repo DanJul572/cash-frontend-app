@@ -6,9 +6,15 @@ import {
   useGridSelector,
 } from '@mui/x-data-grid';
 import type {
+  ZTableColumnType,
+  ZTableFilterFieldType,
   ZTableFilterToolbarComponentPropsType,
   ZTableFilterValueType,
 } from '@type-defs/ztable-component-type';
+
+// Custom colDef props (e.g. `filterType`) are kept on the grid's column state.
+const resolveFilterType = (col: ZTableColumnType): ZTableFilterFieldType =>
+  col.filterType ?? (col.type === 'number' ? 'number' : 'text');
 
 export default function useZTableFilterToolbarComponent({
   filter = {},
@@ -16,7 +22,9 @@ export default function useZTableFilterToolbarComponent({
 }: ZTableFilterToolbarComponentPropsType) {
   const apiRef = useGridApiContext();
   const allColumns = useGridSelector(apiRef, gridVisibleColumnDefinitionsSelector);
-  const columns = allColumns.filter((col) => col.field !== '__check__');
+  const columns = allColumns
+    .filter((col) => col.field !== '__check__')
+    .map((col) => ({ ...col, filterType: resolveFilterType(col as ZTableColumnType) }));
 
   const [open, setOpen] = useState(false);
   const [filterValues, setFilterValues] = useState<ZTableFilterValueType>({});

@@ -13,6 +13,9 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+
 import { PageLoaderComponent } from './components';
 import { themeConfig } from './configs';
 import { setRouter, queryClientInstance } from './instances';
@@ -28,12 +31,14 @@ enableMocking().then(() => {
     <StrictMode>
       <QueryClientProvider client={queryClientInstance}>
         <ThemeProvider theme={themeConfig}>
-          <CssBaseline />
-          <RouterProvider
-            router={router}
-            context={{ queryClient: queryClientInstance }}
-            defaultPendingComponent={PageLoaderComponent}
-          />
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <CssBaseline />
+            <RouterProvider
+              router={router}
+              context={{ queryClient: queryClientInstance }}
+              defaultPendingComponent={PageLoaderComponent}
+            />
+          </LocalizationProvider>
         </ThemeProvider>
       </QueryClientProvider>
     </StrictMode>,
