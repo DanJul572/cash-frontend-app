@@ -1,8 +1,8 @@
-import app from '../../package.json';
+import { name, version } from '../../package.json';
 
-export const appVersion = app.version;
+export const appVersion = version;
 
-export const appName = import.meta.env.VITE_APP_NAME || app.name;
+export const appName = import.meta.env.VITE_APP_NAME || name;
 
 export const appNameAsTitle = appName
   .replace(/-/g, ' ')

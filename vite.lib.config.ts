@@ -1,3 +1,4 @@
+import { readdirSync } from 'fs';
 import path, { resolve } from 'path';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
@@ -7,6 +8,15 @@ import { tanstackRouter } from '@tanstack/router-plugin/vite';
 import react from '@vitejs/plugin-react';
 
 const dirname = import.meta.dirname;
+
+// Every file in src/lib becomes its own entry so consumers can import a single
+// component/page, e.g. '@zapplib/ui/components/PasswordField'.
+const libDir = resolve(dirname, 'src/lib');
+const subpathEntries = Object.fromEntries(
+  readdirSync(libDir, { recursive: true, encoding: 'utf8' })
+    .filter((file) => /\.tsx?$/.test(file))
+    .map((file) => [file.replace(/\.tsx?$/, '').replaceAll(path.sep, '/'), resolve(libDir, file)]),
+);
 
 export default defineConfig({
   resolve: {
@@ -40,20 +50,36 @@ export default defineConfig({
     }),
     react(),
     dts({
-      insertTypesEntry: true,
       include: ['src'],
+      exclude: [
+        'src/**/*.test.ts',
+        'src/**/*.test.tsx',
+        'src/__mocks__',
+        'src/__tests__',
+        'src/main.tsx',
+        'src/mocks',
+        'src/modules/*/mocks',
+        'src/router.tsx',
+        'src/routes',
+        'src/routeTree.gen.ts',
+      ],
       entryRoot: 'src',
+      outDirs: 'dist/types',
       tsconfigPath: './tsconfig.app.json',
     }),
   ],
   build: {
     // Prevent Vite from transpiling ESM syntax into CJS-compatible output
     target: 'esnext',
+    // public/ holds app-only assets (favicon, mockServiceWorker.js)
+    copyPublicDir: false,
     lib: {
-      entry: resolve(dirname, 'src/index.ts'),
-      name: 'cashapp',
+      entry: {
+        index: resolve(dirname, 'src/index.ts'),
+        ...subpathEntries,
+      },
       formats: ['es'],
-      fileName: (format) => `index.${format}.js`,
+      fileName: (_format, entryName) => `${entryName}.js`,
     },
     rollupOptions: {
       // Use a function to cover sub-path imports like:
@@ -90,10 +116,9 @@ export default defineConfig({
       },
       output: {
         format: 'es',
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM',
-        },
+        // Code shared between entries goes to chunks/, so importing one entry
+        // only loads the chunks it actually needs.
+        chunkFileNames: 'chunks/[name]-[hash].js',
       },
     },
   },

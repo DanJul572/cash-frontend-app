@@ -73,3 +73,22 @@ export default defineConfig([
   },
 ]);
 ```
+
+## Library build (`@zapplib/ui`)
+
+`pnpm build:lib` builds the package into `dist/`. Every file in `src/lib/` becomes its own entry,
+so consumers can import a single component/page without pulling in the rest:
+
+```ts
+import PasswordField from '@zapplib/ui/components/PasswordField';
+import { GuestConfigProvider } from '@zapplib/ui/contexts/GuestConfig';
+import LoginPage from '@zapplib/ui/pages/LoginPage';
+import { initTranslation } from '@zapplib/ui/utils/translation';
+```
+
+To expose something new, add a re-export file to `src/lib/<components|pages|contexts|utils>/`, e.g.
+`src/lib/components/TopBar.ts` → `@zapplib/ui/components/TopBar`. For a new top-level folder, also add
+it to `exports` in `package.json`.
+
+`VITE_*` env values are inlined at build time, so the published package uses the `.env` of the machine
+that built it.
