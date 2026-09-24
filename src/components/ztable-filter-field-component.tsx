@@ -7,9 +7,11 @@ import TextField from '@mui/material/TextField';
 import CloseIcon from '@mui/icons-material/Close';
 
 import useZTableFilterFieldComponentHook from '@hooks/use-ztable-filter-field-component-hook';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import type { FilterFieldComponentPropsType } from '@type-defs/ztable-filter-toolbar-component-type';
+
+import DateFieldComponent from './date-field-component';
+import DateTimeFieldComponent from './datetime-field-component';
+import TimeFieldComponent from './time-field-component';
 
 export default function ZTableFilterFieldComponent({
   label,
@@ -33,7 +35,7 @@ export default function ZTableFilterFieldComponent({
 
   if (filterType === 'date') {
     return (
-      <DatePicker
+      <DateFieldComponent
         label={label}
         value={pickerValue}
         onChange={handlePickerChange}
@@ -44,11 +46,21 @@ export default function ZTableFilterFieldComponent({
 
   if (filterType === 'time') {
     return (
-      <TimePicker
+      <TimeFieldComponent
         label={label}
         value={pickerValue}
         onChange={handlePickerChange}
-        ampm={false}
+        slotProps={pickerSlotProps}
+      />
+    );
+  }
+
+  if (filterType === 'datetime') {
+    return (
+      <DateTimeFieldComponent
+        label={label}
+        value={pickerValue}
+        onChange={handlePickerChange}
         slotProps={pickerSlotProps}
       />
     );

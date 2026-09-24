@@ -9,6 +9,7 @@ const NUMBER_PATTERN = /^-?\d*\.?\d*$/;
 const PICKER_FORMAT: Partial<Record<ZTableFilterFieldType, string>> = {
   date: 'YYYY-MM-DD',
   time: 'HH:mm',
+  datetime: 'YYYY-MM-DD[T]HH:mm',
 };
 
 const toDayjs = (filterType: ZTableFilterFieldType, value: string): Dayjs | null => {

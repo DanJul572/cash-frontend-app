@@ -6,8 +6,11 @@ export type FilterValues = Record<string, string>;
  * - `number`: digits only (optional leading `-` and one decimal `.`)
  * - `date`: date picker, value formatted as `YYYY-MM-DD`
  * - `time`: time picker, value formatted as `HH:mm`
+ * - `datetime`: date-time picker, value formatted as `YYYY-MM-DDTHH:mm`
+ *
+ * Picker display format follows `dateTimeFormatConfig`; the filter value format above is fixed.
  */
-export type FilterFieldType = 'text' | 'number' | 'date' | 'time';
+export type FilterFieldType = 'text' | 'number' | 'date' | 'time' | 'datetime';
 
 export type FilterFieldComponentPropsType = {
   label: string;
