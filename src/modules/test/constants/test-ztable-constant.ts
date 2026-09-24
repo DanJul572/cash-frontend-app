@@ -1,4 +1,4 @@
-import type { ZTableColumnType } from '@type-defs/ztable-component-type';
+import type { ZTableColumnType } from '@type-defs/ztable/ztable-component-type';
 
 import type { TestZTableRowType } from '../types';
 

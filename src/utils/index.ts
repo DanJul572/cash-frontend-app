@@ -4,4 +4,4 @@ export * from './enable-mocking-util';
 export * from './get-error-message-util';
 export * from './is-axios-error-util';
 export * from './translation-util';
-export * from './validate-datetime-format-util';
+export * from './datetime-field';

@@ -4,9 +4,9 @@ import Chip from '@mui/material/Chip';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 
-import DateFieldComponent from '@components/date-field-component';
-import DateTimeFieldComponent from '@components/datetime-field-component';
-import TimeFieldComponent from '@components/time-field-component';
+import DateFieldComponent from '@components/datetime-field/date-field-component';
+import DateTimeFieldComponent from '@components/datetime-field/datetime-field-component';
+import TimeFieldComponent from '@components/datetime-field/time-field-component';
 
 import { useTestDatetimePageHook } from '../hooks';
 import { testDatetimePageStyle } from '../styles';

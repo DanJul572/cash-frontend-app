@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box';
 
-import ZTableComponent from '@components/ztable-component';
+import ZTableComponent from '@components/ztable/ztable-component';
 
 import { useTestZTablePageHook } from '../hooks';
 import { testZTablePageStyle } from '../styles';

@@ -1,1 +1,1 @@
-export { default } from '@components/password-field-component';
+export { default } from '@components/password-field/password-field-component';

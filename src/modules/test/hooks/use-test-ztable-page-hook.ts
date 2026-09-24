@@ -8,7 +8,7 @@ import type {
   ZTableFilterValueType,
   ZTablePaginationValueType,
   ZTableSortValueType,
-} from '@type-defs/ztable-component-type';
+} from '@type-defs/ztable/ztable-component-type';
 
 import { TEST_ZTABLE_COLUMNS_CONSTANT, TEST_ZTABLE_ROWS_CONSTANT } from '../constants';
 import type { TestZTableRowType } from '../types';

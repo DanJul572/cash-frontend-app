@@ -4,7 +4,7 @@ import {
   PasswordFieldComponent,
   TimeFieldComponent,
 } from '@components';
-import ZTableComponent from '@components/ztable-component';
+import ZTableComponent from '@components/ztable/ztable-component';
 import { initTranslation } from '@utils';
 
 import { Error400Page, Error500Page } from './modules/error/pages';
