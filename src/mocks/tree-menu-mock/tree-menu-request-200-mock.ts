@@ -34,6 +34,11 @@ const mockTreeMenuData: TreeMenuResponseType = {
           { id: 'security', label: 'Security', href: '/settings/security' },
         ],
       },
+      {
+        id: 'test',
+        label: 'Test',
+        children: [{ id: 'test-datetime', label: 'Datetime', href: '/test/datetime' }],
+      },
     ],
   },
 };

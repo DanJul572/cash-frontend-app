@@ -22,6 +22,7 @@ import { Route as GuestForgotPasswordRouteImport } from './routes/_guest/forgot-
 import { Route as GuestLoginRouteImport } from './routes/_guest/login'
 import { Route as GuestRegisterRouteImport } from './routes/_guest/register'
 import { Route as GuestValidateOtpRouteImport } from './routes/_guest/validate-otp'
+import { Route as AuthenticatedTestDatetimeRouteImport } from './routes/_authenticated/test/datetime'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -86,6 +87,12 @@ const GuestValidateOtpRoute = GuestValidateOtpRouteImport.update({
   path: '/validate-otp',
   getParentRoute: () => GuestRoute,
 } as any)
+const AuthenticatedTestDatetimeRoute =
+  AuthenticatedTestDatetimeRouteImport.update({
+    id: '/test/datetime',
+    path: '/test/datetime',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -99,6 +106,7 @@ export interface FileRoutesByFullPath {
   '/login': typeof GuestLoginRoute
   '/register': typeof GuestRegisterRoute
   '/validate-otp': typeof GuestValidateOtpRoute
+  '/test/datetime': typeof AuthenticatedTestDatetimeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -112,6 +120,7 @@ export interface FileRoutesByTo {
   '/login': typeof GuestLoginRoute
   '/register': typeof GuestRegisterRoute
   '/validate-otp': typeof GuestValidateOtpRoute
+  '/test/datetime': typeof AuthenticatedTestDatetimeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -128,6 +137,7 @@ export interface FileRoutesById {
   '/_guest/login': typeof GuestLoginRoute
   '/_guest/register': typeof GuestRegisterRoute
   '/_guest/validate-otp': typeof GuestValidateOtpRoute
+  '/_authenticated/test/datetime': typeof AuthenticatedTestDatetimeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -143,6 +153,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/register'
     | '/validate-otp'
+    | '/test/datetime'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -156,6 +167,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/register'
     | '/validate-otp'
+    | '/test/datetime'
   id:
     | '__root__'
     | '/'
@@ -171,6 +183,7 @@ export interface FileRouteTypes {
     | '/_guest/login'
     | '/_guest/register'
     | '/_guest/validate-otp'
+    | '/_authenticated/test/datetime'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -275,15 +288,24 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuestValidateOtpRouteImport
       parentRoute: typeof GuestRoute
     }
+    '/_authenticated/test/datetime': {
+      id: '/_authenticated/test/datetime'
+      path: '/test/datetime'
+      fullPath: '/test/datetime'
+      preLoaderRoute: typeof AuthenticatedTestDatetimeRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
   }
 }
 
 interface AuthenticatedRouteChildren {
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
+  AuthenticatedTestDatetimeRoute: typeof AuthenticatedTestDatetimeRoute
 }
 
 const AuthenticatedRouteChildren: AuthenticatedRouteChildren = {
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
+  AuthenticatedTestDatetimeRoute: AuthenticatedTestDatetimeRoute,
 }
 
 const AuthenticatedRouteWithChildren = AuthenticatedRoute._addFileChildren(

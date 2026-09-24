@@ -1,0 +1,10 @@
+{
+  "dateField": "Date",
+  "datetimeField": "Date Time",
+  "datetimeTitle": "Test Date Time Fields",
+  "emptyFormat": "(empty format)",
+  "formattedValue": "Formatted",
+  "isoValue": "ISO",
+  "reset": "Reset",
+  "timeField": "Time"
+}

@@ -1,0 +1,10 @@
+{
+  "dateField": "Tanggal",
+  "datetimeField": "Tanggal Waktu",
+  "datetimeTitle": "Uji Field Tanggal Waktu",
+  "emptyFormat": "(format kosong)",
+  "formattedValue": "Terformat",
+  "isoValue": "ISO",
+  "reset": "Atur Ulang",
+  "timeField": "Waktu"
+}

@@ -15,6 +15,8 @@ import loginEN from '@modules/login/locales/login-en.json';
 import loginID from '@modules/login/locales/login-id.json';
 import registerEN from '@modules/register/locales/register-en.json';
 import registerID from '@modules/register/locales/register-id.json';
+import testEN from '@modules/test/locales/test-en.json';
+import testID from '@modules/test/locales/test-id.json';
 import validateOtpEN from '@modules/validate-otp/locales/validate-otp-en.json';
 import validateOtpID from '@modules/validate-otp/locales/validate-otp-id.json';
 
@@ -29,6 +31,7 @@ export const initTranslation = () => {
           forgotPassword: forgotPasswordEN,
           login: loginEN,
           register: registerEN,
+          test: testEN,
           validateOtp: validateOtpEN,
         },
         id: {
@@ -38,6 +41,7 @@ export const initTranslation = () => {
           forgotPassword: forgotPasswordID,
           login: loginID,
           register: registerID,
+          test: testID,
           validateOtp: validateOtpID,
         },
       },
