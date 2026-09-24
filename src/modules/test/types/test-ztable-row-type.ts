@@ -1,4 +1,4 @@
-export type DashboardRowType = {
+export type TestZTableRowType = {
   id: number;
   firstName: string | null;
   lastName: string;

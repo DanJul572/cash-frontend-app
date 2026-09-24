@@ -2,6 +2,7 @@ import type {
   GridColDef,
   GridPaginationModel,
   GridRowId,
+  GridSortModel,
   GridValidRowModel,
 } from '@mui/x-data-grid';
 
@@ -11,6 +12,9 @@ import type { FilterFieldType, FilterValues } from './ztable-filter-toolbar-comp
 export type ZTablePaginationValueType = GridPaginationModel;
 
 export type ZTableFilterValueType = FilterValues;
+
+/** Sorted columns in priority order, e.g. `[{ field: 'age', sort: 'desc' }]`; empty when unsorted. */
+export type ZTableSortValueType = GridSortModel;
 
 export type ZTableFilterFieldType = FilterFieldType;
 
@@ -45,11 +49,31 @@ export type ZTableDownloadToolbarComponentPropsType = {
   onDownload?: (value: ZTableDownloadValueType) => void;
 };
 
+export type ZTableSearchToolbarComponentPropsType = {
+  /** Called with the trimmed keyword after the user stops typing (debounced). */
+  onSearch?: (value: string) => void;
+};
+
+export type ZTableSearchButtonToolbarComponentPropsType = {
+  /** Shows an indicator while a keyword is entered. */
+  active: boolean;
+  onClick: () => void;
+};
+
+export type ZTableSearchFieldToolbarComponentPropsType = {
+  open: boolean;
+  value: string;
+  onChange: (value: string) => void;
+  onClear: () => void;
+  onClose: () => void;
+};
+
 export type ZTableTitleToolbarComponentPropsType = {
   title?: string;
 };
 
 export type ZTableToolbarComponentPropsType = ZTableTitleToolbarComponentPropsType &
+  ZTableSearchToolbarComponentPropsType &
   ZTableFilterToolbarComponentPropsType &
   ZTableDownloadToolbarComponentPropsType;
 
@@ -59,10 +83,15 @@ export type ZTableComponentPropsType<R extends GridValidRowModel> = {
   columns: ZTableColumnType<R>[];
   rowCount: number;
   paginationModel: ZTablePaginationValueType;
+  /** Controlled sort state; leave empty to let the grid keep it internally. */
+  sortModel?: ZTableSortValueType;
   pageSizeOptions?: number[];
   loading?: boolean;
   onPaginationChange: (value: ZTablePaginationValueType) => void;
+  /** When provided, sorting is delegated to the caller (server-side) instead of the grid. */
+  onSortChange?: (value: ZTableSortValueType) => void;
   onFilterChange: (value: ZTableFilterValueType) => void;
+  onSearch?: (value: string) => void;
   onDownload?: (value: ZTableDownloadValueType) => void;
 };
 
@@ -71,6 +100,7 @@ declare module '@mui/x-data-grid' {
     title?: string;
     filter?: ZTableFilterValueType;
     onFilterChange?: (value: ZTableFilterValueType) => void;
+    onSearch?: (value: string) => void;
     onDownload?: (value: ZTableDownloadValueType) => void;
   }
 }

@@ -12,10 +12,13 @@ export default function ZTableComponent<R extends GridValidRowModel>({
   columns,
   rowCount,
   paginationModel,
+  sortModel,
   pageSizeOptions,
   loading = false,
   onPaginationChange,
+  onSortChange,
   onFilterChange,
+  onSearch,
   onDownload,
 }: ZTableComponentPropsType<R>) {
   const { filter, handleFilterChange } = useZTableComponentHook({ onFilterChange });
@@ -31,12 +34,15 @@ export default function ZTableComponent<R extends GridValidRowModel>({
         paginationModel={paginationModel}
         onPaginationModelChange={onPaginationChange}
         pageSizeOptions={pageSizeOptions ?? [paginationModel.pageSize]}
+        sortingMode={onSortChange ? 'server' : 'client'}
+        {...(sortModel && { sortModel })}
+        onSortModelChange={onSortChange}
         showToolbar
         slots={{
           toolbar: ZTableToolbarComponent,
         }}
         slotProps={{
-          toolbar: { title, filter, onFilterChange: handleFilterChange, onDownload },
+          toolbar: { title, filter, onFilterChange: handleFilterChange, onSearch, onDownload },
         }}
         checkboxSelection
         disableRowSelectionOnClick

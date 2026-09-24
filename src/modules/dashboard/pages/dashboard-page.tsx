@@ -1,28 +1,17 @@
-import ZTableComponent from '@components/ztable-component';
+import { useTranslation } from 'react-i18next';
 
-import { useDashboardPageHook } from '../hooks';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+
+import { dashboardPageStyle } from '../styles';
 
 export default function DashboardPage() {
-  const {
-    rows,
-    columns,
-    rowCount,
-    paginationModel,
-    handlePaginationChange,
-    handleFilterChange,
-    handleDownload,
-  } = useDashboardPageHook();
+  const { t } = useTranslation('common');
 
   return (
-    <ZTableComponent
-      title="Dashboard"
-      rows={rows}
-      columns={columns}
-      rowCount={rowCount}
-      paginationModel={paginationModel}
-      onPaginationChange={handlePaginationChange}
-      onFilterChange={handleFilterChange}
-      onDownload={handleDownload}
-    />
+    <Box sx={dashboardPageStyle.containerStyle}>
+      <Typography variant="h5">{t('dashboard')}</Typography>
+      <Typography color="text.secondary">{t('dashboardDescription')}</Typography>
+    </Box>
   );
 }

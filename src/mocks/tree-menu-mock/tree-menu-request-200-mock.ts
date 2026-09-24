@@ -37,7 +37,10 @@ const mockTreeMenuData: TreeMenuResponseType = {
       {
         id: 'test',
         label: 'Test',
-        children: [{ id: 'test-datetime', label: 'Datetime', href: '/test/datetime' }],
+        children: [
+          { id: 'test-datetime', label: 'Datetime', href: '/test/datetime' },
+          { id: 'test-ztable', label: 'ZTable', href: '/test/ztable' },
+        ],
       },
     ],
   },

@@ -6,5 +6,6 @@
   "formattedValue": "Formatted",
   "isoValue": "ISO",
   "reset": "Reset",
-  "timeField": "Time"
+  "timeField": "Time",
+  "ztableTitle": "Test ZTable"
 }

@@ -1,8 +1,8 @@
 import type { ZTableColumnType } from '@type-defs/ztable-component-type';
 
-import type { DashboardRowType } from '../types';
+import type { TestZTableRowType } from '../types';
 
-export const DASHBOARD_TABLE_COLUMNS_CONSTANT: ZTableColumnType<DashboardRowType>[] = [
+export const TEST_ZTABLE_COLUMNS_CONSTANT: ZTableColumnType<TestZTableRowType>[] = [
   { field: 'id', headerName: 'ID', width: 90, filterType: 'number' },
   {
     field: 'firstName',
@@ -45,7 +45,7 @@ export const DASHBOARD_TABLE_COLUMNS_CONSTANT: ZTableColumnType<DashboardRowType
   },
 ];
 
-export const DASHBOARD_TABLE_ROWS_CONSTANT: DashboardRowType[] = [
+export const TEST_ZTABLE_ROWS_CONSTANT: TestZTableRowType[] = [
   {
     id: 1,
     lastName: 'Snow',
