@@ -4,14 +4,13 @@ import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
 
-import CloseIcon from '@mui/icons-material/Close';
-
 import useZTableFilterFieldComponentHook from '@hooks/ztable/use-ztable-filter-field-component-hook';
 import type { FilterFieldComponentPropsType } from '@type-defs/ztable/ztable-filter-toolbar-component-type';
 
 import DateFieldComponent from '../datetime-field/date-field-component';
 import DateTimeFieldComponent from '../datetime-field/datetime-field-component';
 import TimeFieldComponent from '../datetime-field/time-field-component';
+import IconComponent from '../icon/icon-component';
 
 export default function ZTableFilterFieldComponent({
   label,
@@ -79,7 +78,7 @@ export default function ZTableFilterFieldComponent({
           endAdornment: value.trim() !== '' && (
             <InputAdornment position="end">
               <IconButton size="small" edge="end" aria-label={t('clearFilters')} onClick={onClear}>
-                <CloseIcon fontSize="small" />
+                <IconComponent icon="ic:baseline-close" fontSize="small" />
               </IconButton>
             </InputAdornment>
           ),

@@ -92,7 +92,7 @@ export default defineConfig({
           '@emotion/styled',
           '@fontsource/roboto',
           '@hookform/resolvers',
-          '@mui/icons-material',
+          '@iconify/react',
           '@mui/material',
           '@mui/x-charts',
           '@mui/x-data-grid',

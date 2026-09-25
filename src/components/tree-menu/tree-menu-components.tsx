@@ -4,10 +4,6 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 
-import Folder from '@mui/icons-material/Folder';
-import FolderOpen from '@mui/icons-material/FolderOpen';
-import InsertDriveFile from '@mui/icons-material/InsertDriveFile';
-
 import { RichTreeView } from '@mui/x-tree-view';
 
 import { useSidebarContext } from '@contexts';
@@ -66,12 +62,7 @@ export default function TreeMenuComponent() {
       }}
     >
       <RichTreeView
-        slots={{
-          expandIcon: Folder,
-          collapseIcon: FolderOpen,
-          endIcon: InsertDriveFile,
-          item: TreeMenuLinkTreeItemComponent,
-        }}
+        slots={{ item: TreeMenuLinkTreeItemComponent }}
         items={data.items}
         itemChildrenIndentation={0}
         selectedItems={activeItemId}

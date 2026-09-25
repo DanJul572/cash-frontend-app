@@ -6,11 +6,11 @@ import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
 
-import CloseIcon from '@mui/icons-material/Close';
-
 import { GridSearchIcon } from '@mui/x-data-grid';
 import { ztableSearchToolbarComponentStyle } from '@styles/ztable/ztable-search-toolbar-component-style';
 import type { ZTableSearchFieldToolbarComponentPropsType } from '@type-defs/ztable/ztable-component-type';
+
+import IconComponent from '../icon/icon-component';
 
 export default function ZTableSearchFieldToolbarComponent({
   open,
@@ -46,7 +46,7 @@ export default function ZTableSearchFieldToolbarComponent({
               endAdornment: value ? (
                 <InputAdornment position="end">
                   <IconButton size="small" aria-label={t('clearSearch')} onClick={onClear}>
-                    <CloseIcon fontSize="small" />
+                    <IconComponent icon="ic:baseline-close" fontSize="small" />
                   </IconButton>
                 </InputAdornment>
               ) : null,

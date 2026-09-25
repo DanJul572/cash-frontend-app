@@ -11,13 +11,12 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 
-import FilterAltIcon from '@mui/icons-material/FilterAlt';
-
 import useZTableFilterToolbarComponent from '@hooks/ztable/user-ztable-filter-toolbar-component';
 import { GridFilterListIcon, ToolbarButton } from '@mui/x-data-grid';
 import { ztableFilterToolbarComponentStyle } from '@styles/ztable/ztable-filter-toolbar-component-style';
 import type { ZTableFilterToolbarComponentPropsType } from '@type-defs/ztable/ztable-component-type';
 
+import IconComponent from '../icon/icon-component';
 import ZTableFilterFieldComponent from './ztable-filter-field-component';
 
 export default function ZTableFilterToolbarComponent({
@@ -95,7 +94,11 @@ export default function ZTableFilterToolbarComponent({
           </Button>
           <Box sx={{ flex: 1 }} />
           <Button onClick={handleClose}>{t('cancel')}</Button>
-          <Button variant="contained" startIcon={<FilterAltIcon />} onClick={applyFilters}>
+          <Button
+            variant="contained"
+            startIcon={<IconComponent icon="ic:baseline-filter-alt" />}
+            onClick={applyFilters}
+          >
             {t('apply')}
           </Button>
         </DialogActions>

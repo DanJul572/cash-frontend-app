@@ -7,6 +7,8 @@ import { Link } from '@tanstack/react-router';
 
 import type { TreeMenuItem } from '@types';
 
+import IconComponent from '../icon/icon-component';
+
 const CustomTreeItem = styled(TreeItem)(({ theme }) => ({
   [`& .${treeItemClasses.iconContainer}`]: {
     color: theme.palette.primary.main,
@@ -53,10 +55,19 @@ export default function TreeMenuLinkTreeItemComponent(props: TreeItemProps) {
     return null;
   }
 
+  // Without an icon, MUI falls back to its expand/collapse chevron for folders.
+  const iconProps = item.icon
+    ? {
+        slots: { ...props.slots, icon: IconComponent },
+        slotProps: { ...props.slotProps, icon: { icon: item.icon, fontSize: 'small' } },
+      }
+    : {};
+
   if (item.href) {
     return (
       <CustomTreeItem
         {...props}
+        {...iconProps}
         label={
           <Link to={item.href} onClick={(e) => e.stopPropagation()}>
             {item.label}
@@ -66,5 +77,5 @@ export default function TreeMenuLinkTreeItemComponent(props: TreeItemProps) {
     );
   }
 
-  return <CustomTreeItem {...props} label={item.label} />;
+  return <CustomTreeItem {...props} {...iconProps} label={item.label} />;
 }

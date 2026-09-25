@@ -2,10 +2,9 @@ import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import TextField, { type TextFieldProps } from '@mui/material/TextField';
 
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
-
 import usePasswordFieldComponentHook from '@hooks/password-field/use-password-field-component-hook';
+
+import IconComponent from '../icon/icon-component';
 
 export default function PasswordFieldComponent(props: TextFieldProps) {
   const { showPassword, setShowPassword } = usePasswordFieldComponentHook();
@@ -19,7 +18,9 @@ export default function PasswordFieldComponent(props: TextFieldProps) {
           endAdornment: (
             <InputAdornment position="end">
               <IconButton onClick={() => setShowPassword((prev) => !prev)} edge="end">
-                {showPassword ? <VisibilityOff /> : <Visibility />}
+                <IconComponent
+                  icon={showPassword ? 'ic:baseline-visibility-off' : 'ic:baseline-visibility'}
+                />
               </IconButton>
             </InputAdornment>
           ),

@@ -6,5 +6,6 @@ export * from './router-context-type';
 export * from './tree-menu-item-type';
 export * from './tree-menu-response-type';
 export type * from './datetime-field';
+export type * from './icon';
 export type * from './tree-menu';
 export type * from './ztable';

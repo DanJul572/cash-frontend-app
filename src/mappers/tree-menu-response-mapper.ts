@@ -14,5 +14,6 @@ const mapTreeMenuItem = (
   id: item.id,
   label: item.label,
   href: item.href,
+  icon: item.icon,
   children: item.children?.map(mapTreeMenuItem),
 });

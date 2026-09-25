@@ -2,12 +2,10 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 
-import ChevronRight from '@mui/icons-material/ChevronRight';
-import Folder from '@mui/icons-material/Folder';
-import InsertDriveFile from '@mui/icons-material/InsertDriveFile';
-
 import { collapsibleMenuItemButtonComponentStyle } from '@styles/tree-menu/collapsible-menu-item-button-component-style';
 import type { CollapsibleMenuItemButtonComponentPropsType } from '@type-defs/tree-menu/collapsible-menu-item-button-component-props-type';
+
+import IconComponent from '../icon/icon-component';
 
 export default function CollapsibleMenuItemButtonComponent({
   handleClick,
@@ -15,8 +13,6 @@ export default function CollapsibleMenuItemButtonComponent({
   isActive,
   item,
 }: CollapsibleMenuItemButtonComponentPropsType) {
-  const Icon = hasChildren ? Folder : InsertDriveFile;
-
   return (
     <ListItemButton
       onClick={handleClick}
@@ -24,12 +20,17 @@ export default function CollapsibleMenuItemButtonComponent({
       dense
       sx={collapsibleMenuItemButtonComponentStyle.listItemButtonStyle}
     >
-      <ListItemIcon sx={collapsibleMenuItemButtonComponentStyle.listItemButtonStyle}>
-        <Icon fontSize="small" sx={collapsibleMenuItemButtonComponentStyle.iconStyle} />
+      <ListItemIcon sx={collapsibleMenuItemButtonComponentStyle.listItemIconStyle}>
+        <IconComponent
+          icon={item.icon}
+          fontSize="small"
+          sx={collapsibleMenuItemButtonComponentStyle.iconStyle}
+        />
       </ListItemIcon>
       <ListItemText primary={item.label} />
       {hasChildren && (
-        <ChevronRight
+        <IconComponent
+          icon="ic:baseline-chevron-right"
           fontSize="small"
           sx={collapsibleMenuItemButtonComponentStyle.chevronRightStyle}
         />

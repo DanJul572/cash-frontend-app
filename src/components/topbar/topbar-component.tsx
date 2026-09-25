@@ -11,13 +11,12 @@ import MenuList from '@mui/material/MenuList';
 import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 
-import LogoutIcon from '@mui/icons-material/Logout';
-import MenuIcon from '@mui/icons-material/Menu';
-
 import { useSidebarContext } from '@contexts';
 import useTopbarComponentHook from '@hooks/topbar/use-topbar-component-hook';
 import { topbarComponentStyle } from '@styles/topbar/topbar-component-style';
 import { appNameAsTitle, appVersion } from '@utils';
+
+import IconComponent from '../icon/icon-component';
 
 export default function TopbarComponent() {
   const { t } = useTranslation('common');
@@ -30,7 +29,7 @@ export default function TopbarComponent() {
   return (
     <Box sx={topbarComponentStyle.containerStyle}>
       <IconButton onClick={toggleSidebar} sx={topbarComponentStyle.hamburgerButtonStyle}>
-        <MenuIcon sx={topbarComponentStyle.hamburgerIconButtonStyle} />
+        <IconComponent icon="ic:baseline-menu" sx={topbarComponentStyle.hamburgerIconButtonStyle} />
       </IconButton>
       <Box sx={topbarComponentStyle.titleSectionStyle}>
         <Box>
@@ -64,7 +63,7 @@ export default function TopbarComponent() {
             <MenuList>
               <MenuItem onClick={handleLogout} sx={topbarComponentStyle.menuItemStyle}>
                 <ListItemIcon>
-                  <LogoutIcon fontSize="small" />
+                  <IconComponent icon="ic:baseline-logout" fontSize="small" />
                 </ListItemIcon>
                 <ListItemText>{t('logout')}</ListItemText>
               </MenuItem>

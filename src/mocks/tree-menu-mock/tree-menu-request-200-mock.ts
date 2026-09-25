@@ -13,12 +13,14 @@ const mockTreeMenuData: TreeMenuResponseType = {
         id: 'dashboard',
         label: 'Dashboard',
         href: '/dashboard',
+        icon: 'ic:baseline-dashboard',
       },
       {
         id: 'users',
         label: 'Users',
+        icon: 'ic:baseline-people',
         children: [
-          { id: 'user-list', label: 'User List', href: '/users' },
+          { id: 'user-list', label: 'User List', href: '/users', icon: 'ic:baseline-list' },
           {
             id: 'user-register',
             label: 'User Register',
@@ -29,6 +31,7 @@ const mockTreeMenuData: TreeMenuResponseType = {
       {
         id: 'settings',
         label: 'Settings',
+        icon: 'ic:baseline-settings',
         children: [
           { id: 'general', label: 'General', href: '/settings/general' },
           { id: 'security', label: 'Security', href: '/settings/security' },
@@ -37,6 +40,7 @@ const mockTreeMenuData: TreeMenuResponseType = {
       {
         id: 'test',
         label: 'Test',
+        icon: 'ic:baseline-science',
         children: [
           { id: 'test-datetime', label: 'Datetime', href: '/test/datetime' },
           { id: 'test-ztable', label: 'ZTable', href: '/test/ztable' },

@@ -10,8 +10,6 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-
 import {
   DATA_TYPE_OPTION_CONSTANT,
   FILE_TYPE_OPTION_CONSTANT,
@@ -20,6 +18,8 @@ import useZTableDownloadButtonComponent from '@hooks/ztable/user-ztable-download
 import { GridDownloadIcon, ToolbarButton } from '@mui/x-data-grid';
 import { ztableDownloadTollbarComponentStyle } from '@styles/ztable/ztable-download-tollbar-component-style';
 import type { ZTableDownloadToolbarComponentPropsType } from '@type-defs/ztable/ztable-component-type';
+
+import IconComponent from '../icon/icon-component';
 
 export default function ZTableDownloadToolbarComponent({
   filter,
@@ -60,7 +60,6 @@ export default function ZTableDownloadToolbarComponent({
               <Box sx={ztableDownloadTollbarComponentStyle.fileTypeGridStyle}>
                 {FILE_TYPE_OPTION_CONSTANT.map((option) => {
                   const selected = fileType === option.value;
-                  const Icon = option.icon;
 
                   return (
                     <ButtonBase
@@ -71,7 +70,10 @@ export default function ZTableDownloadToolbarComponent({
                         selected && ztableDownloadTollbarComponentStyle.selectedCardStyle,
                       ]}
                     >
-                      <Icon sx={{ color: selected ? 'primary.main' : option.color }} />
+                      <IconComponent
+                        icon={option.icon}
+                        sx={{ color: selected ? 'primary.main' : option.color }}
+                      />
                       <Typography variant="caption" sx={{ fontWeight: selected ? 700 : 500 }}>
                         {option.label}
                       </Typography>
@@ -91,7 +93,6 @@ export default function ZTableDownloadToolbarComponent({
               <Box sx={ztableDownloadTollbarComponentStyle.dataTypeListStyle}>
                 {DATA_TYPE_OPTION_CONSTANT.map((option) => {
                   const selected = dataType === option.value;
-                  const Icon = option.icon;
 
                   return (
                     <ButtonBase
@@ -102,7 +103,7 @@ export default function ZTableDownloadToolbarComponent({
                         selected && ztableDownloadTollbarComponentStyle.selectedCardStyle,
                       ]}
                     >
-                      <Icon fontSize="small" />
+                      <IconComponent icon={option.icon} fontSize="small" />
                       <Box
                         component="span"
                         sx={ztableDownloadTollbarComponentStyle.dataTypeTextStyle}
@@ -118,7 +119,13 @@ export default function ZTableDownloadToolbarComponent({
                           {t(option.descriptionKey)}
                         </Typography>
                       </Box>
-                      {selected && <CheckCircleIcon fontSize="small" color="primary" />}
+                      {selected && (
+                        <IconComponent
+                          icon="ic:baseline-check-circle"
+                          fontSize="small"
+                          sx={{ color: 'primary.main' }}
+                        />
+                      )}
                     </ButtonBase>
                   );
                 })}

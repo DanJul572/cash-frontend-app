@@ -4,12 +4,14 @@ const treeMenuItemSchema: z.ZodType<{
   id: string;
   label: string;
   href?: string;
+  icon?: string;
   children?: z.infer<typeof treeMenuItemSchema>[];
 }> = z.lazy(() =>
   z.object({
     id: z.string(),
     label: z.string(),
     href: z.string().optional(),
+    icon: z.string().optional(),
     children: z.array(treeMenuItemSchema).optional(),
   }),
 );
