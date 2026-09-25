@@ -16,5 +16,6 @@ declare module '@tanstack/react-router' {
 
   interface HistoryState {
     message?: string;
+    errors?: string[];
   }
 }

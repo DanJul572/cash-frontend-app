@@ -1,3 +1,5 @@
+import type { DateTimeFormatConfigType } from './datetime-field';
+
 export type LoginModuleConfigType = {
   minLengthPassword: number;
 };
@@ -17,6 +19,7 @@ export type ChangePasswordModuleConfigType = {
 };
 
 export type GuestConfigResponseType = {
+  dateTimeFormat: DateTimeFormatConfigType;
   modules: {
     login: LoginModuleConfigType;
     register: RegisterModuleConfigType;

@@ -19,7 +19,7 @@ export default function DateTimeFormatErrorComponent({
       <AlertTitle>{t('datetimeFormatInvalidTitle', { fieldType })}</AlertTitle>
       {message}
       <Box component="code" sx={dateTimeFormatErrorComponentStyle.codeStyle}>
-        {`dateTimeFormatConfig.${fieldType} = ${JSON.stringify(format)}`}
+        {`dateTimeFormat.${fieldType} = ${JSON.stringify(format)}`}
       </Box>
     </Alert>
   );

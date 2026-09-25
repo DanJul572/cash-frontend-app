@@ -9,6 +9,7 @@ import { TopbarComponent, TreeMenuComponent } from '@components';
 import { AuthenticatedConfigProvider } from '@contexts';
 import { useAuthenticatedConfigQuery } from '@queries';
 import { mainLayoutStyle } from '@styles';
+import { getConfigErrorState } from '@utils';
 
 export default function MainLayout() {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ export default function MainLayout() {
 
   useEffect(() => {
     if (!isPending && error) {
-      navigate({ to: '/500' });
+      navigate({ to: '/500', state: getConfigErrorState(error) });
     } else if (!isPending && !error && !config) {
       navigate({ to: '/404', state: { message: 'Configuration Not Found' } });
     }

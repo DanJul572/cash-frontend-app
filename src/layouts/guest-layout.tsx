@@ -7,6 +7,7 @@ import { Outlet, useNavigate } from '@tanstack/react-router';
 import { PageLoaderComponent } from '@components';
 import { GuestConfigProvider } from '@contexts';
 import { useGuestConfigQuery } from '@queries';
+import { getConfigErrorState } from '@utils';
 
 export default function GuestLayout() {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ export default function GuestLayout() {
 
   useEffect(() => {
     if (!isPending && error) {
-      navigate({ to: '/500' });
+      navigate({ to: '/500', state: getConfigErrorState(error) });
     } else if (!isPending && !error && !config) {
       navigate({ to: '/404', state: { message: 'Configuration Not Found' } });
     }

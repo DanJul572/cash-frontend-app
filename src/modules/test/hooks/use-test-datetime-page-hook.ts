@@ -4,10 +4,11 @@ import { useTranslation } from 'react-i18next';
 
 import type { Dayjs } from 'dayjs';
 
-import { dateTimeFormatConfig } from '@configs/datetime-format-config';
+import { useDateTimeFormatConfigHook } from '@hooks';
 
 export default function useTestDatetimePageHook() {
   const { t } = useTranslation('test');
+  const dateTimeFormatConfig = useDateTimeFormatConfigHook();
 
   const [dateValue, setDateValue] = useState<Dayjs | null>(null);
   const [timeValue, setTimeValue] = useState<Dayjs | null>(null);

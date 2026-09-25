@@ -30,9 +30,18 @@ const textStyle = {
   letterSpacing: '0.5px',
 } as const satisfies SxProps<Theme>;
 
+const errorListStyle = {
+  mt: 2,
+  mb: 0,
+  pl: 2.5,
+  color: 'error.main',
+  fontFamily: 'monospace',
+} as const satisfies SxProps<Theme>;
+
 export const error500Style = {
   codeStyle,
   containerStyle,
   dividerStyle,
+  errorListStyle,
   textStyle,
 } satisfies Record<string, SxProps<Theme>>;

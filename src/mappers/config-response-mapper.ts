@@ -1,6 +1,11 @@
 import { authenticatedConfigResponseSchema, guestConfigResponseSchema } from '@schemas';
 
 export const guestConfigResponseMapper = guestConfigResponseSchema.transform((res) => ({
+  dateTimeFormat: {
+    date: res.data.dateTimeFormat.date,
+    time: res.data.dateTimeFormat.time,
+    datetime: res.data.dateTimeFormat.datetime,
+  },
   modules: {
     login: {
       minLengthPassword: res.data.modules.login.minLengthPassword,
@@ -22,5 +27,10 @@ export const guestConfigResponseMapper = guestConfigResponseSchema.transform((re
 export const authenticatedConfigResponseMapper = authenticatedConfigResponseSchema.transform(
   (res) => ({
     dataPerPage: res.data.dataPerPage,
+    dateTimeFormat: {
+      date: res.data.dateTimeFormat.date,
+      time: res.data.dateTimeFormat.time,
+      datetime: res.data.dateTimeFormat.datetime,
+    },
   }),
 );

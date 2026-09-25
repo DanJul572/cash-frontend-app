@@ -17,6 +17,7 @@ export default function Error500Page() {
   if (location.state && location.state.message) {
     message = location.state.message;
   }
+  const errors = location.state?.errors ?? [];
 
   return (
     <Box sx={error500Style.containerStyle}>
@@ -27,6 +28,15 @@ export default function Error500Page() {
       <Typography variant="h6" sx={error500Style.textStyle}>
         {message}
       </Typography>
+      {errors.length > 0 && (
+        <Box component="ul" sx={error500Style.errorListStyle}>
+          {errors.map((error) => (
+            <Typography key={error} component="li" variant="body2">
+              {error}
+            </Typography>
+          ))}
+        </Box>
+      )}
     </Box>
   );
 }

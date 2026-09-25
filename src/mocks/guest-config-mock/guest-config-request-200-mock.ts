@@ -7,6 +7,11 @@ const mockGuestConfigData = {
   status: true,
   message: 'request success',
   data: {
+    dateTimeFormat: {
+      date: 'DD/MM/YYYY',
+      time: 'HH:mm',
+      datetime: 'DD/MM/YYYY HH:mm',
+    },
     modules: {
       login: {
         minLengthPassword: 10,

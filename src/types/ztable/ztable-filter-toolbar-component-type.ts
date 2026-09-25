@@ -8,7 +8,7 @@ export type FilterValues = Record<string, string>;
  * - `time`: time picker, value formatted as `HH:mm`
  * - `datetime`: date-time picker, value formatted as `YYYY-MM-DDTHH:mm`
  *
- * Picker display format follows `dateTimeFormatConfig`; the filter value format above is fixed.
+ * Picker display format follows the config's `dateTimeFormat`; the filter value format above is fixed.
  */
 export type FilterFieldType = 'text' | 'number' | 'date' | 'time' | 'datetime';
 

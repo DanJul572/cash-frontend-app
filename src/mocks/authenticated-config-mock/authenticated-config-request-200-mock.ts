@@ -8,6 +8,11 @@ const mockAuthenticatedConfigData = {
   message: 'request success',
   data: {
     dataPerPage: 10,
+    dateTimeFormat: {
+      date: 'DD/MM/YYYY',
+      time: 'HH:mm',
+      datetime: 'DD/MM/YYYY HH:mm',
+    },
   },
 };
 
