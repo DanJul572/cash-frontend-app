@@ -88,7 +88,7 @@ export default function ZTableFilterToolbarComponent({
             </Box>
           </Box>
         </DialogContent>
-        <DialogActions>
+        <DialogActions sx={ztableFilterToolbarComponentStyle.dialogActionsStyle}>
           <Button onClick={clearFilters} color="error" size="small">
             {t('clearFilters')}
           </Button>

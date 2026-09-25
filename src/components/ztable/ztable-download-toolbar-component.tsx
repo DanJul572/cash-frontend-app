@@ -133,7 +133,7 @@ export default function ZTableDownloadToolbarComponent({
             </Box>
           </Box>
         </DialogContent>
-        <DialogActions>
+        <DialogActions sx={ztableDownloadTollbarComponentStyle.dialogActionsStyle}>
           <Button onClick={handleClose}>{t('cancel')}</Button>
           <Button variant="contained" startIcon={<GridDownloadIcon />} onClick={handleDownload}>
             {t('download')}

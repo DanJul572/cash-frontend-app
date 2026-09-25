@@ -26,9 +26,15 @@ const filterListStyle = {
   paddingTop: 1,
 } as const satisfies CSSProperties;
 
+const dialogActionsStyle = {
+  paddingX: 3,
+  paddingBottom: 2.5,
+} as const satisfies CSSProperties;
+
 export const ztableFilterToolbarComponentStyle = {
   modalRootStyle,
   sectionHeaderStyle,
   sectionDescriptionStyle,
   filterListStyle,
+  dialogActionsStyle,
 } satisfies Record<string, CSSProperties>;

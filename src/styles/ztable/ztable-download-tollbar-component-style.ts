@@ -68,6 +68,11 @@ const selectedCardStyle = {
   color: 'primary.main',
 } as const satisfies CSSProperties;
 
+const dialogActionsStyle = {
+  paddingX: 3,
+  paddingBottom: 2.5,
+} as const satisfies CSSProperties;
+
 export const ztableDownloadTollbarComponentStyle = {
   modalRootStyle,
   sectionLabelStyle,
@@ -77,4 +82,5 @@ export const ztableDownloadTollbarComponentStyle = {
   dataTypeCardStyle,
   dataTypeTextStyle,
   selectedCardStyle,
+  dialogActionsStyle,
 } satisfies Record<string, CSSProperties>;
