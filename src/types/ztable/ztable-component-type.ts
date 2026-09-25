@@ -87,6 +87,8 @@ export type ZTableComponentPropsType<R extends GridValidRowModel> = {
   sortModel?: ZTableSortValueType;
   pageSizeOptions?: number[];
   loading?: boolean;
+  /** Alternates row background per page. Defaults to `true`. */
+  striped?: boolean;
   onPaginationChange: (value: ZTablePaginationValueType) => void;
   /** When provided, sorting is delegated to the caller (server-side) instead of the grid. */
   onSortChange?: (value: ZTableSortValueType) => void;

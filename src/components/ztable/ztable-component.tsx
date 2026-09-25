@@ -2,6 +2,7 @@ import Box from '@mui/material/Box';
 
 import useZTableComponentHook from '@hooks/ztable/use-ztable-component-hook';
 import { DataGrid, type GridValidRowModel } from '@mui/x-data-grid';
+import { ztableComponentStyle } from '@styles/ztable/ztable-component-style';
 import type { ZTableComponentPropsType } from '@type-defs/ztable/ztable-component-type';
 
 import ZTableToolbarComponent from './ztable-toolbar-component';
@@ -15,6 +16,7 @@ export default function ZTableComponent<R extends GridValidRowModel>({
   sortModel,
   pageSizeOptions,
   loading = false,
+  striped = true,
   onPaginationChange,
   onSortChange,
   onFilterChange,
@@ -47,6 +49,11 @@ export default function ZTableComponent<R extends GridValidRowModel>({
         checkboxSelection
         disableRowSelectionOnClick
         disableColumnFilter
+        {...(striped && {
+          getRowClassName: (params) =>
+            params.indexRelativeToCurrentPage % 2 === 0 ? 'even' : 'odd',
+          sx: ztableComponentStyle.dataGridStripedStyle,
+        })}
       />
     </Box>
   );
