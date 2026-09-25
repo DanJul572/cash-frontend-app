@@ -2,14 +2,21 @@ import type { CSSProperties } from 'react';
 
 const cardStyle = {
   borderRadius: 0,
+  display: 'flex',
+  flexDirection: 'column',
   height: '100vh',
-  overflowY: 'auto',
-  padding: '10px',
+  left: 0,
   position: 'fixed',
-  top: '64px',
+  top: 0,
   width: '350px',
   zIndex: 999,
+} as const satisfies CSSProperties;
+
+const contentStyle = {
+  flex: 1,
   overflowX: 'hidden',
+  overflowY: 'auto',
+  padding: '10px',
 } as const satisfies CSSProperties;
 
 const containerStyle = {
@@ -39,6 +46,7 @@ const textStyle = {
 
 export const treeMenuSkeletonComponentStyle = {
   cardStyle,
+  contentStyle,
   containerStyle,
   itemStyle,
   iconStyle,

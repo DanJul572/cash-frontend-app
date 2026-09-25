@@ -1,11 +1,13 @@
 import type { SxProps, Theme } from '@mui/material';
 
+import { LAYOUT_HEADER_HEIGHT_CONSTANT } from '@constants';
+
 const containerStyle = {
   alignItems: 'center',
   backgroundColor: 'primary.main',
   display: 'flex',
-  height: 64,
-  left: 0,
+  height: LAYOUT_HEADER_HEIGHT_CONSTANT,
+  left: '350px',
   padding: '0 16px',
   position: 'fixed',
   right: 0,
@@ -26,10 +28,10 @@ const iconButtonStyle = {
 const avatarStyle = {
   backgroundColor: 'common.white',
   color: 'primary.main',
-  width: 36,
-  height: 36,
+  width: 48,
+  height: 48,
   fontWeight: 'bold',
-  fontSize: '1rem',
+  fontSize: '1.25rem',
 } as const satisfies SxProps<Theme>;
 
 const popoverStyle = {
@@ -70,29 +72,6 @@ const userEmailStyle = {
   color: 'text.secondary',
 } as const satisfies SxProps<Theme>;
 
-const titleSectionStyle = {
-  alignItems: 'center',
-  display: 'flex',
-  gap: 1,
-  userSelect: 'none',
-} as const satisfies SxProps<Theme>;
-
-const titleTextStyle = {
-  color: 'common.white',
-  fontSize: '1.15rem',
-  fontWeight: 700,
-  letterSpacing: '0.5px',
-  lineHeight: 1.2,
-} as const satisfies SxProps<Theme>;
-
-const titleSubtextStyle = {
-  color: 'rgba(255, 255, 255, 0.7)',
-  fontSize: '0.65rem',
-  fontWeight: 400,
-  letterSpacing: '1.5px',
-  lineHeight: 1,
-} as const satisfies SxProps<Theme>;
-
 const menuItemStyle = {
   py: 1.5,
 } as const satisfies SxProps<Theme>;
@@ -107,9 +86,6 @@ export const topbarComponentStyle = {
   popoverContentStyle,
   profileHeaderStyle,
   rightSectionStyle,
-  titleSectionStyle,
-  titleSubtextStyle,
-  titleTextStyle,
   userEmailStyle,
   userNameStyle,
 } satisfies Record<string, SxProps<Theme>>;

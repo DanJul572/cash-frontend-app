@@ -1,5 +1,7 @@
 import type { SxProps, Theme } from '@mui/material';
 
+import { LAYOUT_HEADER_HEIGHT_CONSTANT } from '@constants';
+
 const containerStyle = {
   display: 'flex',
 } as const satisfies SxProps<Theme>;
@@ -11,7 +13,7 @@ const contentStyle = {
   padding: '20px',
   position: 'fixed',
   right: 0,
-  top: '64px',
+  top: LAYOUT_HEADER_HEIGHT_CONSTANT,
 } as const satisfies SxProps<Theme>;
 
 export const mainLayoutStyle = {

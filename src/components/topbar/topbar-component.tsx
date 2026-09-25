@@ -13,7 +13,6 @@ import Typography from '@mui/material/Typography';
 
 import useTopbarComponentHook from '@hooks/topbar/use-topbar-component-hook';
 import { topbarComponentStyle } from '@styles/topbar/topbar-component-style';
-import { appNameAsTitle, appVersion } from '@utils';
 
 import IconComponent from '../icon/icon-component';
 
@@ -25,12 +24,6 @@ export default function TopbarComponent() {
 
   return (
     <Box sx={topbarComponentStyle.containerStyle}>
-      <Box sx={topbarComponentStyle.titleSectionStyle}>
-        <Box>
-          <Typography sx={topbarComponentStyle.titleTextStyle}>{appNameAsTitle}</Typography>
-          <Typography sx={topbarComponentStyle.titleSubtextStyle}>v{appVersion}</Typography>
-        </Box>
-      </Box>
       <Box sx={topbarComponentStyle.rightSectionStyle}>
         <IconButton onClick={handleOpen} sx={topbarComponentStyle.iconButtonStyle}>
           <Avatar sx={topbarComponentStyle.avatarStyle}>{getInitials(user.name)}</Avatar>
