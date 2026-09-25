@@ -4,7 +4,6 @@ const containerStyle = {
   display: 'flex',
   flexDirection: 'column',
   gap: 3,
-  p: 3,
   maxWidth: 720,
 } as const satisfies SxProps<Theme>;
 

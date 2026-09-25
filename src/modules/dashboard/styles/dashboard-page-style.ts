@@ -4,7 +4,6 @@ const containerStyle = {
   display: 'flex',
   flexDirection: 'column',
   gap: 1,
-  p: 3,
 } as const satisfies SxProps<Theme>;
 
 export const dashboardPageStyle = {

@@ -10,7 +10,7 @@ const contentStyle = {
   bottom: 0,
   left: '350px',
   overflowY: 'auto',
-  padding: '20px',
+  padding: 2,
   position: 'fixed',
   right: 0,
   top: LAYOUT_HEADER_HEIGHT_CONSTANT,
