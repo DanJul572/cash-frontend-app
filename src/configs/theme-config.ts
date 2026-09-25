@@ -1,9 +1,9 @@
 import { createTheme } from '@mui/material/styles';
 
-import { emberTheme } from '@themes';
+import { tealLightTheme } from '@themes';
 
 export const themeConfig = createTheme({
-  palette: emberTheme,
+  palette: tealLightTheme,
   components: {
     MuiCssBaseline: {
       styleOverrides: (theme) => ({
