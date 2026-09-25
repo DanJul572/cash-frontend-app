@@ -1,4 +1,4 @@
-import { styled } from '@mui/material';
+import { alpha, styled } from '@mui/material';
 
 import { TreeItem, treeItemClasses, useTreeItemModel } from '@mui/x-tree-view';
 import type { TreeItemProps } from '@mui/x-tree-view';
@@ -14,13 +14,35 @@ const CustomTreeItem = styled(TreeItem)(({ theme }) => ({
       opacity: 0.3,
     },
   },
+  // Guide line so it's clear which children belong to the opened folder.
+  [`& .${treeItemClasses.groupTransition}`]: {
+    marginLeft: 15,
+    paddingLeft: 12,
+    borderLeft: `1px dashed ${alpha(theme.palette.text.primary, 0.3)}`,
+    transition: theme.transitions.create('border-color'),
+  },
+  [`& .${treeItemClasses.groupTransition}:has([data-selected])`]: {
+    borderLeftColor: theme.palette.primary.main,
+  },
   [`& .${treeItemClasses.label}`]: {
+    // Let the link overlay resolve against the whole content row, not only the label.
+    position: 'static',
     '& a': {
       color: 'inherit',
       textDecoration: 'none',
       display: 'block',
       width: '100%',
+      '&::after': {
+        content: '""',
+        position: 'absolute',
+        inset: 0,
+      },
     },
+  },
+  // Keep the expand/collapse icon clickable above the link overlay.
+  [`&[aria-expanded] > .${treeItemClasses.content} > .${treeItemClasses.iconContainer}`]: {
+    position: 'relative',
+    zIndex: 1,
   },
 }));
 

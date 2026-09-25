@@ -73,6 +73,7 @@ export default function TreeMenuComponent() {
           item: TreeMenuLinkTreeItemComponent,
         }}
         items={data.items}
+        itemChildrenIndentation={0}
         selectedItems={activeItemId}
         expandedItems={expandedItems}
         onExpandedItemsChange={handleExpandedItemsChange}
