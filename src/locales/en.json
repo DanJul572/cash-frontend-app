@@ -30,6 +30,7 @@
   "operator": "Operator",
   "search": "Search",
   "searchPlaceholder": "Search all columns...",
+  "selectRole": "Select Role",
   "selectedData": "Selected Data",
   "selectedDataDescription": "Export only the rows you selected",
   "treeMenuNotAvailable": "Menu is not available"

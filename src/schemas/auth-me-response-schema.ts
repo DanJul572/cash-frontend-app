@@ -7,5 +7,12 @@ export const authMeResponseSchema = z.object({
     id: z.string(),
     name: z.string(),
     email: z.string().email(),
+    role: z.array(
+      z.object({
+        isActive: z.boolean(),
+        roleId: z.number(),
+        roleName: z.string(),
+      }),
+    ),
   }),
 });

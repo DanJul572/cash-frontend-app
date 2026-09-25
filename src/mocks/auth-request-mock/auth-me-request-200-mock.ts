@@ -11,6 +11,11 @@ const mockAuthMeData: ApiResponseType<AuthMeResponseType> = {
     id: '1',
     name: 'John Doe',
     email: 'john@example.com',
+    role: [
+      { isActive: true, roleId: 1, roleName: 'Administrator' },
+      { isActive: false, roleId: 2, roleName: 'Maker' },
+      { isActive: false, roleId: 3, roleName: 'Checker' },
+    ],
   },
 };
 

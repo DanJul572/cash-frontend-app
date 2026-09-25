@@ -30,6 +30,7 @@
   "operator": "Operator",
   "search": "Cari",
   "searchPlaceholder": "Cari di semua kolom...",
+  "selectRole": "Pilih Peran",
   "selectedData": "Data Terpilih",
   "selectedDataDescription": "Ekspor hanya baris yang Anda pilih",
   "treeMenuNotAvailable": "Menu tidak tersedia"

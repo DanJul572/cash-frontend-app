@@ -15,6 +15,7 @@ import useTopbarComponentHook from '@hooks/topbar/use-topbar-component-hook';
 import { topbarComponentStyle } from '@styles/topbar/topbar-component-style';
 
 import IconComponent from '../icon/icon-component';
+import TopbarRoleSelectorComponent from './topbar-role-selector-component';
 
 export default function TopbarComponent() {
   const { t } = useTranslation('common');
@@ -25,6 +26,7 @@ export default function TopbarComponent() {
   return (
     <Box sx={topbarComponentStyle.containerStyle}>
       <Box sx={topbarComponentStyle.rightSectionStyle}>
+        <TopbarRoleSelectorComponent />
         <IconButton onClick={handleOpen} sx={topbarComponentStyle.iconButtonStyle}>
           <Avatar sx={topbarComponentStyle.avatarStyle}>{getInitials(user.name)}</Avatar>
         </IconButton>
