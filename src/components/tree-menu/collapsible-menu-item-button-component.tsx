@@ -12,6 +12,7 @@ import type { CollapsibleMenuItemButtonComponentPropsType } from '@type-defs/tre
 export default function CollapsibleMenuItemButtonComponent({
   handleClick,
   hasChildren,
+  isActive,
   item,
 }: CollapsibleMenuItemButtonComponentPropsType) {
   const Icon = hasChildren ? Folder : InsertDriveFile;
@@ -19,6 +20,7 @@ export default function CollapsibleMenuItemButtonComponent({
   return (
     <ListItemButton
       onClick={handleClick}
+      selected={isActive}
       dense
       sx={collapsibleMenuItemButtonComponentStyle.listItemButtonStyle}
     >

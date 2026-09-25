@@ -11,6 +11,7 @@ import InsertDriveFile from '@mui/icons-material/InsertDriveFile';
 import { RichTreeView } from '@mui/x-tree-view';
 
 import { useSidebarContext } from '@contexts';
+import useTreeMenuComponentHook from '@hooks/tree-menu/use-tree-menu-component-hook';
 import { useTreeMenuQuery } from '@queries';
 import { treeMenuComponentStyle } from '@styles/tree-menu/tree-menu-component-style';
 
@@ -22,6 +23,7 @@ export default function TreeMenuComponent() {
   const { t } = useTranslation('common');
   const { isCollapsed } = useSidebarContext();
   const { data, isPending, isError } = useTreeMenuQuery();
+  const { activeItemId, expandedItems, handleExpandedItemsChange } = useTreeMenuComponentHook();
 
   if (isPending) {
     return <TreeMenuSkeletonComponent />;
@@ -71,6 +73,9 @@ export default function TreeMenuComponent() {
           item: TreeMenuLinkTreeItemComponent,
         }}
         items={data.items}
+        selectedItems={activeItemId}
+        expandedItems={expandedItems}
+        onExpandedItemsChange={handleExpandedItemsChange}
       />
     </Card>
   );

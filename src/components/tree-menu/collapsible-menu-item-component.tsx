@@ -11,10 +11,11 @@ export default function CollapsibleMenuItemComponent({
   item,
   onNavigate,
 }: CollapsibleMenuItemComponentPropsType) {
-  const { hasChildren, handleClick, anchorEl, setAnchorEl } = useCollapsibleMenuItemComponentHook({
-    item,
-    onNavigate,
-  });
+  const { hasChildren, isActive, handleClick, anchorEl, setAnchorEl } =
+    useCollapsibleMenuItemComponentHook({
+      item,
+      onNavigate,
+    });
 
   if (item.href && !hasChildren) {
     return (
@@ -22,6 +23,7 @@ export default function CollapsibleMenuItemComponent({
         <CollapsibleMenuItemButtonComponent
           handleClick={handleClick}
           hasChildren={hasChildren}
+          isActive={isActive}
           item={item}
         />
       </Link>
@@ -33,6 +35,7 @@ export default function CollapsibleMenuItemComponent({
       <CollapsibleMenuItemButtonComponent
         handleClick={handleClick}
         hasChildren={hasChildren}
+        isActive={isActive}
         item={item}
       />
     );

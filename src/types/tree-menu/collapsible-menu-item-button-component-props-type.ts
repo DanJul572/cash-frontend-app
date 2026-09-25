@@ -5,5 +5,6 @@ import type { TreeMenuItem } from '@type-defs/tree-menu-item-type';
 export type CollapsibleMenuItemButtonComponentPropsType = {
   handleClick: (event: MouseEvent<HTMLElement>) => void;
   hasChildren: boolean;
+  isActive: boolean;
   item: TreeMenuItem;
 };

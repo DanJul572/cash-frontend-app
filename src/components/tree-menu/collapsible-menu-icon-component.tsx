@@ -14,16 +14,24 @@ import CollapsedMenuPopoverComponent from './collapsible-menu-popover-component'
 export default function CollapsedMenuIconComponent({
   item,
 }: CollapsibleMenuIconComponentPropsType) {
-  const { handleClick, hasChildren, anchorEl, setAnchorEl } = useCollapsibleMenuIconComponentHook({
-    item,
-  });
+  const { handleClick, hasChildren, isActive, anchorEl, setAnchorEl } =
+    useCollapsibleMenuIconComponentHook({
+      item,
+    });
 
   const Icon = hasChildren ? Folder : InsertDriveFile;
 
   return (
     <Box>
       <Tooltip title={item.label} placement="right" arrow>
-        <IconButton size="small" onClick={handleClick} sx={collapsibleMenuIconStyle.buttonStyle}>
+        <IconButton
+          size="small"
+          onClick={handleClick}
+          sx={[
+            collapsibleMenuIconStyle.buttonStyle,
+            isActive && collapsibleMenuIconStyle.activeButtonStyle,
+          ]}
+        >
           <Icon fontSize="small" />
         </IconButton>
       </Tooltip>

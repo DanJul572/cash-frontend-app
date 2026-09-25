@@ -5,3 +5,4 @@ export * from './get-error-message-util';
 export * from './is-axios-error-util';
 export * from './translation-util';
 export * from './datetime-field';
+export * from './tree-menu';
