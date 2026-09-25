@@ -15,6 +15,13 @@ const containerStyle = {
   userSelect: 'none',
 } as const satisfies CSSProperties;
 
+const logoLinkStyle = {
+  cursor: 'pointer',
+  display: 'flex',
+  justifyContent: 'center',
+  width: '100%',
+} as const satisfies CSSProperties;
+
 const logoStyle = {
   display: 'block',
   maxHeight: 40,
@@ -30,6 +37,7 @@ const versionStyle = {
 
 export const treeMenuHeaderComponentStyle = {
   containerStyle,
+  logoLinkStyle,
   logoStyle,
   versionStyle,
 } satisfies Record<string, CSSProperties>;
