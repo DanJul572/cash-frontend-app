@@ -9,7 +9,6 @@ const containerStyle = {
   top: '64px',
   width: '350px',
   zIndex: 999,
-  transition: 'width 0.3s ease-in-out',
   overflowX: 'hidden',
 } as const satisfies CSSProperties;
 
@@ -19,15 +18,7 @@ const subContainerStyle = {
   justifyContent: 'center',
 } as const satisfies CSSProperties;
 
-const collapsedContainerStyle = {
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  paddingTop: 8,
-} as const satisfies CSSProperties;
-
 export const treeMenuComponentStyle = {
   containerStyle,
   subContainerStyle,
-  collapsedContainerStyle,
 } satisfies Record<string, CSSProperties>;

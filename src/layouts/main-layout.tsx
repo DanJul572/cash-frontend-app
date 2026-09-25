@@ -7,30 +7,8 @@ import { Outlet, useNavigate } from '@tanstack/react-router';
 import { PageLoaderComponent } from '@components';
 import { TopbarComponent, TreeMenuComponent } from '@components';
 import { AuthenticatedConfigProvider } from '@contexts';
-import { SidebarProvider, useSidebarContext } from '@contexts';
 import { useAuthenticatedConfigQuery } from '@queries';
 import { mainLayoutStyle } from '@styles';
-
-function MainLayoutInner() {
-  const { isCollapsed } = useSidebarContext();
-
-  return (
-    <Box>
-      <TopbarComponent />
-      <Box sx={mainLayoutStyle.containerStyle}>
-        <TreeMenuComponent />
-        <Box
-          sx={{
-            ...mainLayoutStyle.contentStyle,
-            left: isCollapsed ? 72 : 350,
-          }}
-        >
-          <Outlet />
-        </Box>
-      </Box>
-    </Box>
-  );
-}
 
 export default function MainLayout() {
   const navigate = useNavigate();
@@ -51,9 +29,15 @@ export default function MainLayout() {
 
   return (
     <AuthenticatedConfigProvider config={config}>
-      <SidebarProvider>
-        <MainLayoutInner />
-      </SidebarProvider>
+      <Box>
+        <TopbarComponent />
+        <Box sx={mainLayoutStyle.containerStyle}>
+          <TreeMenuComponent />
+          <Box sx={mainLayoutStyle.contentStyle}>
+            <Outlet />
+          </Box>
+        </Box>
+      </Box>
     </AuthenticatedConfigProvider>
   );
 }

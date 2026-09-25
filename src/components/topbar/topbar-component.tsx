@@ -11,7 +11,6 @@ import MenuList from '@mui/material/MenuList';
 import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 
-import { useSidebarContext } from '@contexts';
 import useTopbarComponentHook from '@hooks/topbar/use-topbar-component-hook';
 import { topbarComponentStyle } from '@styles/topbar/topbar-component-style';
 import { appNameAsTitle, appVersion } from '@utils';
@@ -24,13 +23,8 @@ export default function TopbarComponent() {
   const { user, anchorEl, open, handleOpen, handleClose, handleLogout, getInitials } =
     useTopbarComponentHook();
 
-  const { toggleSidebar } = useSidebarContext();
-
   return (
     <Box sx={topbarComponentStyle.containerStyle}>
-      <IconButton onClick={toggleSidebar} sx={topbarComponentStyle.hamburgerButtonStyle}>
-        <IconComponent icon="ic:baseline-menu" sx={topbarComponentStyle.hamburgerIconButtonStyle} />
-      </IconButton>
       <Box sx={topbarComponentStyle.titleSectionStyle}>
         <Box>
           <Typography sx={topbarComponentStyle.titleTextStyle}>{appNameAsTitle}</Typography>

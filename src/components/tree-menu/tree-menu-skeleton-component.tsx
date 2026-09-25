@@ -6,7 +6,7 @@ import { treeMenuSkeletonComponentStyle } from '@styles/tree-menu/tree-menu-skel
 
 export default function TreeMenuSkeletonComponent() {
   return (
-    <Card style={treeMenuSkeletonComponentStyle.expandedCardStyle}>
+    <Card style={treeMenuSkeletonComponentStyle.cardStyle}>
       <Box style={treeMenuSkeletonComponentStyle.containerStyle}>
         {Array.from({ length: 5 }).map((_, parentIndex) => (
           <Box key={parentIndex}>

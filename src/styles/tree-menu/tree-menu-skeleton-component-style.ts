@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react';
 
-const expandedCardStyle = {
+const cardStyle = {
   borderRadius: 0,
   height: '100vh',
   overflowY: 'auto',
@@ -9,7 +9,6 @@ const expandedCardStyle = {
   top: '64px',
   width: '350px',
   zIndex: 999,
-  transition: 'width 0.3s ease-in-out',
   overflowX: 'hidden',
 } as const satisfies CSSProperties;
 
@@ -39,7 +38,7 @@ const textStyle = {
 } as const satisfies CSSProperties;
 
 export const treeMenuSkeletonComponentStyle = {
-  expandedCardStyle,
+  cardStyle,
   containerStyle,
   itemStyle,
   iconStyle,

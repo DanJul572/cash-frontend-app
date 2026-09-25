@@ -6,18 +6,15 @@ import Typography from '@mui/material/Typography';
 
 import { RichTreeView } from '@mui/x-tree-view';
 
-import { useSidebarContext } from '@contexts';
 import useTreeMenuComponentHook from '@hooks/tree-menu/use-tree-menu-component-hook';
 import { useTreeMenuQuery } from '@queries';
 import { treeMenuComponentStyle } from '@styles/tree-menu/tree-menu-component-style';
 
-import CollapsedMenuIconComponent from './collapsible-menu-icon-component';
 import TreeMenuLinkTreeItemComponent from './tree-menu-link-tree-item-component';
 import TreeMenuSkeletonComponent from './tree-menu-skeleton-component';
 
 export default function TreeMenuComponent() {
   const { t } = useTranslation('common');
-  const { isCollapsed } = useSidebarContext();
   const { data, isPending, isError } = useTreeMenuQuery();
   const { activeItemId, expandedItems, handleExpandedItemsChange } = useTreeMenuComponentHook();
 
@@ -37,30 +34,8 @@ export default function TreeMenuComponent() {
     );
   }
 
-  if (isCollapsed) {
-    return (
-      <Card
-        style={{
-          ...treeMenuComponentStyle.containerStyle,
-          width: isCollapsed ? 72 : 350,
-        }}
-      >
-        <Box style={treeMenuComponentStyle.collapsedContainerStyle}>
-          {data.items.map((item) => (
-            <CollapsedMenuIconComponent key={item.id} item={item} />
-          ))}
-        </Box>
-      </Card>
-    );
-  }
-
   return (
-    <Card
-      style={{
-        ...treeMenuComponentStyle.containerStyle,
-        width: isCollapsed ? 72 : 350,
-      }}
-    >
+    <Card style={treeMenuComponentStyle.containerStyle}>
       <RichTreeView
         slots={{ item: TreeMenuLinkTreeItemComponent }}
         items={data.items}
