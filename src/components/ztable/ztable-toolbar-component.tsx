@@ -12,6 +12,11 @@ import ZTableTitleToolbarComponent from './ztable-title-toolbar-component';
 export default function ZTableToolbarComponent({
   title,
   filter,
+  enableSearch = true,
+  enableFilter = true,
+  enableDownload = true,
+  enableColumnVisibility = true,
+  enableRowSelection = true,
   onFilterChange,
   onSearch,
   onDownload,
@@ -23,17 +28,25 @@ export default function ZTableToolbarComponent({
     <>
       <Toolbar>
         <ZTableTitleToolbarComponent title={title} />
-        {onSearch && (
+        {enableSearch && (
           <ZTableSearchButtonToolbarComponent
             active={keyword.trim() !== ''}
             onClick={handleToggle}
           />
         )}
-        <ZTableColumnManagementToolbarComponent />
-        <ZTableFilterToolbarComponent filter={filter} onFilterChange={onFilterChange} />
-        <ZTableDownloadToolbarComponent filter={filter} onDownload={onDownload} />
+        {enableColumnVisibility && <ZTableColumnManagementToolbarComponent />}
+        {enableFilter && (
+          <ZTableFilterToolbarComponent filter={filter} onFilterChange={onFilterChange} />
+        )}
+        {enableDownload && (
+          <ZTableDownloadToolbarComponent
+            filter={filter}
+            enableRowSelection={enableRowSelection}
+            onDownload={onDownload}
+          />
+        )}
       </Toolbar>
-      {onSearch && (
+      {enableSearch && (
         <ZTableSearchFieldToolbarComponent
           open={open}
           value={keyword}

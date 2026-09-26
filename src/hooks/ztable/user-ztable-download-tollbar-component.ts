@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { DATA_TYPE_OPTION_CONSTANT } from '@constants/ztable/ztable-download-tollbar-component-constant';
 import {
   gridPaginatedVisibleSortedGridRowIdsSelector,
   gridRowSelectionIdsSelector,
@@ -16,9 +17,14 @@ import type { DataType, FileType } from '@type-defs/ztable/ztable-download-tollb
 
 export default function useZTableDownloadButtonComponent({
   filter = {},
+  enableRowSelection = true,
   onDownload,
 }: ZTableDownloadToolbarComponentPropsType) {
   const apiRef = useGridApiContext();
+
+  const dataTypeOptions = enableRowSelection
+    ? DATA_TYPE_OPTION_CONSTANT
+    : DATA_TYPE_OPTION_CONSTANT.filter((option) => option.value !== 'selected');
 
   const [open, setOpen] = useState(false);
   const [fileType, setFileType] = useState<FileType>('xlsx');
@@ -49,6 +55,7 @@ export default function useZTableDownloadButtonComponent({
     setFileType,
     dataType,
     setDataType,
+    dataTypeOptions,
     handleOpen,
     handleClose,
     handleDownload,

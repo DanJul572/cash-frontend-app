@@ -3,7 +3,7 @@ import { useState } from 'react';
 import type { ZTableFilterValueType } from '@type-defs/ztable/ztable-component-type';
 
 type UseZTableComponentHookParamsType = {
-  onFilterChange: (value: ZTableFilterValueType) => void;
+  onFilterChange?: (value: ZTableFilterValueType) => void;
 };
 
 export default function useZTableComponentHook({
@@ -13,7 +13,7 @@ export default function useZTableComponentHook({
 
   const handleFilterChange = (value: ZTableFilterValueType) => {
     setFilter(value);
-    onFilterChange(value);
+    onFilterChange?.(value);
   };
 
   return {

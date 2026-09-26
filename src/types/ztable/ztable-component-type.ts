@@ -46,6 +46,8 @@ export type ZTableFilterToolbarComponentPropsType = {
 
 export type ZTableDownloadToolbarComponentPropsType = {
   filter?: ZTableFilterValueType;
+  /** Hides the `selected` data type when row checkboxes are off. */
+  enableRowSelection?: boolean;
   onDownload?: (value: ZTableDownloadValueType) => void;
 };
 
@@ -72,34 +74,109 @@ export type ZTableTitleToolbarComponentPropsType = {
   title?: string;
 };
 
+export type ZTableToolbarFeatureFlagsType = {
+  enableSearch?: boolean;
+  enableFilter?: boolean;
+  enableDownload?: boolean;
+  enableColumnVisibility?: boolean;
+};
+
 export type ZTableToolbarComponentPropsType = ZTableTitleToolbarComponentPropsType &
   ZTableSearchToolbarComponentPropsType &
   ZTableFilterToolbarComponentPropsType &
-  ZTableDownloadToolbarComponentPropsType;
+  ZTableDownloadToolbarComponentPropsType &
+  ZTableToolbarFeatureFlagsType;
+
+/**
+ * Server-side pagination. Set `enablePagination: false` to hide the pager; the caller then
+ * passes no pagination props. Note: the MIT DataGrid still renders at most 100 rows.
+ */
+export type ZTablePaginationPropsType =
+  | {
+      /** Defaults to `true`. */
+      enablePagination?: true;
+      rowCount: number;
+      paginationModel: ZTablePaginationValueType;
+      pageSizeOptions?: number[];
+      onPaginationChange: (value: ZTablePaginationValueType) => void;
+    }
+  | {
+      enablePagination: false;
+      rowCount?: never;
+      paginationModel?: never;
+      pageSizeOptions?: never;
+      onPaginationChange?: never;
+    };
+
+export type ZTableSortingPropsType =
+  | {
+      /** Defaults to `true`. */
+      enableSorting?: true;
+      /** Controlled sort state; leave empty to let the grid keep it internally. */
+      sortModel?: ZTableSortValueType;
+      /** When provided, sorting is delegated to the caller (server-side) instead of the grid. */
+      onSortChange?: (value: ZTableSortValueType) => void;
+    }
+  | {
+      enableSorting: false;
+      sortModel?: never;
+      onSortChange?: never;
+    };
+
+export type ZTableFilterPropsType =
+  | {
+      /** Defaults to `true`. */
+      enableFilter?: true;
+      onFilterChange: (value: ZTableFilterValueType) => void;
+    }
+  | {
+      enableFilter: false;
+      onFilterChange?: never;
+    };
+
+export type ZTableSearchPropsType =
+  | {
+      /** Defaults to `true`. */
+      enableSearch?: true;
+      onSearch: (value: string) => void;
+    }
+  | {
+      enableSearch: false;
+      onSearch?: never;
+    };
+
+export type ZTableDownloadPropsType =
+  | {
+      /** Defaults to `true`. */
+      enableDownload?: true;
+      onDownload: (value: ZTableDownloadValueType) => void;
+    }
+  | {
+      enableDownload: false;
+      onDownload?: never;
+    };
 
 export type ZTableComponentPropsType<R extends GridValidRowModel> = {
   title?: string;
   rows: R[];
   columns: ZTableColumnType<R>[];
-  rowCount: number;
-  paginationModel: ZTablePaginationValueType;
-  /** Controlled sort state; leave empty to let the grid keep it internally. */
-  sortModel?: ZTableSortValueType;
-  pageSizeOptions?: number[];
   loading?: boolean;
+  /** Shows the column visibility button and the column menu's hide/manage items. Defaults to `true`. */
+  enableColumnVisibility?: boolean;
+  /** Shows the row checkbox column. Defaults to `true`. */
+  enableRowSelection?: boolean;
   /** Alternates row background per page. Defaults to `true`. */
-  striped?: boolean;
-  onPaginationChange: (value: ZTablePaginationValueType) => void;
-  /** When provided, sorting is delegated to the caller (server-side) instead of the grid. */
-  onSortChange?: (value: ZTableSortValueType) => void;
-  onFilterChange: (value: ZTableFilterValueType) => void;
-  onSearch?: (value: string) => void;
-  onDownload?: (value: ZTableDownloadValueType) => void;
-};
+  enableStriped?: boolean;
+} & ZTablePaginationPropsType &
+  ZTableSortingPropsType &
+  ZTableFilterPropsType &
+  ZTableSearchPropsType &
+  ZTableDownloadPropsType;
 
 declare module '@mui/x-data-grid' {
-  interface ToolbarPropsOverrides {
+  interface ToolbarPropsOverrides extends ZTableToolbarFeatureFlagsType {
     title?: string;
+    enableRowSelection?: boolean;
     filter?: ZTableFilterValueType;
     onFilterChange?: (value: ZTableFilterValueType) => void;
     onSearch?: (value: string) => void;

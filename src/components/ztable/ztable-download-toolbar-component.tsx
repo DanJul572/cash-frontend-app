@@ -10,10 +10,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 
-import {
-  DATA_TYPE_OPTION_CONSTANT,
-  FILE_TYPE_OPTION_CONSTANT,
-} from '@constants/ztable/ztable-download-tollbar-component-constant';
+import { FILE_TYPE_OPTION_CONSTANT } from '@constants/ztable/ztable-download-tollbar-component-constant';
 import useZTableDownloadButtonComponent from '@hooks/ztable/user-ztable-download-tollbar-component';
 import { GridDownloadIcon, ToolbarButton } from '@mui/x-data-grid';
 import { ztableDownloadTollbarComponentStyle } from '@styles/ztable/ztable-download-tollbar-component-style';
@@ -23,6 +20,7 @@ import IconComponent from '../icon/icon-component';
 
 export default function ZTableDownloadToolbarComponent({
   filter,
+  enableRowSelection,
   onDownload,
 }: ZTableDownloadToolbarComponentPropsType) {
   const { t } = useTranslation('common');
@@ -33,10 +31,11 @@ export default function ZTableDownloadToolbarComponent({
     setFileType,
     dataType,
     setDataType,
+    dataTypeOptions,
     handleOpen,
     handleClose,
     handleDownload,
-  } = useZTableDownloadButtonComponent({ filter, onDownload });
+  } = useZTableDownloadButtonComponent({ filter, enableRowSelection, onDownload });
 
   return (
     <Box>
@@ -91,7 +90,7 @@ export default function ZTableDownloadToolbarComponent({
                 {t('dataType')}
               </Typography>
               <Box sx={ztableDownloadTollbarComponentStyle.dataTypeListStyle}>
-                {DATA_TYPE_OPTION_CONSTANT.map((option) => {
+                {dataTypeOptions.map((option) => {
                   const selected = dataType === option.value;
 
                   return (
