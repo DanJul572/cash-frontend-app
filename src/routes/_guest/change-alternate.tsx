@@ -1,30 +1,35 @@
-import { createFileRoute, redirect } from '@tanstack/react-router';
+import { useQueryClient } from '@tanstack/react-query';
+import { createFileRoute, useNavigate } from '@tanstack/react-router';
 
-import { ChangeAlternatePage } from '@modules/change-alternate/pages';
-import { validateAlternateTokenRequest } from '@modules/change-alternate/requests';
-import { searchParamSchema } from '@modules/change-alternate/schemas';
+import { RemoteModuleErrorComponent } from '@components';
+import { authMeQuery } from '@queries';
+import { tokenSearchParamSchema } from '@schemas';
+import { lazyRemoteComponent } from '@utils';
+
+// Loaded at runtime from the changeAlternate remote (Module Federation)
+const ChangeAlternatePage = lazyRemoteComponent(
+  () => import('changeAlternate/ChangeAlternatePage'),
+);
 
 export const Route = createFileRoute('/_guest/change-alternate')({
-  validateSearch: searchParamSchema,
-  beforeLoad: async ({ search }) => {
-    if (!search.token) {
-      return redirect({
-        to: '/login',
-      });
-    }
-
-    try {
-      const response = await validateAlternateTokenRequest(search.token);
-      if (!response.tokenIsValid) {
-        return redirect({
-          to: '/login',
-        });
-      }
-    } catch {
-      return redirect({
-        to: '/login',
-      });
-    }
-  },
-  component: ChangeAlternatePage,
+  validateSearch: tokenSearchParamSchema,
+  component: ChangeAlternateRouteComponent,
+  errorComponent: RemoteModuleErrorComponent,
 });
+
+function ChangeAlternateRouteComponent() {
+  const { token } = Route.useSearch();
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
+
+  return (
+    <ChangeAlternatePage
+      token={token}
+      onInvalidToken={() => navigate({ to: '/login', replace: true })}
+      onChangeAlternateSuccess={() => {
+        queryClient.invalidateQueries({ queryKey: authMeQuery.queryKey });
+        navigate({ to: '/dashboard' });
+      }}
+    />
+  );
+}

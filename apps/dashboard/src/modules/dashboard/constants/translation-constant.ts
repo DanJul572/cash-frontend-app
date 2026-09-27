@@ -1,0 +1,1 @@
+export const DASHBOARD_TRANSLATION_NAMESPACE_CONSTANT = 'dashboard';

@@ -1,0 +1,1 @@
+export const CHANGE_PASSWORD_TRANSLATION_NAMESPACE_CONSTANT = 'changePassword';

@@ -5,49 +5,25 @@ import i18n from 'i18next';
 import { languageConfig } from '@configs';
 import commonEN from '@locales/en.json';
 import commonID from '@locales/id.json';
-import changeAlternateEN from '@modules/change-alternate/locales/change-alternate-en.json';
-import changeAlternateID from '@modules/change-alternate/locales/change-alternate-id.json';
-import changePasswordEN from '@modules/change-password/locales/change-password-en.json';
-import changePasswordID from '@modules/change-password/locales/change-password-id.json';
-import forgotPasswordEN from '@modules/forgot-password/locales/forgot-password-en.json';
-import forgotPasswordID from '@modules/forgot-password/locales/forgot-password-id.json';
-import loginEN from '@modules/login/locales/login-en.json';
-import loginID from '@modules/login/locales/login-id.json';
-import registerEN from '@modules/register/locales/register-en.json';
-import registerID from '@modules/register/locales/register-id.json';
-import testEN from '@modules/test/locales/test-en.json';
-import testID from '@modules/test/locales/test-id.json';
-import validateOtpEN from '@modules/validate-otp/locales/validate-otp-en.json';
-import validateOtpID from '@modules/validate-otp/locales/validate-otp-id.json';
+import { UI_TRANSLATION_NAMESPACE_CONSTANT, uiTranslationResources } from '@zapplib/ui';
 
+// Remotes register their own namespaces when they load (see each remote's exposes/)
 export const initTranslation = () => {
   if (!i18n.isInitialized) {
     i18n.use(initReactI18next).init({
       resources: {
         en: {
-          changeAlternate: changeAlternateEN,
-          changePassword: changePasswordEN,
           common: commonEN,
-          forgotPassword: forgotPasswordEN,
-          login: loginEN,
-          register: registerEN,
-          test: testEN,
-          validateOtp: validateOtpEN,
+          [UI_TRANSLATION_NAMESPACE_CONSTANT]: uiTranslationResources.en,
         },
         id: {
-          changeAlternate: changeAlternateID,
-          changePassword: changePasswordID,
           common: commonID,
-          forgotPassword: forgotPasswordID,
-          login: loginID,
-          register: registerID,
-          test: testID,
-          validateOtp: validateOtpID,
+          [UI_TRANSLATION_NAMESPACE_CONSTANT]: uiTranslationResources.id,
         },
       },
       lng: languageConfig.lng,
       fallbackLng: languageConfig.fallbackLng,
-      ns: ['login', 'register', 'validateOtp', 'common'],
+      ns: ['common'],
       defaultNS: 'common',
       interpolation: {
         escapeValue: false,

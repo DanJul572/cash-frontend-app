@@ -15,15 +15,18 @@ import '@fontsource/roboto/700.css';
 
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { setHttpClient } from '@zapplib/core';
+import { PageLoaderComponent } from '@zapplib/ui';
 
-import { PageLoaderComponent } from './components';
 import { themeConfig } from './configs';
-import { setRouter, queryClientInstance } from './instances';
+import { axiosInstance, setRouter, queryClientInstance } from './instances';
 import { router } from './router';
 import { enableMocking, initTranslation, showAppVersionInConsole } from './utils';
 
 initTranslation();
 setRouter(router);
+// Registered before mocks load: module requests and mock handlers resolve URLs through it
+setHttpClient(axiosInstance);
 showAppVersionInConsole();
 
 enableMocking().then(() => {

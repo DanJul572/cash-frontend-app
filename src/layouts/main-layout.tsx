@@ -4,12 +4,12 @@ import Box from '@mui/material/Box';
 
 import { Outlet, useNavigate } from '@tanstack/react-router';
 
-import { PageLoaderComponent } from '@components';
 import { TopbarComponent, TreeMenuComponent } from '@components';
-import { AuthenticatedConfigProvider } from '@contexts';
 import { useAuthenticatedConfigQuery } from '@queries';
 import { mainLayoutStyle } from '@styles';
 import { getConfigErrorState } from '@utils';
+import { AuthenticatedConfigProvider } from '@zapplib/core';
+import { PageLoaderComponent } from '@zapplib/ui';
 
 export default function MainLayout() {
   const navigate = useNavigate();

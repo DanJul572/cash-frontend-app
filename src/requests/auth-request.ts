@@ -2,7 +2,7 @@ import { AuthEndpoint } from '@endpoints';
 import { axiosInstance } from '@instances';
 import { authMeResponseMapper } from '@mappers';
 import type { AuthMeResponseType } from '@types';
-import { isAxios401Error } from '@utils';
+import { isAxios401Error } from '@zapplib/core';
 
 export const authMeRequest = async () => {
   try {

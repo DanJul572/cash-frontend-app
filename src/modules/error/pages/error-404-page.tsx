@@ -2,21 +2,13 @@ import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 
-import { useLocation } from '@tanstack/react-router';
-
-import { useTitleHook } from '@hooks';
+import { useTitleHook } from '@zapplib/core';
 
 import { error404Style } from '../styles';
+import type { ErrorPagePropsType } from '../types';
 
-export default function Error404Page() {
-  const location = useLocation();
-
+export default function Error404Page({ message = 'Page Not Found' }: ErrorPagePropsType) {
   useTitleHook('404 Page Not Found');
-
-  let message = 'Page Not Found';
-  if (location.state && location.state.message) {
-    message = location.state.message;
-  }
 
   return (
     <Box sx={error404Style.containerStyle}>

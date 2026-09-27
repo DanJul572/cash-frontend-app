@@ -1,0 +1,11 @@
+{
+  "dateField": "Tanggal",
+  "datetimeField": "Tanggal Waktu",
+  "datetimeTitle": "Field Tanggal Waktu",
+  "emptyFormat": "(format kosong)",
+  "formattedValue": "Terformat",
+  "isoValue": "ISO",
+  "reset": "Atur Ulang",
+  "timeField": "Waktu",
+  "ztableTitle": "ZTable"
+}

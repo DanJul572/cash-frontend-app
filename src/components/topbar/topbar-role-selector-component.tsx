@@ -11,8 +11,7 @@ import Typography from '@mui/material/Typography';
 
 import useTopbarRoleSelectorComponentHook from '@hooks/topbar/use-topbar-role-selector-component-hook';
 import { topbarRoleSelectorComponentStyle } from '@styles/topbar/topbar-role-selector-component-style';
-
-import IconComponent from '../icon/icon-component';
+import { IconComponent } from '@zapplib/ui';
 
 export default function TopbarRoleSelectorComponent() {
   const { t } = useTranslation('common');

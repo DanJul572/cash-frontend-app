@@ -2,22 +2,16 @@ import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 
-import { useLocation } from '@tanstack/react-router';
-
-import { useTitleHook } from '@hooks';
+import { useTitleHook } from '@zapplib/core';
 
 import { error500Style } from '../styles';
+import type { Error500PagePropsType } from '../types';
 
-export default function Error500Page() {
-  const location = useLocation();
-
+export default function Error500Page({
+  message = 'Internal Server Error',
+  errors = [],
+}: Error500PagePropsType) {
   useTitleHook('500 Internal Server Error');
-
-  let message = 'Internal Server Error';
-  if (location.state && location.state.message) {
-    message = location.state.message;
-  }
-  const errors = location.state?.errors ?? [];
 
   return (
     <Box sx={error500Style.containerStyle}>

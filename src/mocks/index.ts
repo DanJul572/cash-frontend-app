@@ -1,13 +1,12 @@
 import type { HttpHandler } from 'msw';
 
+import { authMeRequest200Mock } from './auth-request-mock';
+import { authenticatedConfigRequest200Mock } from './authenticated-config-mock';
 import {
   changeAlternateGetUser200Mock,
   changeAlternateValidateToken200Mock,
-} from '@modules/change-alternate/mocks';
-import { changePasswordValidateToken200Mock } from '@modules/change-password/mocks';
-
-import { authMeRequest200Mock } from './auth-request-mock';
-import { authenticatedConfigRequest200Mock } from './authenticated-config-mock';
+} from './change-alternate-mock';
+import { changePasswordValidateToken200Mock } from './change-password-mock';
 import { guestConfigRequest200Mock } from './guest-config-mock';
 import { treeMenuRequest200Mock } from './tree-menu-mock';
 

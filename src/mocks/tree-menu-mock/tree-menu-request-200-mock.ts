@@ -2,7 +2,7 @@ import { http, HttpResponse, delay } from 'msw';
 
 import { TreeMenuEndpoint } from '@endpoints';
 import type { TreeMenuResponseType } from '@types';
-import { getApiUrl } from '@utils';
+import { getApiUrl } from '@zapplib/core';
 
 const mockTreeMenuData: TreeMenuResponseType = {
   status: true,
@@ -35,15 +35,6 @@ const mockTreeMenuData: TreeMenuResponseType = {
         children: [
           { id: 'general', label: 'General', href: '/settings/general' },
           { id: 'security', label: 'Security', href: '/settings/security' },
-        ],
-      },
-      {
-        id: 'test',
-        label: 'Test',
-        icon: 'ic:baseline-science',
-        children: [
-          { id: 'test-datetime', label: 'Datetime', href: '/test/datetime' },
-          { id: 'test-ztable', label: 'ZTable', href: '/test/ztable' },
         ],
       },
     ],

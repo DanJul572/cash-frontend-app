@@ -1,0 +1,1 @@
+export const LOGIN_TRANSLATION_NAMESPACE_CONSTANT = 'login';

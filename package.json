@@ -1,76 +1,27 @@
 {
-  "name": "@zapplib/ui",
-  "private": false,
+  "name": "cash-frontend-app",
+  "private": true,
   "version": "1.0.0",
   "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/types/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/types/index.d.ts",
-      "import": "./dist/index.js"
-    },
-    "./components/*": {
-      "types": "./dist/types/lib/components/*.d.ts",
-      "import": "./dist/components/*.js"
-    },
-    "./contexts/*": {
-      "types": "./dist/types/lib/contexts/*.d.ts",
-      "import": "./dist/contexts/*.js"
-    },
-    "./pages/*": {
-      "types": "./dist/types/lib/pages/*.d.ts",
-      "import": "./dist/pages/*.js"
-    },
-    "./utils/*": {
-      "types": "./dist/types/lib/utils/*.d.ts",
-      "import": "./dist/utils/*.js"
-    },
-    "./package.json": "./package.json"
-  },
-  "sideEffects": false,
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "build:app": "tsc -b && vite build --config vite.app.config.ts",
+    "build:all": "pnpm --filter \"./apps/*\" build && pnpm build:app",
     "build:dev": "tsc -b && vite build --config vite.app.config.ts --mode development",
     "build:stage": "tsc -b && vite build --config vite.app.config.ts --mode staging",
     "build:prod": "tsc -b && vite build --config vite.app.config.ts --mode production",
-    "build:lib": "tsc -b && vite build --config vite.lib.config.ts",
     "dev": "vite --config vite.app.config.ts",
+    "dev:all": "pnpm --parallel --filter . --filter \"./apps/*\" dev",
     "format": "prettier . --write",
     "format:silent": "prettier . --write --log-level=silent",
     "lint": "eslint .",
     "prepare": "husky",
-    "prepublishOnly": "pnpm build:lib",
     "preview": "vite preview --config vite.app.config.ts",
     "publish:verdaccio": "node publish.cjs",
     "test:coverage": "vitest --globals --coverage",
     "test:silent": "vitest run --globals --silent",
     "test": "vitest --globals",
-    "typecheck": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json",
+    "typecheck": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json && pnpm --filter \"./packages/*\" --filter \"./apps/*\" typecheck",
     "update:deps": "ncu -u --cooldown 1"
-  },
-  "peerDependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.1",
-    "@hookform/resolvers": "^5.9.1",
-    "@iconify/react": "^6.0.2",
-    "@mui/material": "^9.4.0",
-    "@mui/x-data-grid": "^9.14.0",
-    "@mui/x-date-pickers": "^9.14.0",
-    "@tanstack/react-query": "^5.103.2",
-    "@tanstack/react-router": "^1.170.38",
-    "axios": "^1.20.0",
-    "dayjs": "^1.11.23",
-    "i18next": "^26.4.2",
-    "react": "^19.3.0",
-    "react-dom": "^19.3.0",
-    "react-hook-form": "^7.88.0",
-    "react-i18next": "^17.0.15",
-    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@babel/core": "^8.0.6",
@@ -80,6 +31,7 @@
     "@fontsource/roboto": "^5.3.0",
     "@hookform/resolvers": "^5.9.1",
     "@iconify/react": "^6.0.2",
+    "@module-federation/vite": "^1.22.1",
     "@mui/material": "^9.4.0",
     "@mui/x-charts": "^9.14.0",
     "@mui/x-data-grid": "^9.14.0",
@@ -101,6 +53,8 @@
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.1",
     "@vitest/coverage-v8": "5.0.1",
+    "@zapplib/core": "workspace:*",
+    "@zapplib/ui": "workspace:*",
     "axios": "^1.20.0",
     "babel-plugin-react-compiler": "^1.0.0",
     "dayjs": "^1.11.23",

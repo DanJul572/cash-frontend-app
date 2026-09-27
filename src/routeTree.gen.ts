@@ -22,8 +22,6 @@ import { Route as GuestForgotPasswordRouteImport } from './routes/_guest/forgot-
 import { Route as GuestLoginRouteImport } from './routes/_guest/login'
 import { Route as GuestRegisterRouteImport } from './routes/_guest/register'
 import { Route as GuestValidateOtpRouteImport } from './routes/_guest/validate-otp'
-import { Route as AuthenticatedTestDatetimeRouteImport } from './routes/_authenticated/test/datetime'
-import { Route as AuthenticatedTestZtableRouteImport } from './routes/_authenticated/test/ztable'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -88,17 +86,6 @@ const GuestValidateOtpRoute = GuestValidateOtpRouteImport.update({
   path: '/validate-otp',
   getParentRoute: () => GuestRoute,
 } as any)
-const AuthenticatedTestDatetimeRoute =
-  AuthenticatedTestDatetimeRouteImport.update({
-    id: '/test/datetime',
-    path: '/test/datetime',
-    getParentRoute: () => AuthenticatedRoute,
-  } as any)
-const AuthenticatedTestZtableRoute = AuthenticatedTestZtableRouteImport.update({
-  id: '/test/ztable',
-  path: '/test/ztable',
-  getParentRoute: () => AuthenticatedRoute,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -112,8 +99,6 @@ export interface FileRoutesByFullPath {
   '/login': typeof GuestLoginRoute
   '/register': typeof GuestRegisterRoute
   '/validate-otp': typeof GuestValidateOtpRoute
-  '/test/datetime': typeof AuthenticatedTestDatetimeRoute
-  '/test/ztable': typeof AuthenticatedTestZtableRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -127,8 +112,6 @@ export interface FileRoutesByTo {
   '/login': typeof GuestLoginRoute
   '/register': typeof GuestRegisterRoute
   '/validate-otp': typeof GuestValidateOtpRoute
-  '/test/datetime': typeof AuthenticatedTestDatetimeRoute
-  '/test/ztable': typeof AuthenticatedTestZtableRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -145,8 +128,6 @@ export interface FileRoutesById {
   '/_guest/login': typeof GuestLoginRoute
   '/_guest/register': typeof GuestRegisterRoute
   '/_guest/validate-otp': typeof GuestValidateOtpRoute
-  '/_authenticated/test/datetime': typeof AuthenticatedTestDatetimeRoute
-  '/_authenticated/test/ztable': typeof AuthenticatedTestZtableRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -162,8 +143,6 @@ export interface FileRouteTypes {
     | '/login'
     | '/register'
     | '/validate-otp'
-    | '/test/datetime'
-    | '/test/ztable'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -177,8 +156,6 @@ export interface FileRouteTypes {
     | '/login'
     | '/register'
     | '/validate-otp'
-    | '/test/datetime'
-    | '/test/ztable'
   id:
     | '__root__'
     | '/'
@@ -194,8 +171,6 @@ export interface FileRouteTypes {
     | '/_guest/login'
     | '/_guest/register'
     | '/_guest/validate-otp'
-    | '/_authenticated/test/datetime'
-    | '/_authenticated/test/ztable'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -300,33 +275,15 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuestValidateOtpRouteImport
       parentRoute: typeof GuestRoute
     }
-    '/_authenticated/test/datetime': {
-      id: '/_authenticated/test/datetime'
-      path: '/test/datetime'
-      fullPath: '/test/datetime'
-      preLoaderRoute: typeof AuthenticatedTestDatetimeRouteImport
-      parentRoute: typeof AuthenticatedRoute
-    }
-    '/_authenticated/test/ztable': {
-      id: '/_authenticated/test/ztable'
-      path: '/test/ztable'
-      fullPath: '/test/ztable'
-      preLoaderRoute: typeof AuthenticatedTestZtableRouteImport
-      parentRoute: typeof AuthenticatedRoute
-    }
   }
 }
 
 interface AuthenticatedRouteChildren {
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
-  AuthenticatedTestDatetimeRoute: typeof AuthenticatedTestDatetimeRoute
-  AuthenticatedTestZtableRoute: typeof AuthenticatedTestZtableRoute
 }
 
 const AuthenticatedRouteChildren: AuthenticatedRouteChildren = {
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
-  AuthenticatedTestDatetimeRoute: AuthenticatedTestDatetimeRoute,
-  AuthenticatedTestZtableRoute: AuthenticatedTestZtableRoute,
 }
 
 const AuthenticatedRouteWithChildren = AuthenticatedRoute._addFileChildren(

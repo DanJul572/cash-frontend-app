@@ -6,8 +6,7 @@ import type { TreeItemProps } from '@mui/x-tree-view';
 import { Link } from '@tanstack/react-router';
 
 import type { TreeMenuItem } from '@types';
-
-import IconComponent from '../icon/icon-component';
+import { IconComponent } from '@zapplib/ui';
 
 const CustomTreeItem = styled(TreeItem)(({ theme }) => ({
   [`& .${treeItemClasses.iconContainer}`]: {

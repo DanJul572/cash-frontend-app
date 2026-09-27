@@ -1,8 +1,8 @@
 import { http, HttpResponse, delay } from 'msw';
 
 import { AuthEndpoint } from '@endpoints';
-import type { ApiResponseType, AuthMeResponseType } from '@types';
-import { getApiUrl } from '@utils';
+import type { AuthMeResponseType } from '@types';
+import { type ApiResponseType, getApiUrl } from '@zapplib/core';
 
 const mockAuthMeData: ApiResponseType<AuthMeResponseType> = {
   status: true,

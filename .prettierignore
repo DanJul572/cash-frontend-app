@@ -1,5 +1,7 @@
 # Ignore artifacts:
 dist
+packages/*/dist
+apps/*/dist
 dist-app
 coverage
 src/routeTree.gen.ts

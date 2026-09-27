@@ -1,0 +1,1 @@
+export const PLAYGROUND_TRANSLATION_NAMESPACE_CONSTANT = 'playground';

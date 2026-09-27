@@ -4,7 +4,7 @@ import {
   authenticatedConfigResponseMapper,
   guestConfigResponseMapper,
 } from '@mappers/config-response-mapper';
-import type { AuthenticatedConfigResponseType, GuestConfigResponseType } from '@types';
+import type { AuthenticatedConfigResponseType, GuestConfigResponseType } from '@zapplib/core';
 
 export const guestConfigRequest = async () => {
   const response = await axiosInstance.get<GuestConfigResponseType>(ConfigEndpoint.guest);

@@ -6,8 +6,10 @@ import tseslint from 'typescript-eslint';
 
 import js from '@eslint/js';
 
+import moduleBoundariesRule from './eslint/module-boundaries-rule.js';
+
 export default defineConfig([
-  globalIgnores(['dist', 'dist-app', 'coverage', 'public']),
+  globalIgnores(['dist', 'dist-app', 'coverage', 'public', 'packages/*/dist', 'apps/*/dist']),
   {
     files: ['**/*.{ts,tsx}'],
     extends: [
@@ -27,6 +29,27 @@ export default defineConfig([
           varsIgnorePattern: '^_',
         },
       ],
+    },
+  },
+  {
+    // Route files keep the component that composes a module page next to `Route`. It must stay
+    // unexported so the router plugin can code-split it, and the plugin handles its HMR.
+    files: ['src/routes/**/*.tsx'],
+    rules: {
+      'react-refresh/only-export-components': 'off',
+    },
+  },
+  {
+    files: [
+      'src/modules/**/*.{ts,tsx}',
+      'packages/*/src/**/*.{ts,tsx}',
+      'apps/*/src/**/*.{ts,tsx}',
+    ],
+    plugins: {
+      local: { rules: { 'module-boundaries': moduleBoundariesRule } },
+    },
+    rules: {
+      'local/module-boundaries': 'error',
     },
   },
 ]);

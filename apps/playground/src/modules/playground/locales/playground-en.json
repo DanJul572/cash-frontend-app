@@ -1,0 +1,11 @@
+{
+  "dateField": "Date",
+  "datetimeField": "Date Time",
+  "datetimeTitle": "Date Time Fields",
+  "emptyFormat": "(empty format)",
+  "formattedValue": "Formatted",
+  "isoValue": "ISO",
+  "reset": "Reset",
+  "timeField": "Time",
+  "ztableTitle": "ZTable"
+}

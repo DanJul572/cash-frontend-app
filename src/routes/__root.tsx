@@ -6,5 +6,5 @@ import type { RouterContextType } from '@types';
 
 export const Route = createRootRouteWithContext<RouterContextType>()({
   component: RootLayout,
-  notFoundComponent: Error404Page,
+  notFoundComponent: () => <Error404Page />,
 });

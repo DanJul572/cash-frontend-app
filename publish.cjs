@@ -1,9 +1,12 @@
 #!/usr/bin/env node
 
 const { execSync } = require('child_process');
+const { existsSync, readdirSync } = require('fs');
+const { join } = require('path');
 const readline = require('readline');
 
 const REGISTRY = 'http://localhost:4873';
+const PACKAGES_DIR = join(__dirname, 'packages');
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -17,9 +20,27 @@ function ask(question) {
 }
 
 async function publishPackage() {
+  const packages = readdirSync(PACKAGES_DIR).filter((dir) =>
+    existsSync(join(PACKAGES_DIR, dir, 'package.json')),
+  );
+
+  packages.forEach((dir, index) => {
+    const { name, version } = require(join(PACKAGES_DIR, dir, 'package.json'));
+    console.log(`${index + 1}. ${name}@${version}`);
+  });
+
+  const choice = Number(await ask(`\nSelect a package (1-${packages.length}): `));
+  const dir = packages[choice - 1];
+
+  if (!dir) {
+    console.log('❌ Invalid package');
+    return;
+  }
+
   console.log('\n🚀 Publishing package...\n');
 
   execSync(`pnpm publish --registry ${REGISTRY} --no-git-checks`, {
+    cwd: join(PACKAGES_DIR, dir),
     stdio: 'inherit',
   });
 }

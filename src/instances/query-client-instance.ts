@@ -2,7 +2,7 @@ import { ZodError } from 'zod';
 
 import { QueryClient } from '@tanstack/react-query';
 
-import { isAxios401Error } from '@utils';
+import { isAxios401Error } from '@zapplib/core';
 
 export const queryClientInstance = new QueryClient({
   defaultOptions: {

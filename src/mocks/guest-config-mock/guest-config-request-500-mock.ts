@@ -1,7 +1,7 @@
 import { http, HttpResponse, delay } from 'msw';
 
 import { ConfigEndpoint } from '@endpoints';
-import { getApiUrl } from '@utils';
+import { getApiUrl } from '@zapplib/core';
 
 export const guestConfigRequest500Mock = [
   http.get(`${getApiUrl(ConfigEndpoint.guest)}`, async () => {

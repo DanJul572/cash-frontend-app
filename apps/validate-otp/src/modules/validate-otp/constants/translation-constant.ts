@@ -1,0 +1,1 @@
+export const VALIDATE_OTP_TRANSLATION_NAMESPACE_CONSTANT = 'validateOtp';

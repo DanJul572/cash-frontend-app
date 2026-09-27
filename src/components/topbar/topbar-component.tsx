@@ -13,8 +13,8 @@ import Typography from '@mui/material/Typography';
 
 import useTopbarComponentHook from '@hooks/topbar/use-topbar-component-hook';
 import { topbarComponentStyle } from '@styles/topbar/topbar-component-style';
+import { IconComponent } from '@zapplib/ui';
 
-import IconComponent from '../icon/icon-component';
 import TopbarRoleSelectorComponent from './topbar-role-selector-component';
 
 export default function TopbarComponent() {

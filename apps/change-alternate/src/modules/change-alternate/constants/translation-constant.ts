@@ -1,0 +1,1 @@
+export const CHANGE_ALTERNATE_TRANSLATION_NAMESPACE_CONSTANT = 'changeAlternate';

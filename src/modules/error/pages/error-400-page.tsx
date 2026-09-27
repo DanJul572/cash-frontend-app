@@ -2,21 +2,13 @@ import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 
-import { useLocation } from '@tanstack/react-router';
-
-import { useTitleHook } from '@hooks';
+import { useTitleHook } from '@zapplib/core';
 
 import { error400Style } from '../styles';
+import type { ErrorPagePropsType } from '../types';
 
-export default function Error400Page() {
-  const location = useLocation();
-
+export default function Error400Page({ message = 'Bad Request' }: ErrorPagePropsType) {
   useTitleHook('400 Bad Request');
-
-  let message = 'Bad Request';
-  if (location.state && location.state.message) {
-    message = location.state.message;
-  }
 
   return (
     <Box sx={error400Style.containerStyle}>

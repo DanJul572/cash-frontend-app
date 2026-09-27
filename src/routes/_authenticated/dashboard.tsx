@@ -1,9 +1,12 @@
 import { createFileRoute } from '@tanstack/react-router';
 
-import DashboardPage from '@modules/dashboard/pages/dashboard-page';
+import { RemoteModuleErrorComponent } from '@components';
+import { lazyRemoteComponent } from '@utils';
+
+// Loaded at runtime from the dashboard remote (Module Federation)
+const DashboardPage = lazyRemoteComponent(() => import('dashboard/DashboardPage'));
 
 export const Route = createFileRoute('/_authenticated/dashboard')({
-  component: () => {
-    return <DashboardPage />;
-  },
+  component: () => <DashboardPage />,
+  errorComponent: RemoteModuleErrorComponent,
 });

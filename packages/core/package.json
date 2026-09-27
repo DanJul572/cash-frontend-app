@@ -1,0 +1,44 @@
+{
+  "name": "@zapplib/core",
+  "private": false,
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/types/index.d.ts",
+    "exports": {
+      ".": {
+        "types": "./dist/types/index.d.ts",
+        "import": "./dist/index.js"
+      },
+      "./package.json": "./package.json"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc --noEmit && vite build",
+    "prepublishOnly": "pnpm build",
+    "publish:verdaccio": "pnpm publish --registry http://localhost:4873 --no-git-checks",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "axios": "^1.20.0",
+    "react": "^19.3.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "axios": "^1.20.0",
+    "react": "^19.3.0",
+    "typescript": "6.0.3",
+    "vite": "^8.3.1",
+    "vite-plugin-dts": "^5.1.1"
+  }
+}

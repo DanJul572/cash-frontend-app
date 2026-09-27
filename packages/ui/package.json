@@ -1,0 +1,70 @@
+{
+  "name": "@zapplib/ui",
+  "private": false,
+  "version": "2.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./components/*": "./src/lib/components/*.ts",
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/types/index.d.ts",
+    "exports": {
+      ".": {
+        "types": "./dist/types/index.d.ts",
+        "import": "./dist/index.js"
+      },
+      "./components/*": {
+        "types": "./dist/types/lib/components/*.d.ts",
+        "import": "./dist/components/*.js"
+      },
+      "./package.json": "./package.json"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc --noEmit && vite build",
+    "prepublishOnly": "pnpm build",
+    "publish:verdaccio": "pnpm publish --registry http://localhost:4873 --no-git-checks",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@iconify/react": "^6.0.2",
+    "@mui/material": "^9.4.0",
+    "@mui/x-data-grid": "^9.14.0",
+    "@mui/x-date-pickers": "^9.14.0",
+    "@zapplib/core": "workspace:^",
+    "dayjs": "^1.11.23",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-i18next": "^17.0.15"
+  },
+  "devDependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@iconify/react": "^6.0.2",
+    "@mui/material": "^9.4.0",
+    "@mui/x-data-grid": "^9.14.0",
+    "@mui/x-date-pickers": "^9.14.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@zapplib/core": "workspace:*",
+    "axios": "^1.20.0",
+    "dayjs": "^1.11.23",
+    "i18next": "^26.4.2",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-i18next": "^17.0.15",
+    "typescript": "6.0.3",
+    "vite": "^8.3.1",
+    "vite-plugin-dts": "^5.1.1"
+  }
+}

@@ -1,0 +1,1 @@
+export const FORGOT_PASSWORD_TRANSLATION_NAMESPACE_CONSTANT = 'forgotPassword';

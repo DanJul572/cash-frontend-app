@@ -4,10 +4,10 @@ import Box from '@mui/material/Box';
 
 import { Outlet, useNavigate } from '@tanstack/react-router';
 
-import { PageLoaderComponent } from '@components';
-import { GuestConfigProvider } from '@contexts';
 import { useGuestConfigQuery } from '@queries';
 import { getConfigErrorState } from '@utils';
+import { GuestConfigProvider } from '@zapplib/core';
+import { PageLoaderComponent } from '@zapplib/ui';
 
 export default function GuestLayout() {
   const navigate = useNavigate();
