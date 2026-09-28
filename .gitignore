@@ -44,3 +44,5 @@ coverage
 deploy.ps1
 compile-exe.ps1
 deploy.exe
+# graphify
+graphify-out/cache/
