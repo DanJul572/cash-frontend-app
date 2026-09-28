@@ -16,6 +16,7 @@
     "lint": "eslint .",
     "prepare": "husky",
     "preview": "vite preview --config vite.app.config.ts",
+    "preview:all": "pnpm --parallel --filter . --filter \"./apps/*\" preview",
     "publish:verdaccio": "node publish.cjs",
     "test:coverage": "vitest --globals --coverage",
     "test:silent": "vitest run --globals --silent",
