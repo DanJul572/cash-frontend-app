@@ -9,6 +9,7 @@
     "build:dev": "tsc -b && vite build --config vite.app.config.ts --mode development",
     "build:stage": "tsc -b && vite build --config vite.app.config.ts --mode staging",
     "build:prod": "tsc -b && vite build --config vite.app.config.ts --mode production",
+    "create:app": "node create-app.js",
     "dev": "vite --config vite.app.config.ts",
     "dev:all": "pnpm --parallel --filter . --filter \"./apps/*\" dev",
     "format": "prettier . --write",
