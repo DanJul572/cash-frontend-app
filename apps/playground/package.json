@@ -10,27 +10,27 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.1",
-    "@iconify/react": "^6.0.2",
-    "@mui/material": "^9.4.0",
-    "@mui/x-data-grid": "^9.14.0",
-    "@mui/x-date-pickers": "^9.14.0",
-    "@tanstack/react-router": "^1.170.39",
+    "@emotion/react": "catalog:",
+    "@emotion/styled": "catalog:",
+    "@iconify/react": "catalog:",
+    "@mui/material": "catalog:",
+    "@mui/x-data-grid": "catalog:",
+    "@mui/x-date-pickers": "catalog:",
+    "@tanstack/react-router": "catalog:",
     "@zapplib/core": "workspace:*",
     "@zapplib/ui": "workspace:*",
-    "axios": "^1.20.0",
-    "dayjs": "^1.11.23",
-    "i18next": "^26.4.2",
-    "react": "^19.3.0",
-    "react-dom": "^19.3.0",
-    "react-i18next": "^17.0.15"
+    "axios": "catalog:",
+    "dayjs": "catalog:",
+    "i18next": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "react-i18next": "catalog:"
   },
   "devDependencies": {
-    "@types/react": "^19.3.0",
-    "@types/react-dom": "^19.3.0",
-    "@vitejs/plugin-react": "^6.1.1",
-    "typescript": "6.0.3",
-    "vite": "^8.3.1"
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "@vitejs/plugin-react": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:"
   }
 }
